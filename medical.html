@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile | Traviora</title>
+    <title>Medical Tourism | Traviora</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -22,25 +22,54 @@
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #fafafa;
-            -webkit-font-smoothing: antialiased;
+            background: #f8fafc;
+            color: #0a0a0a;
         }
 
-        .modal-overlay {
-            backdrop-filter: blur(8px);
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .modal-overlay { backdrop-filter: blur(8px); }
+
+        @keyframes slidePan {
+            0% { transform: scale(1) translateX(0); }
+            50% { transform: scale(1.05) translateX(-1%); }
+            100% { transform: scale(1) translateX(0); }
+        }
+        .animate-slider-pan { animation: slidePan 25s ease-in-out infinite alternate; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     </style>
 </head>
 
 <body class="min-h-screen flex flex-col justify-between">
 
+    <!-- Navigation -->
+                <!-- Navigation -->
     <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
                 <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="font-black tracking-[0.3em] text-[#0a192f] text-sm leading-none uppercase ml-1">Traviora</span>
             </a>
             
+            <!-- Desktop Links -->
             <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
                 <a href="index.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
                     <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Home</span>
@@ -97,125 +126,67 @@
         </div>
         
         <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="lg:hidden fixed inset-x-0 top-[48px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none z-40">
+        <div id="mobileMenu" class="lg:hidden absolute inset-x-0 top-[48px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-[150%] opacity-0 pointer-events-none z-40 mx-4 border rounded-2xl">
             <div class="flex flex-col p-6 space-y-4 font-bold text-slate-800 text-lg">
                 <a href="index.html" class="pb-2 border-b border-slate-50">Home</a>
                 <a href="visas.html" class="pb-2 border-b border-slate-50">Visa</a>
                 <a href="tours.html" class="pb-2 border-b border-slate-50">Tour</a>
-                
+                <a href="hotels.html" class="pb-2 border-b border-slate-50">Hotels</a>
                 <a href="services.html" class="pb-2 border-b border-slate-50">Services</a>
                 <a href="about.html" class="pb-2 border-b border-slate-50">About</a>
-                <a href="profile.html" class="pb-2 border-b border-slate-50 text-blue-600">My Profile</a>
+                <a href="profile.html" class="pb-2 border-b border-slate-50">My Profile</a>
+                <a href="index.html" class="pb-2 border-b border-slate-50 text-red-500 hover:text-red-600">Log Out</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="pt-32 pb-20 max-w-7xl mx-auto px-4 md:px-6 w-full flex-grow">
-        <!-- User Info Card -->
-        <div class="relative bg-white/60 backdrop-blur-3xl border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-3xl md:rounded-[3rem] p-6 md:p-10 mb-8 md:mb-12 flex flex-col lg:flex-row justify-between items-center gap-6 md:gap-8 overflow-hidden group">
-            <!-- Glassy Glow Backgrounds -->
-            <div class="absolute -top-24 -right-24 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-[80px] pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
-            <div class="absolute -bottom-24 -left-24 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-tr from-emerald-400/20 to-teal-400/20 rounded-full blur-[80px] pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
+    <!-- Medical Hero Slider Section -->
+    <section class="relative flex items-center justify-center overflow-hidden bg-black mt-28 mb-10 rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl h-[420px] md:h-[340px]">
+        <div class="absolute inset-0 w-full h-full bg-black">
+            <!-- Background Slider (4 Images Crossfading) -->
+            <div class="slide-bg slide-1" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide-bg slide-2" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide-bg slide-3" style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide-bg slide-4" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80');"></div>
             
-            <div class="relative z-10 flex flex-col md:flex-row items-center text-center md:text-left gap-6 md:gap-8 w-full lg:w-auto">
-                <!-- Profile Avatar -->
-                <div class="relative shrink-0">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-3xl md:rounded-[2rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-20"></div>
-                    <div class="relative w-24 h-24 md:w-32 md:h-32 rounded-3xl md:rounded-[2rem] shadow-xl border-4 border-white overflow-hidden bg-white">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Profile">
-                    </div>
-                    <div class="absolute -bottom-2 -right-2 md:-bottom-3 md:-right-3 bg-white p-1 rounded-xl shadow-lg">
-                        <div class="bg-blue-600 text-white w-6 h-6 md:w-8 md:h-8 rounded-lg flex items-center justify-center">
-                            <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 mb-2">
-                        <h1 class="text-2xl md:text-4xl font-black text-slate-900 tracking-tight" id="profName">Rohan Sharma</h1>
-                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[9px] md:text-[10px] font-black px-3 py-1 md:py-1.5 rounded-full uppercase tracking-widest shadow-md">Premium Member</span>
-                    </div>
-                    <p class="text-slate-500 font-medium mb-4 md:mb-5 text-sm md:text-lg" id="profEmail">rohan.sharma@example.com</p>
-                    <div class="flex flex-wrap gap-3 text-xs font-bold text-slate-700">
-                        <span class="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-2 hover:-translate-y-1 transition-transform cursor-default">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-phone text-[10px]"></i></div>
-                            <span id="profPhone">+91 98765 43210</span>
-                        </span>
-                        <span class="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-2 hover:-translate-y-1 transition-transform cursor-default">
-                            <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center"><i class="fa-solid fa-passport text-[10px]"></i></div>
-                            <span id="profPass">Z9482104</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <button onclick="openEditModal()" class="relative z-10 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 px-8 py-4 rounded-2xl font-bold text-sm transition-all shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] hover:-translate-y-1 group">
-                <i class="fa-solid fa-pen-to-square mr-2 text-blue-600 group-hover:rotate-12 transition-transform"></i> Edit Profile
-            </button>
+            <div class="absolute inset-0 bg-gradient-to-r from-teal-900/80 via-black/60 to-transparent backdrop-blur-[2px]"></div>
         </div>
 
-        <!-- Dashboard Grid: Visas & Tours -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            <!-- Visas History -->
-            <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-extrabold">Visa Applications</h2>
-                    <span class="text-xs font-bold bg-blue-50 text-blue-600 px-2.5 py-1 rounded-md">2 Active</span>
-                </div>
-                <div class="space-y-4" id="visaList">
-                    <!-- Dynamic Visas -->
-                </div>
+        <div class="relative z-10 px-4 md:px-8 max-w-5xl mx-auto w-full text-center text-white animate-fade-up flex flex-col items-center justify-center">
+            <div class="max-w-2xl mb-5 flex flex-col items-center">
+                <span class="inline-block py-1 px-3 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-[10px] font-black tracking-[0.2em] uppercase mb-3 shadow-lg backdrop-blur-md">
+                    Health & Wellness
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-3 drop-shadow-2xl leading-tight text-center">
+                    World-Class Medical Tourism
+                </h1>
+                <p class="text-sm md:text-base text-teal-50/80 font-medium max-w-lg leading-relaxed text-center">
+                    Experience world-class healthcare in India. Highly affordable treatments and medicines at top Indian hospitals compared to your home country.
+                </p>
             </div>
 
-            <!-- Booked Tours -->
-            <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-extrabold">Booked Tours</h2>
-                    <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md">1 Upcoming</span>
-                </div>
-                <div class="space-y-4" id="tourList">
-                    <!-- Dynamic Tours and Hotels -->
+            <div class="w-full max-w-5xl flex flex-col items-center gap-4 relative z-20">
+                <!-- Search Input -->
+                <div class="w-full max-w-2xl flex items-center bg-white/10 backdrop-blur-2xl p-1 rounded-full border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative">
+                    <i class="fa-solid fa-search text-white/70 text-sm absolute left-5"></i>
+                    <input type="text" id="searchInput" placeholder="Search by treatment or hospital..."
+                        class="bg-transparent border-none outline-none w-full text-white font-bold placeholder-white/50 pl-10 pr-4 py-2 text-sm">
                 </div>
             </div>
-
         </div>
+    </section>
+
+    <!-- Medical Grid -->
+    <div class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full" id="medicalGrid">
+        <!-- Dynamic Insertion -->
     </div>
 
-    <!-- Edit Profile Modal -->
-    <div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay bg-black/40 p-4">
-        <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl">
-            <h3 class="text-xl font-bold mb-4">Edit Profile</h3>
-            <div class="space-y-4 mb-6">
-                <div>
-                    <label class="text-xs font-bold text-slate-400 block mb-1">Full Name</label>
-                    <input type="text" id="editName" value="Rohan Sharma"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
-                </div>
-                <div>
-                    <label class="text-xs font-bold text-slate-400 block mb-1">Email Address</label>
-                    <input type="email" id="editEmail" value="rohan.sharma@example.com"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
-                </div>
-                <div>
-                    <label class="text-xs font-bold text-slate-400 block mb-1">Phone Number</label>
-                    <input type="text" id="editPhone" value="+91 98765 43210"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
-                </div>
-                <div>
-                    <label class="text-xs font-bold text-slate-400 block mb-1">Passport Number</label>
-                    <input type="text" id="editPass" value="Z9482104"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
-                </div>
-            </div>
-            <div class="flex gap-3">
-                <button onclick="closeEditModal()"
-                    class="flex-1 bg-slate-100 text-slate-600 py-3 rounded-full font-bold text-sm">Cancel</button>
-                <button onclick="saveProfile()"
-                    class="flex-1 bg-black text-white py-3 rounded-full font-bold text-sm">Save Changes</button>
-            </div>
+    <!-- Tour Detail Modal -->
+    <div id="medicalModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay bg-black/40 p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="medicalModalContent">
+            <!-- Dynamic Content -->
         </div>
     </div>
 
@@ -226,7 +197,7 @@
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
         
-        <div class="max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
+        <div class="max-w-[1440px] mx-auto px-6 pt-24 pb-12 relative z-10">
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-20">
                 <div class="col-span-2 lg:col-span-2 pr-8">
                     <a href="index.html" class="flex items-center gap-2 mb-8">
@@ -248,8 +219,9 @@
                     <ul class="space-y-4">
                         <li><a href="visas.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Visa Processing</a></li>
                         <li><a href="tours.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Holiday Packages</a></li>
+                        <li><a href="medical.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Medical Tourism</a></li>
                         <li><a href="hotels.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Luxury Hotels</a></li>
-                        <li></li>
+
                     </ul>
                 </div>
 
@@ -282,108 +254,145 @@
     </footer>
 
     <script>
-        function openEditModal() { document.getElementById('editModal').classList.remove('hidden'); }
-        function closeEditModal() { document.getElementById('editModal').classList.add('hidden'); }
+        const medicalData = [
+            { id: 1, title: "Advanced Cardiology", country: "India", desc: "Experience world-class cardiac care with cutting-edge technology and renowned specialists. This package offers comprehensive diagnostics, surgery if needed, and a luxurious recovery stay.", duration: "7 Days", cat: "Heart Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80", inc: ["Top Specialists", "Luxury Hospital Stay", "Pre/Post Consults", "Airport Transfers"] },
+            { id: 2, title: "Orthopedic Surgery", country: "India", desc: "Regain your mobility with advanced joint replacement surgeries performed by expert orthopedic surgeons in internationally accredited facilities.", duration: "10 Days", cat: "Joint Care", img: "https://images.unsplash.com/photo-1551076805-e18690c5e45e?auto=format&fit=crop&w=600&q=80", inc: ["Joint Replacement", "Physiotherapy", "Recovery Hotel", "Medical Visa"] },
+            { id: 3, title: "Dental Implants", country: "India", desc: "Restore your smile with premium dental implants. Benefit from highly skilled dentists, state-of-the-art clinics, and enjoy a boutique hotel stay during your treatment.", duration: "5 Days", cat: "Dental", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80", inc: ["Premium Implants", "Local Transport", "Boutique Hotel", "Follow-up"] },
+            { id: 4, title: "Wellness & Ayurveda", country: "India", desc: "Rejuvenate your mind and body with authentic Ayurvedic treatments, organic diets, and daily yoga sessions in a serene and luxurious retreat environment.", duration: "14 Days", cat: "Wellness", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80", inc: ["Ayurvedic Retreat", "Organic Diet", "Yoga Sessions", "Spa Treatments"] },
+            { id: 5, title: "Hair Transplant", country: "India", desc: "Achieve natural-looking results with the latest FUE hair transplant techniques, performed by leading cosmetic surgeons with comprehensive post-op care.", duration: "4 Days", cat: "Cosmetic", img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80", inc: ["FUE Technique", "PRP Sessions", "Medication", "2-Night Stay"] },
+            { id: 6, title: "Lasik Eye Surgery", country: "India", desc: "Improve your vision with precision Contoura Vision Lasik surgery. Fast, safe, and performed by top ophthalmologists in world-class clinics.", duration: "3 Days", cat: "Vision", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80", inc: ["Contoura Vision", "Consultation", "Eye Drops", "Pickup & Drop"] },
+            { id: 7, title: "Oncology Care", country: "India", desc: "Access cutting-edge cancer treatments and personalized care plans developed by a multidisciplinary tumor board at leading oncology centers.", duration: "21 Days", cat: "Cancer Care", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80", inc: ["Chemotherapy", "Tumor Board", "Caregiver Stay", "Visa Assistance"] },
+            { id: 8, title: "Bariatric Surgery", country: "India", desc: "Achieve your weight loss goals with safe and effective bariatric procedures, supported by expert dieticians and comprehensive follow-up care.", duration: "8 Days", cat: "Weight Loss", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80", inc: ["Gastric Bypass", "Dietician Plan", "Recovery Suite", "Follow-ups"] }
+        ];
 
-        let db = window.TravioraDb ? window.TravioraDb.get() : { profile: { name: 'Rohan Sharma', email: 'rohan.sharma@example.com', phone: '+91 98765 43210', pass: 'Z9482104' }, bookings: [] };
-        
-        function getStatusColor(status) {
-            const s = (status || "").toUpperCase();
-            if (s === 'APPROVED' || s === 'CONFIRMED' || s === 'READY_TO_TRAVEL') return { b: 'bg-green-500', bg: 'bg-green-50', text: 'text-green-600', fill: 'bg-green-100 text-green-700' };
-            if (s === 'SUBMITTED' || s === 'UNDER_REVIEW') return { b: 'bg-blue-500', bg: 'bg-blue-50', text: 'text-blue-600', fill: 'bg-blue-100 text-blue-700' };
-            if (s === 'IN_PROGRESS' || s === 'ASSISTANCE_REQUESTED' || s === 'PAYMENT_PENDING') return { b: 'bg-amber-500', bg: 'bg-amber-50', text: 'text-amber-600', fill: 'bg-amber-100 text-amber-700' };
-            if (s === 'REJECTED' || s === 'CANCELLED') return { b: 'bg-red-500', bg: 'bg-red-50', text: 'text-red-600', fill: 'bg-red-100 text-red-700' };
-            return { b: 'bg-slate-500', bg: 'bg-slate-50', text: 'text-slate-600', fill: 'bg-slate-100 text-slate-700' };
-        }
+        const grid = document.getElementById('medicalGrid');
+        const modal = document.getElementById('medicalModal');
+        const modalContent = document.getElementById('medicalModalContent');
 
-        function loadProfile() {
-            document.getElementById('profName').innerText = db.profile.name;
-            document.getElementById('profEmail').innerText = db.profile.email;
-            document.getElementById('profPhone').innerText = db.profile.phone;
-            document.getElementById('profPass').innerText = db.profile.pass;
-            
-            // Set profile data
-            document.getElementById('editName').value = db.profile.name;
-            document.getElementById('editEmail').value = db.profile.email;
-            document.getElementById('editPhone').value = db.profile.phone;
-            document.getElementById('editPass').value = db.profile.pass;
-            
-            const visas = db.bookings.filter(b => b.type === 'visa');
-            const others = db.bookings.filter(b => b.type !== 'visa');
-            
-            document.getElementById('visaList').innerHTML = visas.length ? visas.map(v => {
-                const c = getStatusColor(v.status);
-                return `
-                <div class="relative bg-white border border-slate-200/80 rounded-3xl p-5 flex justify-between items-center overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all group">
-                    <div class="absolute left-0 top-0 bottom-0 w-1.5 ${c.b}"></div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full ${c.bg} ${c.text} flex items-center justify-center text-xl shadow-inner">
-                            <i class="fa-solid fa-passport"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-lg text-slate-900 group-hover:${c.text} transition-colors">${v.title || v.destination + ' Visa'}</h3>
-                            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">ID: ${v.id} &bull; ${v.date || 'Recent'}</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-end gap-2">
-                        <span class="${c.fill} text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">${v.status.replace(/_/g, ' ')}</span>
-                        <a href="track.html?appId=${v.id}" class="text-[11px] font-bold text-slate-400 hover:text-blue-600 flex items-center gap-1 transition-colors">Track Status <i class="fa-solid fa-arrow-right"></i></a>
+        function renderMedical() {
+            grid.innerHTML = medicalData.map(t => `
+            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(20,184,166,0.25)]" onclick="openMedicalModal(${t.id})">
+                
+                <!-- Image -->
+                <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-70 blur-0 group-hover:blur-sm" style="background-image: url('${t.img}')"></div>
+                
+                <!-- Default State Base Gradient -->
+                <div class="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+
+                <!-- Default State Content -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                    <div class="bg-teal-500/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow border border-teal-400">
+                        <span class="text-[9px] font-bold text-white uppercase tracking-[0.2em] shadow-sm">${t.cat}</span>
                     </div>
                 </div>
-            `}).join('') : '<p class="text-sm text-slate-400 font-medium p-4 text-center">No active visas.</p>';
-            
-            document.getElementById('tourList').innerHTML = others.length ? others.map(o => {
-                const c = getStatusColor(o.status);
-                return `
-                <div class="relative bg-white border border-slate-200/80 rounded-3xl p-5 flex justify-between items-center overflow-hidden hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all group">
-                    <div class="absolute left-0 top-0 bottom-0 w-1.5 ${c.b}"></div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full ${c.bg} ${c.text} flex items-center justify-center text-xl shadow-inner">
-                            <i class="fa-solid ${o.type === 'hotel' ? 'fa-hotel' : 'fa-plane-departure'}"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-lg text-slate-900 group-hover:${c.text} transition-colors">${o.title}</h3>
-                            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Date: ${o.date || 'Recent'} &bull; ID: ${o.id}</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-end gap-1">
-                        <span class="text-xl font-black text-slate-900">${o.price || '-'}</span>
-                        <span class="${c.text} text-[10px] font-black uppercase tracking-wider">${o.status}</span>
+
+                <div class="absolute inset-0 p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
+                    <h3 class="text-[20px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-2 drop-shadow-lg">${t.title}</h3>
+                    <div class="flex items-center gap-1.5 text-teal-300">
+                        <i class="fa-solid fa-briefcase-medical text-[11px]"></i>
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase">${t.duration}</span>
                     </div>
                 </div>
-            `}).join('') : '<p class="text-sm text-slate-400 font-medium p-4 text-center">No bookings yet.</p>';
+
+                <!-- The Merged Full Overlay Reveal -->
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-teal-950/95 via-teal-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-7 text-center">
+                    
+                    <!-- Top Section -->
+                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-2">
+                        <div class="bg-teal-500/20 border border-teal-500/30 px-3 py-1.5 rounded-full w-fit mb-4">
+                            <span class="text-[9px] font-bold text-teal-100 uppercase tracking-[0.2em]">${t.cat}</span>
+                        </div>
+                        
+                        <h3 class="text-[18px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-3">${t.title}</h3>
+                        <p class="text-[11px] text-teal-100/75 leading-relaxed font-medium line-clamp-3 w-full">${t.desc}</p>
+                    </div>
+
+                    <!-- Bottom Section -->
+                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-2">
+                        <div class="flex items-center justify-between w-full border-t border-teal-500/20 pt-5 mt-4">
+                            
+                            <!-- Left Icon decorative -->
+                            <div class="w-12 h-12 rounded-full border border-teal-500/30 bg-teal-800/40 flex items-center justify-center text-teal-300 shadow-inner">
+                                <i class="fa-solid fa-stethoscope text-[16px]"></i>
+                            </div>
+                            
+                            <div class="flex flex-col items-end text-right">
+                                <div class="flex flex-col items-end mb-3 w-full">
+                                    <span class="text-[8px] font-bold text-teal-400 uppercase tracking-[0.3em] mb-1">Timeframe</span>
+                                    <span class="text-[14px] md:text-[16px] font-black text-white">${t.duration}</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 text-white group/btn hover:text-teal-200 transition-colors cursor-pointer">
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">Proceed</span>
+                                    <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(20,184,166,0.6)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-teal-600 group-hover/btn:scale-110">
+                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            `).join('');
         }
 
-        window.onload = loadProfile;
+        function openMedicalModal(id) {
+            const t = medicalData.find(item => item.id === id);
+            modalContent.innerHTML = `
+                <div class="h-44 bg-cover bg-center relative" style="background-image: url('${t.img}')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-4 left-6 flex items-center gap-2">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md"><i class="fa-solid fa-location-dot mr-1"></i>${t.country}</span>
+                    </div>
+                    <button onclick="closeMedicalModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/60 text-white rounded-full flex items-center justify-center hover:bg-black transition"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-extrabold mb-1">${t.title}</h3>
+                    <p class="text-xs font-bold text-blue-600 mb-4">${t.duration}</p>
+                    
+                    <p class="text-sm text-slate-600 leading-relaxed mb-5">${t.desc}</p>
+                    
+                    <p class="text-xs font-bold uppercase text-slate-400 mb-2">Package Inclusions</p>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        ${t.inc.map(i => `<div class="text-xs font-medium text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><i class="fa-solid fa-check text-green-500 mr-1.5"></i>${i}</div>`).join('')}
+                    </div>
 
-        function openEditModal() { document.getElementById('editModal').classList.remove('hidden'); }
-        function closeEditModal() { document.getElementById('editModal').classList.add('hidden'); }
-
-        function saveProfile() {
-            db.profile.name = document.getElementById('editName').value;
-            db.profile.email = document.getElementById('editEmail').value;
-            db.profile.phone = document.getElementById('editPhone').value;
-            db.profile.pass = document.getElementById('editPass').value;
-            localStorage.setItem('TravioraDb', JSON.stringify(db));
-            loadProfile();
-            closeEditModal();
+                    <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+                        <div>
+                            <p class="text-xs text-slate-400 font-bold mb-1">Package Pricing</p>
+                            <p class="text-sm font-extrabold text-blue-600">Offered by our team</p>
+                        </div>
+                        <button onclick="window.location.href='apply-medical.html?dest=' + encodeURIComponent('${t.title}')" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-blue-700 transition shadow-md">
+                            Book Treatment
+                        </button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
         }
+
+        function closeMedicalModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        renderMedical();
 
         // Smart Navbar Auto-Hide on Scroll
         let lastScrollY = window.scrollY;
-        const navbar = document.getElementById('navbar');
+        const navbar = document.querySelector('nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > lastScrollY && window.scrollY > 100) {
                 navbar.classList.add('-translate-y-full');
                 navbar.classList.remove('translate-y-0');
-                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
             } else {
                 navbar.classList.remove('-translate-y-full');
                 navbar.classList.add('translate-y-0');
             }
+            navbar.style.transition = 'transform 0.3s ease';
             lastScrollY = window.scrollY;
         });
 

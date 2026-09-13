@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Interface | Traviora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { fontFamily: { sans: ['Outfit', 'sans-serif'], serif: ['Playfair Display', 'serif'] } }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f8fafc; color: #0f172a; }
+        .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="min-h-screen py-10 px-4 md:px-8">
+    <div class="max-w-2xl mx-auto w-full">
+        <!-- Header -->
+        <div class="mb-8">
+            <a href="apply.html" class="text-xs font-bold text-slate-500 hover:text-blue-600 mb-6 inline-flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Application</a>
+            <h1 class="text-4xl md:text-5xl font-black font-serif text-slate-900 tracking-tight" id="pageTitle">Appointment Assistance</h1>
+            <p class="text-slate-500 font-medium text-sm mt-3" id="pageDesc">Your visa application requires an appointment as part of the next step. Our Traviora team will guide you through the process and coordinate the required next steps.</p>
+        </div>
+
+        <!-- Initial Form State -->
+        <div id="assistForm" class="glass-panel p-6 md:p-8 rounded-[2rem] shadow-sm">
+            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-8 flex gap-4 text-blue-800">
+                <i class="fa-solid fa-circle-info text-2xl"></i>
+                <div class="text-sm">
+                    <p class="font-bold mb-1">What happens next?</p>
+                    <ol class="list-decimal pl-4 space-y-1 font-medium opacity-80 text-xs">
+                        <li>Submit your appointment preferences.</li>
+                        <li>Our team reviews your request.</li>
+                        <li>Our team contacts you with the next steps.</li>
+                        <li>Once your appointment is confirmed, details will appear in your dashboard.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-sm">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-[10px] font-bold uppercase text-slate-400">Application ID</p>
+                    <p class="font-black text-slate-900" id="lblAppId">TRV-...</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-[10px] font-bold uppercase text-slate-400">Visa Type</p>
+                    <p class="font-black text-slate-900" id="lblVisa">Loading...</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-[10px] font-bold uppercase text-slate-400">Applicant</p>
+                    <p class="font-black text-slate-900" id="lblApplicant">Loading...</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <p class="text-[10px] font-bold uppercase text-slate-400">Contact</p>
+                    <p class="font-black text-slate-900" id="lblContact">Loading...</p>
+                    <p class="text-xs text-slate-500 font-medium" id="lblEmail">Loading...</p>
+                </div>
+            </div>
+            
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">Preferred Location</label>
+                    <select id="prefLoc" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 font-bold outline-none focus:border-blue-600 transition">
+                        <option value="">Select location</option>
+                        <option value="New Delhi">New Delhi</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">Preferred Date</label>
+                        <input type="date" id="prefDate" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 font-bold outline-none focus:border-blue-600 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">Preferred Time</label>
+                        <select id="prefTime" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 font-bold outline-none focus:border-blue-600 transition">
+                            <option value="No preference">No preference</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">Appointment Purpose</label>
+                    <input type="text" id="prefPurpose" readonly class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-700 outline-none select-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-widest mb-2">Customer Notes (Optional)</label>
+                    <textarea id="prefNotes" rows="2" placeholder="Any preference or information for our team?" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 font-medium text-sm outline-none focus:border-blue-600 transition"></textarea>
+                </div>
+            </div>
+
+            <button id="submitBtn" class="w-full bg-black text-white rounded-xl py-4 font-bold mt-8 hover:bg-slate-800 transition shadow-lg flex justify-center items-center gap-2">
+                Request Appointment Assistance <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p class="text-center text-[10px] uppercase tracking-widest font-bold text-slate-400 mt-4">Your preferred date is subject to availability and confirmation.</p>
+        </div>
+
+        <!-- Success State -->
+        <div id="assistSuccess" class="hidden glass-panel p-8 rounded-[2rem] shadow-sm text-center">
+            <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 class="text-3xl font-black mb-2 text-slate-900 font-serif">Appointment Assistance Requested</h2>
+            <p class="text-slate-500 text-sm font-medium mb-8 max-w-sm mx-auto">Your request has been securely logged. Our team will coordinate the appointment process.</p>
+
+            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 text-left text-sm space-y-3 mb-8">
+                <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                    <span class="font-bold text-slate-400">Request ID</span>
+                    <span class="font-black" id="succReqId">APT-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                    <span class="font-bold text-slate-400">Application</span>
+                    <span class="font-black" id="succAppId">TRV-</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                    <span class="font-bold text-slate-400">Location</span>
+                    <span class="font-black" id="succLoc">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold text-slate-400">Date/Time</span>
+                    <span class="font-black" id="succDateTime">-</span>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="track.html" id="trackBtnLink" class="flex-1 bg-black text-white rounded-xl py-3.5 font-bold text-sm tracking-wide shadow-md hover:bg-slate-800 transition">View Dashboard</a>
+                <a href="apply.html" class="flex-1 bg-white border border-slate-200 text-slate-800 rounded-xl py-3.5 font-bold text-sm hover:bg-slate-50 transition">My Application</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(location.search);
+            const appId = params.get('applicationId');
+            
+            let app = window.TravioraApplicationContext ? window.TravioraApplicationContext.get() : null;
+
+            if (!app) {
+                alert("Application Context not found. Please start from the Visa page.");
+                return;
+            }
+
+            document.getElementById('lblAppId').innerText = app.applicationId;
+            document.getElementById('lblVisa').innerText = app.destination + ' Tourist Visa';
+            document.getElementById('lblApplicant').innerText = app.applicationData?.contact?.name || 'Applicant Name';
+            document.getElementById('lblContact').innerText = '+91 - Not provided';
+            document.getElementById('lblEmail').innerText = 'Not provided';
+            
+            // Set purpose dynamically based on workflow
+            let purposeStr = "Biometrics + Document Submission";
+            if (app.routeType === 'EMBASSY') purposeStr = "Interview + Biometrics";
+            document.getElementById('prefPurpose').value = purposeStr;
+
+            // Check if already requested
+            if (app.appointment && app.appointment.status && app.appointment.status !== 'unrequested') {
+                showSuccess(app);
+            }
+
+            document.getElementById('submitBtn').addEventListener('click', () => {
+                const loc = document.getElementById('prefLoc').value;
+                const date = document.getElementById('prefDate').value;
+                const time = document.getElementById('prefTime').value;
+                
+                if (!loc || !date) return alert("Please select a location and preferred date.");
+                
+                app.appointment = {
+                    requestId: 'APT-' + Math.floor(10000 + Math.random() * 90000),
+                    status: 'ASSISTANCE_REQUESTED',
+                    preferredLocation: loc,
+                    preferredDate: date,
+                    preferredTime: time,
+                    purpose: purposeStr,
+                    notes: document.getElementById('prefNotes').value
+                };
+
+                if (window.TravioraApplicationContext) {
+                    window.TravioraApplicationContext.set(app);
+                }
+
+                showSuccess(app);
+            });
+
+            function showSuccess(a) {
+                document.getElementById('assistForm').classList.add('hidden');
+                document.getElementById('pageTitle').classList.add('hidden');
+                document.getElementById('pageDesc').classList.add('hidden');
+                
+                document.getElementById('assistSuccess').classList.remove('hidden');
+                document.getElementById('succReqId').innerText = a.appointment.requestId;
+                document.getElementById('succAppId').innerText = a.applicationId;
+                document.getElementById('succLoc').innerText = a.appointment.preferredLocation;
+                document.getElementById('succDateTime').innerText = `${a.appointment.preferredDate} (${a.appointment.preferredTime})`;
+                // Track button link logic
+                document.getElementById('trackBtnLink').href = `track.html?appId=${a.applicationId}`;
+            }
+        });
+    </script>
+</body>
+</html>

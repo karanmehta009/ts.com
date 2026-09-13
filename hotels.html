@@ -23,109 +23,142 @@
         .card-hover { transition: all 0.3s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .modal-overlay { backdrop-filter: blur(8px); }
+        
+        @keyframes kenburns1 { 0% { opacity: 1; transform: scale(1); } 25% { opacity: 1; transform: scale(1.05); } 33.33% { opacity: 0; transform: scale(1.06); } 100% { opacity: 0; transform: scale(1); } }
+        @keyframes kenburns2 { 0% { opacity: 0; transform: scale(1); } 33.33% { opacity: 1; transform: scale(1); } 58.33% { opacity: 1; transform: scale(1.05); } 66.66% { opacity: 0; transform: scale(1.06); } 100% { opacity: 0; transform: scale(1); } }
+        @keyframes kenburns3 { 0% { opacity: 0; transform: scale(1); } 66.66% { opacity: 1; transform: scale(1); } 91.66% { opacity: 1; transform: scale(1.05); } 100% { opacity: 0; transform: scale(1.06); } }
+        .slide-anim-1 { animation: kenburns1 21s infinite linear; }
+        .slide-anim-2 { animation: kenburns2 21s infinite linear; }
+        .slide-anim-3 { animation: kenburns3 21s infinite linear; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
-                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="font-black tracking-[0.3em] text-[#0a192f] text-sm leading-none uppercase ml-1">Traviora</span>
             </a>
             
-            <div class="hidden lg:flex space-x-8 font-bold text-slate-500 text-sm items-center">
-                <a href="index.html" class="hover:text-black transition">Home</a>
-                <a href="visas.html" class="hover:text-black transition">Visa</a>
-                <a href="tours.html" class="hover:text-black transition">Tour</a>
-                <a href="hotels.html" class="text-black">Hotels</a>
-                <a href="destinations.html" class="hover:text-black transition">Destination</a>
-                <a href="services.html" class="hover:text-black transition">Services</a>
-                <a href="about.html" class="hover:text-black transition">About</a>
+            <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                <a href="index.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Home</span>
+                </a>
+                <a href="visas.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-passport text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Visa</span>
+                </a>
+                <a href="tours.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-plane-departure text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Tour</span>
+                </a>
+                <a href="medical.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-notes-medical text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Medical</span>
+                </a>
+                <a href="hotels.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Hotels</span>
+                </a>
+                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> About</span>
+                </a>
             </div>
             
-            <div class="flex items-center gap-3 relative">
+            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
                 <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
+                <button id="mobileMenuBtn" class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
                 </button>
 
-                <a href="profile.html" class="w-10 h-10 md:w-11 md:h-11 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition hidden sm:flex">
-                    <i class="fa-regular fa-user text-lg"></i>
+                <a href="profile.html"
+                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-[600ms] ease-out hover:border-transparent hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:bg-white isolate hover:-translate-y-1.5 overflow-visible">
+                    <span class="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-400/40 blur-xl transition-all duration-[600ms] -z-30"></span>
+                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_2s_linear_infinite] rounded-full -z-20"></span>
+                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(236,72,153,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite_reverse] rounded-full -z-20"></span>
+                    <span class="absolute inset-[2px] bg-slate-50 group-hover:bg-white rounded-full transition-colors duration-500 -z-10 shadow-inner"></span>
+                    <span class="absolute w-1/2 h-1/2 bg-blue-300 rounded-full opacity-0 group-hover:animate-[ping_1.2s_ease-out_infinite] -z-10"></span>
+                    <i class="fa-regular fa-user text-lg transition-all duration-[700ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:text-blue-600 group-hover:[transform:rotateY(360deg)_scale(1.2)]"></i>
+                    <span class="absolute top-[1px] right-[1px] w-2.5 h-2.5 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-full border-2 border-white shadow-sm z-10 group-hover:animate-bounce flex items-center justify-center">
+                        <span class="absolute w-full h-full bg-rose-400 rounded-full opacity-0 group-hover:animate-ping"></span>
+                    </span>
                 </a>
-                
-                <div class="relative group">
-                    <button class="bg-black text-white px-4 md:px-7 py-1.5 md:py-3.5 rounded-full text-[11px] md:text-sm font-bold hover:bg-slate-800 transition shadow-lg shadow-black/10 flex items-center gap-2">
-                        Start Application <i class="fa-solid fa-chevron-down text-[10px] opacity-70 hidden sm:block"></i>
-                    </button>
-                    <!-- Dropdown -->
-                    <div class="absolute right-0 mt-3 w-72 bg-white rounded-[2rem] shadow-[0_20px_60px_rgb(0,0,0,0.12)] border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 overflow-hidden py-3 z-50">
-                        <a href="apply.html?type=visa" class="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50 transition">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl"><i class="fa-solid fa-passport"></i></div>
-                            <div>
-                                <div class="text-base font-bold text-slate-900">Visa Application</div>
-                                <div class="text-xs text-slate-500 font-medium mt-0.5">e-Visa or Sticker Visa</div>
-                            </div>
-                        </a>
-                        <a href="apply.html?type=tour" class="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50 transition">
-                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl"><i class="fa-solid fa-plane-departure"></i></div>
-                            <div>
-                                <div class="text-base font-bold text-slate-900">Tour Package</div>
-                                <div class="text-xs text-slate-500 font-medium mt-0.5">Book your next holiday</div>
-                            </div>
-                        </a>
-                        <a href="apply.html?type=hotel" class="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50 transition">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl"><i class="fa-solid fa-hotel"></i></div>
-                            <div>
-                                <div class="text-base font-bold text-slate-900">Book Hotel</div>
-                                <div class="text-xs text-slate-500 font-medium mt-0.5">Luxury & Budget stays</div>
-                            </div>
-                        </a>
-                        <div class="h-px bg-slate-100 my-2 mx-5"></div>
-                        <a href="apply.html?type=other" class="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50 transition">
-                            <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl"><i class="fa-solid fa-file-signature"></i></div>
-                            <div>
-                                <div class="text-base font-bold text-slate-900">Other Services</div>
-                                <div class="text-xs text-slate-500 font-medium mt-0.5">Insurance, Transfers, etc.</div>
-                            </div>
-                        </a>
+                <button class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-14 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-[500ms] ml-1.5 shadow-sm border border-slate-200/50 hover:shadow-[0_8px_20px_rgba(239,68,68,0.25)]" title="Logout" onclick="window.location.href='index.html'">
+                    <span class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-full">
+                        <span>Log Out</span>
                     </div>
-                </div>
+                    <div class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px] md:text-[12px]"></i>
+                    </div>
+                </button>
+                
+                
             </div>
         </div>
         
         <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="lg:hidden fixed inset-x-0 top-[70px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none z-40">
+        <div id="mobileMenu" class="lg:hidden fixed inset-x-0 top-[48px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none z-40">
             <div class="flex flex-col p-6 space-y-4 font-bold text-slate-800 text-lg">
                 <a href="index.html" class="pb-2 border-b border-slate-50">Home</a>
                 <a href="visas.html" class="pb-2 border-b border-slate-50">Visa</a>
                 <a href="tours.html" class="pb-2 border-b border-slate-50">Tour</a>
                 <a href="hotels.html" class="pb-2 border-b border-slate-50 text-blue-600">Hotels</a>
-                <a href="destinations.html" class="pb-2 border-b border-slate-50">Destination</a>
+                
                 <a href="services.html" class="pb-2 border-b border-slate-50">Services</a>
                 <a href="about.html" class="pb-2 border-b border-slate-50">About</a>
                 <a href="profile.html" class="pb-2 border-b border-slate-50">My Profile</a>
+                <a href="index.html" class="pb-2 border-b border-slate-50 text-red-500 hover:text-red-600">Log Out</a>
             </div>
         </div>
     </nav>
 
-    <!-- Header & Toggle -->
-    <div class="pt-32 pb-8 max-w-7xl mx-auto px-6 w-full text-center">
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Luxury Stays & Resorts</h1>
-        <p class="text-slate-500 text-xs md:text-sm mb-8">Discover our handpicked collection of the world's most extraordinary properties.</p>
-        
-        <div class="flex flex-col sm:flex-row bg-slate-200/80 p-1.5 rounded-3xl sm:rounded-full gap-1 sm:gap-0 max-w-sm mx-auto sm:max-w-none w-full sm:w-auto overflow-x-hidden">
-            <button class="tab-btn active bg-white shadow-sm text-black px-6 py-3 sm:py-2 rounded-2xl sm:rounded-full font-bold text-sm transition whitespace-nowrap" data-category="luxury">Luxury Hotels</button>
-            <button class="tab-btn text-slate-600 hover:text-black px-6 py-3 sm:py-2 rounded-2xl sm:rounded-full font-bold text-sm transition whitespace-nowrap" data-category="resort">Beach Resorts</button>
-            <button class="tab-btn text-slate-600 hover:text-black px-6 py-3 sm:py-2 rounded-2xl sm:rounded-full font-bold text-sm transition whitespace-nowrap" data-category="boutique">Boutique</button>
+    <!-- Hotel Hero Slider Section -->
+    <section class="relative flex items-center justify-center overflow-hidden bg-black mt-28 mb-10 rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl h-[450px] md:h-[350px]">
+        <div class="absolute inset-0 w-full h-full bg-black z-0">
+            <!-- Background Slider Keyframing -->
+            <div class="absolute inset-0 bg-cover bg-center slide-anim-1" style="background-image: url('https://images.unsplash.com/photo-1542314831-c6a4d142104d?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="absolute inset-0 bg-cover bg-center slide-anim-2" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="absolute inset-0 bg-cover bg-center slide-anim-3" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80');"></div>
+            
+            <!-- Dark Amber-to-Black Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-900/60 via-black/80 to-black backdrop-blur-[1px]"></div>
         </div>
-    </div>
+
+        <div class="relative z-10 px-4 md:px-8 max-w-5xl mx-auto w-full text-center text-white flex flex-col items-center justify-center">
+            
+            <div class="max-w-2xl mb-8 flex flex-col items-center">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[10px] font-black tracking-[0.25em] uppercase mb-4 shadow-lg backdrop-blur-md">
+                    Premium Accommodations
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4 drop-shadow-2xl leading-tight text-center text-white">
+                    Luxury Stays & Resorts
+                </h1>
+                <p class="text-sm md:text-base text-white/70 font-medium max-w-lg leading-relaxed text-center shadow-black drop-shadow-md">
+                    Discover our handpicked collection of the world's most extraordinary properties.
+                </p>
+            </div>
+
+            <div class="w-full max-w-3xl flex flex-col items-center gap-6 relative z-20">
+                <!-- Search Input -->
+                <div class="w-full bg-[#1a1a1a]/80 backdrop-blur-xl p-1 rounded-full border border-white/10 shadow-inner flex items-center h-[52px]">
+                    <i class="fa-solid fa-search text-white/50 text-sm ml-5"></i>
+                    <input type="text" id="searchInput" placeholder="Search by city or hotel name..." class="bg-transparent border-none outline-none w-full text-white font-medium placeholder-white/40 pl-4 pr-6 py-2 text-sm focus:ring-0">
+                </div>
+
+                <!-- Toggle Categories -->
+                <div class="flex bg-black/50 backdrop-blur-md border border-white/10 p-1.5 rounded-full overflow-hidden w-auto mx-auto items-center">
+                    <button class="tab-btn active bg-amber-500 text-slate-900 px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all shadow-md" data-category="luxury">Luxury Hotels</button>
+                    <button class="tab-btn text-white/50 hover:text-white px-6 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all" data-category="resort">Beach Resorts</button>
+                    <button class="tab-btn text-white/50 hover:text-white px-6 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all" data-category="boutique">Boutique</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
     <!-- Hotels Grid -->
-    <div class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-3 gap-8 w-full" id="hotelsGrid">
+    <div class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full" id="hotelsGrid">
         <!-- Dynamic Insertion -->
     </div>
 
@@ -166,7 +199,7 @@
                         <li><a href="visas.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Visa Processing</a></li>
                         <li><a href="tours.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Holiday Packages</a></li>
                         <li><a href="hotels.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Luxury Hotels</a></li>
-                        <li><a href="destinations.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Destinations</a></li>
+                        <li></li>
                     </ul>
                 </div>
 
@@ -214,28 +247,71 @@
 
         function renderHotels(category) {
             grid.innerHTML = hotelsData.filter(h => h.cat === category).map(h => `
-                <div class="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300 cursor-pointer group relative flex flex-col h-full" onclick="openHotelModal(${h.id})">
-                    <div class="h-56 bg-cover bg-center relative" style="background-image: url('${h.img}')">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2.5 py-1 rounded-xl shadow-md flex items-center text-sm font-bold">
-                            <i class="fa-solid fa-star text-amber-400 mr-1 text-xs"></i> ${h.rating}
-                        </div>
+            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(56,189,248,0.15)]" onclick="openHotelModal(${h.id})">
+                
+                <!-- Image -->
+                <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-60 blur-0 group-hover:blur-md" style="background-image: url('${h.img}')"></div>
+                
+                <!-- Default State Base Gradient -->
+                <div class="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0 z-0"></div>
+
+                <!-- Default State Content -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                    <div class="bg-sky-400/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow border border-sky-300">
+                        <span class="text-[9px] font-black text-slate-900 uppercase tracking-[0.2em] shadow-sm flex items-center gap-1.5"><i class="fa-solid fa-star"></i> ${h.rating} Rated</span>
                     </div>
-                    <div class="p-6 relative flex flex-col flex-grow">
-                        <div class="absolute -top-7 right-6 w-14 h-14 bg-black text-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgb(0,0,0,0.2)] transform group-hover:scale-110 transition-transform text-xl">
-                            <i class="fa-solid fa-bed"></i>
+                </div>
+                <div class="absolute inset-0 p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
+
+
+
+                    <h3 class="text-[20px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-2 drop-shadow-lg">${h.name}</h3>
+                    <div class="flex items-center gap-1.5 text-sky-300">
+                        <i class="fa-solid fa-location-dot text-[11px]"></i>
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase">${h.location.split(',')[0]}</span>
+                    </div>
+                </div>
+
+                <!-- The Merged Full Overlay Reveal -->
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-7 text-center">
+                    
+                    <!-- Top Section -->
+                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-2">
+                        <div class="bg-sky-400/10 border border-sky-400/30 px-3 py-1.5 rounded-full w-fit mb-4">
+                            <span class="text-[9px] font-black text-sky-400 uppercase tracking-[0.2em]">Luxury Suite</span>
                         </div>
-                        <span class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full mb-3 inline-block uppercase tracking-wider w-fit"><i class="fa-solid fa-location-dot mr-1.5"></i>${h.location}</span>
-                        <h3 class="text-2xl font-black text-slate-900 mb-6 group-hover:text-blue-600 transition-colors pr-12">${h.name}</h3>
-                        <div class="mt-auto pt-5 border-t border-slate-100 flex justify-between items-end">
-                            <div>
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Per Night</p>
-                                <span class="text-2xl font-black text-black leading-none">${h.price}</span>
+                        
+                        <h3 class="text-[18px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-3">${h.name}</h3>
+                        <p class="text-[11px] text-slate-300/70 leading-relaxed font-medium line-clamp-3 w-full">World-class hospitality, exclusive amenities, and breathtaking views designed for the ultimate getaway experience.</p>
+                    </div>
+
+                    <!-- Bottom Section -->
+                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-2">
+                        <div class="flex items-center justify-between w-full border-t border-sky-400/20 pt-5 mt-4">
+                            
+                            <!-- Left Icon decorative -->
+                            <div class="w-12 h-12 rounded-full border border-sky-400/20 bg-sky-400/10 flex items-center justify-center text-sky-400 shadow-inner shrink-0">
+                                <i class="fa-solid fa-tags text-[16px]"></i>
                             </div>
-                            <span class="text-sm font-bold text-blue-600 flex items-center gap-1 group-hover:bg-blue-50 px-3 py-1.5 rounded-full transition-colors">Book <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                            
+                            <div class="flex flex-col items-end text-right">
+                                <div class="flex flex-col items-end mb-3 w-full">
+                                    <span class="text-[8px] font-bold text-sky-400/80 uppercase tracking-[0.3em] mb-1">Starting Rate</span>
+                                    <span class="text-[16px] md:text-[18px] font-black text-white leading-none">${h.price} <span class="text-[10px] text-slate-500 font-medium normal-case tracking-[0.05em] ml-0.5">/ night</span></span>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 text-white group/btn hover:text-sky-300 transition-colors cursor-pointer">
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.25em]">Details</span>
+                                    <div class="w-10 h-10 rounded-full bg-sky-400 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-slate-900 group-hover/btn:scale-110">
+                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
             `).join('');
         }
 
@@ -278,11 +354,11 @@
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.tab-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-white', 'shadow-sm', 'text-black');
-                    b.classList.add('text-slate-600');
+                    b.classList.remove('active', 'bg-amber-500', 'text-slate-900', 'shadow-md', 'font-black');
+                    b.classList.add('text-white/50', 'hover:text-white', 'font-bold');
                 });
-                e.target.classList.remove('text-slate-600');
-                e.target.classList.add('active', 'bg-white', 'shadow-sm', 'text-black');
+                e.target.classList.remove('text-white/50', 'hover:text-white', 'font-bold');
+                e.target.classList.add('active', 'bg-amber-500', 'text-slate-900', 'shadow-md', 'font-black');
                 renderHotels(e.target.dataset.category);
             });
         });
@@ -320,6 +396,19 @@
                 }
             });
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.desktop-menu-links a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === currentPath) {
+                    a.classList.add('text-black', 'after:w-full');
+                    a.classList.remove('after:w-0');
+                }
+            });
+        });
     </script>
 </body>
 </html>

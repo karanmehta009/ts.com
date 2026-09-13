@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Details | Traviora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: { brand: { dark: '#0f172a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        /* Standard Glass Navbar - Kept exactly as requested */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        /* Custom Modern Calendar Input Overlay */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+            z-index: 10;
+        }
+
+        /* Flatpickr Customization */
+        .flatpickr-calendar {
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 1.5rem !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+            font-family: 'Outfit', sans-serif !important;
+            padding: 10px !important;
+        }
+
+        .flatpickr-day.selected {
+            background: #2563eb !important;
+            border-color: #2563eb !important;
+            font-weight: bold;
+        }
+
+        /* Subtle smooth reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-line {
+            position: absolute;
+            left: 23px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .step-circle {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <span
+                    class="font-black tracking-[0.3em] text-[#0a192f] text-sm leading-none uppercase ml-1">Traviora</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                <a href="index.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Home</span>
+                </a>
+                <a href="visas.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-passport text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Visa</span>
+                </a>
+                <a href="tours.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-plane-departure text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Tour</span>
+                </a>
+                <a href="medical.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-notes-medical text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Medical</span>
+                </a>
+                <a href="hotels.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Hotels</span>
+                </a>
+                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> About</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                </button>
+
+                <a href="profile.html"
+                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-[600ms] ease-out hover:border-transparent hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:bg-white isolate hover:-translate-y-1.5 overflow-visible">
+                    <span class="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-400/40 blur-xl transition-all duration-[600ms] -z-30"></span>
+                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_2s_linear_infinite] rounded-full -z-20"></span>
+                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(236,72,153,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite_reverse] rounded-full -z-20"></span>
+                    <span class="absolute inset-[2px] bg-slate-50 group-hover:bg-white rounded-full transition-colors duration-500 -z-10 shadow-inner"></span>
+                    <span class="absolute w-1/2 h-1/2 bg-blue-300 rounded-full opacity-0 group-hover:animate-[ping_1.2s_ease-out_infinite] -z-10"></span>
+                    <i class="fa-regular fa-user text-lg transition-all duration-[700ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:text-blue-600 group-hover:[transform:rotateY(360deg)_scale(1.2)]"></i>
+                    <span class="absolute top-[1px] right-[1px] w-2.5 h-2.5 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-full border-2 border-white shadow-sm z-10 group-hover:animate-bounce flex items-center justify-center">
+                        <span class="absolute w-full h-full bg-rose-400 rounded-full opacity-0 group-hover:animate-ping"></span>
+                    </span>
+                </a>
+                <button class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-14 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-[500ms] ml-1.5 shadow-sm border border-slate-200/50 hover:shadow-[0_8px_20px_rgba(239,68,68,0.25)]" title="Logout" onclick="window.location.href='index.html'">
+                    <span class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-full">
+                        <span>Log Out</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px] md:text-[12px]"></i>
+                    </div>
+                </button>
+
+                
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu"
+            class="lg:hidden absolute inset-x-0 top-[48px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-[150%] opacity-0 pointer-events-none z-40 mx-4 border rounded-2xl">
+            <div class="flex flex-col p-6 space-y-4 font-bold text-slate-800 text-lg">
+                <a href="index.html" class="pb-2 border-b border-slate-50">Home</a>
+                <a href="visas.html" class="pb-2 border-b border-slate-50">Visa</a>
+                <a href="tours.html" class="pb-2 border-b border-slate-50">Tour</a>
+                <a href="hotels.html" class="pb-2 border-b border-slate-50">Hotels</a>
+                <a href="services.html" class="pb-2 border-b border-slate-50">Services</a>
+                <a href="about.html" class="pb-2 border-b border-slate-50">About</a>
+                <a href="profile.html" class="pb-2 border-b border-slate-50">My Profile</a>
+                <a href="index.html" class="pb-2 border-b border-slate-50 text-red-500 hover:text-red-600">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-[1440px] mx-auto px-6 w-full pt-32 pb-32">
+
+        <!-- Two Column Layout -->
+        <div class="flex flex-col lg:flex-row gap-12 relative z-20 items-start">
+
+            <!-- Left Content -->
+            <div class="w-full lg:w-3/5">
+
+                <!-- Premium Header Block (Below Navbar) -->
+                <div class="mb-10 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span id="visa-type-badge"
+                            class="bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                            E-Visa
+                        </span>
+                        <span
+                            class="bg-emerald-50 border border-emerald-100 text-emerald-600 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i> Fast Track
+                        </span>
+                    </div>
+                    <h1 id="country-title"
+                        class="text-3xl md:text-5xl font-serif font-black text-slate-900 leading-tight tracking-tight mb-3">
+                        Dubai Tourist Visa
+                    </h1>
+                    <p class="text-[14px] sm:text-[15px] text-slate-500 font-medium leading-relaxed max-w-3xl"
+                        id="about-text">
+                        Experience the ultimate seamless visa application. Skip the embassy lines and paperwork. Apply
+                        entirely online in 2 minutes and receive your approved e-Visa directly in your inbox.
+                    </p>
+                </div>
+
+                <!-- Featured Image -->
+                <div
+                    class="w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden mb-12 shadow-xl relative reveal">
+                    <div id="hero-bg"
+                        class="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-[2s]"
+                        style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+
+                <!-- High-End Stats Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 reveal">
+                    <div
+                        class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-default group">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-inner">
+                            <i class="fa-regular fa-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Processing
+                            </p>
+                            <p id="stat-processing"
+                                class="text-lg font-black text-slate-900 tracking-tight leading-none">4 Days</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-default group">
+                        <div
+                            class="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-inner">
+                            <i class="fa-regular fa-calendar-check text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Validity</p>
+                            <p id="stat-validity" class="text-lg font-black text-slate-900 tracking-tight leading-none">
+                                60 Days</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-default group">
+                        <div
+                            class="w-12 h-12 rounded-full bg-amber-50 border border-amber-100 text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-inner">
+                            <i class="fa-solid fa-door-open text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Entry Type
+                            </p>
+                            <p id="stat-entry" class="text-lg font-black text-slate-900 tracking-tight leading-none">
+                                Single</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Timeline -->
+                <div class="mb-16 reveal">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6">How it works</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm relative pt-12 overflow-hidden">
+                            <span class="absolute top-2 left-4 text-[50px] font-black text-slate-50/80 -z-0">01</span>
+                            <h4 class="font-bold text-slate-900 mb-2 relative z-10">Upload</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed relative z-10 w-11/12">Securely upload
+                                photos via our encrypted portal in under 2 minutes.</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm relative pt-12 overflow-hidden">
+                            <span class="absolute top-2 left-4 text-[50px] font-black text-slate-50/80 -z-0">02</span>
+                            <h4 class="font-bold text-slate-900 mb-2 relative z-10">Verification</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed relative z-10 w-11/12">Our experts
+                                carefully review your files to ensure a 99.9% approval rate.</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm relative pt-12 overflow-hidden">
+                            <span class="absolute top-2 left-4 text-[50px] font-black text-slate-50/80 -z-0">03</span>
+                            <h4 class="font-bold text-slate-900 mb-2 relative z-10">Delivery</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed relative z-10 w-11/12">Get the
+                                government-approved e-Visa delivered to your email instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Timeline -->
+                <div class="mb-16 reveal">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6">The Visa Process</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="visa-process-container">
+                        <!-- Dynamically populated based on visa type -->
+                    </div>
+                </div>
+
+                <!-- Documents Needed -->
+                <div class="mb-12 reveal">
+                    <div class="flex items-end justify-between mb-6 pb-3 border-b border-slate-200">
+                        <h2 class="text-xl font-bold text-slate-900">Required Documents</h2>
+                        <p class="text-xs font-bold text-blue-600" id="doc-subtitle">Soft copies only</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="documents-container">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+                <!-- Journey Comparison -->
+                <div class="mb-12 reveal relative w-full overflow-hidden hidden xl:block">
+                    <div
+                        class="bg-white rounded-[2rem] border border-slate-100 px-10 py-8 shadow-sm overflow-hidden text-slate-800">
+
+                        <!-- Traviora Timeline -->
+                        <div class="mb-8">
+                            <h3
+                                class="text-[15px] font-black font-serif text-blue-600 uppercase tracking-widest mb-16 px-4">
+                                Doing it with Traviora</h3>
+
+                            <div class="relative w-full px-6">
+                                <div
+                                    class="absolute top-1/2 left-10 right-10 -mt-[1px] h-1.5 bg-blue-500 z-0 rounded-full">
+                                </div>
+                                <div class="flex justify-between w-full items-start relative z-10 translate-y-[24px]">
+                                    <!-- Node 1 -->
+                                    <div class="flex flex-col items-center -mt-[62px]">
+                                        <p
+                                            class="text-[13px] font-bold text-center w-36 h-10 flex items-end justify-center pb-2 text-slate-800">
+                                            Upload digital files via our secure portal</p>
+                                        <div class="w-[1px] h-3 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-12 h-12 bg-blue-500 text-white rounded-full flex justify-center items-center font-black text-xl shadow-[0_0_0_5px_white] z-10 hover:scale-110 transition-transform">
+                                            1</div>
+                                    </div>
+                                    <!-- Node 2 -->
+                                    <div class="flex flex-col items-center -mt-[2px]">
+                                        <div
+                                            class="w-12 h-12 bg-blue-500 text-white rounded-full flex justify-center items-center font-black text-xl shadow-[0_0_0_5px_white] z-10 mb-1 hover:scale-110 transition-transform">
+                                            2</div>
+                                        <div class="w-[1px] h-3 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[13px] font-bold text-center w-36 h-10 flex items-start justify-center text-slate-800">
+                                            Physical collection via our insured courier</p>
+                                    </div>
+                                    <!-- Node 3 -->
+                                    <div class="flex flex-col items-center -mt-[62px]">
+                                        <p
+                                            class="text-[13px] font-bold text-center w-40 h-10 flex items-end justify-center pb-2 text-slate-800">
+                                            Real-time processing updates and tracking</p>
+                                        <div class="w-[1px] h-3 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-12 h-12 bg-blue-500 text-white rounded-full flex justify-center items-center font-black text-xl shadow-[0_0_0_5px_white] z-10 hover:scale-110 transition-transform">
+                                            3</div>
+                                    </div>
+                                    <!-- Node 4 -->
+                                    <div class="flex flex-col items-center -mt-[2px]">
+                                        <div
+                                            class="w-12 h-12 bg-blue-500 text-white rounded-full flex justify-center items-center font-black text-xl shadow-[0_0_0_5px_white] z-10 mb-1 hover:scale-110 transition-transform">
+                                            4</div>
+                                        <div class="w-[1px] h-3 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[13px] font-bold text-center w-36 h-10 flex items-start justify-center text-slate-800">
+                                            Approved visa delivered securely to your door</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spacer -->
+                        <div class="border-t border-slate-100 my-10 relative"></div>
+
+                        <!-- DIY Timeline -->
+                        <div class="mb-4">
+                            <h3
+                                class="text-[15px] font-black font-serif text-slate-900 uppercase tracking-widest mb-16 px-4">
+                                Doing it yourself</h3>
+
+                            <div class="relative w-full px-2 lg:px-4">
+                                <div
+                                    class="absolute top-1/2 left-6 right-6 -mt-[1px] h-[5px] bg-slate-900 z-0 rounded-full">
+                                </div>
+                                <div class="flex justify-between w-full items-start relative z-10 translate-y-[20px]">
+
+                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-end justify-center pb-1.5 leading-[1.3] w-[120%] -ml-[10%]">
+                                            Manually research and compile physical paperwork</p>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 transition-transform hover:scale-125">
+                                            1</div>
+                                    </div>
+
+                                    <div class="flex flex-col items-center w-[12%]">
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 mb-1 transition-transform hover:scale-125">
+                                            2</div>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-start justify-center leading-[1.3] w-[120%] -ml-[10%]">
+                                            Find a local facility to print and copy files</p>
+                                    </div>
+
+                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-end justify-center pb-1.5 leading-[1.3] w-[120%] -ml-[10%]">
+                                            Navigate heavy city traffic to the consulate</p>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 transition-transform hover:scale-125">
+                                            3</div>
+                                    </div>
+
+                                    <div class="flex flex-col items-center w-[12%]">
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 mb-1 transition-transform hover:scale-125">
+                                            4</div>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-start justify-center leading-[1.3] w-[120%] -ml-[10%]">
+                                            Wait in long unorganized queues for hours</p>
+                                    </div>
+
+                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-end justify-center pb-1.5 leading-[1.3] w-[120%] -ml-[10%]">
+                                            Commute back home, wasting half your day</p>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 transition-transform hover:scale-125">
+                                            5</div>
+                                    </div>
+
+                                    <div class="flex flex-col items-center w-[12%]">
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 mb-1 transition-transform hover:scale-125">
+                                            6</div>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-start justify-center leading-[1.3] w-[120%] -ml-[10%]">
+                                            Wait in silence with zero tracking updates</p>
+                                    </div>
+
+                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-end justify-center pb-1.5 leading-[1.3] w-[120%] -ml-[10%]">
+                                            Return to the embassy on a strict timeslot</p>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-1"></div>
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 transition-transform hover:scale-125">
+                                            7</div>
+                                    </div>
+
+                                    <div class="flex flex-col items-center w-[12%]">
+                                        <div
+                                            class="w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center font-bold text-sm shadow-[0_0_0_4px_white] z-10 mb-1 transition-transform hover:scale-125">
+                                            8</div>
+                                        <div class="w-[1px] h-2 bg-slate-300 mb-2"></div>
+                                        <p
+                                            class="text-[9px] text-slate-500 font-medium text-center h-10 flex items-start justify-center leading-[1.3] w-[120%] -ml-[10%]">
+                                            Final painful commute to retrieve documents</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Comparison Features -->
+                <div class="mb-16 reveal relative">
+                    <div class="flex items-end justify-between mb-8 pb-3 border-b border-slate-200">
+                        <h2 class="text-[22px] font-black font-serif text-slate-900 tracking-tight">Why book with
+                            Traviora?</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+                        <!-- Vs Badge -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-[55%] -ml-6 w-12 h-12 bg-white rounded-full border border-slate-100 shadow-xl items-center justify-center font-black text-slate-300 text-[10px] z-30 transition-transform hover:scale-110 cursor-default uppercase tracking-widest">
+                            VS</div>
+
+                        <!-- Standard Agents Card -->
+                        <div class="bg-slate-50/50 border border-slate-200/60 rounded-[2rem] p-8 lg:p-10">
+                            <h3
+                                class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-10 text-center">
+                                Standard Agents</h3>
+                            <div class="space-y-7">
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-200/50 text-slate-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-xmark text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[14px] font-bold text-slate-600">Hidden Markups</h4>
+                                        <p class="text-[12px] text-slate-500 font-medium mt-0.5">Unexpected fees added
+                                            at checkout</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-200/50 text-slate-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-xmark text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[14px] font-bold text-slate-600">Complex Paperwork</h4>
+                                        <p class="text-[12px] text-slate-500 font-medium mt-0.5">Outdated, hard to fill
+                                            forms</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-200/50 text-slate-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-xmark text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[14px] font-bold text-slate-600">No Refund Policy</h4>
+                                        <p class="text-[12px] text-slate-500 font-medium mt-0.5">You lose all your money
+                                            on rejection</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-slate-200/50 text-slate-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-xmark text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[14px] font-bold text-slate-600">Slow Responses</h4>
+                                        <p class="text-[12px] text-slate-500 font-medium mt-0.5">Days before hearing
+                                            back via email</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Traviora Card -->
+                        <div
+                            class="bg-blue-600 rounded-[2rem] p-8 lg:p-10 shadow-[0_20px_40px_rgba(37,99,235,0.2)] text-white relative overflow-hidden group hover:scale-[1.02] transition-transform duration-500 cursor-default">
+                            <!-- Background Effects -->
+                            <div
+                                class="absolute -right-32 -top-32 w-80 h-80 bg-blue-400/30 blur-[80px] rounded-full pointer-events-none">
+                            </div>
+                            <div
+                                class="absolute -left-32 -bottom-32 w-80 h-80 bg-indigo-500/30 blur-[80px] rounded-full pointer-events-none">
+                            </div>
+
+                            <h3
+                                class="text-[11px] font-black text-blue-200 uppercase tracking-widest mb-10 text-center drop-shadow-sm">
+                                Traviora Standard</h3>
+                            <div class="space-y-7 relative z-10">
+                                <div class="flex items-center gap-5 group/item">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-white text-blue-600 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover/item:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[15px] font-bold text-white tracking-wide">100% Upfront Pricing
+                                        </h4>
+                                        <p class="text-[12px] text-blue-100 font-medium leading-tight mt-0.5">What you
+                                            see is exactly what you pay</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5 group/item">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-white text-blue-600 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover/item:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[15px] font-bold text-white tracking-wide">2-Min Smart Form</h4>
+                                        <p class="text-[12px] text-blue-100 font-medium leading-tight mt-0.5">
+                                            Auto-filled, frictionless & fast</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5 group/item">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-white text-blue-600 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover/item:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[15px] font-bold text-white tracking-wide">Full Fee Refund</h4>
+                                        <p class="text-[12px] text-blue-100 font-medium leading-tight mt-0.5">Complete
+                                            money back on any rejection</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-5 group/item">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-white text-blue-600 flex items-center justify-center shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.1)] group-hover/item:scale-110 transition-transform">
+                                        <i class="fa-solid fa-check text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[15px] font-bold text-white tracking-wide">24/7 Priority Support
+                                        </h4>
+                                        <p class="text-[12px] text-blue-100 font-medium leading-tight mt-0.5">Local visa
+                                            experts available at all times</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Stateful Checkout -->
+            <div class="w-full lg:w-2/5 lg:sticky lg:top-32">
+
+                <div id="state1"
+                    class="bg-white rounded-3xl border border-slate-100 p-8 shadow-2xl shadow-slate-200/50 relative z-30">
+
+                    <div class="space-y-5">
+                        <div class="flex justify-center items-center mb-8">
+                            <h3 class="text-[17px] uppercase tracking-[0.15em] font-black text-slate-700 flex items-center gap-3"
+                                id="state1-country"><img src=""
+                                    class="w-7 h-7 object-cover rounded-full border border-slate-200 shadow-sm"
+                                    id="state1-flag"> </h3>
+                        </div>
+
+                        <div>
+                            <label
+                                class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Which
+                                passport do you hold?</label>
+                            <div class="relative" id="customPassportDropdown">
+                                <input type="hidden" id="passportCountry" value="IN">
+                                <div id="passportTrigger"
+                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 flex justify-between items-center cursor-pointer"
+                                    tabindex="0">
+                                    <span id="passportSelectedText">India</span>
+                                    <i class="fa-solid fa-earth-americas text-slate-400 text-xs"></i>
+                                </div>
+                                <div id="passportMenu"
+                                    class="absolute left-0 right-0 top-full mt-2 bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/50 z-50 hidden max-h-[18rem] overflow-y-auto custom-scrollbar p-2">
+                                    <!-- Injected via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="relative">
+                                <label
+                                    class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Arrival</label>
+                                <input id="arrivalDate" type="text"
+                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 cursor-pointer text-center"
+                                    placeholder="dd-mm-yyyy">
+                                <i
+                                    class="fa-regular fa-calendar-days text-slate-400 absolute right-4 bottom-3.5 pointer-events-none text-xs"></i>
+                            </div>
+                            <div class="relative">
+                                <label
+                                    class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Departure</label>
+                                <input id="departureDate" type="text"
+                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 cursor-pointer text-center"
+                                    placeholder="dd-mm-yyyy">
+                                <i
+                                    class="fa-regular fa-calendar-days text-slate-400 absolute right-4 bottom-3.5 pointer-events-none text-xs"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label
+                                class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Travellers</label>
+                            <div
+                                class="w-full bg-slate-50/50 border border-slate-200/60 rounded-xl p-1 text-sm font-bold text-slate-700 flex justify-between items-center shadow-sm">
+                                <button type="button"
+                                    class="w-9 h-9 flex justify-center items-center rounded-lg text-slate-400 cursor-not-allowed bg-white shadow-sm"><i
+                                        class="fa-solid fa-minus text-[10px]"></i></button>
+                                <span>1 Adult</span>
+                                <button type="button"
+                                    class="w-9 h-9 flex justify-center items-center rounded-lg text-slate-400 cursor-not-allowed bg-white shadow-sm"><i
+                                        class="fa-solid fa-plus text-[10px]"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalError"
+                        class="hidden text-xs text-red-600 bg-red-50 p-3 rounded-xl border border-red-100 font-medium mt-4">
+                    </div>
+
+                    <button onclick="runCheck()"
+                        class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-[15px] py-4 rounded-xl transition-all shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 mt-6"
+                        type="button">
+                        Check Visa Requirements <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="mt-5 flex items-center justify-center gap-2 text-slate-400">
+                        <i class="fa-solid fa-lock text-[10px]"></i>
+                        <p class="text-[9px] font-bold uppercase tracking-widest">Your information is kept secure</p>
+                    </div>
+                </div>
+
+                <div id="state2"
+                    class="bg-white rounded-3xl border border-slate-100 p-8 shadow-2xl shadow-slate-200/50 relative z-30 hidden">
+                    <button
+                        onclick="document.getElementById('state2').classList.add('hidden'); document.getElementById('state1').classList.remove('hidden');"
+                        class="absolute top-8 right-8 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors bg-slate-50 hover:bg-blue-50 px-3 py-1.5 rounded-lg border border-slate-200 hover:border-blue-200">Edit</button>
+
+                    <div class="flex justify-center items-center mb-8 mt-2">
+                        <h3 class="text-[17px] uppercase tracking-[0.15em] font-black text-slate-700 flex items-center gap-3"
+                            id="res-country"><img src=""
+                                class="w-7 h-7 object-cover rounded-full border border-slate-200 shadow-sm"
+                                id="res-flag"> Thailand</h3>
+                    </div>
+
+                    <div id="res-badge"
+                        class="bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-xl p-3 flex gap-2 items-center font-bold text-sm mb-5">
+                        <i class="fa-solid fa-check"></i> <span id="res-badge-text">Visa-free entry</span>
+                    </div>
+
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-3 mb-3">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Maximum stay</span>
+                        <span class="text-sm font-bold text-slate-900" id="res-max-stay">60 days</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-5 border-b border-slate-100 pb-3">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Your trip</span>
+                        <span class="text-sm font-bold text-slate-900" id="res-trip">12 days</span>
+                    </div>
+
+                    <div class="space-y-2 mb-5">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Government visa
+                                fee</span>
+                            <span class="text-sm font-bold text-slate-900" id="res-gov-fee">₹0</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-dashed border-slate-300">
+                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Traviora
+                                service fee</span>
+                            <span class="text-sm font-bold text-slate-900" id="res-svc-fee">₹0</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Total</span>
+                            <span class="text-xl font-black text-slate-900" id="res-total">₹0</span>
+                        </div>
+                    </div>
+
+                    <div id="res-app-badge"
+                        class="flex gap-2 text-slate-700 font-bold text-xs mb-6 items-center bg-slate-50 rounded-lg p-3 border border-slate-200">
+                        <i class="fa-solid fa-check text-emerald-500" id="res-app-icon"></i> <span id="res-app-text">No
+                            visa application required</span>
+                    </div>
+
+                    <button id="res-continue-btn"
+                        class="w-full bg-slate-900 text-white font-bold text-sm py-4 rounded-xl hover:bg-black transition shadow-lg shadow-black/10 flex items-center justify-center gap-2 mb-4">
+                        Continue <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+
+                    <p class="text-[10px] text-center text-slate-400 font-medium">Final entry is determined by
+                        immigration.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/visa-data.js"></script>
+    <script src="js/visa-eligibility.js"></script>
+    <script src="js/storage.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let destQuery = urlParams.get('dest');
+
+        let visa = window.TravioraVisaData.visaProducts.find(p => p.countryName === destQuery);
+
+        if (!visa) {
+            document.querySelector('.max-w-[1440px]').innerHTML = `<div class="bg-white rounded-3xl border border-slate-100 p-10 text-center mt-20"><h1 class="text-3xl font-serif font-bold text-slate-900 mb-3">Visa not found</h1><p class="text-slate-500 mb-6">Please choose a destination from the visa directory.</p><a href="visas.html" class="inline-flex bg-blue-600 text-white font-bold px-6 py-3 rounded-xl">Browse Visas</a></div>`;
+        } else {
+            if (urlParams.get('img')) visa.image = urlParams.get('img');
+        }
+
+        // Initialize display using product details
+        const countryData = window.TravioraVisaData.countries.find(c => c.code === visa.destination);
+        if (countryData && countryData.name) {
+            document.getElementById('country-title').innerText = countryData.name + ' ' + visa.visaName;
+        } else {
+            document.getElementById('country-title').innerText = destQuery + ' ' + visa.visaName;
+        }
+
+        if (document.getElementById('visa-name-subtitle')) document.getElementById('visa-name-subtitle').innerText = visa.visaName;
+
+        document.getElementById('visa-type-badge').innerText = visa.purpose;
+        document.getElementById('stat-processing').innerText = "Varies by rule";
+
+        let defaultStay = "30 days";
+        let stayMatch = (visa.visaName || "").match(/(\d+)\s*days?/i);
+        if (stayMatch) defaultStay = stayMatch[1] + " days";
+        else {
+            try {
+                const defCheck = window.TravioraEligibility.check({ nationality: 'IN', destination: visa.destination });
+                if (defCheck && defCheck.maxStay) defaultStay = defCheck.maxStay + " days";
+            } catch (e) { }
+        }
+        document.getElementById('stat-validity').innerText = defaultStay;
+        document.getElementById('stat-entry').innerText = "Single";
+
+        document.getElementById('about-text').innerText = `Check requirements for ${destQuery}, confirm your passport and travel purpose, then continue into a guided application.`;
+
+        document.getElementById('hero-bg').style.backgroundImage = `url('${visa.image}')`;
+
+        // Dynamic Visa Process
+        const processContainer = document.getElementById('visa-process-container');
+        let isSticker = (visa.visaName || "").toLowerCase().includes("sticker");
+        try {
+            const defCheck = window.TravioraEligibility.check({ nationality: 'IN', destination: visa.destination });
+            if (defCheck && (defCheck.routeType === 'E_STICKER' || defCheck.routeType === 'EMBASSY' || defCheck.status === 'E_STICKER' || defCheck.status === 'EMBASSY')) {
+                isSticker = true;
+            }
+        } catch (e) { }
+
+        if (isSticker && processContainer) {
+            processContainer.className = ""; // Remove previous grid layout from wrapper
+            processContainer.innerHTML = `
+                <div class="bg-white border border-slate-100 rounded-[2.5rem] p-8 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.03)] relative overflow-hidden mt-4">
+                    <div class="absolute -top-32 -right-32 w-96 h-96 bg-blue-400/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+                    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-400/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12 relative z-10">
+                        <div class="relative group">
+                            <div class="hidden md:block absolute top-6 left-14 w-full h-[2px] bg-gradient-to-r from-amber-500/30 to-purple-500/30 rounded-full z-0 group-hover:from-amber-400 group-hover:to-purple-400 transition-colors duration-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-white text-amber-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-110 group-hover:border-amber-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">01</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-amber-600 transition-colors"><i class="fa-solid fa-passport text-amber-500 text-[18px]"></i> Collection</h4>
+                            <p class="text-[13px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-amber-500/20 pl-3">Hand us your passport and physical documents.</p>
+                        </div>
+                        <div class="relative group">
+                            <div class="hidden md:block absolute top-6 left-14 w-full h-[2px] bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full z-0 group-hover:from-purple-400 group-hover:to-blue-400 transition-colors duration-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-white text-purple-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-purple-500 group-hover:text-white group-hover:scale-110 group-hover:border-purple-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">02</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-purple-600 transition-colors"><i class="fa-solid fa-building-user text-purple-500 text-[18px]"></i> Local Center</h4>
+                            <p class="text-[13px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-purple-500/20 pl-3">We securely transport it to the Traviora processing center.</p>
+                        </div>
+                        <div class="relative group">
+                            <div class="hidden md:block absolute top-6 left-14 w-full h-[2px] bg-gradient-to-r from-blue-500/30 to-emerald-500/30 rounded-full z-0 group-hover:from-blue-400 group-hover:to-emerald-400 transition-colors duration-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-white text-blue-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 group-hover:border-blue-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">03</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-blue-600 transition-colors"><i class="fa-solid fa-building-columns text-blue-500 text-[18px]"></i> Embassy</h4>
+                            <p class="text-[13px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-blue-500/20 pl-3">It gets sent to the official embassy for processing protocol.</p>
+                        </div>
+                        <div class="relative group">
+                            <div class="w-12 h-12 rounded-full bg-white text-emerald-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110 group-hover:border-emerald-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">04</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-emerald-600 transition-colors"><i class="fa-solid fa-stamp text-emerald-500 text-[18px]"></i> Visa Stamped</h4>
+                            <p class="text-[13px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-emerald-500/20 pl-3">Your passport gets stamped and securely delivered back to you.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (processContainer) {
+            processContainer.className = ""; // Remove previous grid layout from wrapper
+            processContainer.innerHTML = `
+                <div class="bg-white border border-slate-100 rounded-[2.5rem] p-8 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.03)] relative overflow-hidden mt-4">
+                    <div class="absolute -top-32 -left-32 w-96 h-96 bg-blue-400/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+                    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-400/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 relative z-10">
+                        <div class="relative group">
+                            <div class="hidden md:block absolute top-6 left-14 w-[110%] h-[2px] bg-gradient-to-r from-blue-500/30 to-amber-500/30 rounded-full z-0 group-hover:from-blue-400 group-hover:to-amber-400 transition-colors duration-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-white text-blue-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 group-hover:border-blue-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">01</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-blue-600 transition-colors"><i class="fa-solid fa-cloud-arrow-up text-blue-500 text-[18px]"></i> Secure Upload</h4>
+                            <p class="text-[14px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-blue-500/20 pl-3">Securely upload scans of your required documents via our encrypted online portal.</p>
+                        </div>
+                        <div class="relative group">
+                            <div class="hidden md:block absolute top-6 left-14 w-[110%] h-[2px] bg-gradient-to-r from-amber-500/30 to-emerald-500/30 rounded-full z-0 group-hover:from-amber-400 group-hover:to-emerald-400 transition-colors duration-500"></div>
+                            <div class="w-12 h-12 rounded-full bg-white text-amber-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-110 group-hover:border-amber-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">02</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-amber-600 transition-colors"><i class="fa-solid fa-magnifying-glass-chart text-amber-500 text-[18px]"></i> Verification</h4>
+                            <p class="text-[14px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-amber-500/20 pl-3">Our visa experts carefully review your digital files to ensure a 99.9% approval rate.</p>
+                        </div>
+                        <div class="relative group">
+                            <div class="w-12 h-12 rounded-full bg-white text-emerald-500 border border-slate-200 flex items-center justify-center font-black font-serif italic text-xl tracking-tighter mb-6 relative z-10 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110 group-hover:border-emerald-500 transition-all duration-300 shadow-[0_0_0_6px_rgba(255,255,255,1)] shadow-inner">03</div>
+                            <h4 class="text-[20px] font-bold font-serif text-slate-800 mb-2.5 flex items-center gap-2.5 tracking-tight group-hover:text-emerald-600 transition-colors"><i class="fa-regular fa-envelope text-emerald-500 text-[18px]"></i> Digital Delivery</h4>
+                            <p class="text-[14px] text-slate-500 font-medium leading-relaxed pr-2 border-l-[3px] border-emerald-500/20 pl-3">Get the government-approved e-Visa delivered to your email instantly, ready to print.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Dynamic Docs
+        const docsContainer = document.getElementById('documents-container');
+        const docSubtitle = document.getElementById('doc-subtitle');
+
+        try {
+            const initialCheck = window.TravioraEligibility.check({ nationality: 'IN', destination: visa.destination });
+            if (initialCheck && initialCheck.documents && initialCheck.documents.length > 0) {
+                docsContainer.className = "flex flex-col gap-0 border border-slate-100 rounded-2xl overflow-hidden shadow-sm bg-white";
+                docsContainer.innerHTML = initialCheck.documents.map((doc, i) => `
+                    <div class="group relative bg-white hover:bg-slate-50/70 transition-all duration-300 py-4 px-5 flex items-start gap-4 ${i !== 0 ? 'border-t border-slate-100' : ''} overflow-hidden before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:origin-center">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50/50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-[0_4px_12px_rgba(37,99,235,0.2)] mt-0.5 relative z-10">
+                            <i class="fa-regular fa-file-lines text-[15px]"></i>
+                        </div>
+                        <div class="flex-1 relative z-10">
+                            <div class="flex items-center justify-between gap-3 mb-1">
+                                <h4 class="font-bold text-[15px] text-slate-800 group-hover:text-blue-700 transition-all duration-300 group-hover:translate-x-1">${doc.name}</h4>
+                                ${doc.required ? `<div class="flex items-center gap-1.5 bg-red-50 text-red-600 py-1 px-2.5 rounded-lg border border-red-100/50 shrink-0 shadow-sm"><div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div><span class="text-[9px] font-bold uppercase tracking-[0.1em] leading-none">Required</span></div>` : `<span class="bg-slate-50 text-slate-400 py-1 px-2.5 rounded-lg border border-slate-200/60 text-[9px] font-bold uppercase tracking-[0.1em] leading-none shrink-0 shadow-sm">Optional</span>`}
+                            </div>
+                            <p class="text-[12px] text-slate-500 font-medium leading-[1.6] group-hover:text-slate-600 transition-colors duration-300">${doc.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+                const reqCount = initialCheck.documents.filter(d => d.required).length;
+                docSubtitle.innerText = initialCheck.status === "VISA_FREE" ? "Entry conditions only" : `${reqCount} Mandatory Document${reqCount !== 1 ? 's' : ''}`;
+            } else {
+                docsContainer.innerHTML = `<div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 text-emerald-700 font-bold"><i class="fa-solid fa-check-circle mr-2"></i> No visa application documents are required.</div>`;
+                docSubtitle.innerText = "Entry conditions only";
+            }
+        } catch (e) {
+            docSubtitle.innerText = "Check Eligibility First";
+            docsContainer.innerHTML = `<div class="bg-blue-50 rounded-2xl p-6 border border-blue-100 text-blue-700 font-medium text-sm">Please select your passport nationality above to view exact document requirements for this route.</div>`;
+        }
+
+        // Configure Custom Passport Dropdown
+        const passportInput = document.getElementById('passportCountry');
+        const passportMenu = document.getElementById('passportMenu');
+        const passportTrigger = document.getElementById('passportTrigger');
+        const passportSelectedText = document.getElementById('passportSelectedText');
+
+        let selectedCode = urlParams.get('passport') || 'IN';
+        let defaultCountry = window.TravioraVisaData.countries.find(c => c.code === selectedCode);
+        if (defaultCountry) {
+            passportInput.value = defaultCountry.code;
+            passportSelectedText.innerText = defaultCountry.name;
+        }
+
+        passportMenu.innerHTML = window.TravioraVisaData.countries.map(c => `
+            <div class="px-4 py-3 hover:bg-slate-50 cursor-pointer rounded-xl text-sm font-bold text-slate-700 hover:text-slate-900 transition flex items-center justify-between" onclick="selectPassport('${c.code}', '${c.name.replace(/'/g, "\\'")}')">
+                ${c.name}
+                ${c.code === selectedCode ? '<i class="fa-solid fa-check text-blue-600"></i>' : ''}
+            </div>
+        `).join('');
+
+        passportTrigger.onclick = () => passportMenu.classList.toggle('hidden');
+
+        window.selectPassport = (code, name) => {
+            passportInput.value = code;
+            passportSelectedText.innerText = name;
+            passportMenu.classList.add('hidden');
+
+            // Re-render menu to update checkmark
+            passportMenu.innerHTML = window.TravioraVisaData.countries.map(c => `
+                <div class="px-4 py-3 hover:bg-slate-50 cursor-pointer rounded-xl text-sm font-bold text-slate-700 hover:text-slate-900 transition flex items-center justify-between" onclick="selectPassport('${c.code}', '${c.name.replace(/'/g, "\\'")}')">
+                    ${c.name}
+                    ${c.code === code ? '<i class="fa-solid fa-check text-blue-600"></i>' : ''}
+                </div>
+            `).join('');
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!document.getElementById('customPassportDropdown').contains(e.target)) {
+                passportMenu.classList.add('hidden');
+            }
+        });
+
+        // Initialize FlatPickr Native Replacements
+        flatpickr("#arrivalDate", { dateFormat: "d-m-Y" });
+        flatpickr("#departureDate", { dateFormat: "d-m-Y" });
+
+        const flagUrl = `https://flagcdn.com/w40/${visa.destination.toLowerCase()}.png`;
+        document.getElementById('state1-flag').src = flagUrl;
+        document.getElementById('res-flag').src = flagUrl;
+        document.getElementById('state1-country').append(destQuery);
+
+        function runCheck() {
+            const passport = document.getElementById('passportCountry').value;
+            const err = document.getElementById('modalError');
+
+            if (!passport) {
+                err.innerText = "Please select a passport nationality.";
+                err.classList.remove('hidden');
+                return;
+            }
+
+            const arrDate = document.getElementById('arrivalDate').value;
+            const depDate = document.getElementById('departureDate').value;
+
+            const result = window.TravioraEligibility.check({
+                destination: visa.destination,
+                nationality: passport,
+                arrivalDate: arrDate,
+                departureDate: depDate
+            });
+
+            if (!result.eligible) {
+                err.innerHTML = result.errors ? result.errors.join('<br>') : "Visa route not supported for this nationality.";
+                err.classList.remove('hidden');
+                return;
+            }
+
+            err.classList.add('hidden');
+
+            document.getElementById('res-country').childNodes[1].nodeValue = " " + destQuery;
+            document.getElementById('res-max-stay').innerText = result.maxStay + " days";
+            document.getElementById('res-trip').innerText = result.duration > 0 ? (result.duration + " days") : "Not specified";
+
+            // Dynamic Documents
+            if (result.documents) {
+                docsContainer.className = "flex flex-col gap-0 border border-slate-100 rounded-2xl overflow-hidden shadow-sm bg-white";
+                docsContainer.innerHTML = result.documents.map((doc, i) => `
+                    <div class="group relative bg-white hover:bg-slate-50/70 transition-all duration-300 py-4 px-5 flex items-start gap-4 ${i !== 0 ? 'border-t border-slate-100' : ''} overflow-hidden before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-600 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300 before:origin-center">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50/50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-[0_4px_12px_rgba(37,99,235,0.2)] mt-0.5 relative z-10">
+                            <i class="fa-regular fa-file-lines text-[15px]"></i>
+                        </div>
+                        <div class="flex-1 relative z-10">
+                            <div class="flex items-center justify-between gap-3 mb-1">
+                                <h4 class="font-bold text-[15px] text-slate-800 group-hover:text-blue-700 transition-all duration-300 group-hover:translate-x-1">${doc.name}</h4>
+                                ${doc.required ? `<div class="flex items-center gap-1.5 bg-red-50 text-red-600 py-1 px-2.5 rounded-lg border border-red-100/50 shrink-0 shadow-sm"><div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div><span class="text-[9px] font-bold uppercase tracking-[0.1em] leading-none">Required</span></div>` : `<span class="bg-slate-50 text-slate-400 py-1 px-2.5 rounded-lg border border-slate-200/60 text-[9px] font-bold uppercase tracking-[0.1em] leading-none shrink-0 shadow-sm">Optional</span>`}
+                            </div>
+                            <p class="text-[12px] text-slate-500 font-medium leading-[1.6] group-hover:text-slate-600 transition-colors duration-300">${doc.description}</p>
+                        </div>
+                    </div>
+                `).join('') || `<div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 text-emerald-700 font-bold">No visa application documents are required.</div>`;
+                docSubtitle.innerText = result.status === "VISA_FREE" ? "Entry conditions only" : `${result.documents.filter(d => d.required).length} required`;
+            }
+
+            if (result.processing) {
+                document.getElementById('stat-processing').innerText = result.processing.display || "Varies";
+            }
+            document.getElementById('stat-validity').innerText = result.maxStay + " days";
+
+            const badge = document.getElementById('res-badge');
+            const badgeIcon = badge.querySelector('i');
+            const badgeText = document.getElementById('res-badge-text');
+            const appIcon = document.getElementById('res-app-icon');
+            const appText = document.getElementById('res-app-text');
+
+            if (result.status === 'VISA_FREE') {
+                badge.className = 'bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-xl p-3 flex gap-2 items-center font-bold text-sm mb-5';
+                badgeIcon.className = 'fa-solid fa-plane-departure';
+                badgeText.innerText = 'Visa Not Required';
+                appIcon.className = 'fa-solid fa-check text-emerald-500';
+                appText.innerText = 'You can travel without obtaining a tourist visa';
+
+                document.getElementById('res-gov-fee').innerText = `₹${result.fees.governmentFee}`;
+                document.getElementById('res-svc-fee').innerText = `₹${result.fees.serviceFee}`;
+                document.getElementById('res-total').innerText = `₹${result.fees.governmentFee + result.fees.serviceFee + result.fees.tax}`;
+
+                document.getElementById('res-continue-btn').innerText = "Continue With Travel Details";
+                document.getElementById('res-continue-btn').style.display = 'flex';
+                document.getElementById('res-continue-btn').onclick = function () {
+                    result.nationality = passport;
+                    const ctx = window.TravioraApplicationContext.init(result, destQuery);
+                    window.location.href = `apply.html?appId=${ctx.applicationId}`;
+                };
+            } else {
+                badge.className = 'bg-amber-50 text-amber-700 border border-amber-100 rounded-xl p-3 flex gap-2 items-center font-bold text-sm mb-5';
+                badgeIcon.className = 'fa-solid fa-file-circle-check';
+                badgeText.innerText = result.status === 'VISA_ON_ARRIVAL' ? 'Visa on Arrival' : 'Visa Required';
+                appIcon.className = 'fa-solid fa-passport text-blue-500';
+                appText.innerText = result.status === 'VISA_ON_ARRIVAL' ? 'Arrival Requirements apply' : 'Visa application strictly required';
+
+                document.getElementById('res-gov-fee').innerText = `₹${result.fees.governmentFee}`;
+                document.getElementById('res-svc-fee').innerText = `₹${result.fees.serviceFee}`;
+                document.getElementById('res-total').innerText = `₹${result.fees.governmentFee + result.fees.serviceFee + result.fees.tax}`;
+
+                if (result.status === 'E_VISA' || result.status === 'E_STICKER' || result.status === 'EMBASSY') {
+                    document.getElementById('res-continue-btn').innerHTML = `Apply Online <i class="fa-solid fa-arrow-right"></i>`;
+                } else if (result.status === 'VISA_ON_ARRIVAL') {
+                    document.getElementById('res-continue-btn').innerText = "Continue With Traveler Details";
+                }
+
+                document.getElementById('res-continue-btn').style.display = 'flex';
+                document.getElementById('res-continue-btn').onclick = function () {
+                    result.nationality = passport;
+                    const ctx = window.TravioraApplicationContext.init(result, destQuery);
+                    window.location.href = `apply.html?appId=${ctx.applicationId}`;
+                };
+            }
+
+            document.getElementById('state1').classList.add('hidden');
+            document.getElementById('state2').classList.remove('hidden');
+        }
+
+        // Simple Reveal on Scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.desktop-menu-links a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === currentPath) {
+                    a.classList.add('text-black', 'after:w-full');
+                    a.classList.remove('after:w-0');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
