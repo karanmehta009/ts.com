@@ -100,6 +100,46 @@
             position: relative;
             z-index: 10;
         }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-linear {
+            background-size: 200% 200%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .animate-float-slow {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
 
@@ -851,148 +891,234 @@
             </div>
 
             <!-- Right Column: Stateful Checkout -->
-            <div class="w-full lg:w-2/5 lg:sticky lg:top-32">
+            <div class="w-full lg:w-2/5 lg:sticky lg:top-28">
 
+                <!-- State 1: Requirements Check Form -->
                 <div id="state1"
-                    class="bg-white rounded-3xl border border-slate-100 p-8 shadow-2xl shadow-slate-200/50 relative z-30">
+                    class="relative group bg-white/95 backdrop-blur-xl rounded-[1.75rem] p-5 border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_60px_rgba(37,99,235,0.14)] transition-all duration-500 z-30 overflow-hidden">
+                    
+                    <!-- Top Animated Accent Line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-[linear-gradient(90deg,#2563eb,#6366f1,#06b6d4,#2563eb)] animate-gradient-linear"></div>
 
-                    <div class="space-y-5">
-                        <div class="flex justify-center items-center mb-8">
-                            <h3 class="text-[17px] uppercase tracking-[0.15em] font-black text-slate-700 flex items-center gap-3"
-                                id="state1-country"><img src=""
-                                    class="w-7 h-7 object-cover rounded-full border border-slate-200 shadow-sm"
-                                    id="state1-flag"> </h3>
+                    <!-- Dark Header Banner -->
+                    <div class="bg-gradient-to-r from-slate-900 via-slate-950 to-blue-950 text-white rounded-2xl p-3.5 sm:p-4 flex items-center justify-between mb-4 shadow-md border border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full border-2 border-white/20 overflow-hidden shrink-0 bg-slate-800 flex items-center justify-center shadow-sm">
+                                <img src="" class="w-full h-full object-cover" id="state1-flag" alt="Flag">
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 block leading-none mb-1">Destination</span>
+                                <h3 class="font-serif text-[15px] font-black text-white tracking-tight leading-none" id="state1-country-name">
+                                    United Arab Emirates
+                                </h3>
+                            </div>
                         </div>
+                        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-extrabold uppercase tracking-wider shrink-0">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            Live Check
+                        </div>
+                    </div>
 
+                    <!-- Input Form Fields (High-Density Modern Card Grid) -->
+                    <div class="space-y-3.5">
+                        <!-- Passport Dropdown -->
                         <div>
-                            <label
-                                class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Which
-                                passport do you hold?</label>
+                            <label class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-slate-800 mb-1.5 flex items-center gap-2">
+                                <span class="w-4 h-4 rounded-md bg-blue-100/90 text-blue-600 flex items-center justify-center text-[10px] shadow-2xs shrink-0">
+                                    <i class="fa-solid fa-passport"></i>
+                                </span>
+                                Passport Nationality
+                            </label>
                             <div class="relative" id="customPassportDropdown">
                                 <input type="hidden" id="passportCountry" value="IN">
                                 <div id="passportTrigger"
-                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 flex justify-between items-center cursor-pointer"
+                                    class="w-full bg-white hover:bg-slate-50/50 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs font-extrabold text-slate-900 outline-none focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all shadow-xs flex justify-between items-center cursor-pointer group/trigger"
                                     tabindex="0">
-                                    <span id="passportSelectedText">India</span>
-                                    <i class="fa-solid fa-earth-americas text-slate-400 text-xs"></i>
+                                    <div class="flex items-center gap-2.5">
+                                        <img id="passportSelectedFlag" src="https://flagcdn.com/w40/in.png" class="w-5 h-3.5 object-cover rounded-xs border border-slate-200 shadow-2xs shrink-0" alt="Flag" onerror="this.style.display='none'">
+                                        <span id="passportSelectedText" class="font-extrabold text-slate-900">India</span>
+                                    </div>
+                                    <i id="passportChevron" class="fa-solid fa-chevron-down text-slate-400 text-[10px] transition-transform duration-300 group-hover/trigger:text-blue-600"></i>
                                 </div>
                                 <div id="passportMenu"
-                                    class="absolute left-0 right-0 top-full mt-2 bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/50 z-50 hidden max-h-[18rem] overflow-y-auto custom-scrollbar p-2">
+                                    class="absolute left-0 right-0 top-full mt-1.5 bg-white/98 backdrop-blur-2xl border border-slate-200 rounded-2xl shadow-2xl shadow-slate-900/15 z-50 hidden max-h-[17rem] overflow-y-auto custom-scrollbar p-2">
                                     <!-- Injected via JS -->
                                 </div>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="relative">
-                                <label
-                                    class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Arrival</label>
-                                <input id="arrivalDate" type="text"
-                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 cursor-pointer text-center"
-                                    placeholder="dd-mm-yyyy">
-                                <i
-                                    class="fa-regular fa-calendar-days text-slate-400 absolute right-4 bottom-3.5 pointer-events-none text-xs"></i>
+                        <!-- Travel Dates Grid -->
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-slate-800 mb-1.5 flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-md bg-emerald-100/90 text-emerald-600 flex items-center justify-center text-[10px] shadow-2xs shrink-0">
+                                        <i class="fa-solid fa-plane-arrival"></i>
+                                    </span>
+                                    Arrival Date
+                                </label>
+                                <div class="relative">
+                                    <input id="arrivalDate" type="text"
+                                        class="w-full bg-white hover:bg-slate-50/50 border border-slate-200/90 rounded-xl pl-3 pr-8 py-2.5 text-xs font-extrabold text-slate-900 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-xs cursor-pointer text-center"
+                                        placeholder="dd-mm-yyyy">
+                                    <i class="fa-regular fa-calendar-days text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[11px]"></i>
+                                </div>
                             </div>
-                            <div class="relative">
-                                <label
-                                    class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Departure</label>
-                                <input id="departureDate" type="text"
-                                    class="w-full bg-slate-50/50 hover:bg-slate-50 border border-slate-200/60 rounded-xl px-4 py-3 text-sm font-black text-slate-900 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm shadow-slate-100 cursor-pointer text-center"
-                                    placeholder="dd-mm-yyyy">
-                                <i
-                                    class="fa-regular fa-calendar-days text-slate-400 absolute right-4 bottom-3.5 pointer-events-none text-xs"></i>
+                            <div>
+                                <label class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-slate-800 mb-1.5 flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-md bg-indigo-100/90 text-indigo-600 flex items-center justify-center text-[10px] shadow-2xs shrink-0">
+                                        <i class="fa-solid fa-plane-departure"></i>
+                                    </span>
+                                    Departure Date
+                                </label>
+                                <div class="relative">
+                                    <input id="departureDate" type="text"
+                                        class="w-full bg-white hover:bg-slate-50/50 border border-slate-200/90 rounded-xl pl-3 pr-8 py-2.5 text-xs font-extrabold text-slate-900 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-xs cursor-pointer text-center"
+                                        placeholder="dd-mm-yyyy">
+                                    <i class="fa-regular fa-calendar-days text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[11px]"></i>
+                                </div>
                             </div>
                         </div>
 
+                        <!-- Dynamic Duration Indicator Pill -->
+                        <div id="tripDurationPill" class="hidden items-center justify-between bg-blue-50/90 border border-blue-100 rounded-xl px-3.5 py-2 text-[11px] font-bold text-blue-700 shadow-2xs">
+                            <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-blue-600 text-xs"></i> Estimated Duration:</span>
+                            <span id="tripDurationText" class="font-extrabold text-blue-900 bg-white px-2 py-0.5 rounded-lg border border-blue-200/60 shadow-2xs">12 Days</span>
+                        </div>
+
+                        <!-- Travellers Counter -->
                         <div>
-                            <label
-                                class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 block">Travellers</label>
-                            <div
-                                class="w-full bg-slate-50/50 border border-slate-200/60 rounded-xl p-1 text-sm font-bold text-slate-700 flex justify-between items-center shadow-sm">
-                                <button type="button"
-                                    class="w-9 h-9 flex justify-center items-center rounded-lg text-slate-400 cursor-not-allowed bg-white shadow-sm"><i
-                                        class="fa-solid fa-minus text-[10px]"></i></button>
-                                <span>1 Adult</span>
-                                <button type="button"
-                                    class="w-9 h-9 flex justify-center items-center rounded-lg text-slate-400 cursor-not-allowed bg-white shadow-sm"><i
-                                        class="fa-solid fa-plus text-[10px]"></i></button>
+                            <label class="text-[11px] font-extrabold uppercase tracking-[0.14em] text-slate-800 mb-1.5 flex items-center gap-2">
+                                <span class="w-4 h-4 rounded-md bg-purple-100/90 text-purple-600 flex items-center justify-center text-[10px] shadow-2xs shrink-0">
+                                    <i class="fa-solid fa-users"></i>
+                                </span>
+                                Travellers
+                            </label>
+                            <div class="w-full bg-white border border-slate-200/90 rounded-xl p-1 text-xs font-extrabold text-slate-900 flex justify-between items-center shadow-xs">
+                                <button type="button" id="decTraveller"
+                                    class="w-7 h-7 flex justify-center items-center rounded-lg text-slate-700 bg-slate-100 hover:bg-slate-200 active:scale-95 transition-all cursor-pointer shadow-2xs border border-slate-200/80">
+                                    <i class="fa-solid fa-minus text-[9px]"></i>
+                                </button>
+                                <span id="travellerDisplay" class="font-extrabold text-slate-900 text-xs tracking-wide">1 Adult</span>
+                                <button type="button" id="incTraveller"
+                                    class="w-7 h-7 flex justify-center items-center rounded-lg text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all cursor-pointer shadow-xs">
+                                    <i class="fa-solid fa-plus text-[9px]"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Error Alert Box -->
                     <div id="modalError"
-                        class="hidden text-xs text-red-600 bg-red-50 p-3 rounded-xl border border-red-100 font-medium mt-4">
+                        class="hidden text-xs text-red-600 bg-red-50 p-3 rounded-xl border border-red-100 font-bold mt-3 animate-shake">
                     </div>
 
+                    <!-- Check CTA Button -->
                     <button onclick="runCheck()"
-                        class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-[15px] py-4 rounded-xl transition-all shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 mt-6"
+                        class="group/btn relative w-full overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 active:scale-[0.98] text-white font-black text-xs py-3.5 rounded-xl transition-all duration-300 shadow-[0_8px_20px_rgba(37,99,235,0.35)] hover:shadow-[0_12px_28px_rgba(37,99,235,0.45)] flex items-center justify-center gap-2 mt-4 cursor-pointer"
                         type="button">
-                        Check Visa Requirements <i class="fa-solid fa-arrow-right"></i>
+                        <span class="relative z-10 flex items-center gap-2 tracking-wide">
+                            Check Visa Requirements 
+                            <i class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                        </span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.3s_infinite]"></span>
                     </button>
 
-                    <div class="mt-5 flex items-center justify-center gap-2 text-slate-400">
-                        <i class="fa-solid fa-lock text-[10px]"></i>
-                        <p class="text-[9px] font-bold uppercase tracking-widest">Your information is kept secure</p>
+                    <!-- Security Row (Compact Horizontal) -->
+                    <div class="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-around text-center text-slate-400 text-[9px] font-extrabold uppercase tracking-wider">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-blue-500"></i> 256-Bit SSL</span>
+                        <span class="text-slate-200">•</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-500"></i> Instant Check</span>
+                        <span class="text-slate-200">•</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-shield-heart text-emerald-500"></i> Guarantee</span>
                     </div>
                 </div>
 
+                <!-- State 2: Requirements Result & Fee Breakdown -->
                 <div id="state2"
-                    class="bg-white rounded-3xl border border-slate-100 p-8 shadow-2xl shadow-slate-200/50 relative z-30 hidden">
-                    <button
-                        onclick="document.getElementById('state2').classList.add('hidden'); document.getElementById('state1').classList.remove('hidden');"
-                        class="absolute top-8 right-8 text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors bg-slate-50 hover:bg-blue-50 px-3 py-1.5 rounded-lg border border-slate-200 hover:border-blue-200">Edit</button>
+                    class="relative group bg-white/95 backdrop-blur-xl rounded-[1.75rem] p-5 border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.08)] relative z-30 hidden overflow-hidden">
+                    
+                    <!-- Decorative Animated Accent Bar -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-[linear-gradient(90deg,#10b981,#14b8a6,#3b82f6,#10b981)] animate-gradient-linear"></div>
 
-                    <div class="flex justify-center items-center mb-8 mt-2">
-                        <h3 class="text-[17px] uppercase tracking-[0.15em] font-black text-slate-700 flex items-center gap-3"
-                            id="res-country"><img src=""
-                                class="w-7 h-7 object-cover rounded-full border border-slate-200 shadow-sm"
-                                id="res-flag"> Thailand</h3>
+                    <!-- Header Row: Country Flag & Edit Button -->
+                    <div class="bg-gradient-to-r from-slate-900 via-slate-950 to-blue-950 text-white rounded-2xl p-3.5 sm:p-4 flex items-center justify-between mb-4 shadow-md border border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full border-2 border-white/20 overflow-hidden shrink-0 bg-slate-800 flex items-center justify-center shadow-sm">
+                                <img src="" class="w-full h-full object-cover" id="res-flag" alt="Flag">
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 block leading-none mb-1">Destination</span>
+                                <h3 class="font-serif text-[15px] font-black text-white tracking-tight leading-none" id="res-country-name">
+                                    United Arab Emirates
+                                </h3>
+                            </div>
+                        </div>
+                        <button
+                            onclick="document.getElementById('state2').classList.add('hidden'); document.getElementById('state1').classList.remove('hidden');"
+                            class="text-[10px] font-extrabold uppercase tracking-wider text-slate-300 hover:text-white transition-all bg-slate-800 hover:bg-slate-700 px-2.5 py-1 rounded-lg border border-slate-700 flex items-center gap-1 cursor-pointer shrink-0">
+                            <i class="fa-solid fa-pen-to-square text-[9px]"></i> Edit
+                        </button>
                     </div>
 
+                    <!-- Status Badge -->
                     <div id="res-badge"
-                        class="bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-xl p-3 flex gap-2 items-center font-bold text-sm mb-5">
-                        <i class="fa-solid fa-check"></i> <span id="res-badge-text">Visa-free entry</span>
+                        class="bg-emerald-50 text-emerald-800 border border-emerald-200/70 rounded-xl p-3 flex gap-2.5 items-center font-extrabold text-xs mb-3 shadow-2xs">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> 
+                        <span id="res-badge-text">Visa-free entry</span>
                     </div>
 
-                    <div class="flex justify-between items-center border-b border-slate-100 pb-3 mb-3">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Maximum stay</span>
-                        <span class="text-sm font-bold text-slate-900" id="res-max-stay">60 days</span>
-                    </div>
-                    <div class="flex justify-between items-center mb-5 border-b border-slate-100 pb-3">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Your trip</span>
-                        <span class="text-sm font-bold text-slate-900" id="res-trip">12 days</span>
-                    </div>
-
-                    <div class="space-y-2 mb-5">
-                        <div class="flex justify-between items-center">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Government visa
-                                fee</span>
-                            <span class="text-sm font-bold text-slate-900" id="res-gov-fee">₹0</span>
+                    <!-- Trip Specs Grid -->
+                    <div class="bg-slate-50/80 rounded-xl p-3 border border-slate-200/70 space-y-2 mb-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">Maximum Stay</span>
+                            <span class="font-black text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-2xs" id="res-max-stay">60 days</span>
                         </div>
-                        <div class="flex justify-between items-center pb-3 border-b border-dashed border-slate-300">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Traviora
-                                service fee</span>
-                            <span class="text-sm font-bold text-slate-900" id="res-svc-fee">₹0</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-2">
-                            <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Total</span>
-                            <span class="text-xl font-black text-slate-900" id="res-total">₹0</span>
+                        <div class="flex justify-between items-center text-xs pt-1.5 border-t border-slate-200/60">
+                            <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">Your Trip Duration</span>
+                            <span class="font-black text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-2xs" id="res-trip">12 days</span>
                         </div>
                     </div>
 
+                    <!-- Dark Luxury Pricing Box -->
+                    <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white rounded-xl p-4 shadow-lg relative overflow-hidden mb-3 border border-slate-800">
+                        <div class="space-y-2 relative z-10">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Govt Visa Fee</span>
+                                <span class="font-black text-white" id="res-gov-fee">₹0</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs pb-2 border-b border-slate-800">
+                                <span class="font-bold text-slate-400 uppercase tracking-wider text-[10px]">Service Fee</span>
+                                <span class="font-black text-white" id="res-svc-fee">₹0</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-1">
+                                <div>
+                                    <span class="text-xs font-black uppercase tracking-wider text-slate-200 block">Total Payable</span>
+                                    <span class="text-[9px] text-slate-400">All inclusive</span>
+                                </div>
+                                <span class="text-xl font-black text-emerald-400 tracking-tight font-serif" id="res-total">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Requirement Badge -->
                     <div id="res-app-badge"
-                        class="flex gap-2 text-slate-700 font-bold text-xs mb-6 items-center bg-slate-50 rounded-lg p-3 border border-slate-200">
-                        <i class="fa-solid fa-check text-emerald-500" id="res-app-icon"></i> <span id="res-app-text">No
-                            visa application required</span>
+                        class="flex gap-2 text-slate-700 font-extrabold text-xs mb-3 items-center bg-blue-50/60 rounded-xl p-2.5 border border-blue-100">
+                        <i class="fa-solid fa-check text-emerald-500 text-sm shrink-0" id="res-app-icon"></i> 
+                        <span id="res-app-text" class="text-slate-800 font-bold leading-tight text-xs">No visa application required</span>
                     </div>
 
+                    <!-- Primary Continue CTA -->
                     <button id="res-continue-btn"
-                        class="w-full bg-slate-900 text-white font-bold text-sm py-4 rounded-xl hover:bg-black transition shadow-lg shadow-black/10 flex items-center justify-center gap-2 mb-4">
-                        Continue <i class="fa-solid fa-arrow-right text-xs"></i>
+                        class="group/cont relative w-full overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 active:scale-[0.98] text-white font-black text-xs py-3.5 rounded-xl transition-all shadow-[0_8px_20px_rgba(37,99,235,0.35)] flex items-center justify-center gap-2 cursor-pointer mb-2.5">
+                        <span>Continue to Application</span> <i class="fa-solid fa-arrow-right text-[10px] group-hover/cont:translate-x-1 transition-transform"></i>
                     </button>
 
-                    <p class="text-[10px] text-center text-slate-400 font-medium">Final entry is determined by
-                        immigration.</p>
+                    <p class="text-[9px] text-center text-slate-400 font-bold flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-shield text-[9px] text-slate-400"></i> Final entry determination by official immigration.
+                    </p>
                 </div>
 
             </div>
@@ -1156,51 +1282,173 @@
         const passportMenu = document.getElementById('passportMenu');
         const passportTrigger = document.getElementById('passportTrigger');
         const passportSelectedText = document.getElementById('passportSelectedText');
+        const passportSelectedFlag = document.getElementById('passportSelectedFlag');
+        const passportChevron = document.getElementById('passportChevron');
 
         let selectedCode = urlParams.get('passport') || 'IN';
         let defaultCountry = window.TravioraVisaData.countries.find(c => c.code === selectedCode);
         if (defaultCountry) {
             passportInput.value = defaultCountry.code;
             passportSelectedText.innerText = defaultCountry.name;
+            if (passportSelectedFlag) {
+                passportSelectedFlag.src = `https://flagcdn.com/w40/${defaultCountry.code.toLowerCase()}.png`;
+            }
         }
 
-        passportMenu.innerHTML = window.TravioraVisaData.countries.map(c => `
-            <div class="px-4 py-3 hover:bg-slate-50 cursor-pointer rounded-xl text-sm font-bold text-slate-700 hover:text-slate-900 transition flex items-center justify-between" onclick="selectPassport('${c.code}', '${c.name.replace(/'/g, "\\'")}')">
-                ${c.name}
-                ${c.code === selectedCode ? '<i class="fa-solid fa-check text-blue-600"></i>' : ''}
-            </div>
-        `).join('');
+        const renderPassportOptions = (activeCode, filterText = '') => {
+            const filtered = window.TravioraVisaData.countries.filter(c => 
+                c.name.toLowerCase().includes(filterText.toLowerCase()) || 
+                c.code.toLowerCase().includes(filterText.toLowerCase())
+            );
 
-        passportTrigger.onclick = () => passportMenu.classList.toggle('hidden');
+            let html = `
+                <div class="sticky top-0 bg-white pt-1 pb-2 border-b border-slate-100 mb-1 z-10">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400 text-[10px] absolute left-2.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="passportSearchInput" value="${filterText}" placeholder="Search nationality..." 
+                            class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-7 pr-2.5 py-1.5 text-[11px] font-bold text-slate-900 focus:bg-white focus:border-blue-500 outline-none transition"
+                            oninput="filterPassportList(this.value, '${activeCode}')" onclick="event.stopPropagation()">
+                    </div>
+                </div>
+                <div class="space-y-0.5">
+            `;
+
+            if (filtered.length === 0) {
+                html += `<div class="p-3 text-center text-xs font-bold text-slate-400">No nationality found</div>`;
+            } else {
+                html += filtered.map(c => `
+                    <div class="px-3 py-2 hover:bg-blue-50/80 cursor-pointer rounded-xl text-xs font-extrabold text-slate-800 hover:text-blue-700 transition flex items-center justify-between group/item ${c.code === activeCode ? 'bg-blue-50/50 text-blue-700' : ''}" 
+                        onclick="selectPassport('${c.code}', '${c.name.replace(/'/g, "\\'")}')">
+                        <span class="flex items-center gap-2.5">
+                            <img src="https://flagcdn.com/w40/${c.code.toLowerCase()}.png" class="w-5 h-3.5 object-cover rounded-xs border border-slate-200 shadow-2xs" alt="" onerror="this.style.display='none'">
+                            ${c.name}
+                        </span>
+                        ${c.code === activeCode ? '<i class="fa-solid fa-circle-check text-blue-600 text-sm"></i>' : '<i class="fa-solid fa-chevron-right text-[10px] text-slate-300 group-hover/item:text-blue-400 group-hover/item:translate-x-0.5 transition-all"></i>'}
+                    </div>
+                `).join('');
+            }
+
+            html += `</div>`;
+            return html;
+        };
+
+        window.filterPassportList = (text, activeCode) => {
+            passportMenu.innerHTML = renderPassportOptions(activeCode, text);
+            const searchInput = document.getElementById('passportSearchInput');
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.setSelectionRange(text.length, text.length);
+            }
+        };
+
+        passportMenu.innerHTML = renderPassportOptions(selectedCode);
+
+        passportTrigger.onclick = () => {
+            passportMenu.classList.toggle('hidden');
+            if (passportChevron) passportChevron.classList.toggle('rotate-180');
+            if (!passportMenu.classList.contains('hidden')) {
+                setTimeout(() => {
+                    const searchInput = document.getElementById('passportSearchInput');
+                    if (searchInput) searchInput.focus();
+                }, 50);
+            }
+        };
 
         window.selectPassport = (code, name) => {
             passportInput.value = code;
             passportSelectedText.innerText = name;
+            if (passportSelectedFlag) {
+                passportSelectedFlag.src = `https://flagcdn.com/w40/${code.toLowerCase()}.png`;
+                passportSelectedFlag.style.display = 'block';
+            }
             passportMenu.classList.add('hidden');
-
-            // Re-render menu to update checkmark
-            passportMenu.innerHTML = window.TravioraVisaData.countries.map(c => `
-                <div class="px-4 py-3 hover:bg-slate-50 cursor-pointer rounded-xl text-sm font-bold text-slate-700 hover:text-slate-900 transition flex items-center justify-between" onclick="selectPassport('${c.code}', '${c.name.replace(/'/g, "\\'")}')">
-                    ${c.name}
-                    ${c.code === code ? '<i class="fa-solid fa-check text-blue-600"></i>' : ''}
-                </div>
-            `).join('');
+            if (passportChevron) passportChevron.classList.remove('rotate-180');
+            passportMenu.innerHTML = renderPassportOptions(code);
         };
 
         document.addEventListener('click', (e) => {
             if (!document.getElementById('customPassportDropdown').contains(e.target)) {
                 passportMenu.classList.add('hidden');
+                if (passportChevron) passportChevron.classList.remove('rotate-180');
             }
         });
 
-        // Initialize FlatPickr Native Replacements
-        flatpickr("#arrivalDate", { dateFormat: "d-m-Y" });
-        flatpickr("#departureDate", { dateFormat: "d-m-Y" });
+        // Dynamic Trip Duration Calculator
+        function updateTripDuration() {
+            const arr = document.getElementById('arrivalDate')?.value;
+            const dep = document.getElementById('departureDate')?.value;
+            const pill = document.getElementById('tripDurationPill');
+            const text = document.getElementById('tripDurationText');
+            if (arr && dep && pill && text) {
+                const partsArr = arr.split('-');
+                const partsDep = dep.split('-');
+                if (partsArr.length === 3 && partsDep.length === 3) {
+                    const dateArr = new Date(partsArr[2], partsArr[1] - 1, partsArr[0]);
+                    const dateDep = new Date(partsDep[2], partsDep[1] - 1, partsDep[0]);
+                    const diffTime = dateDep - dateArr;
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    if (diffDays > 0) {
+                        text.innerText = diffDays + (diffDays === 1 ? ' Day' : ' Days');
+                        pill.classList.remove('hidden');
+                        pill.classList.add('flex');
+                    } else {
+                        pill.classList.add('hidden');
+                        pill.classList.remove('flex');
+                    }
+                }
+            }
+        }
 
-        const flagUrl = `https://flagcdn.com/w40/${visa.destination.toLowerCase()}.png`;
-        document.getElementById('state1-flag').src = flagUrl;
-        document.getElementById('res-flag').src = flagUrl;
-        document.getElementById('state1-country').append(destQuery);
+        // Initialize FlatPickr
+        flatpickr("#arrivalDate", { dateFormat: "d-m-Y", onChange: updateTripDuration });
+        flatpickr("#departureDate", { dateFormat: "d-m-Y", onChange: updateTripDuration });
+
+        // Travellers Counter Logic
+        let travellerCount = 1;
+        const travellerDisplay = document.getElementById('travellerDisplay');
+        const decTravellerBtn = document.getElementById('decTraveller');
+        const incTravellerBtn = document.getElementById('incTraveller');
+
+        if (decTravellerBtn && incTravellerBtn && travellerDisplay) {
+            decTravellerBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (travellerCount > 1) {
+                    travellerCount--;
+                    travellerDisplay.innerText = travellerCount + (travellerCount === 1 ? ' Adult' : ' Adults');
+                }
+            };
+            incTravellerBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (travellerCount < 10) {
+                    travellerCount++;
+                    travellerDisplay.innerText = travellerCount + ' Adults';
+                }
+            };
+        }
+
+        const finalCountryName = (countryData && countryData.name) ? countryData.name : (visa.countryName || destQuery);
+        const flagCode = visa.destination ? visa.destination.toLowerCase() : 'th';
+        const flagUrl = `https://flagcdn.com/w80/${flagCode}.png`;
+        const svgFlagUrl = `https://purecatamphetamine.github.io/country-flag-icons/3x2/${flagCode.toUpperCase()}.svg`;
+
+        const state1Flag = document.getElementById('state1-flag');
+        const resFlag = document.getElementById('res-flag');
+        if (state1Flag) {
+            state1Flag.src = flagUrl;
+            state1Flag.onerror = function() { this.onerror = null; this.src = svgFlagUrl; };
+        }
+        if (resFlag) {
+            resFlag.src = flagUrl;
+            resFlag.onerror = function() { this.onerror = null; this.src = svgFlagUrl; };
+        }
+        const state1CountryName = document.getElementById('state1-country-name');
+        if (state1CountryName) {
+            state1CountryName.innerText = finalCountryName;
+        }
+        const resCountryName = document.getElementById('res-country-name');
+        if (resCountryName) {
+            resCountryName.innerText = finalCountryName;
+        }
 
         function runCheck() {
             const passport = document.getElementById('passportCountry').value;
@@ -1230,7 +1478,8 @@
 
             err.classList.add('hidden');
 
-            document.getElementById('res-country').childNodes[1].nodeValue = " " + destQuery;
+            const resCountryNameEl = document.getElementById('res-country-name');
+            if (resCountryNameEl) resCountryNameEl.innerText = destQuery + ' Visa';
             document.getElementById('res-max-stay').innerText = result.maxStay + " days";
             document.getElementById('res-trip').innerText = result.duration > 0 ? (result.duration + " days") : "Not specified";
 

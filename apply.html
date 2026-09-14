@@ -29,14 +29,22 @@
         .form-input, .form-select, .form-textarea {
             width: 100%;
             background-color: #f8fafc;
-            border: 1px solid transparent;
-            border-radius: 1rem;
-            padding: 1rem 1.25rem;
-            font-size: 0.95rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
             font-weight: 600;
             color: #0f172a;
             outline: none;
             transition: all 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .form-input, .form-select, .form-textarea {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+                border-radius: 1rem;
+            }
         }
 
         .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -52,7 +60,7 @@
             color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.4rem;
         }
 
         .form-select {
@@ -72,7 +80,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .step-item { transition: all 0.3s; margin-left: -0.5rem; padding: 0.5rem; border-radius: 1rem; }
+        .step-item { transition: all 0.3s; margin-left: 0; padding: 0.4rem 0.6rem; border-radius: 9999px; }
+        @media (min-width: 768px) {
+            .step-item { margin-left: -0.5rem; padding: 0.5rem; border-radius: 1rem; }
+        }
         .step-item.active { background-color: #eff6ff; }
         .step-item.active .step-num { background-color: #2563eb; color: white; }
         .step-item.active .step-title { font-weight: 800; color: #0f172a; }
@@ -105,75 +116,77 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-[#f0f4f8] text-slate-800 h-screen overflow-hidden p-4 md:p-6 lg:p-8">
+<body class="bg-[#f0f4f8] text-slate-800 min-h-screen md:h-screen md:overflow-hidden p-3 sm:p-4 md:p-6 lg:p-8">
     
-    <div class="max-w-[1440px] mx-auto h-full flex flex-col md:flex-row gap-4 lg:gap-6">
+    <div class="max-w-[1440px] mx-auto min-h-[calc(100vh-1.5rem)] md:h-full flex flex-col md:flex-row gap-3.5 md:gap-4 lg:gap-6 pb-4 md:pb-0">
 
         <!-- Left Sidebar Structure (Process Bar) -->
-        <div class="w-full md:w-[320px] lg:w-[380px] flex-shrink-0 flex flex-col gap-4 lg:gap-6 h-full z-10">
+        <div class="w-full md:w-[320px] lg:w-[380px] flex-shrink-0 flex flex-col gap-3 md:gap-4 lg:gap-6 z-10" id="sidebarContainer">
             <!-- Top Logo Box -->
-            <div class="bg-white rounded-[2rem] p-5 flex items-center justify-between shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                <button onclick="window.history.back()" class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-100 transition"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="bg-white rounded-2xl md:rounded-[2rem] p-3.5 md:p-5 flex items-center justify-between shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
+                <button onclick="window.history.back()" class="w-9 h-9 md:w-10 md:h-10 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-100 transition"><i class="fa-solid fa-arrow-left text-xs md:text-sm"></i></button>
                 <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
                 <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
                     class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
-                <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
+                <span class="text-xs md:text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IORA</span></span>
             </a>
             </div>
             
             <!-- Process Box -->
-            <div class="bg-white rounded-[2rem] p-6 lg:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative flex-grow overflow-y-auto hidden-scrollbar">
+            <div class="bg-white rounded-2xl md:rounded-[2rem] p-4 md:p-6 lg:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative flex-grow overflow-y-auto hidden-scrollbar">
                 
-                <div class="mb-5 relative z-10">
-                    <span id="sidebarRouteBadge" class="bg-blue-50 text-blue-600 text-[8px] font-black px-2.5 py-1 rounded-full inline-block tracking-widest uppercase mb-2">EVISA</span>
-                    <h2 id="sidebarTitle" class="text-2xl lg:text-3xl font-serif font-bold mb-1.5 text-[#0f172a] leading-tight pr-4">Thailand Tourist Visa</h2>
-                    <p id="sidebarSubtitle" class="text-[10px] text-slate-500 font-medium tracking-wide">Thailand • 3-5 days • 3 required docs</p>
-                    <div class="mt-3 pt-3 border-t border-slate-100" id="trackingIdDisplay" style="display: none;">
-                        <p class="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Application ID</p>
-                        <p class="text-[11px] font-black text-blue-600" id="navTrackId">-</p>
+                <div class="mb-3 md:mb-5 relative z-10 flex flex-row md:flex-col justify-between items-start md:items-start">
+                    <div>
+                        <span id="sidebarRouteBadge" class="bg-blue-50 text-blue-600 text-[8px] font-black px-2.5 py-1 rounded-full inline-block tracking-widest uppercase mb-1 md:mb-2">EVISA</span>
+                        <h2 id="sidebarTitle" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold mb-0.5 md:mb-1.5 text-[#0f172a] leading-tight pr-2 md:pr-4">Thailand Tourist Visa</h2>
+                        <p id="sidebarSubtitle" class="text-[9px] sm:text-[10px] text-slate-500 font-medium tracking-wide">Thailand • 3-5 days • 3 required docs</p>
+                    </div>
+                    <div class="mt-0 md:mt-3 md:pt-3 md:border-t border-slate-100 text-right md:text-left shrink-0" id="trackingIdDisplay" style="display: none;">
+                        <p class="text-[7px] md:text-[8px] font-bold text-slate-400 uppercase tracking-widest">Application ID</p>
+                        <p class="text-[10px] md:text-[11px] font-black text-blue-600" id="navTrackId">-</p>
                     </div>
                 </div>
                 
                 <!-- Watermark Logo Image Overlay -->
-                <div class="absolute right-0 top-12 opacity-[0.03] pointer-events-none overflow-hidden">
+                <div class="absolute right-0 top-12 opacity-[0.03] pointer-events-none overflow-hidden hidden md:block">
                     <i class="fa-solid fa-globe text-7xl translate-x-1/3"></i>
                 </div>
                 
                 <!-- Steps List -->
-                <div class="space-y-0 flex-grow relative z-10 -ml-1">
-                    <div class="flex items-center gap-3 step-item active" id="navStep1">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>1</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Identity</span>
+                <div class="flex flex-row md:flex-col overflow-x-auto md:overflow-y-auto gap-1.5 md:gap-0 flex-grow relative z-10 -ml-1 py-1 md:py-0 hidden-scrollbar shrink-0">
+                    <div class="flex items-center gap-2 md:gap-3 step-item active shrink-0" id="navStep1">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>1</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Identity</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep2">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>2</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Applicant</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep2">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>2</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Applicant</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep3">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>3</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Passport</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep3">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>3</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Passport</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep4">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>4</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Travel</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep4">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>4</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Travel</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep5">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>5</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Accommodation</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep5">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>5</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Accommodation</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep6">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>6</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Documents</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep6">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>6</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Documents</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep7">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>7</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Review</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep7">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>7</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Review</span>
                     </div>
-                    <div class="flex items-center gap-3 step-item" id="navStep8">
-                        <div class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[10px] font-bold step-num"><span>8</span></div>
-                        <span class="text-xs font-bold text-slate-500 step-title">Payment</span>
+                    <div class="flex items-center gap-2 md:gap-3 step-item shrink-0" id="navStep8">
+                        <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] md:text-[10px] font-bold step-num"><span>8</span></div>
+                        <span class="text-[11px] md:text-xs font-bold text-slate-500 step-title">Payment</span>
                     </div>
                 </div>
                 
@@ -181,14 +194,14 @@
         </div>
 
         <!-- Right Main Content Area -->
-        <div class="flex-grow bg-white rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-8 md:p-10 lg:p-14 h-full overflow-y-auto relative hidden-scrollbar" id="formContainer">
+        <div class="flex-grow bg-white rounded-2xl md:rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-6 md:p-10 lg:p-14 h-auto md:h-full overflow-y-auto relative hidden-scrollbar" id="formContainer">
             
             <!-- STEP 1: Pre-Fill (Identity Entry) -->
             <div id="step1" class="step-transition">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Let's get started</h1>
-                <p class="text-slate-500 mb-8 font-medium">Verify your contact details to begin securely saving your progress.</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Let's get started</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Verify your contact details to begin securely saving your progress.</p>
                 
-                <div class="space-y-5">
+                <div class="space-y-4 sm:space-y-5">
                     <div>
                         <label class="form-label">Email Address</label>
                         <input type="email" id="cEmail" class="form-input" placeholder="name@example.com" value="user@example.com">
@@ -199,18 +212,18 @@
                     </div>
                 </div>
 
-                <div class="mt-10">
-                    <button type="button" onclick="goToStep(2)" class="w-full md:w-auto bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Continue to Application</button>
-                    <p class="mt-3 text-[10px] text-slate-400 font-bold tracking-wider">A TRACKING ID WILL BE GENERATED AUTOMATICALLY</p>
+                <div class="mt-8 sm:mt-10">
+                    <button type="button" onclick="goToStep(2)" class="w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Continue to Application</button>
+                    <p class="mt-3 text-[9px] sm:text-[10px] text-slate-400 font-bold tracking-wider">A TRACKING ID WILL BE GENERATED AUTOMATICALLY</p>
                 </div>
             </div>
 
             <!-- STEP 2: Applicant Profile -->
             <div id="step2" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Applicant Details</h1>
-                <p class="text-slate-500 mb-8 font-medium">Tell us about the traveller.</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Applicant Details</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Tell us about the traveller.</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-6 md:gap-y-5 flex-grow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-x-6 md:gap-y-5 flex-grow">
                     <div class="md:col-span-2">
                         <label class="form-label">Full Legal Name As On Passport</label>
                         <input type="text" id="cName" class="form-input" placeholder="e.g. John Doe">
@@ -250,31 +263,31 @@
                             <option>Divorced</option>
                         </select>
                     </div>
-                    <div class="md:col-span-2 mt-2">
+                    <div class="md:col-span-2 mt-1 sm:mt-2">
                         <label class="form-label">Current Registered Address</label>
-                        <textarea id="cAddress" class="form-textarea h-24 resize-none" placeholder="Enter physical address..."></textarea>
+                        <textarea id="cAddress" class="form-textarea h-20 sm:h-24 resize-none" placeholder="Enter physical address..."></textarea>
                     </div>
                 </div>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(1)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="goToStep(3)" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(1)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="goToStep(3)" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
                 </div>
             </div>
 
             <!-- STEP 3: Passport Details -->
             <div id="step3" class="step-transition hidden">
-                <div class="flex justify-between items-end mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 mb-5 sm:mb-8">
                     <div>
-                        <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Passport Details</h1>
-                        <p class="text-slate-500 font-medium">Enter your official travel document information.</p>
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Passport Details</h1>
+                        <p class="text-xs sm:text-sm text-slate-500 font-medium">Enter your official travel document information.</p>
                     </div>
-                    <button type="button" onclick="simulateOCR()" class="bg-indigo-50 border border-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-[11px] font-black tracking-wider uppercase hover:bg-indigo-100 transition shadow-sm flex items-center gap-2">
+                    <button type="button" onclick="simulateOCR()" class="self-start sm:self-auto bg-indigo-50 border border-indigo-100 text-indigo-600 px-3.5 py-2 rounded-lg text-[10px] sm:text-[11px] font-black tracking-wider uppercase hover:bg-indigo-100 transition shadow-sm flex items-center gap-2">
                         <i class="fa-solid fa-wand-magic-sparkles"></i> Scan Passport
                     </button>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-6 md:gap-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-x-6 md:gap-y-5">
                     <div>
                         <label class="form-label">Passport Number</label>
                         <input type="text" id="pNumber" class="form-input font-mono font-bold tracking-widest uppercase">
@@ -310,18 +323,18 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(2)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="goToStep(4)" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(2)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="goToStep(4)" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
                 </div>
             </div>
 
             <!-- STEP 4: Travel Itinerary -->
             <div id="step4" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Travel Itinerary</h1>
-                <p class="text-slate-500 mb-8 font-medium">When are you travelling and where else have you been?</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Travel Itinerary</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">When are you travelling and where else have you been?</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-x-6 md:gap-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-x-6 md:gap-y-5">
                     <div>
                         <label class="form-label">Arrival Date</label>
                         <input type="date" id="tArr" class="form-input text-slate-500" onchange="calcTrip()">
@@ -331,7 +344,7 @@
                         <input type="date" id="tDep" class="form-input text-slate-500" onchange="calcTrip()">
                     </div>
                     
-                    <div class="md:col-span-2 mb-2 p-3 bg-slate-50 rounded-lg border border-slate-200 hidden" id="tripDurationAlert">
+                    <div class="md:col-span-2 mb-1 sm:mb-2 p-3 bg-slate-50 rounded-lg border border-slate-200 hidden" id="tripDurationAlert">
                         <span class="text-xs font-bold text-slate-600"><i class="fa-solid fa-clock"></i> <span id="tripDurationText">Trip Duration: 0 days</span></span>
                     </div>
 
@@ -345,18 +358,18 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(3)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="validateTravel()" id="btnStep4" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(3)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="validateTravel()" id="btnStep4" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
                 </div>
             </div>
 
             <!-- STEP 5: Accommodation -->
             <div id="step5" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Accommodation</h1>
-                <p class="text-slate-500 mb-8 font-medium">Where will you sleep during your stay?</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Accommodation</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Where will you sleep during your stay?</p>
                 
-                <div class="space-y-6">
+                <div class="space-y-4 sm:space-y-6">
                     <div>
                         <label class="form-label">Accommodation Type</label>
                         <select id="accType" class="form-select" onchange="toggleAccType()">
@@ -367,12 +380,12 @@
                     </div>
                     
                     <!-- Hotel Fields -->
-                    <div id="accHotelFields" class="hidden space-y-5 animate-[fadeIn_0.3s_ease-out]">
+                    <div id="accHotelFields" class="hidden space-y-4 sm:space-y-5 animate-[fadeIn_0.3s_ease-out]">
                         <div>
                             <label class="form-label">Hotel Name</label>
                             <input type="text" id="hName" class="form-input">
                         </div>
-                        <div class="grid grid-cols-2 gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                             <div>
                                 <label class="form-label">City</label>
                                 <input type="text" id="hCity" class="form-input">
@@ -385,7 +398,7 @@
                     </div>
 
                     <!-- Host Fields -->
-                    <div id="accHostFields" class="hidden space-y-5 animate-[fadeIn_0.3s_ease-out]">
+                    <div id="accHostFields" class="hidden space-y-4 sm:space-y-5 animate-[fadeIn_0.3s_ease-out]">
                         <div>
                             <label class="form-label">Host's Full Name</label>
                             <input type="text" id="hstName" class="form-input">
@@ -396,124 +409,124 @@
                         </div>
                         <div>
                             <label class="form-label">Specific Host's Address</label>
-                            <textarea id="hstAddr" class="form-textarea h-24 resize-none"></textarea>
+                            <textarea id="hstAddr" class="form-textarea h-20 sm:h-24 resize-none"></textarea>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(4)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="goToStep(6)" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(4)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="goToStep(6)" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Save & Continue</button>
                 </div>
             </div>
 
             <!-- STEP 6: Documents -->
             <div id="step6" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Required Documents</h1>
-                <p class="text-slate-500 mb-8 font-medium">Please upload clear, legible copies of your documents.</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Required Documents</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Please upload clear, legible copies of your documents.</p>
                 
-                <div id="docsContainer" class="space-y-4">
+                <div id="docsContainer" class="space-y-3.5 sm:space-y-4">
                     <!-- Dynamic Documents Injected via JS -->
                 </div>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(5)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="generateReview(); goToStep(7)" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Proceed to Review</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(5)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="generateReview(); goToStep(7)" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Proceed to Review</button>
                 </div>
             </div>
 
             <!-- STEP 7: Final Review -->
             <div id="step7" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Application Review</h1>
-                <p class="text-slate-500 mb-8 font-medium">Verify all details carefully. Inaccurate info may lead to rejection.</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Application Review</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Verify all details carefully. Inaccurate info may lead to rejection.</p>
                 
                 <!-- Summary Content -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 mb-6 relative">
-                    <button onclick="goToStep(2)" class="absolute top-4 right-4 text-blue-600 hover:text-blue-800 text-xs font-bold uppercase tracking-wider bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md transition"><i class="fa-solid fa-pen mr-1"></i> Edit</button>
-                    <h3 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">Applicant Profile</h3>
-                    <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-sm" id="revProfile">
+                <div class="bg-slate-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-200 mb-4 sm:mb-6 relative">
+                    <button onclick="goToStep(2)" class="absolute top-3 sm:top-4 right-3 sm:right-4 text-blue-600 hover:text-blue-800 text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-blue-50 hover:bg-blue-100 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md transition"><i class="fa-solid fa-pen mr-1"></i> Edit</button>
+                    <h3 class="text-[10px] sm:text-xs font-black text-slate-800 uppercase tracking-widest mb-3 sm:mb-4 border-b border-slate-200 pb-2">Applicant Profile</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-xs sm:text-sm" id="revProfile">
                         <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 mb-6 relative">
-                    <button onclick="goToStep(3)" class="absolute top-4 right-4 text-blue-600 hover:text-blue-800 text-xs font-bold uppercase tracking-wider bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md transition"><i class="fa-solid fa-pen mr-1"></i> Edit</button>
-                    <h3 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">Passport Details</h3>
-                    <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-sm" id="revPassport">
+                <div class="bg-slate-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-200 mb-4 sm:mb-6 relative">
+                    <button onclick="goToStep(3)" class="absolute top-3 sm:top-4 right-3 sm:right-4 text-blue-600 hover:text-blue-800 text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-blue-50 hover:bg-blue-100 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md transition"><i class="fa-solid fa-pen mr-1"></i> Edit</button>
+                    <h3 class="text-[10px] sm:text-xs font-black text-slate-800 uppercase tracking-widest mb-3 sm:mb-4 border-b border-slate-200 pb-2">Passport Details</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-xs sm:text-sm" id="revPassport">
                         <!-- Populated by JS -->
                     </div>
                 </div>
                 
                 <!-- Declaration -->
-                <label class="flex items-start gap-4 p-4 border border-blue-200 bg-blue-50/50 rounded-xl cursor-pointer mt-8">
-                    <input type="checkbox" id="declaration" class="mt-1 w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500">
-                    <span class="text-[11px] text-slate-600 font-medium leading-relaxed">
+                <label class="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 border border-blue-200 bg-blue-50/50 rounded-xl cursor-pointer mt-6 sm:mt-8">
+                    <input type="checkbox" id="declaration" class="mt-0.5 w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500 shrink-0">
+                    <span class="text-[10px] sm:text-[11px] text-slate-600 font-medium leading-relaxed">
                         I hereby declare that all information submitted is structurally true and accurate. I understand that submitting false or misleading information will result in immediate rejection of the visa application and potential future travel bans.
                     </span>
                 </label>
                 
-                <div class="mt-8 flex justify-between items-center border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(6)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
-                    <button type="button" onclick="validateReview()" class="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 disabled:opacity-50" id="btnReview">Proceed to Payment</button>
+                <div class="mt-6 sm:mt-8 flex justify-between items-center border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(6)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
+                    <button type="button" onclick="validateReview()" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 disabled:opacity-50" id="btnReview">Proceed to Payment</button>
                 </div>
             </div>
 
             <!-- STEP 8: Payment -->
             <div id="step8" class="step-transition hidden">
-                <h1 class="text-3xl lg:text-4xl font-serif font-bold mb-2 text-[#0f172a]">Checkout</h1>
-                <p class="text-slate-500 mb-8 font-medium">Finalize your application to <span id="checkoutDest" class="font-bold text-slate-700">Thailand</span>.</p>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 sm:mb-2 text-[#0f172a]">Checkout</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mb-5 sm:mb-8 font-medium">Finalize your application to <span id="checkoutDest" class="font-bold text-slate-700">Thailand</span>.</p>
                 
                 <!-- Invoice -->
-                <div class="bg-white border-2 border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] rounded-2xl p-6 mb-8 max-w-sm mx-auto">
-                    <div class="flex justify-between items-center pb-4 border-b border-slate-100 border-dashed">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Application ID</span>
-                        <span class="text-sm font-black text-slate-800" id="invTrackId">TRV-XXXXXX</span>
+                <div class="bg-white border-2 border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 max-w-full sm:max-w-sm mx-auto">
+                    <div class="flex justify-between items-center pb-3.5 sm:pb-4 border-b border-slate-100 border-dashed">
+                        <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Application ID</span>
+                        <span class="text-xs sm:text-sm font-black text-slate-800" id="invTrackId">TRV-XXXXXX</span>
                     </div>
                     
-                    <div class="py-4 space-y-4">
+                    <div class="py-3 sm:py-4 space-y-3 sm:space-y-4">
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-bold text-slate-600">Government Fee</span>
-                            <span class="text-sm font-black text-slate-800" id="chkGovFee">₹0</span>
+                            <span class="text-xs sm:text-sm font-bold text-slate-600">Government Fee</span>
+                            <span class="text-xs sm:text-sm font-black text-slate-800" id="chkGovFee">₹0</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-sm font-bold text-slate-600">Traviora Service Fee</span>
-                            <span class="text-sm font-black text-slate-800" id="chkSvcFee">₹0</span>
+                            <span class="text-xs sm:text-sm font-bold text-slate-600">Traviora Service Fee</span>
+                            <span class="text-xs sm:text-sm font-black text-slate-800" id="chkSvcFee">₹0</span>
                         </div>
                     </div>
                     
-                    <div class="pt-4 border-t border-slate-100 border-dashed flex justify-between items-center">
-                        <span class="text-sm font-black text-slate-800 uppercase tracking-wider">Total Due</span>
-                        <span class="text-2xl font-black text-blue-600" id="chkTotal">₹0</span>
+                    <div class="pt-3.5 sm:pt-4 border-t border-slate-100 border-dashed flex justify-between items-center">
+                        <span class="text-xs sm:text-sm font-black text-slate-800 uppercase tracking-wider">Total Due</span>
+                        <span class="text-xl sm:text-2xl font-black text-blue-600" id="chkTotal">₹0</span>
                     </div>
                 </div>
                 
-                <div class="flex justify-center flex-col items-center gap-4">
-                    <button type="button" onclick="showStripe()" class="w-full max-w-sm bg-black text-white px-8 py-4 rounded-xl text-[15px] font-bold hover:bg-slate-800 transition shadow-xl shadow-black/20 flex justify-center items-center gap-3">
-                        Pay Securely <i class="fa-solid fa-arrow-right"></i>
+                <div class="flex justify-center flex-col items-center gap-3 sm:gap-4">
+                    <button type="button" onclick="showStripe()" class="w-full max-w-full sm:max-w-sm bg-black text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-[15px] font-bold hover:bg-slate-800 transition shadow-xl shadow-black/20 flex justify-center items-center gap-3">
+                        Pay Securely <i class="fa-solid fa-arrow-right text-xs sm:text-sm"></i>
                     </button>
-                    <p class="text-[9px] font-bold text-slate-400 tracking-widest uppercase flex items-center gap-1.5 mt-2"><i class="fa-solid fa-shield-halved"></i> 256-bit Secure Encryption</p>
+                    <p class="text-[8px] sm:text-[9px] font-bold text-slate-400 tracking-widest uppercase flex items-center gap-1.5 mt-1 sm:mt-2"><i class="fa-solid fa-shield-halved"></i> 256-bit Secure Encryption</p>
                 </div>
                 
-                <div class="mt-16 flex justify-start border-t border-slate-100 pt-6">
-                    <button type="button" onclick="goToStep(7)" class="text-slate-400 hover:text-slate-700 font-bold text-sm transition">Back</button>
+                <div class="mt-8 sm:mt-16 flex justify-start border-t border-slate-100 pt-4 sm:pt-6">
+                    <button type="button" onclick="goToStep(7)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-2 py-1">Back</button>
                 </div>
             </div>
             
             <!-- STEP 9: Success Success Handoff -->
-            <div id="step9" class="step-transition hidden h-full flex flex-col items-center justify-center text-center pb-20">
-                <div class="w-28 h-28 bg-green-100 rounded-full flex items-center justify-center mb-6 relative animate-[fadeIn_0.5s_ease-out]">
+            <div id="step9" class="step-transition hidden h-full flex flex-col items-center justify-center text-center py-8 sm:pb-20">
+                <div class="w-20 h-20 sm:w-28 sm:h-28 bg-green-100 rounded-full flex items-center justify-center mb-4 sm:mb-6 relative animate-[fadeIn_0.5s_ease-out]">
                     <div class="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-20"></div>
-                    <i class="fa-solid fa-check text-5xl text-green-500 absolute"></i>
+                    <i class="fa-solid fa-check text-3xl sm:text-5xl text-green-500 absolute"></i>
                 </div>
                 
-                <h1 id="successTitle" class="text-4xl font-black mb-3 text-[#0f172a] tracking-tight">Application Successful!</h1>
-                <p id="successDesc" class="text-slate-500 mb-8 font-medium max-w-md mx-auto line-clamp-2">Your visa application has been securely submitted to the embassy pipeline.</p>
+                <h1 id="successTitle" class="text-2xl sm:text-4xl font-black mb-2 sm:mb-3 text-[#0f172a] tracking-tight">Application Successful!</h1>
+                <p id="successDesc" class="text-xs sm:text-sm text-slate-500 mb-6 sm:mb-8 font-medium max-w-md mx-auto line-clamp-2 px-2">Your visa application has been securely submitted to the embassy pipeline.</p>
                 
-                <div class="flex flex-col items-center gap-3">
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Confirmed Reference ID</p>
-                    <div class="bg-blue-50 text-blue-700 px-6 py-2.5 rounded-lg text-2xl font-black tracking-widest shadow-inner mb-6" id="finalTrackId">TRV-XXXXXX</div>
+                <div class="flex flex-col items-center gap-2 sm:gap-3 w-full">
+                    <p class="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Confirmed Reference ID</p>
+                    <div class="bg-blue-50 text-blue-700 px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xl sm:text-2xl font-black tracking-widest shadow-inner mb-4 sm:mb-6" id="finalTrackId">TRV-XXXXXX</div>
                     
-                    <a href="track.html" class="bg-black text-white px-10 py-4 rounded-xl text-sm font-bold hover:bg-slate-800 transition shadow-xl shadow-black/20">Track Status</a>
+                    <a href="track.html" class="w-full sm:w-auto bg-black text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold hover:bg-slate-800 transition shadow-xl shadow-black/20">Track Status</a>
                 </div>
             </div>
 
@@ -521,38 +534,38 @@
     </div>
     
     <!-- Stripe Popup Overlay -->
-    <div id="stripeModal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm items-center justify-center">
-        <div class="bg-white rounded-[2rem] w-full max-w-md p-8 shadow-2xl relative">
-            <div class="flex justify-between items-center mb-8 pb-4 border-b border-slate-100">
+    <div id="stripeModal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm items-center justify-center p-3 sm:p-4">
+        <div class="bg-white rounded-2xl sm:rounded-[2rem] w-full max-w-md p-5 sm:p-8 shadow-2xl relative">
+            <div class="flex justify-between items-center mb-6 sm:mb-8 pb-3.5 sm:pb-4 border-b border-slate-100">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white"><i class="fa-solid fa-lock text-sm"></i></div>
-                    <span class="font-black text-slate-800 tracking-tight text-lg">Checkout</span>
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 bg-blue-600 rounded flex items-center justify-center text-white"><i class="fa-solid fa-lock text-xs sm:text-sm"></i></div>
+                    <span class="font-black text-slate-800 tracking-tight text-base sm:text-lg">Checkout</span>
                 </div>
-                <div class="text-blue-600 font-black text-xl" id="stripeTotalTop">₹0</div>
+                <div class="text-blue-600 font-black text-lg sm:text-xl" id="stripeTotalTop">₹0</div>
             </div>
             
-            <div class="space-y-4 mb-8">
+            <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 <!-- Payment options mock -->
-                <label class="flex items-center justify-between p-4 border-2 border-blue-600 bg-blue-50/30 rounded-xl cursor-pointer">
-                    <div class="flex items-center gap-3">
+                <label class="flex items-center justify-between p-3.5 sm:p-4 border-2 border-blue-600 bg-blue-50/30 rounded-xl cursor-pointer">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
                         <input type="radio" name="paym" checked class="w-4 h-4 text-blue-600">
-                        <span class="font-bold text-slate-800 text-sm">Credit / Debit Card</span>
+                        <span class="font-bold text-slate-800 text-xs sm:text-sm">Credit / Debit Card</span>
                     </div>
-                    <div class="flex gap-1 text-lg">
+                    <div class="flex gap-1 text-base sm:text-lg">
                         <i class="fa-brands fa-cc-visa text-blue-900"></i>
                         <i class="fa-brands fa-cc-mastercard text-red-600"></i>
                     </div>
                 </label>
-                <label class="flex items-center justify-between p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-slate-300 transition">
-                    <div class="flex items-center gap-3">
+                <label class="flex items-center justify-between p-3.5 sm:p-4 border border-slate-200 rounded-xl cursor-pointer hover:border-slate-300 transition">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
                         <input type="radio" name="paym" class="w-4 h-4 text-slate-400">
-                        <span class="font-bold text-slate-800 text-sm">UPI (GPay / PhonePe)</span>
+                        <span class="font-bold text-slate-800 text-xs sm:text-sm">UPI (GPay / PhonePe)</span>
                     </div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" class="h-4 opacity-60">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" class="h-3.5 sm:h-4 opacity-60">
                 </label>
             </div>
             
-            <button type="button" id="btnStripePay" onclick="executePayment()" class="w-full bg-blue-600 text-white px-8 py-4 rounded-xl text-[15px] font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 flex justify-center items-center gap-3">
+            <button type="button" id="btnStripePay" onclick="executePayment()" class="w-full bg-blue-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-[15px] font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 flex justify-center items-center gap-3">
                 Pay Today
             </button>
         </div>
@@ -577,17 +590,17 @@
             // Render Documents
             if (ctx.requiredDocuments && ctx.requiredDocuments.length > 0) {
                 const docsHtml = ctx.requiredDocuments.map((doc) => `
-                    <div class="upload-box rounded-2xl p-6 relative overflow-hidden group bg-white">
+                    <div class="upload-box rounded-xl sm:rounded-2xl p-4 sm:p-6 relative overflow-hidden group bg-white">
                         <input type="file" id="file-${doc.id}" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" onchange="handleUpload(this, 'badge-${doc.id}')">
-                        <div class="flex items-center justify-between relative z-10 pointer-events-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xl"><i class="fa-solid fa-file-arrow-up"></i></div>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 relative z-10 pointer-events-none">
+                            <div class="flex items-center gap-3 sm:gap-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-lg sm:text-xl shrink-0"><i class="fa-solid fa-file-arrow-up"></i></div>
                                 <div>
-                                    <p class="font-bold text-slate-800 text-sm">${doc.name}</p>
-                                    <p class="text-[10px] text-slate-400 font-bold tracking-widest mt-0.5">${doc.required ? 'REQUIRED' : 'OPTIONAL'} &bull; MAX ${doc.maxSizeMB}MB</p>
+                                    <p class="font-bold text-slate-800 text-xs sm:text-sm">${doc.name}</p>
+                                    <p class="text-[9px] sm:text-[10px] text-slate-400 font-bold tracking-widest mt-0.5">${doc.required ? 'REQUIRED' : 'OPTIONAL'} &bull; MAX ${doc.maxSizeMB}MB</p>
                                 </div>
                             </div>
-                            <div id="badge-${doc.id}" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-xs font-bold tracking-wider pointer-events-auto cursor-pointer group-hover:bg-blue-700 transition shadow-md shadow-blue-500/20">
+                            <div id="badge-${doc.id}" class="w-full sm:w-auto text-center bg-blue-600 text-white px-4 sm:px-5 py-2 rounded-lg text-xs font-bold tracking-wider pointer-events-auto cursor-pointer group-hover:bg-blue-700 transition shadow-md shadow-blue-500/20">
                                 Upload
                             </div>
                         </div>
@@ -637,7 +650,10 @@
                 el.classList.remove('active', 'completed');
                 
                 if(i < stepIdx) el.classList.add('completed');
-                else if(i === stepIdx) el.classList.add('active');
+                else if(i === stepIdx) {
+                    el.classList.add('active');
+                    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
             }
         }
         
@@ -677,7 +693,9 @@
             target.classList.add('step-transition');
             
             updateSidebar(stepIdx);
-            if (stepIdx === 9) document.querySelector('.w-[320px], .lg\\:w-\\[380px\\]').style.display = 'none'; // hide sidebar on success
+            if (stepIdx === 9 && document.getElementById('sidebarContainer')) {
+                document.getElementById('sidebarContainer').style.display = 'none'; // hide sidebar on success
+            }
         }
 
         // Feature: OCR Masking
