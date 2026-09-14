@@ -98,7 +98,7 @@ html = html.replace(/<body[\s\S]*?id="step1" class="step-transition">/m,
                 <button onclick="window.history.back()" class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-100 transition"><i class="fa-solid fa-arrow-left"></i></button>
                 <a href="index.html" class="flex items-center gap-2 group mr-2">
                     <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-4 w-auto object-contain hover:scale-105 transition-transform duration-300">
-                    <span class="font-black tracking-[0.2em] text-[#0a192f] text-[11px] leading-none uppercase mt-0.5">Traviora</span>
+                    <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong class="font-black text-slate-900">TRAV</strong><span class="font-medium text-amber-500">IORA</span></span>
                 </a>
             </div>
             

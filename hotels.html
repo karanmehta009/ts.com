@@ -38,8 +38,11 @@
     <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
-                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
-                <span class="font-black tracking-[0.3em] text-[#0a192f] text-sm leading-none uppercase ml-1">Traviora</span>
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
+                        class="font-black text-slate-900">TRAV</strong><span
+                        class="font-medium text-amber-500">IORA</span></span>
             </a>
             
             <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
@@ -96,20 +99,253 @@
                 
             </div>
         </div>
-        
+
         <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="lg:hidden fixed inset-x-0 top-[48px] bg-white border-b border-slate-100 shadow-2xl transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none z-40">
-            <div class="flex flex-col p-6 space-y-4 font-bold text-slate-800 text-lg">
-                <a href="index.html" class="pb-2 border-b border-slate-50">Home</a>
-                <a href="visas.html" class="pb-2 border-b border-slate-50">Visa</a>
-                <a href="tours.html" class="pb-2 border-b border-slate-50">Tour</a>
-                <a href="hotels.html" class="pb-2 border-b border-slate-50 text-blue-600">Hotels</a>
-                
-                <a href="services.html" class="pb-2 border-b border-slate-50">Services</a>
-                <a href="about.html" class="pb-2 border-b border-slate-50">About</a>
-                <a href="profile.html" class="pb-2 border-b border-slate-50">My Profile</a>
-                <a href="index.html" class="pb-2 border-b border-slate-50 text-red-500 hover:text-red-600">Log Out</a>
+        <div id="mobileMenu"
+            class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform -translate-y-full opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+
+            <!-- Transparent Dark Overlay -->
+            <div id="mobileMenuOverlay"
+                class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm shadow-inner pointer-events-auto"></div>
+
+            <!-- Centered Modal Box -->
+            <div
+                class="relative bg-white w-[85%] max-w-[320px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden transform transition-transform -mt-[12vh]">
+
+                <div class="px-5 pt-5 pb-3 w-full">
+                    <!-- Navigation Header -->
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Menu</span>
+                        <button id="closeMobileMenuBtn"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 hover:text-black transition-colors shadow-inner z-[60] relative">
+                            <i class="fa-solid fa-xmark text-[14px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Compact Button Grid -->
+                    <div class="grid grid-cols-2 gap-2.5">
+
+                        <!-- Home -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <!-- Premium Animated Border Icon (Light theme) -->
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <!-- Rotating Beam -->
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <!-- Inner Core Mask -->
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-house text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Home</span>
+                        </a>
+
+                        <!-- Visas -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-passport text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Visas</span>
+                        </a>
+
+                        <!-- Tours -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-plane-departure text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Tours</span>
+                        </a>
+
+                        <!-- Medical -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-notes-medical text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Medical</span>
+                        </a>
+
+                        <!-- Hotels -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-hotel text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Hotels</span>
+                        </a>
+
+                        <!-- About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-compass text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">About</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="h-[1px] bg-slate-200 mx-5 w-[calc(100%-40px)]"></div>
+
+                <!-- Footer Actions -->
+                <div class="flex items-center justify-between w-full px-5 py-4 gap-3">
+                    <a href="profile.html"
+                        class="flex-1 flex justify-center items-center gap-2 group py-2.5 rounded-[14px] hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-200">
+                        <i
+                            class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-black transition-colors"></i>
+                        <span
+                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-black transition-all duration-300 tracking-[0.15em] pt-[2px]">Account</span>
+                    </a>
+                    <div class="w-[1px] h-4 bg-slate-300"></div>
+                    <a href="index.html"
+                        class="flex-1 items-center flex justify-center gap-2 group py-2.5 rounded-[14px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all duration-300">
+                        <span
+                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all duration-300 tracking-[0.15em] pt-[2px]">Sign
+                            Out</span>
+                        <i
+                            class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                    </a>
+                </div>
             </div>
+
+            <!-- Active Script & Close Logic -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+                    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+                    if (mobileMenuBtn && mobileMenu) {
+                        mobileMenuBtn.addEventListener('click', () => {
+                            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                        });
+                    }
+
+                    const closeMenu = (e) => {
+                        if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
+                            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                        }
+                    };
+
+                    if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
+                    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+
+                    const path = window.location.pathname.split('/').pop() || 'index.html';
+                    document.querySelectorAll('#mobileMenu .mobile-link').forEach(a => {
+                        if (a.getAttribute('href') === path) {
+
+                            const iconWrap = a.querySelector('.icon-wrap');
+                            const innerCore = a.querySelector('.inner-core');
+                            const beam = a.querySelector('.beam-element');
+                            const text = a.querySelector('span');
+
+                            if (beam) {
+                                beam.classList.remove('opacity-0');
+                                beam.classList.add('opacity-100', 'border-beam-active');
+                            }
+
+                            // Solidify active state (Light theme active)
+                            a.classList.add('bg-white', 'pointer-events-none', 'shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)]');
+                            a.classList.remove('bg-slate-50/30', 'hover:bg-white');
+
+                            if (text) {
+                                text.classList.remove('text-slate-800');
+                                text.classList.add('text-black', 'tracking-[0.25em]', 'scale-105');
+                            }
+
+                            if (innerCore) {
+                                innerCore.classList.remove('bg-slate-50');
+                                innerCore.classList.add('bg-white', 'shadow-sm');
+
+                                const icon = innerCore.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('text-slate-800');
+                                    icon.classList.add('text-black');
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
         </div>
     </nav>
 
