@@ -492,14 +492,14 @@
 
     <script>
         const medicalData = [
-            { id: 1, title: "Advanced Cardiology", country: "India", desc: "Experience world-class cardiac care with cutting-edge technology and renowned specialists. This package offers comprehensive diagnostics, surgery if needed, and a luxurious recovery stay.", duration: "7 Days", cat: "Heart Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80", inc: ["Top Specialists", "Luxury Hospital Stay", "Pre/Post Consults", "Airport Transfers"] },
-            { id: 2, title: "Orthopedic Surgery", country: "India", desc: "Regain your mobility with advanced joint replacement surgeries performed by expert orthopedic surgeons in internationally accredited facilities.", duration: "10 Days", cat: "Joint Care", img: "https://images.unsplash.com/photo-1551076805-e18690c5e45e?auto=format&fit=crop&w=600&q=80", inc: ["Joint Replacement", "Physiotherapy", "Recovery Hotel", "Medical Visa"] },
-            { id: 3, title: "Dental Implants", country: "India", desc: "Restore your smile with premium dental implants. Benefit from highly skilled dentists, state-of-the-art clinics, and enjoy a boutique hotel stay during your treatment.", duration: "5 Days", cat: "Dental", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80", inc: ["Premium Implants", "Local Transport", "Boutique Hotel", "Follow-up"] },
-            { id: 4, title: "Wellness & Ayurveda", country: "India", desc: "Rejuvenate your mind and body with authentic Ayurvedic treatments, organic diets, and daily yoga sessions in a serene and luxurious retreat environment.", duration: "14 Days", cat: "Wellness", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80", inc: ["Ayurvedic Retreat", "Organic Diet", "Yoga Sessions", "Spa Treatments"] },
-            { id: 5, title: "Hair Transplant", country: "India", desc: "Achieve natural-looking results with the latest FUE hair transplant techniques, performed by leading cosmetic surgeons with comprehensive post-op care.", duration: "4 Days", cat: "Cosmetic", img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80", inc: ["FUE Technique", "PRP Sessions", "Medication", "2-Night Stay"] },
-            { id: 6, title: "Lasik Eye Surgery", country: "India", desc: "Improve your vision with precision Contoura Vision Lasik surgery. Fast, safe, and performed by top ophthalmologists in world-class clinics.", duration: "3 Days", cat: "Vision", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80", inc: ["Contoura Vision", "Consultation", "Eye Drops", "Pickup & Drop"] },
-            { id: 7, title: "Oncology Care", country: "India", desc: "Access cutting-edge cancer treatments and personalized care plans developed by a multidisciplinary tumor board at leading oncology centers.", duration: "21 Days", cat: "Cancer Care", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80", inc: ["Chemotherapy", "Tumor Board", "Caregiver Stay", "Visa Assistance"] },
-            { id: 8, title: "Bariatric Surgery", country: "India", desc: "Achieve your weight loss goals with safe and effective bariatric procedures, supported by expert dieticians and comprehensive follow-up care.", duration: "8 Days", cat: "Weight Loss", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80", inc: ["Gastric Bypass", "Dietician Plan", "Recovery Suite", "Follow-ups"] }
+            { id: 1, slug: "cardiology", title: "Advanced Cardiology", country: "India", desc: "Experience world-class cardiac care with cutting-edge technology and renowned specialists. Comprehensive diagnostics, surgical care, and recovery stay.", duration: "7 - 14 Days", cat: "Heart Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80", inc: ["Top Specialists", "Luxury Hospital Stay", "Pre/Post Consults", "Airport Transfers"] },
+            { id: 2, slug: "orthopedics", title: "Orthopedic Surgery", country: "India", desc: "Regain mobility with robotic joint replacement surgeries performed by expert orthopedic surgeons in internationally accredited facilities.", duration: "7 - 14 Days", cat: "Joint Care", img: "https://images.unsplash.com/photo-1551076805-e18690c5e45e?auto=format&fit=crop&w=600&q=80", inc: ["Joint Replacement", "Physiotherapy", "Recovery Hotel", "Medical Visa"] },
+            { id: 3, slug: "dental", title: "Dental Implants", country: "India", desc: "Restore your smile with premium dental implants. Benefit from highly skilled dentists, state-of-the-art clinics, and boutique accommodation.", duration: "3 - 7 Days", cat: "Dental", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80", inc: ["Premium Implants", "Local Transport", "Boutique Hotel", "Follow-up"] },
+            { id: 4, slug: "wellness", title: "Wellness & Ayurveda", country: "India", desc: "Rejuvenate mind and body with authentic Ayurvedic treatments, organic diets, and daily yoga sessions in a serene retreat environment.", duration: "7 - 21 Days", cat: "Wellness", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80", inc: ["Ayurvedic Retreat", "Organic Diet", "Yoga Sessions", "Spa Treatments"] },
+            { id: 5, slug: "cosmetic", title: "Hair & Cosmetic Surgery", country: "India", desc: "Achieve natural-looking results with latest FUE hair transplant & plastic surgery techniques, performed by leading cosmetic surgeons.", duration: "4 - 10 Days", cat: "Cosmetic", img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80", inc: ["FUE Technique", "PRP Sessions", "Medication", "2-Night Stay"] },
+            { id: 6, slug: "ophthalmology", title: "Lasik Eye Surgery", country: "India", desc: "Improve your vision with precision Contoura Vision Lasik surgery. Fast, safe, and performed by top ophthalmologists in world-class clinics.", duration: "3 - 7 Days", cat: "Vision", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80", inc: ["Contoura Vision", "Consultation", "Eye Drops", "Pickup & Drop"] },
+            { id: 7, slug: "oncology", title: "Oncology Care", country: "India", desc: "Access cutting-edge cancer treatments and personalized care plans developed by a multidisciplinary tumor board at leading oncology centers.", duration: "14 - 30 Days", cat: "Cancer Care", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80", inc: ["Chemotherapy", "Tumor Board", "Caregiver Stay", "Visa Assistance"] },
+            { id: 8, slug: "bariatric", title: "Bariatric Surgery", country: "India", desc: "Achieve your weight loss goals with safe bariatric procedures, supported by expert dieticians and comprehensive follow-up care.", duration: "7 - 10 Days", cat: "Weight Loss", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80", inc: ["Gastric Bypass", "Dietician Plan", "Recovery Suite", "Follow-ups"] }
         ];
 
         const grid = document.getElementById('medicalGrid');
@@ -508,7 +508,7 @@
 
         function renderMedical() {
             grid.innerHTML = medicalData.map(t => `
-            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(20,184,166,0.25)]" onclick="openMedicalModal(${t.id})">
+            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(20,184,166,0.25)]" onclick="navigateToDetail('${t.slug}')">
                 
                 <!-- Image -->
                 <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-70 blur-0 group-hover:blur-sm" style="background-image: url('${t.img}')"></div>
@@ -559,8 +559,8 @@
                                     <span class="text-[14px] md:text-[16px] font-black text-white">${t.duration}</span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 text-white group/btn hover:text-teal-200 transition-colors cursor-pointer">
-                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">Proceed</span>
+                                <div class="flex items-center gap-3 text-white group/btn hover:text-teal-200 transition-colors cursor-pointer" onclick="event.stopPropagation(); navigateToDetail('${t.slug}')">
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">View Details</span>
                                     <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(20,184,166,0.6)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-teal-600 group-hover/btn:scale-110">
                                         <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
                                     </div>
@@ -574,40 +574,15 @@
             `).join('');
         }
 
+        function navigateToDetail(slug) {
+            window.location.href = `medical-detail.html?treatment=${slug}`;
+        }
+
         function openMedicalModal(id) {
             const t = medicalData.find(item => item.id === id);
-            modalContent.innerHTML = `
-                <div class="h-44 bg-cover bg-center relative" style="background-image: url('${t.img}')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-4 left-6 flex items-center gap-2">
-                        <span class="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md"><i class="fa-solid fa-location-dot mr-1"></i>${t.country}</span>
-                    </div>
-                    <button onclick="closeMedicalModal()" class="absolute top-4 right-4 w-8 h-8 bg-black/60 text-white rounded-full flex items-center justify-center hover:bg-black transition"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-extrabold mb-1">${t.title}</h3>
-                    <p class="text-xs font-bold text-blue-600 mb-4">${t.duration}</p>
-                    
-                    <p class="text-sm text-slate-600 leading-relaxed mb-5">${t.desc}</p>
-                    
-                    <p class="text-xs font-bold uppercase text-slate-400 mb-2">Package Inclusions</p>
-                    <div class="grid grid-cols-2 gap-2 mb-6">
-                        ${t.inc.map(i => `<div class="text-xs font-medium text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100"><i class="fa-solid fa-check text-green-500 mr-1.5"></i>${i}</div>`).join('')}
-                    </div>
-
-                    <div class="flex items-center justify-between border-t border-slate-100 pt-4">
-                        <div>
-                            <p class="text-xs text-slate-400 font-bold mb-1">Package Pricing</p>
-                            <p class="text-sm font-extrabold text-blue-600">Offered by our team</p>
-                        </div>
-                        <button onclick="window.location.href='apply-medical.html?dest=' + encodeURIComponent('${t.title}')" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-blue-700 transition shadow-md">
-                            Book Treatment
-                        </button>
-                    </div>
-                </div>
-            `;
-            modal.classList.remove('hidden');
-            setTimeout(() => { modal.classList.remove('opacity-0'); modalContent.classList.remove('scale-95'); }, 10);
+            if (t) {
+                navigateToDetail(t.slug);
+            }
         }
 
         function closeMedicalModal() {

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Treatment Detail | Traviora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f8fafc; color: #0f172a; }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-answer.open { max-height: 500px; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .treatment-pill.active {
+            background-color: #0d9488;
+            color: #ffffff;
+            border-color: #0d9488;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
+        }
+
+        .glow-card {
+            transition: all 0.3s ease;
+        }
+        .glow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.15);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/85 backdrop-blur-2xl border-b border-slate-200/80 transition-transform duration-300 transform translate-y-0">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-2 md:py-3.5 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
+                        class="font-black text-slate-900">TRAV</strong><span
+                        class="font-medium text-amber-500">IORA</span></span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                <a href="index.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-house text-[11px] opacity-70"></i> Home</span>
+                </a>
+                <a href="visas.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-passport text-[11px] opacity-70"></i> Visa</span>
+                </a>
+                <a href="tours.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-plane-departure text-[11px] opacity-70"></i> Tour</span>
+                </a>
+                <a href="medical.html" class="relative group px-3 py-1.5 text-slate-900 font-black cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-notes-medical text-[11px] text-teal-600"></i> Medical</span>
+                </a>
+                <a href="hotels.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-hotel text-[11px] opacity-70"></i> Hotels</span>
+                </a>
+                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[11px] opacity-70"></i> About</span>
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-3 relative">
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+                </button>
+
+                <!-- Profile Link -->
+                <a href="profile.html" title="Profile"
+                    class="relative group w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 hover:bg-white transition">
+                    <i class="fa-regular fa-user text-sm"></i>
+                </a>
+
+                <!-- Logout Button -->
+                <button
+                    class="hidden lg:flex items-center gap-1.5 bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-wide font-black transition border border-slate-200/60"
+                    title="Logout" onclick="window.location.href='index.html'">
+                    <span>Log Out</span>
+                    <i class="fa-solid fa-arrow-right-from-bracket text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Modal -->
+        <div id="mobileMenu"
+            class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] transform -translate-y-full opacity-0 pointer-events-none">
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-auto"></div>
+            <div class="relative bg-white w-[88%] max-w-[320px] rounded-[28px] shadow-2xl flex flex-col overflow-hidden -mt-[10vh]">
+                <div class="p-5 w-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-black tracking-[0.2em] text-slate-900 uppercase">Navigation</span>
+                        <button id="closeMobileMenuBtn" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="index.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-house text-slate-500 mb-1"></i>Home</a>
+                        <a href="visas.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-passport text-slate-500 mb-1"></i>Visas</a>
+                        <a href="tours.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-plane-departure text-slate-500 mb-1"></i>Tours</a>
+                        <a href="medical.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-teal-50 text-xs font-bold text-teal-700"><i class="fa-solid fa-notes-medical text-teal-600 mb-1"></i>Medical</a>
+                        <a href="hotels.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-hotel text-slate-500 mb-1"></i>Hotels</a>
+                        <a href="about.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-circle-info text-slate-500 mb-1"></i>About</a>
+                    </div>
+                </div>
+                <div class="border-t border-slate-100 p-4 flex items-center justify-between text-xs font-bold">
+                    <a href="profile.html" class="text-slate-700"><i class="fa-regular fa-user mr-1.5"></i>Profile</a>
+                    <a href="index.html" class="text-rose-600"><i class="fa-solid fa-arrow-right-from-bracket mr-1.5"></i>Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-slate-950 text-white">
+        <!-- Hero Background Image overlay with smooth gradient -->
+        <div id="heroBg" class="absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-700 scale-105" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40"></div>
+
+        <!-- Floating Glow Spheres -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6 uppercase tracking-wider">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <a href="medical.html" class="hover:text-white transition">Medical Tourism</a>
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <span id="breadcrumbTitle" class="text-teal-400">Cardiology</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-7 space-y-5">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-black tracking-widest uppercase">
+                        <i class="fa-solid fa-heart-pulse text-teal-400"></i>
+                        <span id="heroCategory">Heart Care</span>
+                    </div>
+                    
+                    <h1 id="heroTitle" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.15]">
+                        Cardiology Treatment in India
+                    </h1>
+                    
+                    <p id="heroSub" class="text-sm sm:text-base md:text-lg text-slate-300 font-medium leading-relaxed max-w-2xl">
+                        Access world-renowned cardiac centers, top cardiothoracic surgeons, and state-of-the-art diagnostic and surgical technologies in India.
+                    </p>
+
+                    <!-- Context Pill Tags -->
+                    <div class="flex flex-wrap items-center gap-2.5 pt-2">
+                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-hospital-user text-teal-400"></i> JCI & NABH Accredited
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-teal-400"></i> Est. Stay: <span id="heroDuration">7 - 14 Days</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-teal-400"></i> Zero Upfront Booking Fee
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <button id="bookBtnHero" onclick="goToBooking()" class="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-8 py-4 rounded-2xl transition shadow-xl shadow-teal-500/25 hover:scale-105 flex items-center justify-center gap-3 text-sm">
+                            <i class="fa-solid fa-calendar-check text-base"></i> Book Treatment Now
+                        </button>
+                        <button onclick="talkToTraviora()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-7 py-4 rounded-2xl transition backdrop-blur-md flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i> WhatsApp Care Manager
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card Right -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl group">
+                        <img id="heroImageCard" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Treatment" class="w-full h-72 sm:h-80 md:h-96 object-cover transform group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20">
+                            <div class="flex items-center gap-2 text-xs font-black text-teal-300 uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-award"></i> Traviora Guarantee
+                            </div>
+                            <p class="text-xs text-slate-200 font-medium leading-relaxed">Dedicated medical visa invitation, airport wheelchair transfer, top hospital opinions, and 24/7 patient manager.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Quick Stats Ribbon -->
+    <section class="bg-slate-100/80 border-b border-slate-200/80 py-6">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+                    <p class="text-2xl sm:text-3xl font-black text-slate-900">98.4%</p>
+                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Clinical Success Rate</p>
+                </div>
+                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+                    <p class="text-2xl sm:text-3xl font-black text-teal-600">50+</p>
+                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">JCI / NABH Hospitals</p>
+                </div>
+                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+                    <p class="text-2xl sm:text-3xl font-black text-slate-900">2,500+</p>
+                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Expert Specialists</p>
+                </div>
+                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+                    <p class="text-2xl sm:text-3xl font-black text-amber-500">₹0</p>
+                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Advance Booking Fees</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-12 md:py-16 space-y-16 md:space-y-20">
+
+        <!-- 1. Treatment Overview & About -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Clinical Insight</span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1 mb-3">Treatment Overview</h2>
+                    <p id="overviewText" class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                        India is a globally recognized destination for advanced cardiology and cardiac surgeries, offering high success rates, JCI & NABH-accredited facilities, and experienced cardiovascular surgeons.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-stethoscope text-teal-600"></i> About the Treatment
+                    </h3>
+                    <p id="aboutText" class="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                        Cardiology treatments encompass a wide range of procedures from minimally invasive catheter-based interventions to complex open-heart surgeries. Leading Indian hospitals feature hybrid operating rooms, 3D cardiac mapping systems, and dedicated cardiac ICUs to ensure comprehensive care before, during, and after surgical procedures.
+                    </p>
+                    
+                    <div class="pt-4 border-t border-slate-100">
+                        <p class="text-xs font-bold uppercase text-slate-400 mb-3 tracking-wider">Popular Treatment Options</p>
+                        <div id="subcategoryTags" class="flex flex-wrap gap-2">
+                            <!-- Injected -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action Card -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-teal-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-6 border border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-base sm:text-lg">Ready for Evaluation?</h4>
+                        <p class="text-xs text-slate-300">Submit reports for doctor review</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 text-xs text-slate-300 font-medium">
+                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> No advance booking fees required</li>
+                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Direct opinion from top accredited hospital doctors</li>
+                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Complimentary airport pickup included</li>
+                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Official Medical Visa invitation letter</li>
+                </ul>
+
+                <button onclick="goToBooking()" class="w-full bg-teal-500 hover:bg-teal-400 text-slate-950 font-black py-3.5 rounded-xl transition shadow-lg text-xs sm:text-sm flex items-center justify-center gap-2">
+                    Start Patient Application <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. Treatment Process Pathway -->
+        <section class="space-y-8 md:space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Step-By-Step Journey</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Treatment Process</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">A structured coordination process from your initial inquiry to post-treatment recovery.</p>
+            </div>
+
+            <div id="processGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <!-- Injected Process Cards -->
+            </div>
+
+            <div class="p-4 bg-amber-50 border border-amber-200/80 rounded-2xl flex items-start gap-3 text-amber-800 text-xs font-medium">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm mt-0.5 shrink-0"></i>
+                <p>Note: The process presented above is a general coordination roadmap. Final clinical pathways and surgical schedules are determined directly by treating physicians after in-person hospital diagnostic evaluation.</p>
+            </div>
+        </section>
+
+        <!-- 3. Why India Section -->
+        <section class="bg-slate-950 text-white rounded-3xl p-6 sm:p-10 md:p-12 space-y-8 md:space-y-10 relative overflow-hidden shadow-2xl border border-slate-900">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-2xl">
+                <span class="text-xs font-black uppercase text-teal-400 tracking-widest">Destination Strengths</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mt-1">Why Choose India for Medical Treatment?</h2>
+                <p class="text-slate-300 text-xs sm:text-sm mt-2 font-medium leading-relaxed">
+                    India offers world-class healthcare infrastructure combining high clinical standards, experienced medical professionals, and comprehensive international patient services.
+                </p>
+            </div>
+
+            <div id="whyIndiaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <!-- Injected Why India Points -->
+            </div>
+        </section>
+
+        <!-- 4. How Traviora Helps -->
+        <section class="space-y-8 md:space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Our Service Role</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">How Traviora Helps You</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Traviora simplifies your medical journey by managing non-clinical logistics and hospital coordination.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">01</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Submit Patient Information</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Fill out our single complete application form with personal details, passport, medical history, and documents.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">02</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Traviora Reviews Information</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Our medical coordination desk verifies document completeness and organizes your profile for doctor evaluation.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">03</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Coordinates With Hospitals</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">We contact top partner hospitals in your preferred Indian city to secure expert medical opinions.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">04</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Treatment Package Prepared</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">We compile estimated treatment costs, hotel accommodation options, and travel support into one package.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">05</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Customer Reviews Package</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Review the transparent itemized package online with complete freedom to request modifications.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">06</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Customer Accepts Package</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Once accepted, Traviora confirms hospital dates, issues visa invitation letters, and finalizes hotel bookings.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
+                    <span class="text-2xl font-black text-teal-600">07</span>
+                    <h3 class="font-extrabold text-sm text-slate-900">Travel & Logistics Support</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Airport pickup on arrival, continuous dedicated case manager support, and post-discharge updates through WhatsApp & Email.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-3xl border border-teal-200 flex flex-col justify-center items-center text-center space-y-2">
+                    <i class="fa-solid fa-shield-halved text-2xl text-teal-600"></i>
+                    <h3 class="font-black text-xs text-slate-900 uppercase">Coordination Platform</h3>
+                    <p class="text-[11px] text-slate-600 leading-normal">Traviora is a travel assistance and medical coordination platform. We do not practice medicine directly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Partner Hospitals Across India -->
+        <section class="space-y-8 md:space-y-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Accredited Partner Network</span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Hospitals Across India</h2>
+                    <p class="text-slate-500 text-xs sm:text-sm mt-1">Partner facilities offering specialized care across major Indian metro cities.</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5 text-xs font-bold text-slate-600">
+                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Delhi NCR</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Mumbai</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Chennai</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Hyderabad</span>
+                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Bengaluru</span>
+                </div>
+            </div>
+
+            <div id="hospitalsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected Hospitals -->
+            </div>
+        </section>
+
+        <!-- 6. FAQs Section -->
+        <section class="space-y-8 max-w-4xl mx-auto">
+            <div class="text-center">
+                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Common Inquiries</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Frequently Asked Questions</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Everything you need to know about this treatment and Traviora's coordination.</p>
+            </div>
+
+            <div id="faqAccordion" class="space-y-3">
+                <!-- Injected FAQs -->
+            </div>
+        </section>
+
+        <!-- 7. Bottom CTA Bar -->
+        <section class="bg-gradient-to-r from-teal-700 via-teal-600 to-blue-700 rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+            <div class="space-y-2 max-w-xl text-center md:text-left">
+                <h3 class="text-2xl sm:text-3xl font-serif font-bold">Begin Your Treatment Application</h3>
+                <p class="text-teal-100 text-xs sm:text-sm font-medium">Submit your complete medical information in 7 simple steps. Zero advance booking fees.</p>
+            </div>
+            <button onclick="goToBooking()" class="w-full sm:w-auto shrink-0 bg-slate-950 hover:bg-black text-white font-black px-8 py-4 rounded-2xl transition shadow-xl hover:scale-105 text-xs sm:text-sm flex items-center justify-center gap-3">
+                <i class="fa-solid fa-file-signature text-teal-400"></i> Book Treatment Now
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-auto">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 pt-12 pb-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-10">
+                <div class="col-span-2 pr-4">
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto object-contain">
+                        <span class="font-black tracking-[0.25em] text-slate-900 text-sm uppercase">Traviora</span>
+                    </a>
+                    <p class="text-slate-500 text-xs leading-relaxed max-w-sm font-medium">
+                        Redefining global mobility with seamless visas, curated luxury tours, and expert medical tourism coordination.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-black mb-3 text-xs uppercase tracking-wider">Medical Tourism</h4>
+                    <ul class="space-y-2 text-xs text-slate-500 font-medium">
+                        <li><a href="medical-detail.html?treatment=cardiology" class="hover:text-teal-600 transition">Cardiology</a></li>
+                        <li><a href="medical-detail.html?treatment=oncology" class="hover:text-teal-600 transition">Oncology</a></li>
+                        <li><a href="medical-detail.html?treatment=orthopedics" class="hover:text-teal-600 transition">Orthopedics</a></li>
+                        <li><a href="medical-detail.html?treatment=fertility" class="hover:text-teal-600 transition">IVF & Fertility</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-black mb-3 text-xs uppercase tracking-wider">Patient Tools</h4>
+                    <ul class="space-y-2 text-xs text-slate-500 font-medium">
+                        <li><a href="medical-booking.html" class="hover:text-teal-600 transition">Book Treatment</a></li>
+                        <li><a href="profile.html" class="hover:text-teal-600 transition">Profile & Account</a></li>
+                        <li><a href="medical-application.html" class="hover:text-teal-600 transition">Track Application</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400 font-medium">
+                <p>&copy; 2026 Traviora Inc. All rights reserved.</p>
+                <p>Medical Tourism & Coordination Division</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/medical-db.js"></script>
+    <script>
+        let currentSlug = "cardiology";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            currentSlug = params.get('treatment') || "cardiology";
+            
+            const data = window.TravioraMedicalDb.getTreatment(currentSlug);
+            renderTreatmentPage(data);
+        });
+
+        function renderTreatmentPage(data) {
+            document.title = `${data.title} in India | Traviora Medical`;
+
+            document.getElementById('breadcrumbTitle').innerText = data.title;
+            document.getElementById('heroCategory').innerText = data.category;
+            document.getElementById('heroTitle').innerText = data.heroTitle || `${data.title} in India`;
+            document.getElementById('heroSub').innerText = data.heroSub || data.overview;
+            document.getElementById('heroDuration').innerText = data.duration;
+            document.getElementById('overviewText').innerText = data.overview;
+            document.getElementById('aboutText').innerText = data.aboutText;
+            
+            if (data.heroImg) {
+                document.getElementById('heroBg').style.backgroundImage = `url('${data.heroImg}')`;
+                document.getElementById('heroImageCard').src = data.heroImg;
+            }
+
+            // Subcategory Tags
+            const subTags = document.getElementById('subcategoryTags');
+            if (data.subcategories && data.subcategories.length) {
+                subTags.innerHTML = data.subcategories.map(s => 
+                    `<span class="bg-slate-100 text-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-1.5"><i class="fa-solid fa-check text-teal-600"></i>${s}</span>`
+                ).join('');
+            }
+
+            // Process Grid
+            const processGrid = document.getElementById('processGrid');
+            if (data.processSteps && data.processSteps.length) {
+                processGrid.innerHTML = data.processSteps.map(step => `
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3 glow-card group">
+                        <span class="inline-block px-3 py-1 bg-teal-50 text-teal-700 font-black text-xs rounded-full border border-teal-100 group-hover:bg-teal-600 group-hover:text-white transition">${step.num}</span>
+                        <h3 class="font-extrabold text-base text-slate-900">${step.title}</h3>
+                        <p class="text-xs text-slate-500 font-medium leading-relaxed">${step.desc}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Why India Grid
+            const whyGrid = document.getElementById('whyIndiaGrid');
+            if (data.whyIndia && data.whyIndia.length) {
+                whyGrid.innerHTML = data.whyIndia.map(item => `
+                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-2">
+                        <h4 class="font-extrabold text-sm text-teal-300 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-heart text-teal-400"></i> ${item.title}
+                        </h4>
+                        <p class="text-xs text-slate-300 font-medium leading-relaxed">${item.desc}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Hospitals Grid
+            const hospGrid = document.getElementById('hospitalsGrid');
+            if (data.hospitals && data.hospitals.length) {
+                hospGrid.innerHTML = data.hospitals.map(h => `
+                    <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col glow-card">
+                        <div class="h-48 bg-cover bg-center relative" style="background-image: url('${h.img}')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-4 left-4 bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full"><i class="fa-solid fa-location-dot mr-1"></i>${h.city}</span>
+                            <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md text-slate-900 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1 shadow"><i class="fa-solid fa-star text-amber-500"></i>${h.rating}</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-base font-black text-slate-900 mb-1">${h.name}</h3>
+                                <p class="text-xs font-bold text-teal-600 mb-2 flex items-center gap-1"><i class="fa-solid fa-award text-xs"></i>${h.specialty}</p>
+                                <p class="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">${h.desc}</p>
+                            </div>
+                            <button onclick="goToBooking()" class="w-full bg-slate-100 hover:bg-teal-600 hover:text-white text-slate-800 font-bold py-2.5 rounded-xl text-xs transition border border-slate-200 flex items-center justify-center gap-1.5">
+                                Select Hospital & Apply <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // FAQs Accordion
+            const faqContainer = document.getElementById('faqAccordion');
+            if (data.faqs && data.faqs.length) {
+                faqContainer.innerHTML = data.faqs.map((f, i) => `
+                    <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+                        <button onclick="toggleFaq(${i})" class="w-full px-6 py-4 text-left font-extrabold text-xs sm:text-sm text-slate-900 flex justify-between items-center hover:bg-slate-50 transition gap-4">
+                            <span>${f.q}</span>
+                            <i id="faqIcon-${i}" class="fa-solid fa-plus text-xs text-slate-400 shrink-0"></i>
+                        </button>
+                        <div id="faqAns-${i}" class="faq-answer px-6 pb-4 text-xs text-slate-600 font-medium leading-relaxed">
+                            <div class="pt-2 border-t border-slate-100">${f.a}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faqAns-${index}`);
+            const icon = document.getElementById(`faqIcon-${index}`);
+            if (ans.classList.contains('open')) {
+                ans.classList.remove('open');
+                icon.className = 'fa-solid fa-plus text-xs text-slate-400';
+            } else {
+                ans.classList.add('open');
+                icon.className = 'fa-solid fa-minus text-xs text-teal-600';
+            }
+        }
+
+        function goToBooking() {
+            window.location.href = `medical-booking.html?treatment=${currentSlug}`;
+        }
+
+        function talkToTraviora() {
+            const msg = encodeURIComponent(`Hello Traviora, I am interested in ${currentSlug.toUpperCase()} treatment in India. Please guide me.`);
+            window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>

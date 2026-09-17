@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status | Traviora Medical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f8fafc; color: #0a0a0a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-2.5 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto object-contain">
+                <span class="text-xs leading-none uppercase tracking-[0.25em]"><strong class="font-black text-slate-900">TRAV</strong><span class="font-medium text-amber-500">IORA</span></span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <a href="medical.html" class="text-xs font-bold text-slate-600 hover:text-black">← Medical Home</a>
+                <a href="medical-admin.html" class="text-xs font-black bg-slate-900 text-white px-3.5 py-1.5 rounded-full hover:bg-slate-800 transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-user-shield text-[10px] text-teal-400"></i> Admin Console
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Body -->
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-6 w-full flex-grow space-y-8">
+
+        <!-- Top Header & ID Bar -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-black uppercase text-teal-600 tracking-wider">Application Status</span>
+                    <span id="statusBadge" class="bg-blue-100 text-blue-700 font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-full">Submitted</span>
+                </div>
+                <h1 id="patientNameHeader" class="text-2xl md:text-3xl font-extrabold text-slate-900">Amina Al-Mansoor</h1>
+                <p id="treatmentHeader" class="text-xs font-bold text-slate-500">Cardiology Treatment in India • Submitted on <span id="createdDate">2026-09-17 19:30</span></p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 flex items-center gap-4 shrink-0">
+                <div>
+                    <span class="text-[10px] font-black uppercase text-slate-400 block tracking-widest">Application ID</span>
+                    <span id="appIdDisplay" class="font-mono font-black text-lg text-slate-900">MT-2026-882194</span>
+                </div>
+                <button onclick="copyAppId()" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition shadow-sm" title="Copy ID">
+                    <i class="fa-solid fa-copy text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Interactive Stepper -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h3 class="text-xs font-black uppercase text-slate-400 tracking-wider">Progress Tracking</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
+                <!-- Step 1 -->
+                <div id="stepCard-1" class="p-4 rounded-2xl border bg-slate-50 border-slate-200 text-center space-y-2">
+                    <div id="stepDot-1" class="w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center mx-auto shadow-md">1</div>
+                    <p class="font-bold text-xs text-slate-900">Submitted</p>
+                    <p class="text-[10px] text-slate-400 font-medium">Application Received</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="stepCard-2" class="p-4 rounded-2xl border bg-slate-50 border-slate-200 text-center space-y-2">
+                    <div id="stepDot-2" class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 font-bold text-xs flex items-center justify-center mx-auto">2</div>
+                    <p class="font-bold text-xs text-slate-600">Review & Contact</p>
+                    <p class="text-[10px] text-slate-400 font-medium">Medical Desk Review</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="stepCard-3" class="p-4 rounded-2xl border bg-slate-50 border-slate-200 text-center space-y-2">
+                    <div id="stepDot-3" class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 font-bold text-xs flex items-center justify-center mx-auto">3</div>
+                    <p class="font-bold text-xs text-slate-600">Package Ready</p>
+                    <p class="text-[10px] text-slate-400 font-medium">Official Offer Sent</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div id="stepCard-4" class="p-4 rounded-2xl border bg-slate-50 border-slate-200 text-center space-y-2">
+                    <div id="stepDot-4" class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 font-bold text-xs flex items-center justify-center mx-auto">4</div>
+                    <p class="font-bold text-xs text-slate-600">Package Accepted</p>
+                    <p class="text-[10px] text-slate-400 font-medium">Travel & Visa Issue</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Action / Notice Banner -->
+        <div id="statusNoticeBanner" class="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center md:text-left">
+                <h3 id="bannerTitle" class="text-xl font-extrabold text-teal-400">Application Submitted</h3>
+                <p id="bannerDesc" class="text-xs text-slate-300 font-medium max-w-xl leading-relaxed">
+                    Your complete medical tourism application has been logged. A Traviora medical case manager will contact you on WhatsApp within 24 hours to review your hospital options.
+                </p>
+            </div>
+            <div id="bannerActionArea" class="shrink-0 flex items-center gap-3">
+                <button onclick="talkToCaseManager()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-2xl text-xs transition shadow-lg flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Contact Case Manager
+                </button>
+            </div>
+        </div>
+
+        <!-- Testing Simulation Helper Bar -->
+        <div class="p-4 bg-teal-50 border border-teal-200 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+            <div class="flex items-center gap-2 text-teal-900 font-medium">
+                <i class="fa-solid fa-flask-vial text-teal-600 text-sm"></i>
+                <span><strong>Demo Control:</strong> Want to test package offer flow right now?</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="simulateAdminAction('CONTACTED')" class="bg-white border border-teal-300 text-teal-800 font-bold px-3 py-1.5 rounded-xl hover:bg-teal-100 transition">Set Contacted</button>
+                <button onclick="simulateAdminAction('PACKAGE_OFFERED')" class="bg-teal-600 text-white font-black px-3.5 py-1.5 rounded-xl hover:bg-teal-700 transition shadow-sm">Simulate Admin Creating Package</button>
+            </div>
+        </div>
+
+        <!-- Application Details Accordion / Sections -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h3 class="text-xs font-black uppercase text-slate-400 tracking-wider">Submitted Information Summary</h3>
+
+            <div class="space-y-4">
+                <!-- Patient Info -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                    <p class="font-black text-slate-900 uppercase border-b border-slate-200 pb-2">Patient Profile</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-slate-600 font-medium">
+                        <p><strong>Full Name:</strong> <span id="summaryName">-</span></p>
+                        <p><strong>DOB / Gender:</strong> <span id="summaryDobGender">-</span></p>
+                        <p><strong>Country / Nationality:</strong> <span id="summaryCountry">-</span></p>
+                        <p><strong>WhatsApp / Email:</strong> <span id="summaryContact">-</span></p>
+                        <p><strong>Passport Number:</strong> <span id="summaryPassport">-</span></p>
+                        <p><strong>Emergency Contact:</strong> <span id="summaryEmergency">-</span></p>
+                    </div>
+                </div>
+
+                <!-- Treatment Info -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                    <p class="font-black text-slate-900 uppercase border-b border-slate-200 pb-2">Treatment & Hospital Preference</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-slate-600 font-medium">
+                        <p><strong>Specialty:</strong> <span id="summaryTreatment">-</span></p>
+                        <p><strong>Subcategory:</strong> <span id="summarySubcat">-</span></p>
+                        <p><strong>Preferred Hospital:</strong> <span id="summaryHospital">-</span></p>
+                        <p><strong>Preferred City:</strong> <span id="summaryCity">-</span></p>
+                        <p class="md:col-span-2"><strong>Reason for Seeking Treatment:</strong> <span id="summaryReason">-</span></p>
+                    </div>
+                </div>
+
+                <!-- Medical Info -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                    <p class="font-black text-slate-900 uppercase border-b border-slate-200 pb-2">Clinical Details</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-slate-600 font-medium">
+                        <p><strong>Diagnosis:</strong> <span id="summaryDiagnosis">-</span></p>
+                        <p><strong>Allergies:</strong> <span id="summaryAllergies">-</span></p>
+                        <p><strong>Current Medications:</strong> <span id="summaryMedications">-</span></p>
+                        <p><strong>Existing Conditions:</strong> <span id="summaryConditions">-</span></p>
+                    </div>
+                </div>
+
+                <!-- Documents -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                    <p class="font-black text-slate-900 uppercase border-b border-slate-200 pb-2">Uploaded Files</p>
+                    <div id="summaryDocsList" class="space-y-1 text-slate-600">
+                        <!-- Injected JS -->
+                    </div>
+                </div>
+
+                <!-- Travel & Hotel -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                    <p class="font-black text-slate-900 uppercase border-b border-slate-200 pb-2">Travel Requirements</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-slate-600 font-medium">
+                        <p><strong>Visa Assistance:</strong> <span id="summaryVisa">-</span></p>
+                        <p><strong>Airport Pickup:</strong> <span id="summaryPickup">-</span></p>
+                        <p><strong>Hotel:</strong> <span id="summaryHotel">-</span></p>
+                        <p><strong>Companion / Interpreter:</strong> <span id="summaryCompanion">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 border-t border-black/5 py-6 text-center text-xs text-slate-400">
+        &copy; 2026 Traviora Inc. Medical Tourism & Coordination Division
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/medical-db.js"></script>
+    <script>
+        let currentAppId = "";
+        let currentApp = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            currentAppId = params.get('id') || "MT-2026-882194";
+            
+            loadApplication();
+        });
+
+        function loadApplication() {
+            currentApp = window.TravioraMedicalDb.getApplication(currentAppId);
+            if (!currentApp) {
+                alert("Application not found. Loading sample application.");
+                currentAppId = "MT-2026-882194";
+                currentApp = window.TravioraMedicalDb.getApplication(currentAppId);
+            }
+
+            // Top Header
+            document.getElementById('appIdDisplay').innerText = currentApp.applicationId;
+            document.getElementById('patientNameHeader').innerText = `${currentApp.patient.firstName} ${currentApp.patient.lastName}`;
+            document.getElementById('treatmentHeader').innerText = `${currentApp.treatmentName} • Submitted on ${currentApp.createdAt}`;
+            
+            // Status Badge
+            const badge = document.getElementById('statusBadge');
+            badge.innerText = currentApp.status.replace('_', ' ');
+
+            // Stepper update
+            updateStepper(currentApp.status);
+
+            // Banner update
+            updateBanner(currentApp);
+
+            // Render details
+            renderSummaryDetails(currentApp);
+        }
+
+        function updateStepper(status) {
+            const steps = [
+                { key: 'SUBMITTED', num: 1 },
+                { key: 'CONTACTED', num: 2 },
+                { key: 'PACKAGE_OFFERED', num: 3 },
+                { key: 'ACCEPTED', num: 4 }
+            ];
+
+            const statusIndex = steps.findIndex(s => s.key === status);
+
+            steps.forEach((s, idx) => {
+                const card = document.getElementById(`stepCard-${s.num}`);
+                const dot = document.getElementById(`stepDot-${s.num}`);
+                
+                if (idx <= statusIndex) {
+                    card.className = "p-4 rounded-2xl border bg-teal-50 border-teal-200 text-center space-y-2";
+                    dot.className = "w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center mx-auto shadow-md";
+                } else {
+                    card.className = "p-4 rounded-2xl border bg-slate-50 border-slate-200 text-center space-y-2";
+                    dot.className = "w-8 h-8 rounded-full bg-slate-300 text-slate-600 font-bold text-xs flex items-center justify-center mx-auto";
+                }
+            });
+        }
+
+        function updateBanner(app) {
+            const title = document.getElementById('bannerTitle');
+            const desc = document.getElementById('bannerDesc');
+            const actionArea = document.getElementById('bannerActionArea');
+
+            if (app.status === 'SUBMITTED') {
+                title.innerText = "Application Submitted & Under Review";
+                desc.innerText = "Your medical application has been received. Our team will review your diagnostic documents and contact you on WhatsApp within 24 hours.";
+                actionArea.innerHTML = `
+                    <button onclick="talkToCaseManager()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-2xl text-xs transition shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Contact Case Manager
+                    </button>
+                `;
+            } else if (app.status === 'CONTACTED') {
+                title.innerText = "Medical Desk Reviewing File";
+                desc.innerText = "Our clinical desk is currently liaising with super-specialty hospital boards in India to formulate customized treatment options and doctor schedules for you.";
+                actionArea.innerHTML = `
+                    <button onclick="talkToCaseManager()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-2xl text-xs transition shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Chat with Medical Desk
+                    </button>
+                `;
+            } else if (app.status === 'PACKAGE_OFFERED') {
+                title.innerText = "🎉 Treatment Package Offer Ready!";
+                desc.innerText = "Traviora has compiled an official, itemized treatment package including hospital costs, stay duration, accommodation, and airport services. Click below to view and accept!";
+                actionArea.innerHTML = `
+                    <a href="medical-package.html?id=${app.applicationId}" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-8 py-4 rounded-2xl text-xs transition shadow-xl hover:scale-105 flex items-center gap-2">
+                        <i class="fa-solid fa-gift"></i> View & Accept Treatment Package
+                    </a>
+                `;
+            } else if (app.status === 'ACCEPTED') {
+                title.innerText = "✨ Treatment Package Confirmed & Accepted!";
+                desc.innerText = "Your treatment package has been accepted. Hospital dates are confirmed and medical visa invitation letter processing is underway.";
+                actionArea.innerHTML = `
+                    <a href="medical-accepted.html?id=${app.applicationId}" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-4 rounded-2xl text-xs transition shadow-xl flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> View Accepted Status & Documents
+                    </a>
+                `;
+            }
+        }
+
+        function renderSummaryDetails(app) {
+            const p = app.patient;
+            document.getElementById('summaryName').innerText = `${p.firstName} ${p.middleName || ''} ${p.lastName}`;
+            document.getElementById('summaryDobGender').innerText = `${p.dob} (${p.gender})`;
+            document.getElementById('summaryCountry').innerText = `${p.country} (${p.nationality})`;
+            document.getElementById('summaryContact').innerText = `${p.whatsapp} / ${p.email}`;
+            document.getElementById('summaryPassport').innerText = `${app.passport.passportNumber} (${app.passport.issuingCountry})`;
+            document.getElementById('summaryEmergency').innerText = `${p.emergencyName} (${p.relationship}) - ${p.emergencyMobile}`;
+
+            const td = app.treatmentDetails;
+            document.getElementById('summaryTreatment').innerText = td.treatment;
+            document.getElementById('summarySubcat').innerText = td.subcategory || "General Specialty";
+            document.getElementById('summaryHospital').innerText = td.preferredHospital || "Recommended Best";
+            document.getElementById('summaryCity').innerText = td.preferredCity || "Metro Cities";
+            document.getElementById('summaryReason').innerText = td.reason;
+
+            const mi = app.medicalInformation;
+            document.getElementById('summaryDiagnosis').innerText = mi.diagnosis;
+            document.getElementById('summaryAllergies').innerText = mi.allergies || "None";
+            document.getElementById('summaryMedications').innerText = mi.currentMedication || "None";
+            document.getElementById('summaryConditions').innerText = mi.existingConditions || "None";
+
+            const tr = app.travelRequirements;
+            document.getElementById('summaryVisa').innerText = tr.visaAssistance;
+            document.getElementById('summaryPickup').innerText = tr.airportPickup;
+            document.getElementById('summaryHotel').innerText = `${tr.hotelRequired} (${tr.hotelCategory || 'N/A'})`;
+            document.getElementById('summaryCompanion').innerText = `${tr.companion} | Interpreter: ${tr.interpreterRequired}`;
+
+            const docsList = document.getElementById('summaryDocsList');
+            if (app.documents && app.documents.length) {
+                docsList.innerHTML = app.documents.map(d => `
+                    <div class="flex items-center gap-2 text-slate-700 font-medium">
+                        <i class="fa-solid fa-file-check text-teal-600"></i> ${d.name} (${d.size})
+                    </div>
+                `).join('');
+            } else {
+                docsList.innerHTML = `<p class="italic text-slate-400">No documents listed.</p>`;
+            }
+        }
+
+        function copyAppId() {
+            navigator.clipboard.writeText(currentAppId);
+            alert(`Application ID ${currentAppId} copied to clipboard!`);
+        }
+
+        function talkToCaseManager() {
+            const msg = encodeURIComponent(`Hello Traviora, checking status of my application ID: ${currentAppId}`);
+            window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        }
+
+        function simulateAdminAction(newStatus) {
+            if (newStatus === 'PACKAGE_OFFERED') {
+                window.location.href = `medical-package-builder.html?id=${currentAppId}`;
+            } else {
+                window.TravioraMedicalDb.updateStatus(currentAppId, newStatus);
+                loadApplication();
+            }
+        }
+    </script>
+</body>
+</html>

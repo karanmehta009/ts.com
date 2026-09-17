@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Package Offer | Traviora Medical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f8fafc; color: #0a0a0a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-2.5 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto object-contain">
+                <span class="text-xs leading-none uppercase tracking-[0.25em]"><strong class="font-black text-slate-900">TRAV</strong><span class="font-medium text-amber-500">IORA</span></span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <a href="medical-application.html" id="backToTrackerLink" class="text-xs font-bold text-slate-600 hover:text-black">← Back to Application Tracker</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-6 w-full flex-grow space-y-8">
+
+        <!-- Banner Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 text-white p-8 md:p-10 rounded-3xl shadow-xl space-y-3 relative overflow-hidden">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-black uppercase tracking-wider">
+                <i class="fa-solid fa-gift"></i> Official Treatment Offer
+            </div>
+            <h1 class="text-3xl md:text-4xl font-black tracking-tight">Personalized Treatment Package</h1>
+            <p id="pkgSubText" class="text-xs md:text-sm text-slate-300 font-medium">Prepared for <strong id="pkgPatientName" class="text-white">Amina Al-Mansoor</strong> • Application ID: <span id="pkgAppId" class="font-mono text-teal-300">MT-2026-882194</span></p>
+        </div>
+
+        <!-- Section 1: Hospital & Doctor Overview -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
+                <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-hospital-user text-teal-600"></i> Recommended Hospital & Specialist
+                </h2>
+                <span id="hospCityBadge" class="bg-slate-100 text-slate-700 font-bold text-xs px-3 py-1 rounded-full border border-slate-200">Chennai, India</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <span class="text-[10px] font-black uppercase text-teal-600 tracking-widest block">Hospital Facility</span>
+                    <h3 id="hospName" class="text-xl font-extrabold text-slate-900">Apollo Hospitals Greams Road</h3>
+                    <p id="hospAccreditation" class="text-xs font-bold text-slate-500"><i class="fa-solid fa-award text-amber-500 mr-1"></i>JCI & NABH Accredited Super-Specialty</p>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed pt-2">Equipped with 600+ beds, 3D cardiac mapping operating rooms, and dedicated international patient wing.</p>
+                </div>
+
+                <div class="space-y-2 bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
+                    <span class="text-[10px] font-black uppercase text-teal-600 tracking-widest block">Lead Specialist</span>
+                    <h3 id="docName" class="text-base font-extrabold text-slate-900">Dr. Y. Vijayachandra Reddy</h3>
+                    <p id="docSpecialty" class="text-xs font-bold text-teal-600">Senior Consultant Interventional Cardiologist</p>
+                    <p class="text-[11px] text-slate-500 font-medium leading-relaxed pt-1">25+ years experience • Performed 10,000+ successful cardiac procedures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Duration Breakdown -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <i class="fa-solid fa-calendar-days text-teal-600"></i> Estimated Stay & Timeline
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1">
+                    <span class="text-[10px] font-black uppercase text-slate-400">Total Duration</span>
+                    <p id="totalDuration" class="text-2xl font-black text-slate-900">12 Days</p>
+                    <p class="text-[10px] text-slate-500">In India</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1">
+                    <span class="text-[10px] font-black uppercase text-slate-400">Hospital Stay</span>
+                    <p id="inpatientStay" class="text-base font-extrabold text-slate-900">4 Days</p>
+                    <p class="text-[10px] text-slate-500">Private Deluxe Room & ICU</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1">
+                    <span class="text-[10px] font-black uppercase text-slate-400">Recovery Hotel Stay</span>
+                    <p id="hotelStay" class="text-base font-extrabold text-slate-900">8 Days</p>
+                    <p class="text-[10px] text-slate-500">Partner Hotel Suite</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Inclusions Checklist -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <i class="fa-solid fa-circle-check text-teal-600"></i> What's Included in Your Package
+            </h2>
+
+            <div id="inclusionsListGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-medium text-slate-700">
+                <!-- Injected JS -->
+            </div>
+        </div>
+
+        <!-- Section 4: Itemized Pricing Table -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <i class="fa-solid fa-receipt text-teal-600"></i> Itemized Cost Breakdown
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 text-slate-400 font-extrabold uppercase border-b border-slate-100">
+                        <tr>
+                            <th class="p-3">Service Category</th>
+                            <th class="p-3">Description</th>
+                            <th class="p-3 text-right">Amount (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">Medical Procedure & Surgery</td>
+                            <td class="p-3 text-slate-500">Surgeon fee, OT charges, ICU, diagnostics & post-op medicines</td>
+                            <td id="costTreatment" class="p-3 text-right font-bold text-slate-900">$5,200</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">Hotel & Accommodation</td>
+                            <td class="p-3 text-slate-500">8 Nights partner hotel recovery suite with daily breakfast</td>
+                            <td id="costHotel" class="p-3 text-right font-bold text-slate-900">$950</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">Airport & Concierge Services</td>
+                            <td class="p-3 text-slate-500">Chauffeur airport pickup, SIM card, local transport & case manager</td>
+                            <td id="costConcierge" class="p-3 text-right font-bold text-slate-900">$350</td>
+                        </tr>
+                        <tr id="discountRow">
+                            <td class="p-3 font-bold text-teal-600">Special Traviora Discount</td>
+                            <td class="p-3 text-teal-600 font-medium">Promotional assistance discount applied</td>
+                            <td id="costDiscount" class="p-3 text-right font-bold text-teal-600">-$500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="p-6 bg-slate-900 text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <span class="text-[10px] font-black uppercase text-teal-400 tracking-wider">Total Package Price</span>
+                    <p class="text-xs text-slate-300">Guaranteed fixed estimate (No hidden charges)</p>
+                </div>
+                <span id="pkgTotalPrice" class="text-3xl font-black text-teal-400">$6,000 USD</span>
+            </div>
+        </div>
+
+        <!-- Section 5: Clinical Notes & Expiry -->
+        <div class="p-6 bg-amber-50 border border-amber-200/80 rounded-3xl space-y-2 text-xs">
+            <h3 class="font-extrabold text-amber-900 uppercase tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-user text-amber-600"></i> Medical Board Clinical Remarks
+            </h3>
+            <p id="adminRemarksText" class="text-amber-900 font-medium leading-relaxed">
+                Your diagnostic reports have been evaluated by Dr. Vijayachandra Reddy's team. They recommend procedure scheduling within 3 weeks. Private deluxe room reserved.
+            </p>
+            <p class="text-[11px] text-amber-700 font-bold pt-2">Offer Valid Until: <span id="offerExpiryDate">2026-10-31</span></p>
+        </div>
+
+        <!-- Action Section -->
+        <div class="p-8 bg-white border border-slate-200/80 rounded-3xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-1 text-center md:text-left">
+                <h3 class="text-lg font-black text-slate-900">Ready to Accept This Package?</h3>
+                <p class="text-xs text-slate-500 font-medium">Accepting secures your doctor slot and initiates visa invitation processing.</p>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-4">
+                <button onclick="requestModification()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-3 rounded-2xl text-xs transition border border-slate-200">
+                    <i class="fa-brands fa-whatsapp text-emerald-600 mr-1"></i> Request Changes
+                </button>
+                <button onclick="openAcceptModal()" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-8 py-3.5 rounded-2xl transition shadow-xl hover:scale-105 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i> Accept Treatment Package
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Acceptance Modal -->
+    <div id="acceptModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-lg rounded-3xl p-6 md:p-8 space-y-6 text-slate-900 relative">
+            <button onclick="closeAcceptModal()" class="absolute top-6 right-6 text-slate-400 hover:text-black text-xl"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="border-b border-slate-100 pb-3">
+                <span class="text-[10px] font-black uppercase text-teal-600 tracking-wider">Final Acceptance</span>
+                <h2 class="text-2xl font-black mt-1">Accept Treatment Package</h2>
+                <p class="text-xs text-slate-500">Confirm your package selection to proceed with travel coordination.</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2 text-xs">
+                <p><strong>Hospital:</strong> <span id="modalHosp">Apollo Hospitals</span></p>
+                <p><strong>Total Price:</strong> <span id="modalPrice" class="font-bold text-teal-700">$6,000 USD</span></p>
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <label class="block font-bold text-slate-700">Select Preferred Payment Terms Option:</label>
+                <select id="paymentOptionSelect" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-slate-800 outline-none">
+                    <option>Pay 10% Deposit online now ($600 USD) to lock schedule</option>
+                    <option>Pay 100% upon direct hospital arrival in India</option>
+                </select>
+            </div>
+
+            <label class="flex items-start gap-3 cursor-pointer text-xs font-medium text-slate-700 pt-2">
+                <input type="checkbox" id="acceptCheck" class="mt-0.5 rounded text-teal-600">
+                <span>I accept this treatment package offer and authorize Traviora to issue my Medical Visa invitation letter.</span>
+            </label>
+
+            <div class="flex justify-end gap-3 pt-4 border-t border-slate-100">
+                <button onclick="closeAcceptModal()" class="bg-slate-100 text-slate-700 font-bold px-5 py-2.5 rounded-xl text-xs">Cancel</button>
+                <button onclick="confirmAcceptance()" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-xs shadow-md">
+                    Confirm & Accept Package →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 border-t border-black/5 py-6 text-center text-xs text-slate-400">
+        &copy; 2026 Traviora Inc. Medical Tourism Division
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/medical-db.js"></script>
+    <script>
+        let appId = "";
+        let appData = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            appId = params.get('id') || "MT-2026-882194";
+            
+            appData = window.TravioraMedicalDb.getApplication(appId);
+            if (!appData || !appData.package) {
+                alert("No package found for this application yet.");
+                window.location.href = `medical-application.html?id=${appId}`;
+                return;
+            }
+
+            renderPackage(appData);
+        });
+
+        function renderPackage(app) {
+            const pkg = app.package;
+            document.getElementById('pkgAppId').innerText = app.applicationId;
+            document.getElementById('pkgPatientName').innerText = `${app.patient.firstName} ${app.patient.lastName}`;
+            document.getElementById('backToTrackerLink').href = `medical-application.html?id=${app.applicationId}`;
+
+            document.getElementById('hospName').innerText = pkg.hospitalName;
+            document.getElementById('hospCityBadge').innerText = `${pkg.hospitalCity}, India`;
+            document.getElementById('hospAccreditation').innerHTML = `<i class="fa-solid fa-award text-amber-500 mr-1"></i> ${pkg.accreditation}`;
+            
+            document.getElementById('docName').innerText = pkg.doctorName;
+            document.getElementById('docSpecialty').innerText = pkg.doctorSpecialty;
+
+            document.getElementById('totalDuration').innerText = pkg.totalDuration;
+            document.getElementById('inpatientStay').innerText = pkg.inpatientStay;
+            document.getElementById('hotelStay').innerText = pkg.hotelStay;
+
+            // Inclusions
+            const incGrid = document.getElementById('inclusionsListGrid');
+            incGrid.innerHTML = pkg.inclusions.map(inc => `
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200/80 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-teal-600 text-sm"></i>
+                    <span>${inc}</span>
+                </div>
+            `).join('');
+
+            // Pricing
+            const pr = pkg.pricing;
+            document.getElementById('costTreatment').innerText = `$${pr.treatmentCost.toLocaleString()}`;
+            document.getElementById('costHotel').innerText = `$${pr.hotelCost.toLocaleString()}`;
+            document.getElementById('costConcierge').innerText = `$${pr.conciergeCost.toLocaleString()}`;
+            document.getElementById('costDiscount').innerText = `-$${pr.discount.toLocaleString()}`;
+            document.getElementById('pkgTotalPrice').innerText = pr.totalPrice;
+
+            document.getElementById('adminRemarksText').innerText = pkg.adminNotes || "Medical board clinical review completed.";
+            document.getElementById('offerExpiryDate').innerText = pkg.expiryDate;
+
+            document.getElementById('modalHosp').innerText = pkg.hospitalName;
+            document.getElementById('modalPrice').innerText = pr.totalPrice;
+        }
+
+        function openAcceptModal() {
+            document.getElementById('acceptModal').classList.remove('hidden');
+        }
+
+        function closeAcceptModal() {
+            document.getElementById('acceptModal').classList.add('hidden');
+        }
+
+        function requestModification() {
+            const msg = encodeURIComponent(`Hello Traviora, I would like to request package modifications for application ${appId}.`);
+            window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        }
+
+        function confirmAcceptance() {
+            const checked = document.getElementById('acceptCheck').checked;
+            if (!checked) {
+                alert("Please check the consent box to proceed.");
+                return;
+            }
+
+            window.TravioraMedicalDb.updateStatus(appId, 'ACCEPTED');
+            closeAcceptModal();
+            window.location.href = `medical-accepted.html?id=${appId}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Traviora Medical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Admin Header -->
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto">
+                    <span class="font-black tracking-[0.2em] text-white text-sm uppercase">Traviora</span>
+                </a>
+                <span class="bg-teal-500/20 text-teal-400 border border-teal-500/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
+                    Medical Desk Console
+                </span>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs font-bold">
+                <a href="medical.html" class="text-slate-400 hover:text-white transition">Public Medical Site</a>
+                <button onclick="resetMockData()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-xl border border-slate-700">
+                    <i class="fa-solid fa-rotate-right text-[10px] mr-1"></i> Reset Seed Data
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-[1440px] mx-auto px-6 py-10 w-full flex-grow space-y-8">
+
+        <!-- Top Metrics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Applications</span>
+                <p id="metricTotal" class="text-3xl font-black text-white">0</p>
+                <p class="text-[11px] text-teal-400 font-medium">All logged patient files</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pending Review</span>
+                <p id="metricSubmitted" class="text-3xl font-black text-amber-400">0</p>
+                <p class="text-[11px] text-slate-400 font-medium">Status: SUBMITTED</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Packages Offered</span>
+                <p id="metricOffered" class="text-3xl font-black text-blue-400">0</p>
+                <p class="text-[11px] text-slate-400 font-medium">Status: PACKAGE_OFFERED</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Accepted Packages</span>
+                <p id="metricAccepted" class="text-3xl font-black text-emerald-400">0</p>
+                <p class="text-[11px] text-slate-400 font-medium">Status: ACCEPTED</p>
+            </div>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-4 md:space-y-0 md:flex md:items-center md:justify-between gap-4">
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap gap-2 text-xs font-bold">
+                <button onclick="filterStatus('ALL')" id="filter-ALL" class="filter-btn px-4 py-2 rounded-xl bg-teal-500 text-slate-950 font-black">All</button>
+                <button onclick="filterStatus('SUBMITTED')" id="filter-SUBMITTED" class="filter-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white">Submitted</button>
+                <button onclick="filterStatus('CONTACTED')" id="filter-CONTACTED" class="filter-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white">Contacted</button>
+                <button onclick="filterStatus('PACKAGE_OFFERED')" id="filter-PACKAGE_OFFERED" class="filter-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white">Package Offered</button>
+                <button onclick="filterStatus('ACCEPTED')" id="filter-ACCEPTED" class="filter-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white">Accepted</button>
+            </div>
+
+            <!-- Search Field -->
+            <div class="relative min-w-[280px]">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search patient, ID, country..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-teal-500">
+            </div>
+        </div>
+
+        <!-- Table View -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-950/80 text-slate-400 font-extrabold uppercase tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th class="p-4">App ID</th>
+                            <th class="p-4">Patient Name</th>
+                            <th class="p-4">Country</th>
+                            <th class="p-4">Specialty</th>
+                            <th class="p-4">Submitted Date</th>
+                            <th class="p-4">Status</th>
+                            <th class="p-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appTableBody" class="divide-y divide-slate-800/60 font-medium">
+                        <!-- Injected JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Detail Drawer Modal -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto p-6 md:p-8 space-y-6 text-white relative">
+            <button onclick="closeDetailModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="border-b border-slate-800 pb-4">
+                <span id="modalStatusBadge" class="bg-teal-500/20 text-teal-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full">Submitted</span>
+                <h2 id="modalPatientName" class="text-2xl font-black mt-2">Patient Details</h2>
+                <p id="modalAppId" class="text-xs text-slate-400 font-mono">MT-2026-XXXXXX</p>
+            </div>
+
+            <div id="modalContentBody" class="space-y-4 text-xs">
+                <!-- Injected details -->
+            </div>
+
+            <div class="flex justify-end gap-3 border-t border-slate-800 pt-4">
+                <button onclick="closeDetailModal()" class="bg-slate-800 text-slate-300 font-bold px-5 py-2.5 rounded-xl text-xs">Close</button>
+                <button id="modalBuildPkgBtn" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-xs">Create Treatment Package →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 Traviora Medical Tourism Admin Desk
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/medical-db.js"></script>
+    <script>
+        let allApps = [];
+        let activeFilter = 'ALL';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadApps();
+        });
+
+        function loadApps() {
+            allApps = window.TravioraMedicalDb.getAllApplications();
+            updateMetrics(allApps);
+            renderTable();
+        }
+
+        function updateMetrics(apps) {
+            document.getElementById('metricTotal').innerText = apps.length;
+            document.getElementById('metricSubmitted').innerText = apps.filter(a => a.status === 'SUBMITTED').length;
+            document.getElementById('metricOffered').innerText = apps.filter(a => a.status === 'PACKAGE_OFFERED').length;
+            document.getElementById('metricAccepted').innerText = apps.filter(a => a.status === 'ACCEPTED').length;
+        }
+
+        function filterStatus(status) {
+            activeFilter = status;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold";
+            });
+            document.getElementById(`filter-${status}`).className = "filter-btn px-4 py-2 rounded-xl bg-teal-500 text-slate-950 font-black";
+            renderTable();
+        }
+
+        function handleSearch() {
+            renderTable();
+        }
+
+        function renderTable() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            
+            let filtered = allApps.filter(app => {
+                const matchesStatus = (activeFilter === 'ALL') || (app.status === activeFilter);
+                const matchesQuery = (
+                    app.applicationId.toLowerCase().includes(query) ||
+                    app.patient.firstName.toLowerCase().includes(query) ||
+                    app.patient.lastName.toLowerCase().includes(query) ||
+                    app.patient.country.toLowerCase().includes(query) ||
+                    app.treatmentName.toLowerCase().includes(query)
+                );
+                return matchesStatus && matchesQuery;
+            });
+
+            const tbody = document.getElementById('appTableBody');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-slate-500">No applications found matching filter.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(app => `
+                <tr class="hover:bg-slate-800/40 transition">
+                    <td class="p-4 font-mono font-bold text-teal-400">
+                        <a href="medical-application.html?id=${app.applicationId}" class="hover:underline">${app.applicationId}</a>
+                    </td>
+                    <td class="p-4 font-bold text-white">
+                        ${app.patient.firstName} ${app.patient.lastName}
+                        <span class="block text-[10px] text-slate-400 font-normal">${app.patient.email}</span>
+                    </td>
+                    <td class="p-4 text-slate-300">${app.patient.country}</td>
+                    <td class="p-4 text-slate-300 font-bold">${app.treatmentName}</td>
+                    <td class="p-4 text-slate-400">${app.createdAt}</td>
+                    <td class="p-4">
+                        <select onchange="changeAppStatus('${app.applicationId}', this.value)" class="bg-slate-950 border border-slate-700 text-[11px] font-extrabold rounded-lg px-2.5 py-1 text-slate-200 outline-none">
+                            <option value="SUBMITTED" ${app.status === 'SUBMITTED' ? 'selected' : ''}>SUBMITTED</option>
+                            <option value="CONTACTED" ${app.status === 'CONTACTED' ? 'selected' : ''}>CONTACTED</option>
+                            <option value="PACKAGE_OFFERED" ${app.status === 'PACKAGE_OFFERED' ? 'selected' : ''}>PACKAGE_OFFERED</option>
+                            <option value="ACCEPTED" ${app.status === 'ACCEPTED' ? 'selected' : ''}>ACCEPTED</option>
+                        </select>
+                    </td>
+                    <td class="p-4 text-right space-x-2">
+                        <button onclick="openDetailModal('${app.applicationId}')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg text-[11px] font-bold">
+                            View File
+                        </button>
+                        <a href="medical-package-builder.html?id=${app.applicationId}" class="bg-teal-500 hover:bg-teal-400 text-slate-950 px-3 py-1.5 rounded-lg text-[11px] font-black inline-block">
+                            ${app.package ? 'Edit Package' : 'Create Package'}
+                        </a>
+                        <button onclick="whatsappPatient('${app.patient.whatsapp}', '${app.applicationId}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1.5 rounded-lg text-[11px] font-bold" title="WhatsApp Patient">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function changeAppStatus(appId, newStatus) {
+            window.TravioraMedicalDb.updateStatus(appId, newStatus);
+            loadApps();
+        }
+
+        function openDetailModal(appId) {
+            const app = allApps.find(a => a.applicationId === appId);
+            if (!app) return;
+
+            document.getElementById('modalPatientName').innerText = `${app.patient.firstName} ${app.patient.lastName}`;
+            document.getElementById('modalAppId').innerText = `ID: ${app.applicationId} • ${app.patient.country}`;
+            document.getElementById('modalStatusBadge').innerText = app.status;
+
+            const body = document.getElementById('modalContentBody');
+            body.innerHTML = `
+                <div class="grid grid-cols-2 gap-4 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <div><p class="text-slate-400">DOB:</p> <p class="font-bold">${app.patient.dob} (${app.patient.gender})</p></div>
+                    <div><p class="text-slate-400">Passport:</p> <p class="font-bold">${app.passport.passportNumber} (${app.passport.issuingCountry})</p></div>
+                    <div><p class="text-slate-400">WhatsApp:</p> <p class="font-bold text-teal-400">${app.patient.whatsapp}</p></div>
+                    <div><p class="text-slate-400">Email:</p> <p class="font-bold">${app.patient.email}</p></div>
+                </div>
+
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <p class="font-bold text-teal-400 uppercase text-[10px]">Medical Diagnosis & Request</p>
+                    <p><strong>Treatment:</strong> ${app.treatmentName} (${app.treatmentDetails.subcategory})</p>
+                    <p><strong>Primary Diagnosis:</strong> ${app.medicalInformation.diagnosis}</p>
+                    <p><strong>Current Conditions:</strong> ${app.medicalInformation.condition}</p>
+                    <p><strong>Reason:</strong> ${app.treatmentDetails.reason}</p>
+                </div>
+
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <p class="font-bold text-teal-400 uppercase text-[10px]">Travel Requirements</p>
+                    <p><strong>Visa Assistance:</strong> ${app.travelRequirements.visaAssistance} | <strong>Airport Pickup:</strong> ${app.travelRequirements.airportPickup}</p>
+                    <p><strong>Hotel:</strong> ${app.travelRequirements.hotelRequired} (${app.travelRequirements.hotelCategory})</p>
+                </div>
+            `;
+
+            document.getElementById('modalBuildPkgBtn').onclick = () => {
+                window.location.href = `medical-package-builder.html?id=${appId}`;
+            };
+
+            document.getElementById('detailModal').classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        function whatsappPatient(phone, appId) {
+            const msg = encodeURIComponent(`Hello! This is Traviora Medical Tourism Desk regarding your application ${appId}.`);
+            window.open(`https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${msg}`, '_blank');
+        }
+
+        function resetMockData() {
+            if (confirm("Reset applications database to seed data?")) {
+                localStorage.removeItem('traviora_medical_applications');
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Package Accepted | Traviora Medical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #f8fafc; color: #0a0a0a; }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-2.5 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-6 w-auto object-contain">
+                <span class="text-xs leading-none uppercase tracking-[0.25em]"><strong class="font-black text-slate-900">TRAV</strong><span class="font-medium text-amber-500">IORA</span></span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <a href="medical.html" class="text-xs font-bold text-slate-600 hover:text-black">← Medical Home</a>
+                <a href="medical-admin.html" class="text-xs font-black bg-slate-900 text-white px-3 py-1.5 rounded-full">Admin Console</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Body -->
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-6 w-full flex-grow space-y-8">
+
+        <!-- Celebratory Banner -->
+        <div class="bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl space-y-4 text-center md:text-left relative overflow-hidden">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-black uppercase tracking-wider">
+                <i class="fa-solid fa-circle-check text-emerald-400"></i> Package Accepted & Confirmed
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight">Your Medical Travel is Booked!</h1>
+            <p class="text-xs md:text-sm text-slate-300 font-medium max-w-2xl leading-relaxed">
+                Thank you, <strong id="acceptedPatientName" class="text-white">Amina Al-Mansoor</strong>. Your treatment package for <strong id="acceptedTreatment" class="text-white">Cardiology Treatment in India</strong> has been officially confirmed.
+            </p>
+
+            <div class="pt-2 flex flex-wrap gap-4 text-xs font-mono">
+                <span class="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">App ID: <strong id="acceptedAppId" class="text-emerald-400">MT-2026-882194</strong></span>
+                <span class="bg-white/10 px-3 py-1.5 rounded-xl border border-white/10">Hospital Ref: <strong id="acceptedHospRef" class="text-emerald-400">APH-CH-2026-9041</strong></span>
+            </div>
+        </div>
+
+        <!-- Action Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Card 1: Visa Letter -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
+                <div class="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 font-bold">
+                    <i class="fa-solid fa-passport text-lg"></i>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Medical Visa Invitation Letter</h3>
+                <p class="text-xs text-slate-500 font-medium leading-relaxed">Official hospital invitation letter issued for Indian e-Medical Visa processing.</p>
+                <button onclick="downloadVisaLetter()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-arrow-down text-teal-400"></i> Download Visa Invitation (PDF)
+                </button>
+            </div>
+
+            <!-- Card 2: Airport Pickup & Chauffeur -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
+                <div class="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 font-bold">
+                    <i class="fa-solid fa-car text-lg"></i>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Airport Pickup Coordinator</h3>
+                <p class="text-xs text-slate-500 font-medium leading-relaxed">Dedicated chauffeur assigned at Chennai International Airport (MAA).</p>
+                <div class="p-3 bg-slate-50 rounded-xl text-xs space-y-1 font-bold text-slate-700">
+                    <p>Coordinator: <span class="text-slate-900">Ramesh Kumar</span></p>
+                    <p>Contact: <span class="text-teal-600">+91 98765 43210</span></p>
+                </div>
+            </div>
+
+            <!-- Card 3: Hotel Voucher -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
+                <div class="w-10 h-10 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 font-bold">
+                    <i class="fa-solid fa-hotel text-lg"></i>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">Hotel Recovery Suite Voucher</h3>
+                <p class="text-xs text-slate-500 font-medium leading-relaxed">8-Night accommodation reserved at Partner Hotel near hospital campus.</p>
+                <button onclick="downloadHotelVoucher()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-xl text-xs transition border border-slate-200 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-receipt text-slate-600"></i> View Hotel Confirmation Voucher
+                </button>
+            </div>
+
+            <!-- Card 4: Case Manager Contact -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </div>
+                <h3 class="font-extrabold text-slate-900 text-base">24/7 Dedicated Case Manager</h3>
+                <p class="text-xs text-slate-500 font-medium leading-relaxed">Direct WhatsApp assistance for pre-departure questions and hospital updates.</p>
+                <button onclick="talkToCaseManager()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Chat with Case Manager
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Next Steps Timeline -->
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-lg font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-route text-teal-600"></i> Your Next Steps Before Departure
+            </h2>
+
+            <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">1</span>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Apply for Indian e-Medical Visa</h4>
+                        <p class="text-xs text-slate-500 font-medium">Use the downloaded Visa Invitation Letter to submit your online e-Medical Visa application at indianvisaonline.gov.in.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">2</span>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Share Flight Itinerary</h4>
+                        <p class="text-xs text-slate-500 font-medium">Send your confirmed flight numbers to your case manager so airport pickup can be dispatched.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">3</span>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Airport Reception & Hotel Check-in</h4>
+                        <p class="text-xs text-slate-500 font-medium">Our driver will greet you at the arrival hall and escort you to your hotel suite.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-full bg-teal-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">4</span>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Hospital Inperson Registration & Surgery</h4>
+                        <p class="text-xs text-slate-500 font-medium">Your case manager accompanies you to the hospital for doctor consultation and pre-op evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Action Buttons -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4">
+            <a href="medical-application.html?id=MT-2026-882194" id="trackerLinkBtn" class="bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-slate-800 transition">
+                ← View Application Status Tracker
+            </a>
+            <button onclick="window.print()" class="bg-slate-100 border border-slate-300 text-slate-800 font-bold px-6 py-3 rounded-2xl text-xs hover:bg-slate-200 transition flex items-center gap-2">
+                <i class="fa-solid fa-print text-xs"></i> Print Confirmation PDF
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 border-t border-black/5 py-6 text-center text-xs text-slate-400">
+        &copy; 2026 Traviora Inc. Medical Tourism Division
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/medical-db.js"></script>
+    <script>
+        let appId = "";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            appId = params.get('id') || "MT-2026-882194";
+            
+            const app = window.TravioraMedicalDb.getApplication(appId);
+            if (app) {
+                document.getElementById('acceptedPatientName').innerText = `${app.patient.firstName} ${app.patient.lastName}`;
+                document.getElementById('acceptedTreatment').innerText = app.treatmentName;
+                document.getElementById('acceptedAppId').innerText = app.applicationId;
+                document.getElementById('trackerLinkBtn').href = `medical-application.html?id=${app.applicationId}`;
+            }
+        });
+
+        function downloadVisaLetter() {
+            alert(`Downloading Medical Visa Invitation Letter for application ${appId}... (Simulated PDF download)`);
+        }
+
+        function downloadHotelVoucher() {
+            alert(`Downloading Partner Hotel Reservation Voucher... (Simulated PDF download)`);
+        }
+
+        function talkToCaseManager() {
+            const msg = encodeURIComponent(`Hello Traviora, I have accepted my treatment package (App ID: ${appId}).`);
+            window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
