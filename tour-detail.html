@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details | Traviora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Fira+Code:wght@500;700&family=Instrument+Serif:ital@0;1&family=Italiana&family=Outfit:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@500;700;800&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: { brand: { dark: '#0f172a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        /* Luxury Section Heading Animations & Micro-Interactions */
+        @keyframes headingPulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+            }
+            50% {
+                transform: scale(1.3);
+                box-shadow: 0 0 14px 4px rgba(37, 99, 235, 0.7);
+            }
+        }
+        .heading-dot-pulse {
+            animation: headingPulseGlow 2.5s infinite ease-in-out;
+        }
+
+        .heading-hover-wrap {
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .heading-hover-wrap:hover {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        /* Laser Traveling Beam Underline Animation */
+        @keyframes laserTravel {
+            0% {
+                left: -35%;
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                left: 115%;
+                opacity: 0;
+            }
+        }
+
+        .unique-laser-track {
+            position: relative;
+            width: 52px;
+            height: 3.5px;
+            border-radius: 999px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .unique-laser-flare {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            border-radius: 999px;
+            animation: laserTravel 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .laser-track-blue {
+            background: linear-gradient(90deg, rgba(37,99,235,0.12), rgba(99,102,241,0.25), rgba(37,99,235,0.12));
+        }
+        .laser-track-blue .unique-laser-flare {
+            background: linear-gradient(90deg, transparent, #2563eb, #60a5fa, #2563eb, transparent);
+            box-shadow: 0 0 10px #2563eb;
+        }
+        .group\/head:hover .laser-track-blue {
+            width: 115px;
+            box-shadow: 0 0 16px rgba(37, 99, 235, 0.45);
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow 8s linear infinite;
+        }
+
+        @keyframes titleShimmerWave {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .title-shimmer-effect {
+            background: linear-gradient(120deg, #0f172a 0%, #0f172a 38%, #2563eb 50%, #0f172a 62%, #0f172a 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: titleShimmerWave 5s infinite linear;
+        }
+
+        /* Stat Cards Watermark Animation */
+        .stat-card-anim {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stat-card-anim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+            transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .stat-card-anim:hover::before {
+            left: 120%;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Standard Glass Navigation -->
+    <nav id="navbar"
+        class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
+                        class="font-black text-slate-900">TRAV</strong><span
+                        class="font-medium text-amber-500">IORA</span></span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div
+                class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                <a href="index.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-300"></i>
+                        Home</span>
+                </a>
+                <a href="visas.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-passport text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-300"></i>
+                        Visa</span>
+                </a>
+                <a href="tours.html"
+                    class="relative group px-3 py-1.5 text-blue-600 transition-colors duration-300 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 font-bold after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full"><i
+                            class="fa-solid fa-plane-departure text-[11px] text-blue-600"></i>
+                        Tour</span>
+                </a>
+                <a href="medical.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-notes-medical text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-300"></i>
+                        Medical</span>
+                </a>
+                <a href="hotels.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-300"></i>
+                        Hotels</span>
+                </a>
+                <a href="about.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 transition-all duration-300"></i>
+                        About</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
+                <a href="profile.html"
+                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:bg-white hover:text-blue-600 transition-all">
+                    <i class="fa-regular fa-user text-lg"></i>
+                </a>
+                <a href="tours.html" class="hidden lg:flex text-xs font-bold text-slate-600 hover:text-blue-600 items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Tours
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Grid Layout -->
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-24 md:pt-32 pb-16 md:pb-32">
+
+        <!-- Two Column Layout: Left Scrollable Details, Right Sticky Departure Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-20 items-start">
+
+            <!-- Unified Left Content Section -->
+            <div class="lg:col-span-7 w-full order-1 space-y-6">
+
+                <!-- Header Block -->
+                <div class="mb-4 md:mb-6 text-center group/head">
+                    <div class="flex items-center justify-center gap-1.5 mb-2">
+                        <span id="tourCategoryTag"
+                            class="bg-blue-50/90 border border-blue-100 text-blue-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-2xs">
+                            Luxury Group
+                        </span>
+                        <span id="tourDurationTag"
+                            class="bg-emerald-50/90 border border-emerald-100 text-emerald-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
+                            <i class="fa-solid fa-clock text-[8px]"></i> 8 Days / 7 Nights
+                        </span>
+                    </div>
+                    <h1 id="tourTitle"
+                        class="text-lg sm:text-2xl md:text-4xl font-serif font-black title-shimmer-effect leading-snug tracking-tight mb-2">
+                        Switzerland Alps & Paris Grand Odyssey
+                    </h1>
+
+                    <!-- Unique Dual Laser Underline Animation -->
+                    <div class="flex items-center justify-center gap-2.5 sm:gap-3 my-3">
+                        <span class="h-[2px] w-8 sm:w-16 rounded-full bg-gradient-to-l from-blue-600 via-indigo-500 to-transparent group-hover/head:w-14 sm:group-hover/head:w-24 transition-all duration-500"></span>
+                        <div class="unique-laser-track laser-track-blue shadow-xs">
+                            <div class="unique-laser-flare"></div>
+                        </div>
+                        <div class="relative w-6 h-6 rounded-full bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center shrink-0 shadow-sm group-hover/head:scale-125 group-hover/head:bg-blue-600 group-hover/head:text-white transition-all duration-500">
+                            <span class="absolute inset-0 rounded-full bg-blue-400/40 animate-ping"></span>
+                            <span class="absolute inset-[-3px] rounded-full border border-dashed border-blue-400/50 animate-spin-slow"></span>
+                            <i class="fa-solid fa-plane-departure text-[9px] group-hover/head:rotate-12 transition-transform duration-500"></i>
+                        </div>
+                        <div class="unique-laser-track laser-track-blue shadow-xs">
+                            <div class="unique-laser-flare"></div>
+                        </div>
+                        <span class="h-[2px] w-8 sm:w-16 rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-transparent group-hover/head:w-14 sm:group-hover/head:w-24 transition-all duration-500"></span>
+                    </div>
+
+                    <p class="text-[11px] sm:text-xs md:text-sm text-slate-500 font-medium leading-snug max-w-xl mx-auto"
+                        id="tourSubtitle">
+                        Experience the ultimate European escapade crossing the majestic Swiss Alps, panoramic train rides, crystal lakes, and the romantic boulevard of Paris with handpicked luxury stays.
+                    </p>
+                </div>
+
+                <!-- Featured Hero Banner Image with Gallery Thumbnails -->
+                <div class="w-full rounded-[2rem] overflow-hidden shadow-xl relative group/hero bg-slate-900">
+                    <div class="w-full h-[300px] sm:h-[380px] md:h-[420px] relative overflow-hidden">
+                        <div id="heroBg"
+                            class="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-[2s]"
+                            style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80');">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+                        
+                        <div class="absolute bottom-4 left-4 right-4 flex flex-wrap justify-between items-center text-white gap-2">
+                            <span id="tourDestinationsDisplay" class="bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold border border-white/20 shadow-md">
+                                <i class="fa-solid fa-location-dot text-amber-400 mr-1.5"></i> Switzerland & France
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-emerald-500/30 backdrop-blur-md border border-emerald-400/40 text-emerald-300 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider">
+                                    <i class="fa-solid fa-star text-amber-400 mr-1"></i> 4.9 (248 Reviews)
+                                </span>
+                                <span class="bg-blue-600/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider shadow-md">
+                                    Guaranteed Departure
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Photo Gallery Switcher -->
+                    <div class="p-3 bg-slate-900/90 backdrop-blur-md border-t border-white/10 flex items-center gap-2.5 overflow-x-auto custom-scrollbar">
+                        <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 px-2 shrink-0"><i class="fa-solid fa-images mr-1 text-blue-400"></i> Gallery:</span>
+                        <button type="button" onclick="switchHeroPhoto('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80')" class="w-14 h-10 rounded-lg overflow-hidden border-2 border-blue-500 shrink-0 hover:opacity-100 transition shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Paris">
+                        </button>
+                        <button type="button" onclick="switchHeroPhoto('https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1920&q=80')" class="w-14 h-10 rounded-lg overflow-hidden border-2 border-transparent hover:border-blue-400 shrink-0 hover:opacity-100 opacity-70 transition shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Swiss Alps">
+                        </button>
+                        <button type="button" onclick="switchHeroPhoto('https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1920&q=80')" class="w-14 h-10 rounded-lg overflow-hidden border-2 border-transparent hover:border-blue-400 shrink-0 hover:opacity-100 opacity-70 transition shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Lucerne Lake">
+                        </button>
+                        <button type="button" onclick="switchHeroPhoto('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80')" class="w-14 h-10 rounded-lg overflow-hidden border-2 border-transparent hover:border-blue-400 shrink-0 hover:opacity-100 opacity-70 transition shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Luxury Resort">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Route & Stopover Circuit Ribbon -->
+                <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-5 text-white shadow-lg border border-slate-800">
+                    <div class="flex items-center justify-between mb-3 border-b border-white/10 pb-2">
+                        <span class="text-[9px] font-black uppercase tracking-[0.2em] text-blue-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-route"></i> TOUR CIRCUIT ROUTE
+                        </span>
+                        <span class="text-[10px] font-bold text-slate-400">5 Major Stopovers</span>
+                    </div>
+                    <div id="routeTimeline" class="flex items-center justify-center flex-wrap sm:flex-nowrap overflow-x-auto hidden-scrollbar gap-2 py-1">
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="px-3 py-1 rounded-full bg-blue-600/30 border border-blue-400/50 text-xs font-bold text-blue-200">Zurich</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="px-3 py-1 rounded-full bg-indigo-600/30 border border-indigo-400/50 text-xs font-bold text-indigo-200">Lucerne</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="px-3 py-1 rounded-full bg-amber-600/30 border border-amber-400/50 text-xs font-bold text-amber-200">Mount Titlis</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="px-3 py-1 rounded-full bg-emerald-600/30 border border-emerald-400/50 text-xs font-bold text-emerald-200">Interlaken</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="px-3 py-1 rounded-full bg-rose-600/30 border border-rose-400/50 text-xs font-bold text-rose-200">Paris</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- High-End 4 Stat Cards Row -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <!-- Duration -->
+                    <div class="stat-card-anim group relative bg-gradient-to-br from-blue-50/90 via-indigo-50/40 to-white rounded-2xl py-3.5 px-4 border border-blue-100/80 shadow-xs hover:border-blue-300 transition-all">
+                        <i class="fa-regular fa-clock absolute -bottom-2 -right-1 text-[55px] text-blue-500/[0.06] pointer-events-none"></i>
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/90 border border-blue-100 text-blue-600 shadow-xs mb-1.5">
+                                <i class="fa-regular fa-clock text-[9px]"></i>
+                                <span class="text-[8px] font-bold uppercase tracking-[0.12em]" style="font-family:'Fira Code',monospace;">Duration</span>
+                            </div>
+                            <p id="stat-duration" class="text-[22px] font-normal text-slate-900 tracking-[0.02em] leading-none" style="font-family:'Bebas Neue',sans-serif;">8 Days</p>
+                            <p class="text-[10px] font-medium text-slate-500">7 Nights Stay Included</p>
+                        </div>
+                    </div>
+
+                    <!-- Starting Price -->
+                    <div class="stat-card-anim group relative bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white rounded-2xl py-3.5 px-4 border border-emerald-100/80 shadow-xs hover:border-emerald-300 transition-all">
+                        <i class="fa-solid fa-tag absolute -bottom-2 -right-1 text-[55px] text-emerald-500/[0.06] pointer-events-none"></i>
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/90 border border-emerald-100 text-emerald-600 shadow-xs mb-1.5">
+                                <i class="fa-solid fa-dollar-sign text-[9px]"></i>
+                                <span class="text-[8px] font-bold uppercase tracking-[0.12em]" style="font-family:'Fira Code',monospace;">Starting Price</span>
+                            </div>
+                            <p id="stat-price" class="text-[22px] font-normal text-slate-900 tracking-[0.02em] leading-none text-emerald-600" style="font-family:'Bebas Neue',sans-serif;">$1,499</p>
+                            <p class="text-[10px] font-medium text-slate-500">Per Adult Traveler</p>
+                        </div>
+                    </div>
+
+                    <!-- Destinations -->
+                    <div class="stat-card-anim group relative bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white rounded-2xl py-3.5 px-4 border border-amber-100/80 shadow-xs hover:border-amber-300 transition-all">
+                        <i class="fa-solid fa-earth-americas absolute -bottom-2 -right-1 text-[55px] text-amber-500/[0.06] pointer-events-none"></i>
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/90 border border-amber-100 text-amber-600 shadow-xs mb-1.5">
+                                <i class="fa-solid fa-globe text-[9px]"></i>
+                                <span class="text-[8px] font-bold uppercase tracking-[0.12em]" style="font-family:'Fira Code',monospace;">Destinations</span>
+                            </div>
+                            <p id="stat-destinations" class="text-[20px] font-normal text-slate-900 tracking-[0.02em] leading-snug truncate" style="font-family:'Bebas Neue',sans-serif;">Switzerland & France</p>
+                            <p class="text-[10px] font-medium text-slate-500">Schengen Circuit</p>
+                        </div>
+                    </div>
+
+                    <!-- Tour Style -->
+                    <div class="stat-card-anim group relative bg-gradient-to-br from-purple-50/90 via-indigo-50/40 to-white rounded-2xl py-3.5 px-4 border border-purple-100/80 shadow-xs hover:border-purple-300 transition-all">
+                        <i class="fa-solid fa-crown absolute -bottom-2 -right-1 text-[55px] text-purple-500/[0.06] pointer-events-none"></i>
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/90 border border-purple-100 text-purple-600 shadow-xs mb-1.5">
+                                <i class="fa-solid fa-crown text-[9px]"></i>
+                                <span class="text-[8px] font-bold uppercase tracking-[0.12em]" style="font-family:'Fira Code',monospace;">Tour Style</span>
+                            </div>
+                            <p id="stat-style" class="text-[20px] font-normal text-slate-900 tracking-[0.02em] leading-snug truncate" style="font-family:'Bebas Neue',sans-serif;">Luxury Escapade</p>
+                            <p class="text-[10px] font-medium text-slate-500">5-Star & 4-Star Stays</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Overview & Key Highlights Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50/80 border border-blue-100/80 text-blue-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">EXPERIENCE HIGHLIGHTS</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50/60 border border-blue-100 flex items-center justify-center text-blue-600 shadow-[0_2px_8px_rgba(37,99,235,0.08)] group-hover/head:scale-110 group-hover/head:bg-blue-600 group-hover/head:text-white group-hover/head:border-blue-600 transition-all duration-300">
+                                <i class="fa-solid fa-compass text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-blue-600 transition-colors duration-300">Curated Luxury & Iconic Landmarks</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-blue-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-blue-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-blue-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                        <p id="tourOverviewText" class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-medium text-center">
+                            Experience iconic sights, luxury stays, and seamless guided transfers across Europe's finest locations.
+                        </p>
+
+                        <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 text-center">Handpicked Package Attractions</h3>
+                        <div id="tourHighlightsList" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Dynamic Highlights -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Handpicked Stays Showcase Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-50/80 border border-purple-100/80 text-purple-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">LUXURY ACCOMMODATION</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50/60 border border-purple-100 flex items-center justify-center text-purple-600 shadow-[0_2px_8px_rgba(147,51,234,0.08)] group-hover/head:scale-110 group-hover/head:bg-purple-600 group-hover/head:text-white group-hover/head:border-purple-600 transition-all duration-300">
+                                <i class="fa-solid fa-hotel text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-purple-600 transition-colors duration-300">Premium Handpicked Stays</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-purple-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-purple-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-purple-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-black text-slate-900">4-Star Superior Boutique</span>
+                                    <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Included</span>
+                                </div>
+                                <p class="text-xs text-slate-500 font-medium">Central city properties like Radisson Blu Zurich & Novotel Paris Eiffel.</p>
+                                <div class="flex flex-wrap gap-2 pt-2 text-[10px] font-bold text-slate-600">
+                                    <span><i class="fa-solid fa-wifi text-blue-500 mr-1"></i> Free High-Speed Wi-Fi</span>
+                                    <span><i class="fa-solid fa-utensils text-amber-500 mr-1"></i> Daily Buffet Breakfast</span>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-50/70 to-indigo-50/40 border border-purple-200 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-black text-purple-900">5-Star Ultra Luxury</span>
+                                    <span class="text-[10px] font-bold text-purple-600 bg-purple-100 px-2 py-0.5 rounded-md">+$350 Upgrade</span>
+                                </div>
+                                <p class="text-xs text-slate-600 font-medium">Palace tier hotels like Grand Hotel National Lucerne & Shangri-La Paris.</p>
+                                <div class="flex flex-wrap gap-2 pt-2 text-[10px] font-bold text-purple-700">
+                                    <span><i class="fa-solid fa-concierge-bell text-amber-500 mr-1"></i> Executive Lounge Access</span>
+                                    <span><i class="fa-solid fa-spa text-indigo-500 mr-1"></i> Spa & Wellness Credit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day by Day Itinerary Accordion Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-50/80 border border-indigo-100/80 text-indigo-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">DAY-BY-DAY ROADMAP</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50/60 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-[0_2px_8px_rgba(79,70,229,0.08)] group-hover/head:scale-110 group-hover/head:bg-indigo-600 group-hover/head:text-white group-hover/head:border-indigo-600 transition-all duration-300">
+                                <i class="fa-solid fa-map-location-dot text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-indigo-600 transition-colors duration-300">Detailed Travel Itinerary</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-indigo-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-indigo-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-indigo-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+                                <span class="text-xs font-black uppercase tracking-wider text-slate-700">Complete Day-by-Day Experience</span>
+                            </div>
+                            <button type="button" onclick="toggleAllAccordion()" id="btnToggleAllItin" class="text-xs text-blue-600 font-bold bg-blue-50 hover:bg-blue-100 px-3.5 py-1.5 rounded-xl border border-blue-200 transition shadow-2xs">
+                                <i class="fa-solid fa-arrows-up-down text-[10px] mr-1"></i> Expand All
+                            </button>
+                        </div>
+                        <div id="itineraryContainer" class="space-y-4">
+                            <!-- Dynamic Days -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What's Included & Excluded Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50/80 border border-emerald-100/80 text-emerald-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">TRANSPARENT COVERAGE</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50/60 border border-emerald-100 flex items-center justify-center text-emerald-600 shadow-[0_2px_8px_rgba(16,185,129,0.08)] group-hover/head:scale-110 group-hover/head:bg-emerald-600 group-hover/head:text-white group-hover/head:border-emerald-600 transition-all duration-300">
+                                <i class="fa-solid fa-shield-heart text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-emerald-600 transition-colors duration-300">What's Included & Excluded</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-emerald-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-emerald-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-emerald-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-100">
+                                <h3 class="text-xs font-black text-emerald-600 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-check"></i> Package Inclusions
+                                </h3>
+                                <ul id="inclusionsList" class="space-y-2.5 text-xs text-slate-700 font-medium">
+                                    <!-- Dynamic inclusions -->
+                                </ul>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-rose-50/40 border border-rose-100">
+                                <h3 class="text-xs font-black text-rose-600 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-xmark"></i> Exclusions
+                                </h3>
+                                <ul id="exclusionsList" class="space-y-2.5 text-xs text-slate-700 font-medium">
+                                    <!-- Dynamic exclusions -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visa Assistance Guarantee Box -->
+                <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex items-start gap-4 relative z-10">
+                        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 text-amber-400 text-2xl border border-white/20">
+                            <i class="fa-solid fa-passport"></i>
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-amber-300 block mb-1">TRAVIORA VISA CONCIERGE</span>
+                            <h3 class="text-lg font-bold mb-1">Guaranteed Visa Assistance & Priority Processing</h3>
+                            <p id="visaRequirementText" class="text-xs text-blue-100 leading-relaxed mb-4 font-medium">
+                                Full Schengen & international visa assistance included. Passport validation, document verification, and embassy appointment filing handled by experts.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4 text-[11px] font-bold text-emerald-300">
+                                <span><i class="fa-solid fa-shield-halved"></i> 99.4% Verified Visa Approval Success Rate</span>
+                                <span>&bull;</span>
+                                <span><i class="fa-solid fa-clock"></i> 3-5 Business Days Fast Processing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column Sticky Sidebar Checkout (Appears right below header on mobile, sticky on desktop) -->
+            <div id="departuresSection" class="lg:col-span-5 w-full order-2 lg:sticky lg:top-28">
+
+                <!-- Stateful Departure Selection & Booking Card -->
+                <div class="relative bg-white rounded-[2.2rem] p-6 sm:p-8 border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_60px_rgba(37,99,235,0.12)] transition-all duration-500 z-30 overflow-hidden">
+
+                    <!-- Scenic Destination Header Banner -->
+                    <div class="relative w-full h-[100px] rounded-2xl overflow-hidden mb-5 shadow-sm bg-cover bg-center border border-slate-200/60" id="cardBannerBg"
+                        style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-950/30"></div>
+                        
+                        <div class="absolute top-2.5 right-2.5 z-20">
+                            <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/25 backdrop-blur-md border border-emerald-400/40 text-emerald-300 text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                                <span class="relative flex h-1.5 w-1.5">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                                </span>
+                                Live seats check
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-0 p-3 flex items-center justify-between z-10">
+                            <div>
+                                <span class="text-[8px] font-black uppercase tracking-[0.2em] text-slate-300 block leading-none mb-1">SELECT DEPARTURE</span>
+                                <h3 id="cardTourTitle" class="font-serif text-base font-black text-white tracking-tight leading-none drop-shadow-sm truncate max-w-[220px]">
+                                    Switzerland & Paris
+                                </h3>
+                            </div>
+                            <span id="cardPriceTag" class="text-lg font-black text-amber-400 drop-shadow">$1,499</span>
+                        </div>
+                    </div>
+
+                    <!-- Departure Selection list -->
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="text-[11px] font-black uppercase tracking-[0.14em] text-slate-900 flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar-days text-blue-600"></i> Upcoming Batches
+                                </label>
+                                <span class="text-[10px] text-slate-400 font-bold">Guaranteed Fixed Dates</span>
+                            </div>
+
+                            <div id="departuresList" class="space-y-2.5 max-h-[220px] overflow-y-auto custom-scrollbar pr-1">
+                                <!-- Dynamic departures injected here -->
+                            </div>
+                        </div>
+
+                        <!-- Hotel Upgrade Selector -->
+                        <div class="pt-3 border-t border-slate-100">
+                            <label class="text-[11px] font-black uppercase tracking-[0.14em] text-slate-900 block mb-2">
+                                <i class="fa-solid fa-hotel text-purple-600 mr-1"></i> Accommodation Category
+                            </label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" onclick="selectHotelTier('4STAR_SUPERIOR')" id="tier4star"
+                                    class="hotel-tier-btn p-3 rounded-xl border border-blue-600 bg-blue-50/60 text-left transition">
+                                    <span class="block text-[11px] font-black text-slate-900">4-Star Superior</span>
+                                    <span class="block text-[10px] text-slate-500 font-bold">Included ($0)</span>
+                                </button>
+                                <button type="button" onclick="selectHotelTier('5STAR_LUXURY')" id="tier5star"
+                                    class="hotel-tier-btn p-3 rounded-xl border border-slate-200 bg-white text-left hover:border-blue-400 transition">
+                                    <span class="block text-[11px] font-black text-slate-900">5-Star Luxury</span>
+                                    <span class="block text-[10px] text-purple-600 font-bold">+$350 / person</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Price Calculation Breakdown -->
+                        <div class="bg-slate-50/80 rounded-2xl p-4 border border-slate-200/80 space-y-2">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-slate-500 font-medium">Selected Batch:</span>
+                                <span id="selectedDepDateText" class="font-black text-slate-900">Select Batch</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-slate-500 font-medium">Hotel Tier:</span>
+                                <span id="selectedHotelText" class="font-bold text-slate-800">4-Star Superior</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-slate-200/60">
+                                <span class="text-xs font-black uppercase tracking-wider text-slate-900">Estimated Total:</span>
+                                <div class="text-right">
+                                    <span id="selectedDepPriceText" class="text-xl font-black text-blue-600">$1,499</span>
+                                    <span id="selectedDepINRText" class="block text-[10px] font-bold text-slate-400">≈ ₹1,27,415</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main CTA Button -->
+                        <button id="btnProceedBooking" onclick="proceedToBookingWizard()"
+                            class="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white font-black py-4 rounded-2xl text-xs uppercase tracking-widest shadow-xl hover:shadow-2xl hover:scale-[1.01] transition duration-300 flex items-center justify-center gap-2">
+                            <span>Proceed to Booking Wizard</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <div class="flex items-center justify-center gap-3 text-[10px] font-bold text-slate-400 pt-1">
+                            <span><i class="fa-solid fa-lock text-emerald-500 mr-1"></i> SSL Encrypted</span>
+                            <span>&bull;</span>
+                            <span><i class="fa-solid fa-shield-check text-blue-500 mr-1"></i> Instant Confirmation</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-12 pb-8 border-t border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-slate-800">
+                <a href="index.html" class="flex items-center gap-2">
+                    <span class="text-lg uppercase tracking-[0.25em]"><strong class="font-black text-white">TRAV</strong><span class="font-medium text-amber-500">IORA</span></span>
+                </a>
+                <div class="flex gap-6 text-xs text-slate-400 font-bold uppercase tracking-wider">
+                    <a href="index.html" class="hover:text-white transition">Home</a>
+                    <a href="visas.html" class="hover:text-white transition">Visas</a>
+                    <a href="tours.html" class="hover:text-white transition">Tours</a>
+                    <a href="about.html" class="hover:text-white transition">About</a>
+                </div>
+            </div>
+            <div class="pt-6 text-center text-xs text-slate-500 font-medium">
+                &copy; 2026 Traviora International Tour Booking System. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tour-data.js"></script>
+    <script>
+        let currentPackage = null;
+        let selectedDepartureId = null;
+        let selectedHotelCategory = '4STAR_SUPERIOR';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || urlParams.get('id') || 'switzerland-explorer';
+
+            if (window.TravioraTourDb) {
+                currentPackage = window.TravioraTourDb.getPackageBySlug(slug);
+            }
+
+            if (!currentPackage) {
+                alert('Tour package not found.');
+                window.location.href = 'tours.html';
+                return;
+            }
+
+            renderPackageDetails(currentPackage);
+        });
+
+        function renderPackageDetails(pkg) {
+            const price = pkg.startingPriceUSD || pkg.priceUSD || 1200;
+            const dests = (pkg.countries && pkg.countries.filter(Boolean).length) ? pkg.countries.join(', ') : (pkg.destination || pkg.country || 'Global Destination');
+            const bgImg = pkg.mainImage || pkg.heroImage || 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80';
+
+            document.title = `${pkg.title || 'Tour Details'} | Traviora Tours`;
+            document.getElementById('tourTitle').innerText = pkg.title || 'Luxury Tour Package';
+            document.getElementById('tourSubtitle').innerText = pkg.subtitle || pkg.overview || 'Experience luxury travel with handpicked stays and 24/7 concierge.';
+            document.getElementById('tourCategoryTag').innerText = pkg.tourType || pkg.badge || 'Luxury Tour';
+            document.getElementById('tourDurationTag').innerHTML = `<i class="fa-solid fa-clock text-[8px] mr-1"></i> ${pkg.duration || '7 Days / 6 Nights'}`;
+            
+            document.getElementById('heroBg').style.backgroundImage = `url('${bgImg}')`;
+            document.getElementById('cardBannerBg').style.backgroundImage = `url('${bgImg}')`;
+            document.getElementById('cardTourTitle').innerText = pkg.title || 'Luxury Package';
+            document.getElementById('cardPriceTag').innerText = `$${price.toLocaleString()}`;
+            
+            document.getElementById('stat-duration').innerText = pkg.duration ? pkg.duration.split('/')[0].trim() : '8 Days';
+            document.getElementById('stat-price').innerText = `$${price.toLocaleString()}`;
+            document.getElementById('stat-destinations').innerText = dests;
+            document.getElementById('stat-style').innerText = pkg.tourType || 'Luxury Escapade';
+
+            document.getElementById('tourDestinationsDisplay').innerHTML = `<i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> ${dests}`;
+            document.getElementById('tourOverviewText').innerText = pkg.overview || 'Immerse yourself in handpicked luxury stays, guided city excursions, and VIP airport transfers.';
+
+            // Highlights
+            const hlContainer = document.getElementById('tourHighlightsList');
+            hlContainer.innerHTML = (pkg.highlights || []).map(h => `
+                <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-bold text-slate-800">
+                    <i class="fa-solid fa-star text-amber-500 shrink-0"></i>
+                    <span>${h}</span>
+                </div>
+            `).join('');
+
+            // Day-by-Day Itinerary Accordion
+            const itinContainer = document.getElementById('itineraryContainer');
+            itinContainer.innerHTML = (pkg.itinerary || []).map((day, idx) => {
+                const dayNum = String(day.day).padStart(2, '0');
+                const isOpen = idx === 0;
+                const mealText = formatMeals(day.meals);
+
+                return `
+                <div class="border border-slate-200/90 rounded-2xl overflow-hidden transition shadow-2xs hover:border-blue-300">
+                    <button type="button" onclick="toggleDayAccordion(${idx})" class="w-full p-3.5 sm:p-4 bg-slate-50/80 hover:bg-blue-50/40 text-left flex items-center justify-between font-bold text-slate-900 text-xs sm:text-sm group transition">
+                        <div class="flex items-center gap-3 sm:gap-4 truncate mr-2">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex flex-col items-center justify-center shrink-0 shadow-xs border border-blue-400/30">
+                                <span class="text-[7.5px] uppercase tracking-widest font-extrabold text-blue-100 leading-none">DAY</span>
+                                <span class="text-sm font-black leading-none mt-0.5">${dayNum}</span>
+                            </div>
+                            <div class="truncate">
+                                <div class="text-slate-900 font-black text-xs sm:text-sm truncate group-hover:text-blue-600 transition-colors">${day.title}</div>
+                                <div class="flex items-center gap-2 mt-0.5">
+                                    <span class="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500">
+                                        <i class="fa-solid fa-location-dot text-rose-500 text-[9px]"></i> ${day.location}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="accordionIcon-${idx}" class="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 text-xs shrink-0 transition-all duration-300 ${isOpen ? 'rotate-180 bg-blue-600 text-white border-blue-600' : ''}">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div id="accordionContent-${idx}" class="accordion-content ${isOpen ? 'open' : ''} px-4 sm:px-6 py-4 bg-white text-xs text-slate-600 space-y-3 border-t border-slate-100">
+                        <p class="leading-relaxed font-medium text-slate-700 text-xs sm:text-sm">${day.description}</p>
+                        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
+                            <span class="px-2.5 py-1 rounded-xl bg-rose-50 border border-rose-100 text-rose-700 text-[11px] font-bold inline-flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot text-rose-500"></i> ${day.location}
+                            </span>
+                            <span class="px-2.5 py-1 rounded-xl bg-amber-50 border border-amber-100 text-amber-800 text-[11px] font-bold inline-flex items-center gap-1.5">
+                                <i class="fa-solid fa-utensils text-amber-500"></i> Meals: ${mealText}
+                            </span>
+                            <span class="px-2.5 py-1 rounded-xl bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-bold inline-flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-shield text-blue-500"></i> Concierge Guided
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            // Inclusions & Exclusions
+            document.getElementById('inclusionsList').innerHTML = (pkg.inclusions || []).map(i => `
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-sm"></i> ${i}</li>
+            `).join('');
+
+            document.getElementById('exclusionsList').innerHTML = (pkg.exclusions || []).map(e => `
+                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-rose-500 text-sm"></i> ${e}</li>
+            `).join('');
+
+            // Visa text
+            if (pkg.visaConfig && pkg.visaConfig.generalRequirementText) {
+                document.getElementById('visaRequirementText').innerText = pkg.visaConfig.generalRequirementText;
+            }
+
+            // Render Departures
+            renderDepartures(pkg.departures || []);
+        }
+
+        function formatMeals(meals) {
+            if (!meals) return 'As per schedule';
+            const arr = [];
+            if (meals.breakfast) arr.push('Breakfast');
+            if (meals.lunch) arr.push('Lunch');
+            if (meals.dinner) arr.push('Dinner');
+            return arr.length ? arr.join(', ') : 'Self / Flight';
+        }
+
+        function toggleDayAccordion(idx) {
+            const content = document.getElementById(`accordionContent-${idx}`);
+            const icon = document.getElementById(`accordionIcon-${idx}`);
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.classList.remove('rotate-180');
+            } else {
+                content.classList.add('open');
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        function switchHeroPhoto(url) {
+            const heroBg = document.getElementById('heroBg');
+            if (heroBg) {
+                heroBg.style.backgroundImage = `url('${url}')`;
+            }
+        }
+
+        let allItinExpanded = false;
+        function toggleAllAccordion() {
+            allItinExpanded = !allItinExpanded;
+            const contents = document.querySelectorAll('.accordion-content');
+            const icons = document.querySelectorAll('[id^="accordionIcon-"]');
+            const btn = document.getElementById('btnToggleAllItin');
+            
+            contents.forEach(c => {
+                if (allItinExpanded) c.classList.add('open');
+                else c.classList.remove('open');
+            });
+            icons.forEach(i => {
+                if (allItinExpanded) i.classList.add('rotate-180');
+                else i.classList.remove('rotate-180');
+            });
+
+            if (btn) {
+                btn.innerHTML = allItinExpanded ? 
+                    `<i class="fa-solid fa-arrows-up-down text-[10px] mr-1"></i> Collapse All` : 
+                    `<i class="fa-solid fa-arrows-up-down text-[10px] mr-1"></i> Expand All`;
+            }
+        }
+
+        function renderDepartures(departures) {
+            const depList = document.getElementById('departuresList');
+            if (!departures || !departures.length) {
+                depList.innerHTML = `<p class="text-xs text-slate-400 p-2">No scheduled departures found.</p>`;
+                return;
+            }
+
+            depList.innerHTML = departures.map((d, i) => {
+                const isAvailable = d.status !== 'SOLD_OUT' && d.availableSeats > 0;
+                const isSelected = selectedDepartureId === d.id || (i === 0 && !selectedDepartureId && isAvailable);
+                if (isSelected) {
+                    selectedDepartureId = d.id;
+                    updatePriceBreakdown();
+                }
+
+                let badgeClass = 'bg-emerald-100 text-emerald-800';
+                let badgeText = `${d.availableSeats} Left`;
+                if (d.status === 'LIMITED' || (d.availableSeats > 0 && d.availableSeats <= 5)) {
+                    badgeClass = 'bg-amber-100 text-amber-800';
+                    badgeText = `LIMITED (${d.availableSeats})`;
+                } else if (d.status === 'SOLD_OUT' || d.availableSeats <= 0) {
+                    badgeClass = 'bg-slate-200 text-slate-600';
+                    badgeText = 'SOLD OUT';
+                }
+
+                return `
+                    <div onclick="${isAvailable ? `selectDeparture('${d.id}')` : ''}" class="p-3 rounded-xl border ${isSelected ? 'border-blue-600 bg-blue-50/60 shadow-xs' : 'border-slate-200 bg-white'} ${isAvailable ? 'cursor-pointer hover:border-blue-400' : 'opacity-60 cursor-not-allowed'} transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <input type="radio" name="depRadio" ${isSelected ? 'checked' : ''} ${!isAvailable ? 'disabled' : ''} class="text-blue-600 accent-blue-600">
+                                <div>
+                                    <div class="text-[11px] font-black text-slate-900">${formatDate(d.startDate)} – ${formatDate(d.endDate)}</div>
+                                    <div class="text-[10px] font-bold text-blue-600">$${d.basePriceUSD} / adult</div>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider ${badgeClass}">
+                                ${badgeText}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function selectDeparture(depId) {
+            selectedDepartureId = depId;
+            updatePriceBreakdown();
+            renderDepartures(currentPackage.departures);
+        }
+
+        function selectHotelTier(tier) {
+            selectedHotelCategory = tier;
+            document.querySelectorAll('.hotel-tier-btn').forEach(btn => {
+                btn.classList.remove('border-blue-600', 'bg-blue-50/60');
+                btn.classList.add('border-slate-200', 'bg-white');
+            });
+            if (tier === '4STAR_SUPERIOR') {
+                document.getElementById('tier4star').classList.add('border-blue-600', 'bg-blue-50/60');
+            } else {
+                document.getElementById('tier5star').classList.add('border-blue-600', 'bg-blue-50/60');
+            }
+            updatePriceBreakdown();
+        }
+
+        function updatePriceBreakdown() {
+            if (!currentPackage || !selectedDepartureId) return;
+            const dep = currentPackage.departures.find(d => d.id === selectedDepartureId) || currentPackage.departures[0];
+            const base = dep.basePriceUSD || currentPackage.startingPriceUSD || 1200;
+            const upgrade = selectedHotelCategory === '5STAR_LUXURY' ? 350 : 0;
+            const total = base + upgrade;
+
+            document.getElementById('selectedDepDateText').innerText = `${formatDate(dep.startDate)} – ${formatDate(dep.endDate)}`;
+            document.getElementById('selectedHotelText').innerText = selectedHotelCategory === '5STAR_LUXURY' ? '5-Star Luxury (+$350)' : '4-Star Superior';
+            document.getElementById('selectedDepPriceText').innerText = `$${total.toLocaleString()}`;
+            document.getElementById('selectedDepINRText').innerText = `≈ ₹${Math.round(total * 85).toLocaleString()}`;
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const dt = new Date(dateStr);
+            return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function proceedToBookingWizard() {
+            if (!selectedDepartureId) {
+                alert('Please select a departure batch.');
+                return;
+            }
+            window.location.href = `tour-booking.html?slug=${currentPackage.slug}&dep=${selectedDepartureId}&hotel=${selectedHotelCategory}`;
+        }
+    </script>
+</body>
+
+</html>

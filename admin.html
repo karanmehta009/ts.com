@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Traviora</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -18,9 +20,14 @@
         }
     </script>
     <style>
-        body { font-family: 'Outfit', sans-serif; background: #f1f5f9; color: #0a0a0a; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f1f5f9;
+            color: #0a0a0a;
+        }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col">
 
     <!-- Admin Nav -->
@@ -35,12 +42,13 @@
             </a>
             <span class="bg-slate-800 text-slate-400 text-xs font-bold px-2.5 py-1 rounded">Admin Console</span>
         </div>
-        <a href="index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-full transition">Exit Console</a>
+        <a href="index.html"
+            class="text-xs font-bold bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-full transition">Exit Console</a>
     </nav>
 
     <!-- Main Workspace -->
     <div class="p-6 max-w-7xl mx-auto w-full flex-grow">
-        
+
         <!-- Stats KPI Bar -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
@@ -63,10 +71,14 @@
 
         <!-- Admin Action Tabs -->
         <div class="flex gap-2 mb-6 border-b border-slate-200 pb-3">
-            <button class="adm-tab active bg-black text-white px-5 py-2 rounded-xl text-xs font-bold" onclick="switchTab('apps')">Visa Applications</button>
-            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold" onclick="switchTab('tours')">Tour Bookings</button>
-            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold" onclick="switchTab('addVisa')">+ Add Visa Destination</button>
-            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold" onclick="switchTab('addTour')">+ Add Tour Package</button>
+            <button class="adm-tab active bg-black text-white px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('apps')">Visa Applications</button>
+            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('tours')">Tour Bookings</button>
+            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('addVisa')">+ Add Visa Destination</button>
+            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('addTour')">+ Add Tour Package</button>
         </div>
 
         <!-- TAB 1: Visa Applications Table -->
@@ -100,7 +112,8 @@
                         <p class="font-bold text-base">Rohan Sharma</p>
                         <p class="text-xs text-slate-400">Package: Kerala Backwaters Serenity (5D/4N)</p>
                     </div>
-                    <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Confirmed (Paid ₹22,000)</span>
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Confirmed (Paid
+                        ₹22,000)</span>
                 </div>
             </div>
         </div>
@@ -111,58 +124,86 @@
             <form onsubmit="event.preventDefault(); alert('Visa destination added successfully!');" class="space-y-4">
                 <div>
                     <label class="text-xs font-bold text-slate-400 block mb-1">Country Name</label>
-                    <input type="text" placeholder="e.g. Vietnam" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    <input type="text" placeholder="e.g. Vietnam"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="text-xs font-bold text-slate-400 block mb-1">Visa Type</label>
-                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                        <select
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                             <option>e-Visa</option>
                             <option>Sticker</option>
                         </select>
                     </div>
                     <div>
                         <label class="text-xs font-bold text-slate-400 block mb-1">Fee (₹)</label>
-                        <input type="text" placeholder="3500" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                        <input type="text" placeholder="3500"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-black text-white py-3 rounded-full font-bold text-sm">Save Destination</button>
+                <button type="submit" class="w-full bg-black text-white py-3 rounded-full font-bold text-sm">Save
+                    Destination</button>
             </form>
         </div>
 
         <!-- TAB 4: Add Tour Package -->
         <div id="tab-addTour" class="hidden bg-white rounded-3xl border border-slate-200/80 shadow-sm p-8 max-w-xl">
             <h3 class="text-xl font-extrabold mb-4">Add New Tour Package</h3>
-            <form onsubmit="event.preventDefault(); alert('Tour package created successfully!');" class="space-y-4">
+            <form onsubmit="handleAddTourPackage(event)" class="space-y-4">
                 <div>
                     <label class="text-xs font-bold text-slate-400 block mb-1">Package Title</label>
-                    <input type="text" placeholder="e.g. Himachal Snow Odyssey" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    <input type="text" name="title" required placeholder="e.g. Dubai Luxury Expedition & Desert Safari"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs font-bold text-slate-400 block mb-1">Category</label>
-                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
-                            <option>International</option>
-                            <option>Domestic (India)</option>
-                        </select>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Destination Country</label>
+                        <input type="text" name="country" placeholder="e.g. UAE" value="UAE"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-slate-400 block mb-1">Price per person (₹)</label>
-                        <input type="text" placeholder="25000" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Category</label>
+                        <select name="category"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                            <option value="International">International</option>
+                            <option value="Domestic">Domestic (India)</option>
+                        </select>
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-black text-white py-3 rounded-full font-bold text-sm">Publish Tour Package</button>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Base Price per person ($)</label>
+                        <input type="number" name="price" required placeholder="1450" value="1450"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Duration</label>
+                        <input type="text" name="duration" placeholder="e.g. 7 Days / 6 Nights" value="7 Days / 6 Nights"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-black hover:bg-slate-800 text-white py-3 rounded-full font-bold text-sm transition">
+                    Publish Tour Package
+                </button>
             </form>
         </div>
 
     </div>
 
+    <script src="js/storage.js"></script>
+    <script src="js/tour-data.js"></script>
     <script>
         const adminVisas = [
             { id: 'TRV-77412', user: 'Rohan Sharma', dest: 'United Arab Emirates', date: '10 Aug 2026', status: 'Approved' },
             { id: 'TRV-99412', user: 'Rohan Sharma', dest: 'Thailand', date: '14 Aug 2026', status: 'Processing' },
             { id: 'TRV-31048', user: 'Priya Patel', dest: 'Schengen Area', date: '15 Aug 2026', status: 'Pending' }
         ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAdminTable();
+            renderTourBookingsTab();
+        });
 
         function renderAdminTable() {
             document.getElementById('adminVisasTable').innerHTML = adminVisas.map((v, i) => `
@@ -173,10 +214,10 @@
                     <td class="p-4 text-xs text-slate-400">${v.date}</td>
                     <td class="p-4">
                         <select onchange="updateStatus(${i}, this.value)" class="bg-slate-100 border border-slate-200 text-xs font-bold rounded-lg px-2.5 py-1 outline-none">
-                            <option ${v.status==='Pending'?'selected':''}>Pending</option>
-                            <option ${v.status==='Processing'?'selected':''}>Processing</option>
-                            <option ${v.status==='Approved'?'selected':''}>Approved</option>
-                            <option ${v.status==='Rejected'?'selected':''}>Rejected</option>
+                            <option ${v.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                            <option ${v.status === 'Processing' ? 'selected' : ''}>Processing</option>
+                            <option ${v.status === 'Approved' ? 'selected' : ''}>Approved</option>
+                            <option ${v.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
                         </select>
                     </td>
                     <td class="p-4 pr-6">
@@ -186,9 +227,98 @@
             `).join('');
         }
 
+        function renderTourBookingsTab() {
+            const container = document.getElementById('tab-tours');
+            let bookings = [];
+            if (window.TravioraTourDb) {
+                bookings = window.TravioraTourDb.getBookings();
+            }
+
+            if (!bookings.length) {
+                container.innerHTML = `
+                    <div class="p-6 border-b border-slate-100 font-bold text-lg">Active Tour Bookings</div>
+                    <div class="p-8 text-center text-slate-400 text-sm font-medium">No tour bookings stored yet. Complete a booking flow on tour-booking.html to see live entries here.</div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="p-6 border-b border-slate-100 font-bold text-lg flex justify-between items-center">
+                    <span>Active Tour Bookings (${bookings.length})</span>
+                    <span class="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Live Storage</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    ${bookings.map(b => `
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200/80 flex flex-wrap justify-between items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-extrabold text-base text-slate-900">${b.customerName || 'Rohan Sharma'}</span>
+                                    <span class="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">${b.bookingId || b.id}</span>
+                                </div>
+                                <p class="text-xs text-slate-600 font-bold">${b.tourTitle}</p>
+                                <p class="text-[11px] text-slate-400">Departure: ${b.departureDate} &bull; ${b.travelers ? b.travelers.length : 1} Travelers &bull; Visa Option: ${b.overallVisaStatus || 'VALIDATED'}</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-base font-black text-slate-900">$${b.pricing ? b.pricing.grandTotalUSD : '1,499'}</span>
+                                <span class="inline-block mt-1 text-[10px] font-black uppercase px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">${b.paymentStatus || 'CONFIRMED'}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         function updateStatus(index, val) {
             adminVisas[index].status = val;
             alert(`Application ${adminVisas[index].id} status updated to ${val}`);
+        }
+
+        function handleAddTourPackage(evt) {
+            evt.preventDefault();
+            const form = evt.target;
+            const title = form.querySelector('[name="title"]').value.trim();
+            const category = form.querySelector('[name="category"]').value;
+            const price = parseFloat(form.querySelector('[name="price"]').value) || 1200;
+            const duration = form.querySelector('[name="duration"]').value.trim() || '6 Days / 5 Nights';
+            const country = form.querySelector('[name="country"]').value.trim() || 'Europe';
+
+            if (!title) {
+                alert('Please enter a valid package title');
+                return;
+            }
+
+            const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+            const newPkg = {
+                id: 'tour-custom-' + Date.now(),
+                slug: slug,
+                title: title,
+                country: country,
+                badge: 'ADMIN SPECIAL',
+                duration: duration,
+                priceUSD: price,
+                originalPriceUSD: price + 400,
+                rating: 4.9,
+                reviewsCount: 18,
+                heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+                galleryImages: [
+                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+                ],
+                overview: `Experience custom curated perfection with Traviora's ${title}. Designed with signature luxury services and dedicated concierge.`,
+                highlights: ['5-Star Luxury Accommodations', 'Private Chauffeur & Transfers', 'Guided City Tours & Passports'],
+                inclusions: ['Luxury Hotel Stay', 'Daily Gourmet Breakfast', 'Airport VIP Arrival'],
+                exclusions: ['Personal Expenses', 'Flight Tickets'],
+                departures: [
+                    { id: 'dep-custom-1', startDate: '2027-04-10', endDate: '2027-04-16', availableSeats: 12, basePriceUSD: price }
+                ]
+            };
+
+            if (window.TravioraTourDb) {
+                window.TravioraTourDb.savePackage(newPkg);
+                alert(`Tour Package "${title}" successfully created and saved to live storage!`);
+                form.reset();
+                switchTab('tours');
+            }
         }
 
         function switchTab(tabName) {
@@ -201,11 +331,14 @@
                 btn.classList.remove('bg-black', 'text-white');
                 btn.classList.add('bg-white', 'text-slate-600');
             });
-            event.target.classList.remove('bg-white', 'text-slate-600');
-            event.target.classList.add('bg-black', 'text-white');
+            if (event && event.target) {
+                event.target.classList.remove('bg-white', 'text-slate-600');
+                event.target.classList.add('bg-black', 'text-white');
+            }
         }
 
         renderAdminTable();
     </script>
 </body>
+
 </html>

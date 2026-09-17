@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation | Traviora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="tours.html" class="flex items-center gap-2 text-slate-600 hover:text-blue-600 font-bold text-sm">
+                <i class="fa-solid fa-plane-departure"></i> Explore Tours
+            </a>
+            <a href="index.html" class="flex flex-col items-center">
+                <span class="text-sm leading-none uppercase tracking-[0.25em] flex items-center"><strong
+                        class="font-black text-slate-900">TRAV</strong><span
+                        class="font-medium text-amber-500">IORA</span></span>
+            </a>
+            <a href="profile.html" class="text-xs font-bold text-blue-600 hover:underline">
+                My Trips <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <main class="mt-20 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+            <!-- Confirmation Badge Hero -->
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-black tracking-widest uppercase mb-2 inline-block">
+                    Booking Confirmed
+                </span>
+                <h1 class="text-3xl font-black text-slate-900 mb-1">Your Journey is Reserved!</h1>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">
+                    A confirmation email & official travel voucher has been dispatched to <span id="confEmail" class="font-bold text-slate-800">customer@example.com</span>.
+                </p>
+            </div>
+
+            <!-- Receipt Box -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/90 space-y-8">
+
+                <!-- Top Header Info -->
+                <div class="flex flex-wrap justify-between items-start gap-4 pb-6 border-b border-slate-200">
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Booking Reference</span>
+                        <div id="confBookingId" class="text-2xl font-black text-blue-600 font-mono">TRV-T78412</div>
+                        <span class="text-xs text-slate-400 font-medium">Booked on <span id="confCreatedDate">Sep 18, 2026</span></span>
+                    </div>
+
+                    <div class="text-left sm:text-right">
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Payment Status</span>
+                        <span id="confPaymentStatusBadge" class="px-3 py-1 rounded-full text-xs font-black uppercase bg-emerald-100 text-emerald-800 inline-block mb-1">
+                            PAID IN FULL
+                        </span>
+                        <div class="text-xs text-slate-500 font-bold">Total Paid: <span id="confPaidAmount">$3,418</span></div>
+                    </div>
+                </div>
+
+                <!-- Package & Departure Details -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Tour Package</span>
+                        <h3 id="confTourTitle" class="text-base font-extrabold text-slate-900 mb-1">Switzerland Alps & Paris Grand Odyssey</h3>
+                        <p id="confDuration" class="text-xs text-blue-600 font-bold">8 Days / 7 Nights</p>
+                    </div>
+
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Departure Batch</span>
+                        <div id="confDepDates" class="text-sm font-bold text-slate-800">June 10, 2027 – June 17, 2027</div>
+                        <div id="confHotelCat" class="text-xs text-slate-500 font-medium mt-1">Accommodation: 4-Star Superior Boutique</div>
+                    </div>
+                </div>
+
+                <!-- Travelers & Visa Details -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3">Traveler & Visa Breakdown</h3>
+                    <div id="confTravelersList" class="space-y-3">
+                        <!-- Dynamic list -->
+                    </div>
+                </div>
+
+                <!-- Line Item Charges Breakdown -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3">Pricing Line Items</h3>
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs font-medium">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Base Adult Package Fare</span>
+                            <span id="confPriceAdults" class="font-bold text-slate-900">$2,998</span>
+                        </div>
+                        <div id="confPriceChildrenRow" class="flex justify-between text-slate-600 hidden">
+                            <span>Children Package Fare</span>
+                            <span id="confPriceChildren" class="font-bold text-slate-900">$0</span>
+                        </div>
+                        <div id="confPriceHotelRow" class="flex justify-between text-slate-600 hidden">
+                            <span>Hotel Category Upgrade</span>
+                            <span id="confPriceHotel" class="font-bold text-slate-900">$0</span>
+                        </div>
+                        <div id="confPriceRoomRow" class="flex justify-between text-slate-600 hidden">
+                            <span>Room Occupancy Supplement</span>
+                            <span id="confPriceRoom" class="font-bold text-slate-900">$0</span>
+                        </div>
+                        <div id="confPriceVisaRow" class="flex justify-between text-slate-600 hidden">
+                            <span>Traviora Visa Assistance Fee</span>
+                            <span id="confPriceVisa" class="font-bold text-slate-900">$0</span>
+                        </div>
+                        <div id="confPriceAddonsRow" class="flex justify-between text-slate-600 hidden">
+                            <span>Add-ons & Insurance</span>
+                            <span id="confPriceAddons" class="font-bold text-slate-900">$0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Taxes & Service Charges (5%)</span>
+                            <span id="confPriceTaxes" class="font-bold text-slate-900">$150</span>
+                        </div>
+                        <div class="border-t border-slate-300 pt-3 flex justify-between items-center text-sm font-black">
+                            <span class="text-slate-900">Grand Total</span>
+                            <span id="confGrandTotal" class="text-blue-600 text-lg">$3,418</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200 no-print">
+                    <button onclick="window.print()" class="px-6 py-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> Print Receipt
+                    </button>
+
+                    <div class="flex gap-3">
+                        <a id="btnTrackLink" href="track.html" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass"></i> Track Progress
+                        </a>
+                        <a href="profile.html" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+                            <span>Go to My Trips</span> <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/tour-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookingId = urlParams.get('id') || 'TRV-T78412';
+
+            let booking = null;
+            if (window.TravioraTourDb) {
+                booking = window.TravioraTourDb.getBookingById(bookingId);
+            }
+
+            if (!booking) {
+                alert('Booking record not found.');
+                window.location.href = 'tours.html';
+                return;
+            }
+
+            renderConfirmation(booking);
+        });
+
+        function renderConfirmation(b) {
+            document.getElementById('confBookingId').innerText = b.bookingId || b.id;
+            document.getElementById('confEmail').innerText = b.customerEmail || 'customer@example.com';
+            document.getElementById('confCreatedDate').innerText = b.createdDate || 'Today';
+
+            const p = b.pricing || {};
+            document.getElementById('confPaidAmount').innerText = `$${p.paidAmountUSD || 0}`;
+
+            const badge = document.getElementById('confPaymentStatusBadge');
+            if (b.paymentStatus === 'PAID_FULL') {
+                badge.innerText = 'PAID IN FULL';
+                badge.className = 'px-3 py-1 rounded-full text-xs font-black uppercase bg-emerald-100 text-emerald-800 inline-block mb-1';
+            } else {
+                badge.innerText = `DEPOSIT PAID ($${p.paidAmountUSD} Paid / $${p.balanceUSD} Due)`;
+                badge.className = 'px-3 py-1 rounded-full text-xs font-black uppercase bg-amber-100 text-amber-800 inline-block mb-1';
+            }
+
+            document.getElementById('confTourTitle').innerText = b.tourTitle;
+            document.getElementById('confDuration').innerText = b.duration || '8 Days / 7 Nights';
+            document.getElementById('confDepDates').innerText = b.departureDate || 'June 10, 2027';
+            document.getElementById('confHotelCat').innerText = `Accommodation: ${b.accommodationName || b.accommodationCategory || '4-Star Superior Boutique'}`;
+
+            // Travelers
+            const tContainer = document.getElementById('confTravelersList');
+            tContainer.innerHTML = (b.travelers || []).map(t => `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
+                    <div>
+                        <span class="font-extrabold text-slate-900 block">${t.fullName} (${t.gender})</span>
+                        <span class="text-[11px] text-slate-500">Passport: ${t.passportNumber} (${t.nationality})</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase ${t.visaOption === 'NEEDS_ASSISTANCE' ? 'bg-blue-100 text-blue-800' : 'bg-slate-200 text-slate-700'}">
+                        ${t.visaOption === 'NEEDS_ASSISTANCE' ? 'Traviora Visa Assistance' : 'Valid Visa / Own Arrangement'}
+                    </span>
+                </div>
+            `).join('');
+
+            // Line items
+            document.getElementById('confPriceAdults').innerText = `$${p.adultsTotalUSD || 0}`;
+            if (p.childrenTotalUSD) {
+                document.getElementById('confPriceChildrenRow').classList.remove('hidden');
+                document.getElementById('confPriceChildren').innerText = `$${p.childrenTotalUSD}`;
+            }
+            if (p.hotelUpgradeUSD) {
+                document.getElementById('confPriceHotelRow').classList.remove('hidden');
+                document.getElementById('confPriceHotel').innerText = `$${p.hotelUpgradeUSD}`;
+            }
+            if (p.roomSupplementUSD) {
+                document.getElementById('confPriceRoomRow').classList.remove('hidden');
+                document.getElementById('confPriceRoom').innerText = `$${p.roomSupplementUSD}`;
+            }
+            if (p.visaAssistanceUSD) {
+                document.getElementById('confPriceVisaRow').classList.remove('hidden');
+                document.getElementById('confPriceVisa').innerText = `$${p.visaAssistanceUSD}`;
+            }
+            if (p.addOnsTotalUSD) {
+                document.getElementById('confPriceAddonsRow').classList.remove('hidden');
+                document.getElementById('confPriceAddons').innerText = `$${p.addOnsTotalUSD}`;
+            }
+            document.getElementById('confPriceTaxes').innerText = `$${p.taxesUSD || 0}`;
+            document.getElementById('confGrandTotal').innerText = `$${p.grandTotalUSD || 0}`;
+
+            document.getElementById('btnTrackLink').href = `track.html?id=${b.bookingId || b.id}`;
+        }
+    </script>
+</body>
+
+</html>

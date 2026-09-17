@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tour Package | Traviora Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: { brand: { dark: '#0f172a', accent: '#2563eb' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .form-input, .form-select, .form-textarea {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+                border-radius: 1rem;
+            }
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            background-color: white;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+
+        .step-transition {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-item { transition: all 0.3s; margin-left: 0; padding: 0.35rem 0.5rem; border-radius: 9999px; }
+        @media (min-width: 768px) {
+            .step-item { margin-left: -0.4rem; padding: 0.45rem 0.6rem; border-radius: 1rem; }
+        }
+        .step-item.active { background-color: #eff6ff; }
+        .step-item.active .step-num { background-color: #2563eb; color: white; }
+        .step-item.active .step-title { font-weight: 800; color: #0f172a; }
+        .step-item.completed .step-num { background-color: #dcfce7; color: #16a34a; }
+        .step-item.completed .step-num::after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; }
+        .step-item.completed .step-num span { display: none; }
+        .step-item.completed .step-title { color: #334155; }
+
+        .hidden-scrollbar::-webkit-scrollbar { display: none; }
+        .hidden-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+
+<body class="bg-[#f0f4f8] text-slate-800 min-h-screen md:h-screen md:overflow-hidden p-3 sm:p-4 md:p-6 lg:p-8">
+
+    <div class="max-w-[1440px] mx-auto min-h-[calc(100vh-1.5rem)] md:h-full flex flex-col md:flex-row gap-3.5 md:gap-4 lg:gap-6 pb-4 md:pb-0">
+
+        <!-- Left Sidebar Structure (Process Bar & Summary) -->
+        <div class="w-full md:w-[320px] lg:w-[380px] flex-shrink-0 flex flex-col gap-3 md:gap-4 lg:gap-6 z-10" id="sidebarContainer">
+            <!-- Top Logo Box -->
+            <div class="bg-white rounded-2xl md:rounded-[2rem] p-3.5 md:p-5 flex items-center justify-between shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
+                <button id="btnBackToDetail" onclick="window.location.href='tours.html'"
+                    class="w-9 h-9 md:w-10 md:h-10 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:text-black hover:bg-slate-100 transition shadow-xs">
+                    <i class="fa-solid fa-arrow-left text-xs md:text-sm"></i>
+                </button>
+                <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
+                    <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                        class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                    <span class="text-xs md:text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
+                            class="font-black text-slate-900">TRAV</strong><span
+                            class="font-medium text-amber-500">IORA</span></span>
+                </a>
+            </div>
+
+            <!-- Process Box -->
+            <div class="bg-white rounded-2xl md:rounded-[2rem] p-4 md:p-6 lg:p-7 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative flex-grow overflow-y-auto hidden-scrollbar justify-between">
+                
+                <div>
+                    <div class="mb-3 md:mb-4 relative z-10">
+                        <span id="sidebarRouteBadge" class="bg-blue-50 text-blue-600 text-[8px] font-black px-2.5 py-1 rounded-full inline-block tracking-widest uppercase mb-1">
+                            INTERNATIONAL TOUR
+                        </span>
+                        <h2 id="sidebarTitle" class="text-base sm:text-lg md:text-xl font-serif font-bold text-[#0f172a] leading-tight truncate">
+                            Loading Package...
+                        </h2>
+                        <p id="sidebarSubtitle" class="text-[9px] sm:text-[10px] text-slate-500 font-medium tracking-wide">
+                            7 Days &bull; 6 Nights &bull; Fixed Departures
+                        </p>
+                    </div>
+
+                    <!-- Application ID Display -->
+                    <div class="py-2 px-3 bg-slate-50 rounded-xl border border-slate-100 mb-3 flex items-center justify-between">
+                        <div>
+                            <p class="text-[8px] font-bold text-slate-400 uppercase tracking-wider">Booking Reference</p>
+                            <p class="text-[11px] font-black text-blue-600 font-mono" id="tempBookingRef">TRV-TMP</p>
+                        </div>
+                        <i class="fa-solid fa-plane-departure text-blue-600/40 text-sm"></i>
+                    </div>
+
+                    <!-- Steps List -->
+                    <div class="flex flex-row md:flex-col overflow-x-auto md:overflow-y-auto gap-1 md:gap-0 relative z-10 -ml-1 py-1 md:py-0 hidden-scrollbar shrink-0">
+                        <div class="flex items-center gap-2 step-item active shrink-0 cursor-pointer" onclick="goToStep(1)" id="navStep1">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>1</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Departure Date</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(2)" id="navStep2">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>2</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Travelers Count</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(3)" id="navStep3">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>3</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Hotel Standard</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(4)" id="navStep4">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>4</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Room Setup</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(5)" id="navStep5">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>5</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Visa Assistance</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(6)" id="navStep6">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>6</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Tour Addons</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(7)" id="navStep7">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>7</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Passport Details</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(8)" id="navStep8">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>8</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Upload Documents</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(9)" id="navStep9">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>9</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Review Order</span>
+                        </div>
+                        <div class="flex items-center gap-2 step-item shrink-0 cursor-pointer" onclick="goToStep(10)" id="navStep10">
+                            <div class="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[9px] font-bold step-num"><span>10</span></div>
+                            <span class="text-[11px] font-bold text-slate-500 step-title">Demo Payment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Breakdown Box inside Sidebar -->
+                <div class="mt-4 pt-3 border-t border-slate-100 bg-slate-50 p-3.5 rounded-xl text-xs space-y-1.5">
+                    <div class="flex justify-between text-slate-500">
+                        <span>Base Fare (<span id="sidePartySize">1 Adult</span>):</span>
+                        <span id="sideBaseFare" class="font-bold text-slate-900">$0</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>Extras / Upgrades:</span>
+                        <span id="sideExtras" class="font-bold text-slate-900">$0</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-slate-200/80">
+                        <span class="font-extrabold text-slate-900 text-[11px] uppercase tracking-wider">Total Price:</span>
+                        <div class="text-right">
+                            <span id="sideGrandTotal" class="text-base font-black text-blue-600 block leading-none">$0</span>
+                            <span id="sideGrandTotalINR" class="text-[9px] font-bold text-slate-400">≈ ₹0</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Main Content Area -->
+        <div class="flex-grow bg-white rounded-2xl md:rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-4 sm:p-6 md:p-10 lg:p-12 h-auto md:h-full overflow-y-auto relative hidden-scrollbar flex flex-col justify-between" id="formContainer">
+            
+            <div>
+                <!-- STEP 1: DEPARTURE BATCH -->
+                <div id="step-1" class="step-transition">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Choose Departure Batch</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Select your preferred travel date and group departure slot.</p>
+                    <div id="step1Departures" class="space-y-3"></div>
+                </div>
+
+                <!-- STEP 2: TRAVELERS COUNT -->
+                <div id="step-2" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Traveler Count</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Specify the number of adults, children, and infants traveling.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Adults (12+ yrs)</h4>
+                                <p class="text-xs text-slate-500">Full fare package seat</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button type="button" onclick="changeTravelerCount('adults', -1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">-</button>
+                                <span id="cntAdults" class="w-6 text-center font-black text-slate-900">1</span>
+                                <button type="button" onclick="changeTravelerCount('adults', 1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">+</button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Children (2-11 yrs)</h4>
+                                <p class="text-xs text-slate-500">25% discount on base fare</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button type="button" onclick="changeTravelerCount('children', -1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">-</button>
+                                <span id="cntChildren" class="w-6 text-center font-black text-slate-900">0</span>
+                                <button type="button" onclick="changeTravelerCount('children', 1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">+</button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Infants (Under 2 yrs)</h4>
+                                <p class="text-xs text-slate-500">85% discount (no separate bed/seat)</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button type="button" onclick="changeTravelerCount('infants', -1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">-</button>
+                                <span id="cntInfants" class="w-6 text-center font-black text-slate-900">0</span>
+                                <button type="button" onclick="changeTravelerCount('infants', 1)" class="w-9 h-9 rounded-full bg-white border border-slate-300 font-black text-slate-700 shadow-xs hover:bg-slate-100 transition">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: ACCOMMODATION TIER -->
+                <div id="step-3" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Select Hotel Standard</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Choose your preferred hotel comfort standard.</p>
+                    <div id="step3Accommodation" class="space-y-4"></div>
+                </div>
+
+                <!-- STEP 4: ROOM CONFIGURATION -->
+                <div id="step-4" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Room Configuration</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Select room layout for your party size.</p>
+                    <div id="step4Rooms" class="space-y-4"></div>
+                </div>
+
+                <!-- STEP 5: VISA ASSISTANCE -->
+                <div id="step-5" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Visa Verification & Assistance</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Select visa status for each traveler in your group.</p>
+                    <div id="step5VisaList" class="space-y-4"></div>
+                </div>
+
+                <!-- STEP 6: ADD-ONS -->
+                <div id="step-6" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Enhance Your Tour (Add-ons)</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Optional extras to customize your travel experience.</p>
+                    <div id="step6Addons" class="space-y-3"></div>
+                </div>
+
+                <!-- STEP 7: TRAVELER DETAILS -->
+                <div id="step-7" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Passport & Traveler Info</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Enter official passport information for airline and hotel registration.</p>
+                    <div id="step7TravelerForms" class="space-y-6"></div>
+                </div>
+
+                <!-- STEP 8: DOCUMENT UPLOAD -->
+                <div id="step-8" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Upload Documents</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Upload passport scans and photos for verification (Simulated upload).</p>
+                    <div id="step8DocUploads" class="space-y-6"></div>
+                </div>
+
+                <!-- STEP 9: REVIEW ORDER -->
+                <div id="step-9" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Review Booking & Pricing</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Please inspect all line items before proceeding to payment.</p>
+                    
+                    <div class="p-6 bg-slate-50/80 rounded-2xl border border-slate-200/80 space-y-4">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span id="revTourName">Swiss Tour</span>
+                            <span id="revDepDates" class="text-blue-600 font-black">June 10 - June 17</span>
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-3 space-y-2 text-xs">
+                            <div class="flex justify-between text-slate-600">
+                                <span>Adults Base Fare (<span id="lblRevAdultCount">1</span>x)</span>
+                                <span id="lblRevAdultPrice" class="font-bold text-slate-900">$1,499</span>
+                            </div>
+                            <div id="rowRevChildren" class="flex justify-between text-slate-600 hidden">
+                                <span>Children Fare (<span id="lblRevChildCount">0</span>x)</span>
+                                <span id="lblRevChildPrice" class="font-bold text-slate-900">$0</span>
+                            </div>
+                            <div id="rowRevHotelUpgrade" class="flex justify-between text-slate-600 hidden">
+                                <span>Hotel Tier Upgrade</span>
+                                <span id="lblRevHotelUpgrade" class="font-bold text-slate-900">$0</span>
+                            </div>
+                            <div id="rowRevRoomSupp" class="flex justify-between text-slate-600 hidden">
+                                <span>Room Single / Family Supplement</span>
+                                <span id="lblRevRoomSupp" class="font-bold text-slate-900">$0</span>
+                            </div>
+                            <div id="rowRevVisa" class="flex justify-between text-slate-600 hidden">
+                                <span>Traviora Visa Assistance Concierge</span>
+                                <span id="lblRevVisa" class="font-bold text-slate-900">$0</span>
+                            </div>
+                            <div id="rowRevAddons" class="flex justify-between text-slate-600 hidden">
+                                <span>Selected Tour Add-ons</span>
+                                <span id="lblRevAddons" class="font-bold text-slate-900">$0</span>
+                            </div>
+                            <div class="flex justify-between text-slate-600">
+                                <span>Taxes & Service Fee (5%)</span>
+                                <span id="lblRevTaxes" class="font-bold text-slate-900">$0</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-300 pt-4 flex justify-between items-center">
+                            <span class="text-sm font-black text-slate-900 uppercase tracking-wider">Grand Total</span>
+                            <span id="lblRevGrandTotal" class="text-2xl font-black text-blue-600">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 10: DEMO PAYMENT -->
+                <div id="step-10" class="step-transition hidden">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-1.5 text-[#0f172a]">Payment Simulation</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 font-medium">Select payment mode to finalize your booking.</p>
+
+                    <div class="space-y-6">
+                        <!-- Deposit vs Full -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div onclick="selectPaymentOption('DEPOSIT')" id="optDeposit" class="p-4 rounded-2xl border-2 border-blue-600 bg-blue-50/50 cursor-pointer">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-slate-900">Pay 30% Reserve Deposit</h4>
+                                    <i class="fa-solid fa-circle-check text-blue-600"></i>
+                                </div>
+                                <p class="text-xs text-slate-500 mb-2">Pay balance 14 days before departure</p>
+                                <span id="payDepositAmountText" class="text-lg font-black text-blue-600">$450</span>
+                            </div>
+
+                            <div onclick="selectPaymentOption('FULL')" id="optFull" class="p-4 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer">
+                                <div class="flex justify-between items-center mb-1">
+                                    <h4 class="font-bold text-sm text-slate-900">Pay Full Amount</h4>
+                                    <i class="fa-regular fa-circle text-slate-300"></i>
+                                </div>
+                                <p class="text-xs text-slate-500 mb-2">Instant voucher & priority booking</p>
+                                <span id="payFullAmountText" class="text-lg font-black text-slate-900">$1,500</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Demo Form -->
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+                            <h4 class="text-xs font-black uppercase tracking-wider text-slate-500">Demo Credit Card Info</h4>
+                            <div>
+                                <label class="form-label">Cardholder Name</label>
+                                <input type="text" id="payCardName" value="Rohan Sharma" class="form-input">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="form-label">Card Number (Demo)</label>
+                                    <input type="text" id="payCardNum" value="4532 •••• •••• 8812" class="form-input">
+                                </div>
+                                <div>
+                                    <label class="form-label">Expiry / CVV</label>
+                                    <input type="text" value="08/29 | 382" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action Buttons -->
+            <div class="mt-8 pt-5 border-t border-slate-100 flex justify-between items-center">
+                <button id="btnWizardPrev" type="button" onclick="navigateStep(-1)" class="text-slate-400 hover:text-slate-700 font-bold text-xs sm:text-sm transition px-3 py-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-chevron-left text-xs"></i> Back
+                </button>
+                <button id="btnWizardNext" type="button" onclick="navigateStep(1)" class="bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 flex items-center gap-2">
+                    <span>Save & Continue</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/tour-data.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 10;
+
+        let bookingState = {
+            tour: null,
+            selectedDeparture: null,
+            travelersCount: { adults: 1, children: 0, infants: 0 },
+            accommodationCategory: '4STAR_SUPERIOR',
+            rooms: [],
+            travelers: [],
+            selectedAddOns: [],
+            documents: {},
+            paymentMode: 'DEPOSIT'
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || 'switzerland-explorer';
+            const depId = urlParams.get('dep');
+            const hotelTier = urlParams.get('hotel');
+
+            if (window.TravioraTourDb) {
+                bookingState.tour = window.TravioraTourDb.getPackageBySlug(slug);
+            }
+
+            if (!bookingState.tour) {
+                alert('Invalid Tour Package');
+                window.location.href = 'tours.html';
+                return;
+            }
+
+            if (hotelTier) {
+                bookingState.accommodationCategory = hotelTier;
+            }
+
+            if (depId && bookingState.tour.departures) {
+                bookingState.selectedDeparture = bookingState.tour.departures.find(d => d.id === depId);
+            }
+            if (!bookingState.selectedDeparture && bookingState.tour.departures) {
+                bookingState.selectedDeparture = bookingState.tour.departures[0];
+            }
+
+            document.getElementById('tempBookingRef').innerText = 'TRV-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('sidebarTitle').innerText = bookingState.tour.title;
+            document.getElementById('sidebarSubtitle').innerText = `${bookingState.tour.duration || '7 Days'} • Guaranteed Fixed Dates`;
+            document.getElementById('btnBackToDetail').onclick = () => {
+                window.location.href = `tour-detail.html?slug=${bookingState.tour.slug}`;
+            };
+
+            initWizardUI();
+            updateStepNavUI();
+            updateCalculations();
+        });
+
+        function updateStepNavUI() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const navItem = document.getElementById(`navStep${i}`);
+                if (navItem) {
+                    if (i === currentStep) {
+                        navItem.className = "flex items-center gap-2 step-item active shrink-0 cursor-pointer";
+                    } else if (i < currentStep) {
+                        navItem.className = "flex items-center gap-2 step-item completed shrink-0 cursor-pointer";
+                    } else {
+                        navItem.className = "flex items-center gap-2 step-item shrink-0 cursor-pointer";
+                    }
+                }
+            }
+        }
+
+        function initWizardUI() {
+            // Step 1: Departures
+            const depContainer = document.getElementById('step1Departures');
+            depContainer.innerHTML = (bookingState.tour.departures || []).map(d => `
+                <div onclick="selectWizardDep('${d.id}')" class="p-4 rounded-2xl border-2 ${bookingState.selectedDeparture && bookingState.selectedDeparture.id === d.id ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200 bg-white'} cursor-pointer transition">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-black text-slate-900">${d.startDate} to ${d.endDate}</span>
+                            <span class="block text-xs font-bold text-blue-600">$${d.basePriceUSD} / person</span>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase ${d.availableSeats > 5 ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+                            ${d.availableSeats} Seats Available
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+
+            // Step 3: Accommodation
+            const accContainer = document.getElementById('step3Accommodation');
+            const cats = (bookingState.tour.accommodationRules && bookingState.tour.accommodationRules.categories) || [
+                { id: '4STAR_SUPERIOR', name: '4-Star Superior Boutique', priceAdjustmentUSD: 0, description: 'Boutique central hotels included in base price.' },
+                { id: '5STAR_LUXURY', name: '5-Star Ultra Luxury Collection', priceAdjustmentUSD: 350, description: 'Palace tier hotels with exclusive club lounge access.' }
+            ];
+            accContainer.innerHTML = cats.map(c => `
+                <div onclick="selectAccommodationTier('${c.id}')" class="p-4 rounded-2xl border-2 ${bookingState.accommodationCategory === c.id ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200 bg-white'} cursor-pointer transition">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="font-bold text-sm text-slate-900">${c.name}</h4>
+                        <span class="text-xs font-black text-blue-600">${c.priceAdjustmentUSD > 0 ? '+$' + c.priceAdjustmentUSD + '/person' : 'Included'}</span>
+                    </div>
+                    <p class="text-xs text-slate-500">${c.description}</p>
+                </div>
+            `).join('');
+
+            // Step 6: Add-ons
+            const addonsContainer = document.getElementById('step6Addons');
+            addonsContainer.innerHTML = (bookingState.tour.addOns || []).map(ao => `
+                <div onclick="toggleAddon('${ao.id}')" class="p-4 rounded-2xl border-2 ${bookingState.selectedAddOns.some(a => a.id === ao.id) ? 'border-blue-600 bg-blue-50/50' : 'border-slate-200 bg-white'} cursor-pointer transition flex items-center justify-between">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">${ao.name}</h4>
+                        <p class="text-xs text-slate-500">$${ao.priceUSD} (${ao.perType === 'PER_TRAVELER' ? 'Per Traveler' : 'Per Booking'})</p>
+                    </div>
+                    <i class="fa-solid ${bookingState.selectedAddOns.some(a => a.id === ao.id) ? 'fa-square-check text-blue-600 text-lg' : 'fa-square text-slate-300 text-lg'}"></i>
+                </div>
+            `).join('');
+        }
+
+        function selectWizardDep(depId) {
+            bookingState.selectedDeparture = bookingState.tour.departures.find(d => d.id === depId);
+            initWizardUI();
+            updateCalculations();
+        }
+
+        function changeTravelerCount(type, delta) {
+            let val = bookingState.travelersCount[type] + delta;
+            if (type === 'adults' && val < 1) val = 1;
+            if (val < 0) val = 0;
+            bookingState.travelersCount[type] = val;
+
+            document.getElementById('cntAdults').innerText = bookingState.travelersCount.adults;
+            document.getElementById('cntChildren').innerText = bookingState.travelersCount.children;
+            document.getElementById('cntInfants').innerText = bookingState.travelersCount.infants;
+
+            updateCalculations();
+        }
+
+        function selectAccommodationTier(catId) {
+            bookingState.accommodationCategory = catId;
+            initWizardUI();
+            updateCalculations();
+        }
+
+        function toggleAddon(addonId) {
+            const idx = bookingState.selectedAddOns.findIndex(a => a.id === addonId);
+            if (idx >= 0) bookingState.selectedAddOns.splice(idx, 1);
+            else {
+                const item = bookingState.tour.addOns.find(a => a.id === addonId);
+                if (item) bookingState.selectedAddOns.push(item);
+            }
+            initWizardUI();
+            updateCalculations();
+        }
+
+        function prepareTravelersAndRooms() {
+            const totalTravelers = bookingState.travelersCount.adults + bookingState.travelersCount.children;
+            
+            if (totalTravelers === 1) {
+                bookingState.rooms = [{ type: 'SINGLE', count: 1, roomName: 'Single Room', supplementUSD: 280 }];
+            } else {
+                const doubleCount = Math.floor(totalTravelers / 2);
+                const remainder = totalTravelers % 2;
+                bookingState.rooms = [];
+                if (doubleCount > 0) bookingState.rooms.push({ type: 'DOUBLE', count: doubleCount, roomName: 'Double / Twin Room', supplementUSD: 0 });
+                if (remainder > 0) bookingState.rooms.push({ type: 'SINGLE', count: 1, roomName: 'Single Room', supplementUSD: 280 });
+            }
+
+            const roomContainer = document.getElementById('step4Rooms');
+            roomContainer.innerHTML = bookingState.rooms.map(r => `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">${r.roomName} (${r.count}x)</h4>
+                        <p class="text-xs text-slate-500">Occupancy Supplement: $${r.supplementUSD}</p>
+                    </div>
+                    <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Auto-configured</span>
+                </div>
+            `).join('');
+
+            const newTravelers = [];
+            for (let i = 1; i <= totalTravelers; i++) {
+                const existing = bookingState.travelers[i - 1] || {};
+                newTravelers.push({
+                    travelerNum: i,
+                    fullName: existing.fullName || (i === 1 ? 'Rohan Sharma' : `Traveler ${i}`),
+                    gender: existing.gender || 'Male',
+                    nationality: existing.nationality || 'India',
+                    countryOfResidence: existing.countryOfResidence || 'India',
+                    passportNumber: existing.passportNumber || (i === 1 ? 'Z9482104' : `Z${Math.floor(1000000 + Math.random()*9000000)}`),
+                    passportExpiry: existing.passportExpiry || '2030-10-12',
+                    visaOption: existing.visaOption || 'NEEDS_ASSISTANCE',
+                    visaStatus: existing.visaStatus || 'ASSISTANCE_REQUESTED'
+                });
+            }
+            bookingState.travelers = newTravelers;
+
+            const visaContainer = document.getElementById('step5VisaList');
+            visaContainer.innerHTML = bookingState.travelers.map((t, idx) => `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Traveler #${t.travelerNum}: ${t.fullName}</h4>
+                        <span class="text-xs font-bold text-blue-600">${t.nationality} Passport</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div onclick="setTravelerVisaOption(${idx}, 'HAS_VISA')" class="p-3 rounded-xl border ${t.visaOption === 'HAS_VISA' ? 'border-blue-600 bg-blue-50' : 'border-slate-200 bg-white'} cursor-pointer text-xs">
+                            <span class="block font-bold text-slate-900 mb-1">Has Valid Visa</span>
+                            <span class="text-[10px] text-slate-500">I already have entry approval</span>
+                        </div>
+                        <div onclick="setTravelerVisaOption(${idx}, 'NEEDS_ASSISTANCE')" class="p-3 rounded-xl border ${t.visaOption === 'NEEDS_ASSISTANCE' ? 'border-blue-600 bg-blue-50' : 'border-slate-200 bg-white'} cursor-pointer text-xs">
+                            <span class="block font-bold text-slate-900 mb-1">Needs Traviora Visa</span>
+                            <span class="text-[10px] text-blue-600 font-bold">+$${(bookingState.tour.visaConfig && bookingState.tour.visaConfig.assistanceFeeUSD) || 100} Fee</span>
+                        </div>
+                        <div onclick="setTravelerVisaOption(${idx}, 'ARRANGE_SELF')" class="p-3 rounded-xl border ${t.visaOption === 'ARRANGE_SELF' ? 'border-blue-600 bg-blue-50' : 'border-slate-200 bg-white'} cursor-pointer text-xs">
+                            <span class="block font-bold text-slate-900 mb-1">Arrange Myself</span>
+                            <span class="text-[10px] text-slate-500">No assistance required</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const formContainer = document.getElementById('step7TravelerForms');
+            formContainer.innerHTML = bookingState.travelers.map((t, idx) => `
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+                    <h4 class="font-bold text-sm text-slate-900 border-b border-slate-200 pb-2">Traveler #${t.travelerNum} Details</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="form-label">Full Passport Name</label>
+                            <input type="text" value="${t.fullName}" onchange="updateTravelerField(${idx}, 'fullName', this.value)" class="form-input">
+                        </div>
+                        <div>
+                            <label class="form-label">Gender</label>
+                            <select onchange="updateTravelerField(${idx}, 'gender', this.value)" class="form-select">
+                                <option value="Male" ${t.gender === 'Male' ? 'selected' : ''}>Male</option>
+                                <option value="Female" ${t.gender === 'Female' ? 'selected' : ''}>Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Passport Number</label>
+                            <input type="text" value="${t.passportNumber}" onchange="updateTravelerField(${idx}, 'passportNumber', this.value)" class="form-input font-mono uppercase">
+                        </div>
+                        <div>
+                            <label class="form-label">Passport Expiry Date</label>
+                            <input type="date" value="${t.passportExpiry}" onchange="updateTravelerField(${idx}, 'passportExpiry', this.value)" class="form-input">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const docContainer = document.getElementById('step8DocUploads');
+            docContainer.innerHTML = bookingState.travelers.map((t, idx) => `
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-sm text-slate-900">Traveler #${t.travelerNum} (${t.fullName}) Documents</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="p-4 rounded-xl bg-white border border-dashed border-slate-300 text-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-blue-600 text-xl mb-2"></i>
+                            <span class="block text-xs font-bold text-slate-700">Passport Copy (JPG/PDF)</span>
+                            <span class="text-[10px] text-emerald-600 font-bold block mt-1"><i class="fa-solid fa-circle-check"></i> Demo Document Attached</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white border border-dashed border-slate-300 text-center">
+                            <i class="fa-solid fa-id-card text-blue-600 text-xl mb-2"></i>
+                            <span class="block text-xs font-bold text-slate-700">Biometric Photo</span>
+                            <span class="text-[10px] text-emerald-600 font-bold block mt-1"><i class="fa-solid fa-circle-check"></i> Demo Photo Verified</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setTravelerVisaOption(idx, option) {
+            if (bookingState.travelers[idx]) {
+                bookingState.travelers[idx].visaOption = option;
+                bookingState.travelers[idx].visaStatus = option === 'NEEDS_ASSISTANCE' ? 'ASSISTANCE_REQUESTED' : 'NOT_REQUIRED';
+            }
+            prepareTravelersAndRooms();
+            updateCalculations();
+        }
+
+        function updateTravelerField(idx, field, value) {
+            if (bookingState.travelers[idx]) {
+                bookingState.travelers[idx][field] = value;
+            }
+        }
+
+        function updateCalculations() {
+            if (!window.calculateTourPrice || !bookingState.tour) return;
+            const pricing = window.calculateTourPrice(bookingState);
+            bookingState.pricing = pricing;
+
+            // Sidebar updates
+            document.getElementById('sidePartySize').innerText = `${bookingState.travelersCount.adults} Adult${bookingState.travelersCount.adults > 1 ? 's' : ''}`;
+            document.getElementById('sideBaseFare').innerText = `$${pricing.adultsTotalUSD + pricing.childrenTotalUSD}`;
+            document.getElementById('sideExtras').innerText = `$${pricing.hotelUpgradeUSD + pricing.roomSupplementUSD + pricing.visaAssistanceUSD + pricing.addOnsTotalUSD}`;
+            document.getElementById('sideGrandTotal').innerText = `$${pricing.grandTotalUSD.toLocaleString()}`;
+            document.getElementById('sideGrandTotalINR').innerText = `≈ ₹${Math.round(pricing.grandTotalUSD * 85).toLocaleString()}`;
+
+            // Review step updates
+            document.getElementById('revTourName').innerText = bookingState.tour.title;
+            if (bookingState.selectedDeparture) {
+                document.getElementById('revDepDates').innerText = `${bookingState.selectedDeparture.startDate} – ${bookingState.selectedDeparture.endDate}`;
+            }
+            document.getElementById('lblRevAdultCount').innerText = bookingState.travelersCount.adults;
+            document.getElementById('lblRevAdultPrice').innerText = `$${pricing.adultsTotalUSD}`;
+
+            if (pricing.childrenTotalUSD > 0) {
+                document.getElementById('rowRevChildren').classList.remove('hidden');
+                document.getElementById('lblRevChildCount').innerText = bookingState.travelersCount.children;
+                document.getElementById('lblRevChildPrice').innerText = `$${pricing.childrenTotalUSD}`;
+            }
+
+            if (pricing.hotelUpgradeUSD > 0) {
+                document.getElementById('rowRevHotelUpgrade').classList.remove('hidden');
+                document.getElementById('lblRevHotelUpgrade').innerText = `$${pricing.hotelUpgradeUSD}`;
+            }
+
+            if (pricing.roomSupplementUSD > 0) {
+                document.getElementById('rowRevRoomSupp').classList.remove('hidden');
+                document.getElementById('lblRevRoomSupp').innerText = `$${pricing.roomSupplementUSD}`;
+            }
+
+            if (pricing.visaAssistanceUSD > 0) {
+                document.getElementById('rowRevVisa').classList.remove('hidden');
+                document.getElementById('lblRevVisa').innerText = `$${pricing.visaAssistanceUSD}`;
+            }
+
+            if (pricing.addOnsTotalUSD > 0) {
+                document.getElementById('rowRevAddons').classList.remove('hidden');
+                document.getElementById('lblRevAddons').innerText = `$${pricing.addOnsTotalUSD}`;
+            }
+
+            document.getElementById('lblRevTaxes').innerText = `$${pricing.taxesUSD}`;
+            document.getElementById('lblRevGrandTotal').innerText = `$${pricing.grandTotalUSD.toLocaleString()}`;
+
+            // Payment Amounts
+            document.getElementById('payDepositAmountText').innerText = `$${pricing.depositUSD.toLocaleString()}`;
+            document.getElementById('payFullAmountText').innerText = `$${pricing.grandTotalUSD.toLocaleString()}`;
+        }
+
+        function selectPaymentOption(mode) {
+            bookingState.paymentMode = mode;
+            const optDep = document.getElementById('optDeposit');
+            const optFull = document.getElementById('optFull');
+            if (mode === 'DEPOSIT') {
+                optDep.className = 'p-4 rounded-2xl border-2 border-blue-600 bg-blue-50/50 cursor-pointer';
+                optDep.querySelector('i').className = 'fa-solid fa-circle-check text-blue-600';
+                optFull.className = 'p-4 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer';
+                optFull.querySelector('i').className = 'fa-regular fa-circle text-slate-300';
+            } else {
+                optFull.className = 'p-4 rounded-2xl border-2 border-blue-600 bg-blue-50/50 cursor-pointer';
+                optFull.querySelector('i').className = 'fa-solid fa-circle-check text-blue-600';
+                optDep.className = 'p-4 rounded-2xl border-2 border-slate-200 bg-white cursor-pointer';
+                optDep.querySelector('i').className = 'fa-regular fa-circle text-slate-300';
+            }
+        }
+
+        function goToStep(stepNum) {
+            if (stepNum > currentStep + 1) return;
+            currentStep = stepNum;
+            showCurrentStepUI();
+        }
+
+        function navigateStep(delta) {
+            if (delta === 1 && currentStep === totalSteps) {
+                completeBooking();
+                return;
+            }
+
+            if (currentStep === 2 && delta === 1) {
+                prepareTravelersAndRooms();
+            }
+
+            currentStep += delta;
+            if (currentStep < 1) currentStep = 1;
+            if (currentStep > totalSteps) currentStep = totalSteps;
+
+            showCurrentStepUI();
+        }
+
+        function showCurrentStepUI() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const el = document.getElementById(`step-${i}`);
+                if (el) {
+                    if (i === currentStep) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
+            }
+
+            updateStepNavUI();
+            updateCalculations();
+
+            const nextBtn = document.getElementById('btnWizardNext');
+            if (currentStep === totalSteps) {
+                nextBtn.innerHTML = `<span>Confirm & Pay Now</span> <i class="fa-solid fa-lock text-xs"></i>`;
+                nextBtn.className = "bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-lg shadow-emerald-500/30 flex items-center gap-2";
+            } else {
+                nextBtn.innerHTML = `<span>Save & Continue</span> <i class="fa-solid fa-chevron-right text-xs"></i>`;
+                nextBtn.className = "bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-lg shadow-blue-500/30 flex items-center gap-2";
+            }
+        }
+
+        function completeBooking() {
+            const bookingId = 'TRV-T' + Math.floor(100000 + Math.random() * 900000);
+            const pricing = bookingState.pricing;
+
+            const paid = bookingState.paymentMode === 'DEPOSIT' ? pricing.depositUSD : pricing.grandTotalUSD;
+            const balance = pricing.grandTotalUSD - paid;
+            const payStatus = balance === 0 ? 'PAID_FULL' : 'PARTIALLY_PAID';
+
+            const leadTraveler = bookingState.travelers[0] || {};
+
+            const finalBookingObj = {
+                id: bookingId,
+                bookingId: bookingId,
+                tourPackageId: bookingState.tour.id,
+                tourSlug: bookingState.tour.slug,
+                tourTitle: bookingState.tour.title,
+                customerName: leadTraveler.fullName || 'Rohan Sharma',
+                customerEmail: 'rohan.sharma@example.com',
+                customerPhone: '+91 98765 43210',
+                departureId: bookingState.selectedDeparture.id,
+                departureDate: bookingState.selectedDeparture.startDate,
+                duration: bookingState.tour.duration,
+                accommodationCategory: bookingState.accommodationCategory,
+                accommodationName: bookingState.accommodationCategory === '5STAR_LUXURY' ? '5-Star Luxury Collection' : '4-Star Superior Boutique',
+                travelers: bookingState.travelers,
+                travelersCount: bookingState.travelersCount,
+                rooms: bookingState.rooms,
+                selectedAddOns: bookingState.selectedAddOns,
+                pricing: {
+                    basePricePerAdultUSD: pricing.basePricePerAdultUSD,
+                    adultsTotalUSD: pricing.adultsTotalUSD,
+                    childrenTotalUSD: pricing.childrenTotalUSD,
+                    infantsTotalUSD: pricing.infantsTotalUSD,
+                    hotelUpgradeUSD: pricing.hotelUpgradeUSD,
+                    roomSupplementUSD: pricing.roomSupplementUSD,
+                    visaAssistanceUSD: pricing.visaAssistanceUSD,
+                    addOnsTotalUSD: pricing.addOnsTotalUSD,
+                    taxesUSD: pricing.taxesUSD,
+                    grandTotalUSD: pricing.grandTotalUSD,
+                    paidAmountUSD: paid,
+                    balanceUSD: balance
+                },
+                bookingStatus: 'BOOKING_CONFIRMED',
+                paymentStatus: payStatus,
+                overallVisaStatus: bookingState.travelers.some(t => t.visaOption === 'NEEDS_ASSISTANCE') ? 'ASSISTANCE_REQUESTED' : 'VALIDATED',
+                type: 'tour',
+                createdDate: new Date().toISOString().split('T')[0]
+            };
+
+            if (window.TravioraTourDb) {
+                window.TravioraTourDb.saveBooking(finalBookingObj);
+            }
+
+            window.location.href = `booking-confirmation.html?id=${bookingId}`;
+        }
+    </script>
+</body>
+
+</html>
