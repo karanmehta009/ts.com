@@ -229,13 +229,16 @@
                 </a>
             </div>
 
-            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
-                <a href="profile.html"
-                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:bg-white hover:text-blue-600 transition-all">
-                    <i class="fa-regular fa-user text-lg"></i>
+            <div class="flex items-center gap-2 sm:gap-3 relative pr-1 md:pr-0">
+                <a href="profile.html" title="User Profile"
+                    class="relative group w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-50 border border-slate-200/80 shadow-2xs flex items-center justify-center text-slate-500 hover:bg-white hover:text-blue-600 transition-all shrink-0">
+                    <i class="fa-regular fa-user text-xs sm:text-sm md:text-base"></i>
                 </a>
-                <a href="tours.html" class="hidden lg:flex text-xs font-bold text-slate-600 hover:text-blue-600 items-center gap-1">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Tours
+                <a href="tours.html" class="flex text-[11px] sm:text-xs font-bold text-slate-600 hover:text-blue-600 items-center gap-1 sm:gap-1.5 transition shrink-0 bg-slate-100/90 hover:bg-blue-50 px-2.5 py-1.5 rounded-full border border-slate-200/70">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i> <span class="hidden xs:inline sm:inline">Back to Tours</span><span class="xs:hidden sm:hidden">Tours</span>
+                </a>
+                <a href="index.html" class="flex text-[11px] sm:text-xs font-bold text-rose-500 hover:text-rose-600 items-center gap-1 sm:gap-1.5 transition shrink-0 bg-rose-50/90 hover:bg-rose-100/80 px-2.5 py-1.5 rounded-full border border-rose-100">
+                    <i class="fa-solid fa-arrow-right-from-bracket text-[10px]"></i> <span class="hidden xs:inline sm:inline">Log Out</span><span class="xs:hidden sm:hidden">Logout</span>
                 </a>
             </div>
         </div>
