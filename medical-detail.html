@@ -50,8 +50,9 @@
 <body class="min-h-screen flex flex-col justify-between">
 
     <!-- Navigation Header -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/85 backdrop-blur-2xl border-b border-slate-200/80 transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-2 md:py-3.5 flex justify-between items-center">
+    <nav id="navbar"
+        class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
                 <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
                     class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
@@ -59,30 +60,55 @@
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IORA</span></span>
             </a>
-            
+
             <!-- Desktop Links -->
-            <div class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
-                <a href="index.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-house text-[11px] opacity-70"></i> Home</span>
+            <div
+                class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                <a href="index.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        Home</span>
                 </a>
-                <a href="visas.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-passport text-[11px] opacity-70"></i> Visa</span>
+                <a href="visas.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-passport text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        Visa</span>
                 </a>
-                <a href="tours.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-plane-departure text-[11px] opacity-70"></i> Tour</span>
+                <a href="tours.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-plane-departure text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        Tour</span>
                 </a>
-                <a href="medical.html" class="relative group px-3 py-1.5 text-slate-900 font-black cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-notes-medical text-[11px] text-teal-600"></i> Medical</span>
+                <a href="medical.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-notes-medical text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        Medical</span>
                 </a>
-                <a href="hotels.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-hotel text-[11px] opacity-70"></i> Hotels</span>
+                <a href="hotels.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        Hotels</span>
                 </a>
-                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-teal-600 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[11px] opacity-70"></i> About</span>
+                <a href="about.html"
+                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
+                    <span
+                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
+                            class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
+                        About</span>
                 </a>
             </div>
-            
-            <div class="flex items-center gap-3 relative">
+
+            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
                 <!-- Mobile Menu Toggle -->
                 <button id="mobileMenuBtn"
                     class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
@@ -91,343 +117,770 @@
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
                 </button>
 
-                <!-- Profile Link -->
-                <a href="profile.html" title="Profile"
-                    class="relative group w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-teal-600 hover:bg-white transition">
-                    <i class="fa-regular fa-user text-sm"></i>
+                <a href="profile.html"
+                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-[600ms] ease-out hover:border-transparent hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:bg-white isolate hover:-translate-y-1.5 overflow-visible">
+                    <span
+                        class="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-400/40 blur-xl transition-all duration-[600ms] -z-30"></span>
+                    <span
+                        class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_2s_linear_infinite] rounded-full -z-20"></span>
+                    <span
+                        class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(236,72,153,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite_reverse] rounded-full -z-20"></span>
+                    <span
+                        class="absolute inset-[2px] bg-slate-50 group-hover:bg-white rounded-full transition-colors duration-500 -z-10 shadow-inner"></span>
+                    <span
+                        class="absolute w-1/2 h-1/2 bg-blue-300 rounded-full opacity-0 group-hover:animate-[ping_1.2s_ease-out_infinite] -z-10"></span>
+                    <i
+                        class="fa-regular fa-user text-lg transition-all duration-[700ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:text-blue-600 group-hover:[transform:rotateY(360deg)_scale(1.2)]"></i>
+                    <span
+                        class="absolute top-[1px] right-[1px] w-2.5 h-2.5 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-full border-2 border-white shadow-sm z-10 group-hover:animate-bounce flex items-center justify-center">
+                        <span
+                            class="absolute w-full h-full bg-rose-400 rounded-full opacity-0 group-hover:animate-ping"></span>
+                    </span>
                 </a>
-
-                <!-- Logout Button -->
                 <button
-                    class="hidden lg:flex items-center gap-1.5 bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-wide font-black transition border border-slate-200/60"
+                    class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-14 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-[500ms] ml-1.5 shadow-sm border border-slate-200/50 hover:shadow-[0_8px_20px_rgba(239,68,68,0.25)]"
                     title="Logout" onclick="window.location.href='index.html'">
-                    <span>Log Out</span>
-                    <i class="fa-solid fa-arrow-right-from-bracket text-[10px]"></i>
+                    <span
+                        class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                    <div
+                        class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-full">
+                        <span>Log Out</span>
+                    </div>
+                    <div
+                        class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px] md:text-[12px]"></i>
+                    </div>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu Modal -->
+        <!-- Mobile Navigation Menu -->
         <div id="mobileMenu"
-            class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] transform -translate-y-full opacity-0 pointer-events-none">
-            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-auto"></div>
-            <div class="relative bg-white w-[88%] max-w-[320px] rounded-[28px] shadow-2xl flex flex-col overflow-hidden -mt-[10vh]">
-                <div class="p-5 w-full">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-[11px] font-black tracking-[0.2em] text-slate-900 uppercase">Navigation</span>
-                        <button id="closeMobileMenuBtn" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
-                            <i class="fa-solid fa-xmark text-sm"></i>
+            class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform -translate-y-full opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+
+            <!-- Transparent Dark Overlay -->
+            <div id="mobileMenuOverlay"
+                class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm shadow-inner pointer-events-auto"></div>
+
+            <!-- Centered Modal Box -->
+            <div
+                class="relative bg-white w-[85%] max-w-[320px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden transform transition-transform -mt-[12vh]">
+
+                <div class="px-5 pt-5 pb-3 w-full">
+                    <!-- Navigation Header -->
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Menu</span>
+                        <button id="closeMobileMenuBtn"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 hover:text-black transition-colors shadow-inner z-[60] relative">
+                            <i class="fa-solid fa-xmark text-[14px]"></i>
                         </button>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="index.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-house text-slate-500 mb-1"></i>Home</a>
-                        <a href="visas.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-passport text-slate-500 mb-1"></i>Visas</a>
-                        <a href="tours.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-plane-departure text-slate-500 mb-1"></i>Tours</a>
-                        <a href="medical.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-teal-50 text-xs font-bold text-teal-700"><i class="fa-solid fa-notes-medical text-teal-600 mb-1"></i>Medical</a>
-                        <a href="hotels.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-hotel text-slate-500 mb-1"></i>Hotels</a>
-                        <a href="about.html" class="flex flex-col items-center gap-1 p-3 rounded-2xl bg-slate-50 text-xs font-bold text-slate-700"><i class="fa-solid fa-circle-info text-slate-500 mb-1"></i>About</a>
+
+                    <!-- Compact Button Grid -->
+                    <div class="grid grid-cols-2 gap-2.5">
+
+                        <!-- Home -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <!-- Premium Animated Border Icon (Light theme) -->
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <!-- Rotating Beam -->
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <!-- Inner Core Mask -->
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-house text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Home</span>
+                        </a>
+
+                        <!-- Visas -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-passport text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Visas</span>
+                        </a>
+
+                        <!-- Tours -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-plane-departure text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Tours</span>
+                        </a>
+
+                        <!-- Medical -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-notes-medical text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Medical</span>
+                        </a>
+
+                        <!-- Hotels -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-hotel text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Hotels</span>
+                        </a>
+
+                        <!-- About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div
+                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div
+                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div
+                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i
+                                        class="fa-solid fa-compass text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                                </div>
+                            </div>
+                            <span
+                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">About</span>
+                        </a>
+
                     </div>
                 </div>
-                <div class="border-t border-slate-100 p-4 flex items-center justify-between text-xs font-bold">
-                    <a href="profile.html" class="text-slate-700"><i class="fa-regular fa-user mr-1.5"></i>Profile</a>
-                    <a href="index.html" class="text-rose-600"><i class="fa-solid fa-arrow-right-from-bracket mr-1.5"></i>Logout</a>
+
+                <div class="h-[1px] bg-slate-200 mx-5 w-[calc(100%-40px)]"></div>
+
+                <!-- Footer Actions -->
+                <div class="flex items-center justify-between w-full px-5 py-4 gap-3">
+                    <a href="profile.html"
+                        class="flex-1 flex justify-center items-center gap-2 group py-2.5 rounded-[14px] hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-200">
+                        <i
+                            class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-black transition-colors"></i>
+                        <span
+                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-black transition-all duration-300 tracking-[0.15em] pt-[2px]">Account</span>
+                    </a>
+                    <div class="w-[1px] h-4 bg-slate-300"></div>
+                    <a href="index.html"
+                        class="flex-1 items-center flex justify-center gap-2 group py-2.5 rounded-[14px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all duration-300">
+                        <span
+                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all duration-300 tracking-[0.15em] pt-[2px]">Sign
+                            Out</span>
+                        <i
+                            class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                    </a>
                 </div>
             </div>
+
+            <!-- Active Script & Close Logic -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+                    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+                    if (mobileMenuBtn && mobileMenu) {
+                        mobileMenuBtn.addEventListener('click', () => {
+                            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                        });
+                    }
+
+                    const closeMenu = (e) => {
+                        if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
+                            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                        }
+                    };
+
+                    if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
+                    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+
+                    const path = window.location.pathname.split('/').pop() || 'index.html';
+                    document.querySelectorAll('#mobileMenu .mobile-link').forEach(a => {
+                        const href = a.getAttribute('href');
+                        if (href === path || (path === 'medical-detail.html' && href === 'medical.html')) {
+
+                            const iconWrap = a.querySelector('.icon-wrap');
+                            const innerCore = a.querySelector('.inner-core');
+                            const beam = a.querySelector('.beam-element');
+                            const text = a.querySelector('span');
+
+                            if (beam) {
+                                beam.classList.remove('opacity-0');
+                                beam.classList.add('opacity-100', 'border-beam-active');
+                            }
+
+                            // Solidify active state (Light theme active)
+                            a.classList.add('bg-white', 'pointer-events-none', 'shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)]');
+                            a.classList.remove('bg-slate-50/30', 'hover:bg-white');
+
+                            if (text) {
+                                text.classList.remove('text-slate-800');
+                                text.classList.add('text-black', 'tracking-[0.25em]', 'scale-105');
+                            }
+
+                            if (innerCore) {
+                                innerCore.classList.remove('bg-slate-50');
+                                innerCore.classList.add('bg-white', 'shadow-sm');
+
+                                const icon = innerCore.querySelector('i');
+                                if (icon) {
+                                    icon.classList.remove('text-slate-800');
+                                    icon.classList.add('text-black');
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-slate-950 text-white">
-        <!-- Hero Background Image overlay with smooth gradient -->
-        <div id="heroBg" class="absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-700 scale-105" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/40"></div>
+    <!-- Main Content Grid Layout -->
+    <main class="max-w-[1440px] mx-auto px-4 sm:px-6 w-full pt-28 pb-16 md:pb-24">
 
-        <!-- Floating Glow Spheres -->
-        <div class="absolute top-1/4 left-10 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Two Column Layout: Left Scrollable Details, Right Sticky Action Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-20 items-start">
 
-        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 relative z-10">
-            
-            <!-- Breadcrumbs -->
-            <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6 uppercase tracking-wider">
-                <a href="index.html" class="hover:text-white transition">Home</a>
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
-                <a href="medical.html" class="hover:text-white transition">Medical Tourism</a>
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
-                <span id="breadcrumbTitle" class="text-teal-400">Cardiology</span>
-            </div>
+            <!-- Top Left Section: Title & Featured Image -->
+            <div class="lg:col-span-7 w-full order-1 lg:col-start-1 lg:row-start-1">
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <div class="lg:col-span-7 space-y-5">
-                    
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-black tracking-widest uppercase">
-                        <i class="fa-solid fa-heart-pulse text-teal-400"></i>
-                        <span id="heroCategory">Heart Care</span>
+                <!-- Header Block -->
+                <div class="mb-4 md:mb-6 text-center group/head">
+                    <div class="flex items-center justify-center gap-1.5 mb-2">
+                        <span id="heroCategory" class="bg-teal-50/90 border border-teal-100 text-teal-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-2xs">
+                            <i class="fa-solid fa-heart-pulse text-[8px] mr-1"></i> Heart Care
+                        </span>
+                        <span class="bg-emerald-50/90 border border-emerald-100 text-emerald-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
+                            <i class="fa-solid fa-bolt text-[8px]"></i> Fast Track Evaluation
+                        </span>
                     </div>
-                    
-                    <h1 id="heroTitle" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.15]">
+
+                    <h1 id="heroTitle" class="text-lg sm:text-2xl md:text-4xl font-serif font-black leading-snug tracking-tight mb-2 text-slate-900 group-hover/head:text-teal-700 transition-colors duration-300">
                         Cardiology Treatment in India
                     </h1>
-                    
-                    <p id="heroSub" class="text-sm sm:text-base md:text-lg text-slate-300 font-medium leading-relaxed max-w-2xl">
+
+                    <!-- Unique Dual Laser & Flight/Sparkle Underline Animation -->
+                    <div class="flex items-center justify-center gap-2.5 sm:gap-3 my-3">
+                        <span class="h-[2px] w-8 sm:w-16 rounded-full bg-gradient-to-l from-teal-600 via-emerald-500 to-transparent group-hover/head:w-14 sm:group-hover/head:w-24 transition-all duration-500"></span>
+                        <div class="relative w-6 h-6 rounded-full bg-teal-50 text-teal-600 border border-teal-200/80 flex items-center justify-center shrink-0 shadow-sm group-hover/head:scale-125 group-hover/head:bg-teal-600 group-hover/head:text-white transition-all duration-500">
+                            <span class="absolute inset-0 rounded-full bg-teal-400/40 animate-ping"></span>
+                            <span class="absolute inset-[-3px] rounded-full border border-dashed border-teal-400/50 animate-spin-slow"></span>
+                            <i class="fa-solid fa-heart-pulse text-[9px] group-hover/head:rotate-12 transition-transform duration-500"></i>
+                        </div>
+                        <span class="h-[2px] w-8 sm:w-16 rounded-full bg-gradient-to-r from-teal-600 via-emerald-500 to-transparent group-hover/head:w-14 sm:group-hover/head:w-24 transition-all duration-500"></span>
+                    </div>
+
+                    <p id="heroSub" class="text-[11px] sm:text-xs md:text-sm text-slate-500 font-medium leading-snug max-w-xl mx-auto">
                         Access world-renowned cardiac centers, top cardiothoracic surgeons, and state-of-the-art diagnostic and surgical technologies in India.
                     </p>
+                </div>
 
-                    <!-- Context Pill Tags -->
-                    <div class="flex flex-wrap items-center gap-2.5 pt-2">
-                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-hospital-user text-teal-400"></i> JCI & NABH Accredited
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-clock text-teal-400"></i> Est. Stay: <span id="heroDuration">7 - 14 Days</span>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
-                            <i class="fa-solid fa-shield-halved text-teal-400"></i> Zero Upfront Booking Fee
-                        </div>
+                <!-- Featured Hero Image Banner -->
+                <div class="w-full h-[260px] sm:h-[320px] md:h-[380px] rounded-[2rem] overflow-hidden mb-6 shadow-xl relative group/hero">
+                    <div id="heroBg" class="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-[2s]" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent"></div>
+                    <img id="heroImageCard" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Treatment" class="hidden">
+                </div>
+            </div>
+
+            <!-- Lower Left Content Section -->
+            <div class="lg:col-span-7 w-full order-3 lg:col-start-1 lg:row-start-2 space-y-6 md:space-y-8">
+
+                <!-- Quick Stats Ribbon -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 text-center">
+                    <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-xs transition-shadow">
+                        <p class="text-lg sm:text-xl font-black text-slate-900">98.4%</p>
+                        <p class="text-[9.5px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Clinical Success</p>
                     </div>
-
-                    <!-- Action Buttons -->
-                    <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <button id="bookBtnHero" onclick="goToBooking()" class="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-slate-950 font-black px-8 py-4 rounded-2xl transition shadow-xl shadow-teal-500/25 hover:scale-105 flex items-center justify-center gap-3 text-sm">
-                            <i class="fa-solid fa-calendar-check text-base"></i> Book Treatment Now
-                        </button>
-                        <button onclick="talkToTraviora()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-7 py-4 rounded-2xl transition backdrop-blur-md flex items-center justify-center gap-2 text-sm">
-                            <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i> WhatsApp Care Manager
-                        </button>
+                    <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-xs transition-shadow">
+                        <p class="text-lg sm:text-xl font-black text-teal-600">50+</p>
+                        <p class="text-[9.5px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">JCI Hospitals</p>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-xs transition-shadow">
+                        <p class="text-lg sm:text-xl font-black text-slate-900">2.5k+</p>
+                        <p class="text-[9.5px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Specialists</p>
+                    </div>
+                    <div class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-xs transition-shadow">
+                        <p class="text-lg sm:text-xl font-black text-emerald-600">Free</p>
+                        <p class="text-[9.5px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Consultation</p>
                     </div>
                 </div>
 
-                <!-- Hero Image Card Right -->
-                <div class="lg:col-span-5">
-                    <div class="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl group">
-                        <img id="heroImageCard" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Treatment" class="w-full h-72 sm:h-80 md:h-96 object-cover transform group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20">
-                            <div class="flex items-center gap-2 text-xs font-black text-teal-300 uppercase tracking-wider mb-1">
-                                <i class="fa-solid fa-award"></i> Traviora Guarantee
+                <!-- 1. Treatment Overview & About -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-teal-50/80 border border-teal-100/80 text-teal-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">CLINICAL INSIGHT</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50/60 border border-teal-100 flex items-center justify-center text-teal-600 shadow-[0_2px_8px_rgba(20,184,166,0.08)] group-hover/head:scale-110 group-hover/head:bg-teal-600 group-hover/head:text-white group-hover/head:border-teal-600 transition-all duration-300">
+                                <i class="fa-solid fa-stethoscope text-[13px]"></i>
                             </div>
-                            <p class="text-xs text-slate-200 font-medium leading-relaxed">Dedicated medical visa invitation, airport wheelchair transfer, top hospital opinions, and 24/7 patient manager.</p>
+                            <span class="group-hover/head:text-teal-600 transition-colors duration-300">Treatment Overview</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-teal-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-teal-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-teal-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_2px_15px_rgba(15,23,42,0.04)] border border-slate-200/80">
+                        <p id="overviewText" class="text-slate-600 text-sm leading-relaxed font-medium mb-6">
+                            India is a globally recognized destination for advanced cardiology and cardiac surgeries, offering high success rates, JCI & NABH-accredited facilities, and experienced cardiovascular surgeons.
+                        </p>
+                        
+                        <div class="pt-5 border-t border-slate-100">
+                            <h3 class="text-[11px] font-black text-slate-900 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-teal-500"></i> About the Treatment
+                            </h3>
+                            <p id="aboutText" class="text-slate-500 text-xs leading-relaxed font-medium mb-4">
+                                Cardiology treatments encompass a wide range of procedures from minimally invasive catheter-based interventions to complex open-heart surgeries. Leading Indian hospitals feature hybrid operating rooms, 3D cardiac mapping systems, and dedicated cardiac ICUs to ensure comprehensive care before, during, and after surgical procedures.
+                            </p>
+                            
+                            <p class="text-[10px] font-bold uppercase text-slate-400 mb-2.5 tracking-widest">Popular Treatment Options</p>
+                            <div id="subcategoryTags" class="flex flex-wrap gap-2 text-xs">
+                                <!-- Injected -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
+                <!-- 2. Treatment Process Pathway -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-50/80 border border-indigo-100/80 text-indigo-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">STEP-BY-STEP JOURNEY</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50/60 border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-[0_2px_8px_rgba(79,70,229,0.08)] group-hover/head:scale-110 group-hover/head:bg-indigo-600 group-hover/head:text-white group-hover/head:border-indigo-600 transition-all duration-300">
+                                <i class="fa-solid fa-route text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-indigo-600 transition-colors duration-300">Treatment Process</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-indigo-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-indigo-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-indigo-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
 
+                    <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_2px_15px_rgba(15,23,42,0.04)] border border-slate-200/80 space-y-5">
+                        <p class="text-slate-500 text-xs sm:text-sm font-medium text-center leading-relaxed">A structured coordination process from your initial inquiry to post-treatment recovery.</p>
 
-    <!-- Quick Stats Ribbon -->
-    <section class="bg-slate-100/80 border-b border-slate-200/80 py-6">
-        <div class="max-w-[1280px] mx-auto px-4 sm:px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
-                    <p class="text-2xl sm:text-3xl font-black text-slate-900">98.4%</p>
-                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Clinical Success Rate</p>
-                </div>
-                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
-                    <p class="text-2xl sm:text-3xl font-black text-teal-600">50+</p>
-                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">JCI / NABH Hospitals</p>
-                </div>
-                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
-                    <p class="text-2xl sm:text-3xl font-black text-slate-900">2,500+</p>
-                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Expert Specialists</p>
-                </div>
-                <div class="p-3 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
-                    <p class="text-2xl sm:text-3xl font-black text-amber-500">₹0</p>
-                    <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Advance Booking Fees</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <div id="processGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Injected Process Cards -->
+                        </div>
 
-    <!-- Main Content Body -->
-    <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-12 md:py-16 space-y-16 md:space-y-20">
-
-        <!-- 1. Treatment Overview & About -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div class="lg:col-span-7 space-y-6">
-                <div>
-                    <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Clinical Insight</span>
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1 mb-3">Treatment Overview</h2>
-                    <p id="overviewText" class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                        India is a globally recognized destination for advanced cardiology and cardiac surgeries, offering high success rates, JCI & NABH-accredited facilities, and experienced cardiovascular surgeons.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
-                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-stethoscope text-teal-600"></i> About the Treatment
-                    </h3>
-                    <p id="aboutText" class="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-                        Cardiology treatments encompass a wide range of procedures from minimally invasive catheter-based interventions to complex open-heart surgeries. Leading Indian hospitals feature hybrid operating rooms, 3D cardiac mapping systems, and dedicated cardiac ICUs to ensure comprehensive care before, during, and after surgical procedures.
-                    </p>
-                    
-                    <div class="pt-4 border-t border-slate-100">
-                        <p class="text-xs font-bold uppercase text-slate-400 mb-3 tracking-wider">Popular Treatment Options</p>
-                        <div id="subcategoryTags" class="flex flex-wrap gap-2">
-                            <!-- Injected -->
+                        <div class="p-4 bg-amber-50/70 border border-amber-200/60 rounded-[1.25rem] flex items-start gap-3 text-amber-800 text-[11px] font-medium">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-sm mt-0.5 shrink-0"></i>
+                            <p>Note: The process presented above is a general coordination roadmap. Final clinical pathways and surgical schedules are determined directly by treating physicians after in-person hospital diagnostic evaluation.</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Quick Action Card -->
-            <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-teal-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-6 border border-slate-800">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xl font-bold shrink-0">
-                        <i class="fa-solid fa-notes-medical"></i>
+                <!-- 3. Why India Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-teal-50/80 border border-teal-100/80 text-teal-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">DESTINATION STRENGTHS</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-50 to-emerald-50/60 border border-teal-100 flex items-center justify-center text-teal-600 shadow-[0_2px_8px_rgba(20,184,166,0.08)] group-hover/head:scale-110 group-hover/head:bg-teal-600 group-hover/head:text-white group-hover/head:border-teal-600 transition-all duration-300">
+                                <i class="fa-solid fa-earth-asia text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-teal-600 transition-colors duration-300">Why Choose India?</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-teal-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-teal-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-teal-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-base sm:text-lg">Ready for Evaluation?</h4>
-                        <p class="text-xs text-slate-300">Submit reports for doctor review</p>
+
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-[2rem] p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border border-slate-800 space-y-5">
+                        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none"></div>
+
+                        <p class="text-slate-300 text-xs sm:text-sm font-medium leading-relaxed text-center max-w-lg mx-auto relative z-10">
+                            India offers world-class healthcare infrastructure with high clinical standards and comprehensive international patient services.
+                        </p>
+
+                        <div id="whyIndiaGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+                            <!-- Injected Why India Points -->
+                        </div>
                     </div>
                 </div>
 
-                <ul class="space-y-3 text-xs text-slate-300 font-medium">
-                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> No advance booking fees required</li>
-                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Direct opinion from top accredited hospital doctors</li>
-                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Complimentary airport pickup included</li>
-                    <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-teal-400"></i> Official Medical Visa invitation letter</li>
-                </ul>
+                <!-- 4. How Traviora Helps -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50/80 border border-emerald-100/80 text-emerald-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">SERVICE COORDINATION</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50/60 border border-emerald-100 flex items-center justify-center text-emerald-600 shadow-[0_2px_8px_rgba(16,185,129,0.08)] group-hover/head:scale-110 group-hover/head:bg-emerald-600 group-hover/head:text-white group-hover/head:border-emerald-600 transition-all duration-300">
+                                <i class="fa-solid fa-handshake-angle text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-emerald-600 transition-colors duration-300">How Traviora Helps You</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-emerald-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-emerald-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-emerald-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
 
-                <button onclick="goToBooking()" class="w-full bg-teal-500 hover:bg-teal-400 text-slate-950 font-black py-3.5 rounded-xl transition shadow-lg text-xs sm:text-sm flex items-center justify-center gap-2">
-                    Start Patient Application <i class="fa-solid fa-arrow-right text-xs"></i>
-                </button>
-            </div>
-        </section>
+                    <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_2px_15px_rgba(15,23,42,0.04)] border border-slate-200/80 space-y-5">
+                        <p class="text-slate-500 text-xs sm:text-sm font-medium text-center leading-relaxed">Traviora simplifies your medical journey by managing non-clinical logistics and hospital coordination.</p>
 
-        <!-- 2. Treatment Process Pathway -->
-        <section class="space-y-8 md:space-y-10">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Step-By-Step Journey</span>
-                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Treatment Process</h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">A structured coordination process from your initial inquiry to post-treatment recovery.</p>
-            </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">01</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Submit Information</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">Complete application form with medical history and passport.</p>
+                            </div>
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">02</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Review & Verify</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">Our desk verifies completeness and organizes your profile.</p>
+                            </div>
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">03</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Hospital Coordination</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">We contact top partner hospitals to secure expert opinions.</p>
+                            </div>
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">04</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Package Prepared</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">Treatment costs, accommodation & travel compiled into one package.</p>
+                            </div>
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">05</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Review & Accept</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">Transparent itemized package with freedom to modify.</p>
+                            </div>
+                            <div class="p-4 rounded-[1.25rem] bg-slate-50/50 border border-slate-200/80 space-y-1.5 group/step hover:border-emerald-200 hover:bg-emerald-50/30 transition-colors duration-300">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black group-hover/step:bg-emerald-600 group-hover/step:text-white transition-colors duration-300">06</span>
+                                    <h3 class="font-bold text-[13px] text-slate-900">Visa & Logistics</h3>
+                                </div>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed pl-[38px]">Hospital dates, visa invitation, hotel bookings & airport pickup.</p>
+                            </div>
+                        </div>
 
-            <div id="processGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <!-- Injected Process Cards -->
-            </div>
-
-            <div class="p-4 bg-amber-50 border border-amber-200/80 rounded-2xl flex items-start gap-3 text-amber-800 text-xs font-medium">
-                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm mt-0.5 shrink-0"></i>
-                <p>Note: The process presented above is a general coordination roadmap. Final clinical pathways and surgical schedules are determined directly by treating physicians after in-person hospital diagnostic evaluation.</p>
-            </div>
-        </section>
-
-        <!-- 3. Why India Section -->
-        <section class="bg-slate-950 text-white rounded-3xl p-6 sm:p-10 md:p-12 space-y-8 md:space-y-10 relative overflow-hidden shadow-2xl border border-slate-900">
-            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-2xl">
-                <span class="text-xs font-black uppercase text-teal-400 tracking-widest">Destination Strengths</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mt-1">Why Choose India for Medical Treatment?</h2>
-                <p class="text-slate-300 text-xs sm:text-sm mt-2 font-medium leading-relaxed">
-                    India offers world-class healthcare infrastructure combining high clinical standards, experienced medical professionals, and comprehensive international patient services.
-                </p>
-            </div>
-
-            <div id="whyIndiaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                <!-- Injected Why India Points -->
-            </div>
-        </section>
-
-        <!-- 4. How Traviora Helps -->
-        <section class="space-y-8 md:space-y-10">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Our Service Role</span>
-                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">How Traviora Helps You</h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">Traviora simplifies your medical journey by managing non-clinical logistics and hospital coordination.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">01</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Submit Patient Information</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Fill out our single complete application form with personal details, passport, medical history, and documents.</p>
+                        <div class="p-4 rounded-[1.25rem] bg-gradient-to-r from-teal-50/70 to-emerald-50/40 border border-teal-200/60 flex items-center gap-3 text-center justify-center">
+                            <i class="fa-solid fa-shield-halved text-lg text-teal-600"></i>
+                            <p class="text-[11px] text-slate-700 font-bold">Traviora is a travel assistance & medical coordination platform. We do not practice medicine.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">02</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Traviora Reviews Information</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Our medical coordination desk verifies document completeness and organizes your profile for doctor evaluation.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">03</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Coordinates With Hospitals</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">We contact top partner hospitals in your preferred Indian city to secure expert medical opinions.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">04</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Treatment Package Prepared</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">We compile estimated treatment costs, hotel accommodation options, and travel support into one package.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">05</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Customer Reviews Package</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Review the transparent itemized package online with complete freedom to request modifications.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">06</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Customer Accepts Package</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Once accepted, Traviora confirms hospital dates, issues visa invitation letters, and finalizes hotel bookings.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-2.5">
-                    <span class="text-2xl font-black text-teal-600">07</span>
-                    <h3 class="font-extrabold text-sm text-slate-900">Travel & Logistics Support</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Airport pickup on arrival, continuous dedicated case manager support, and post-discharge updates through WhatsApp & Email.</p>
-                </div>
-                <div class="bg-teal-50 p-6 rounded-3xl border border-teal-200 flex flex-col justify-center items-center text-center space-y-2">
-                    <i class="fa-solid fa-shield-halved text-2xl text-teal-600"></i>
-                    <h3 class="font-black text-xs text-slate-900 uppercase">Coordination Platform</h3>
-                    <p class="text-[11px] text-slate-600 leading-normal">Traviora is a travel assistance and medical coordination platform. We do not practice medicine directly.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- 5. Partner Hospitals Across India -->
-        <section class="space-y-8 md:space-y-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Accredited Partner Network</span>
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Hospitals Across India</h2>
-                    <p class="text-slate-500 text-xs sm:text-sm mt-1">Partner facilities offering specialized care across major Indian metro cities.</p>
+                <!-- 5. Partner Hospitals Across India -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-50/80 border border-purple-100/80 text-purple-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">PARTNER NETWORK</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50/60 border border-purple-100 flex items-center justify-center text-purple-600 shadow-[0_2px_8px_rgba(147,51,234,0.08)] group-hover/head:scale-110 group-hover/head:bg-purple-600 group-hover/head:text-white group-hover/head:border-purple-600 transition-all duration-300">
+                                <i class="fa-solid fa-hospital text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-purple-600 transition-colors duration-300">Hospitals Across India</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-purple-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-purple-600 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-purple-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_2px_15px_rgba(15,23,42,0.04)] border border-slate-200/80 space-y-5">
+                        <div class="flex flex-wrap justify-center gap-1.5 text-[10px] font-bold text-slate-600">
+                            <span class="bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors duration-200 cursor-default">Delhi NCR</span>
+                            <span class="bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors duration-200 cursor-default">Mumbai</span>
+                            <span class="bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors duration-200 cursor-default">Chennai</span>
+                            <span class="bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors duration-200 cursor-default">Hyderabad</span>
+                            <span class="bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200 transition-colors duration-200 cursor-default">Bengaluru</span>
+                        </div>
+
+                        <div id="hospitalsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Injected Hospitals -->
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-wrap gap-1.5 text-xs font-bold text-slate-600">
-                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Delhi NCR</span>
-                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Mumbai</span>
-                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Chennai</span>
-                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Hyderabad</span>
-                    <span class="bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">Bengaluru</span>
+
+                <!-- 6. FAQs Section -->
+                <div class="space-y-4">
+                    <div class="flex flex-col items-center justify-center text-center gap-1.5 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-50/80 border border-amber-100/80 text-amber-600 w-fit">
+                            <span class="text-[9.5px] font-bold uppercase tracking-[0.18em]" style="font-family:'Fira Code',monospace;">COMMON INQUIRIES</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl font-serif font-black text-slate-900 tracking-tight">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50/60 border border-amber-100 flex items-center justify-center text-amber-600 shadow-[0_2px_8px_rgba(245,158,11,0.08)] group-hover/head:scale-110 group-hover/head:bg-amber-500 group-hover/head:text-white group-hover/head:border-amber-500 transition-all duration-300">
+                                <i class="fa-solid fa-message-question text-[13px]"></i>
+                            </div>
+                            <span class="group-hover/head:text-amber-600 transition-colors duration-300">Frequently Asked Questions</span>
+                        </h2>
+                        <!-- Winged Sparkle Star Beam Animation -->
+                        <div class="flex items-center justify-center gap-2.5 mt-0.5 group-hover/head:gap-4 transition-all duration-500">
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-l from-amber-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                            <div class="w-5 h-5 rounded-full bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center group-hover/head:scale-125 group-hover/head:bg-amber-500 group-hover/head:text-white group-hover/head:rotate-180 transition-all duration-500 shadow-sm">
+                                <i class="fa-solid fa-sparkles text-[9px] animate-pulse"></i>
+                            </div>
+                            <span class="h-[2px] w-8 rounded-full bg-gradient-to-r from-amber-500 to-transparent group-hover/head:w-16 transition-all duration-500"></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_2px_15px_rgba(15,23,42,0.04)] border border-slate-200/80 space-y-3">
+                        <div id="faqAccordion" class="space-y-3">
+                            <!-- Injected FAQs -->
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-            <div id="hospitalsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Injected Hospitals -->
-            </div>
-        </section>
+            <!-- Right Column: Sticky Sidebar -->
+            <div class="lg:col-span-5 w-full order-2 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-28">
 
-        <!-- 6. FAQs Section -->
-        <section class="space-y-8 max-w-4xl mx-auto">
-            <div class="text-center">
-                <span class="text-xs font-black uppercase text-teal-600 tracking-widest">Common Inquiries</span>
-                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-1">Frequently Asked Questions</h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">Everything you need to know about this treatment and Traviora's coordination.</p>
-            </div>
+                <!-- Compact Premium How It Works & Patient Application Card -->
+                <div class="relative bg-white rounded-[2rem] p-5 sm:p-6 border border-slate-200/80 shadow-[0_15px_40px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)] transition-all duration-500 z-30 overflow-hidden">
 
-            <div id="faqAccordion" class="space-y-3">
-                <!-- Injected FAQs -->
+                    <!-- Compact Banner -->
+                    <div class="relative w-full h-[85px] rounded-xl overflow-hidden mb-4 shadow-xs bg-cover bg-center border border-slate-200/60" id="cardBannerBg"
+                        style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/65 to-slate-950/40"></div>
+                        
+                        <div class="absolute top-2 right-2.5 z-20">
+                            <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/25 backdrop-blur-md border border-emerald-400/40 text-emerald-300 text-[8.5px] font-extrabold uppercase tracking-wider">
+                                <span class="relative flex h-1.5 w-1.5">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                                </span>
+                                Accepting Reports
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-0 p-3 flex flex-col justify-between z-10">
+                            <span class="text-[8px] font-black uppercase tracking-[0.2em] text-teal-300">PATIENT ASSISTANCE DESK</span>
+                            <div>
+                                <h3 id="cardTreatmentTitle" class="font-serif text-base font-black text-white tracking-tight leading-none drop-shadow-sm truncate">
+                                    Start Patient Application
+                                </h3>
+                                <p class="text-[9.5px] text-slate-300 font-medium mt-0.5">Multi-hospital evaluation • 100% Confidential</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+
+                        <!-- How Patient Application Works (Step-by-step roadmap) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2.5">
+                                <label class="text-[10.5px] font-black uppercase tracking-[0.14em] text-slate-900 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-route text-teal-600"></i> How Application Works
+                                </label>
+                                <span class="text-[9px] text-teal-600 font-extrabold bg-teal-50 px-2 py-0.5 rounded-full border border-teal-100">4-Step Process</span>
+                            </div>
+
+                            <div class="space-y-2 relative before:absolute before:left-3.5 before:top-2.5 before:bottom-2.5 before:w-0.5 before:bg-slate-100">
+                                <div class="relative flex items-start gap-3 pl-0.5 group">
+                                    <span class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-[9px] font-black shrink-0 shadow-xs z-10">01</span>
+                                    <div class="pt-0.5">
+                                        <h4 class="text-[11.5px] font-extrabold text-slate-900 group-hover:text-teal-600 transition-colors leading-tight">Submit Patient Details & Reports</h4>
+                                        <p class="text-[10px] text-slate-500 font-medium leading-tight">Fill passport details & upload existing medical scans/prescriptions.</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex items-start gap-3 pl-0.5 group">
+                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[9px] font-black shrink-0 z-10 group-hover:bg-teal-600 group-hover:text-white transition-colors">02</span>
+                                    <div class="pt-0.5">
+                                        <h4 class="text-[11.5px] font-extrabold text-slate-900 group-hover:text-teal-600 transition-colors leading-tight">Hospital Board Review</h4>
+                                        <p class="text-[10px] text-slate-500 font-medium leading-tight">Top hospital specialists evaluate your reports & provide medical opinion.</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex items-start gap-3 pl-0.5 group">
+                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[9px] font-black shrink-0 z-10 group-hover:bg-teal-600 group-hover:text-white transition-colors">03</span>
+                                    <div class="pt-0.5">
+                                        <h4 class="text-[11.5px] font-extrabold text-slate-900 group-hover:text-teal-600 transition-colors leading-tight">Receive Package & Visa Letter</h4>
+                                        <p class="text-[10px] text-slate-500 font-medium leading-tight">Get treatment plan estimates, hotel options & visa invitation letter.</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative flex items-start gap-3 pl-0.5 group">
+                                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[9px] font-black shrink-0 z-10 group-hover:bg-teal-600 group-hover:text-white transition-colors">04</span>
+                                    <div class="pt-0.5">
+                                        <h4 class="text-[11.5px] font-extrabold text-slate-900 group-hover:text-teal-600 transition-colors leading-tight">Fly to India & Start Care</h4>
+                                        <p class="text-[10px] text-slate-500 font-medium leading-tight">Airport pickup on arrival, hotel transfer & personal care assistance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Included Assistance Privileges Grid -->
+                        <div class="bg-slate-50/80 rounded-xl p-3 border border-slate-200/80 space-y-1.5">
+                            <span class="text-[9px] font-black uppercase tracking-widest text-slate-400 block mb-0.5">Included Patient Services</span>
+                            
+                            <div class="grid grid-cols-2 gap-1.5 text-[10.5px] text-slate-700 font-bold">
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-check text-teal-500 text-xs"></i>
+                                    <span class="truncate">Doctor Opinions</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-check text-teal-500 text-xs"></i>
+                                    <span class="truncate">Medical Visa Letter</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-check text-teal-500 text-xs"></i>
+                                    <span class="truncate">Airport Pickup</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-check text-teal-500 text-xs"></i>
+                                    <span class="truncate">24/7 Care Manager</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confidentiality Box -->
+                        <div class="p-2.5 rounded-lg bg-gradient-to-r from-teal-50/70 to-emerald-50/50 border border-teal-200/70 flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-md bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                                <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                            </div>
+                            <p class="text-[10px] text-slate-700 font-medium leading-tight">
+                                <strong class="font-extrabold text-slate-900">Encrypted Privacy:</strong> Records are shared strictly with accredited hospital evaluation boards.
+                            </p>
+                        </div>
+
+                        <!-- Main CTA Button -->
+                        <button id="btnProceedBooking" onclick="goToBooking()"
+                            class="w-full bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-700 hover:from-teal-700 hover:to-emerald-800 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-[1.01] transition duration-300 flex items-center justify-center gap-2">
+                            <span>Start Patient Application</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <!-- WhatsApp Care Manager Alternative -->
+                        <div class="pt-1.5 border-t border-dashed border-slate-200">
+                            <a href="#" onclick="talkToTraviora()" class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-emerald-50 border border-emerald-200/80 text-emerald-700 text-xs font-bold hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-300 group shadow-2xs">
+                                <i class="fa-brands fa-whatsapp text-base group-hover:scale-110 transition-transform duration-300"></i> WhatsApp Care Manager
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-        </section>
+            
+        </div>
 
         <!-- 7. Bottom CTA Bar -->
-        <section class="bg-gradient-to-r from-teal-700 via-teal-600 to-blue-700 rounded-3xl p-8 sm:p-10 md:p-12 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
-            <div class="space-y-2 max-w-xl text-center md:text-left">
-                <h3 class="text-2xl sm:text-3xl font-serif font-bold">Begin Your Treatment Application</h3>
-                <p class="text-teal-100 text-xs sm:text-sm font-medium">Submit your complete medical information in 7 simple steps. Zero advance booking fees.</p>
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-[2rem] p-8 sm:p-10 md:p-12 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 relative overflow-hidden mt-12">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none"></div>
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 space-y-2.5 max-w-xl text-center md:text-left">
+                <span class="text-[9px] font-black uppercase tracking-[0.2em] text-teal-400 block">TRAVIORA MEDICAL TOURISM</span>
+                <h3 class="text-2xl sm:text-3xl font-serif font-black tracking-tight">Begin Your Treatment Application</h3>
+                <p class="text-slate-300 text-xs sm:text-sm font-medium leading-relaxed">Submit your complete medical information in 5 simple steps. Zero advance booking fees. Privacy guaranteed.</p>
             </div>
-            <button onclick="goToBooking()" class="w-full sm:w-auto shrink-0 bg-slate-950 hover:bg-black text-white font-black px-8 py-4 rounded-2xl transition shadow-xl hover:scale-105 text-xs sm:text-sm flex items-center justify-center gap-3">
-                <i class="fa-solid fa-file-signature text-teal-400"></i> Book Treatment Now
+            <button onclick="goToBooking()" class="relative z-10 w-full sm:w-auto shrink-0 bg-white hover:bg-teal-400 text-slate-900 hover:text-white font-black px-8 py-4 rounded-[1rem] transition-all duration-300 shadow-xl hover:shadow-[0_10px_30px_rgba(20,184,166,0.3)] hover:scale-105 text-xs sm:text-sm flex items-center justify-center gap-3 group">
+                <i class="fa-solid fa-file-signature text-teal-600 group-hover:text-white transition-colors duration-300"></i> Book Treatment Now
+                <i class="fa-solid fa-arrow-right text-[10px] -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
             </button>
-        </section>
+        </div>
 
     </main>
 
@@ -483,72 +936,88 @@
         });
 
         function renderTreatmentPage(data) {
+            if (!data) return;
             document.title = `${data.title} in India | Traviora Medical`;
 
-            document.getElementById('breadcrumbTitle').innerText = data.title;
-            document.getElementById('heroCategory').innerText = data.category;
-            document.getElementById('heroTitle').innerText = data.heroTitle || `${data.title} in India`;
-            document.getElementById('heroSub').innerText = data.heroSub || data.overview;
-            document.getElementById('heroDuration').innerText = data.duration;
-            document.getElementById('overviewText').innerText = data.overview;
-            document.getElementById('aboutText').innerText = data.aboutText;
+            const setTxt = (id, txt) => {
+                const el = document.getElementById(id);
+                if (el && txt !== undefined) el.innerText = txt;
+            };
+
+            setTxt('breadcrumbTitle', data.title);
+            setTxt('heroCategory', data.category);
+            setTxt('heroTitle', data.heroTitle || `${data.title} in India`);
+            setTxt('heroSub', data.heroSub || data.overview);
+            setTxt('heroDuration', data.duration);
+            setTxt('overviewText', data.overview);
+            setTxt('aboutText', data.aboutText);
+            setTxt('cardTreatmentTitle', data.title || 'Start Treatment Journey');
             
             if (data.heroImg) {
-                document.getElementById('heroBg').style.backgroundImage = `url('${data.heroImg}')`;
-                document.getElementById('heroImageCard').src = data.heroImg;
+                const heroBg = document.getElementById('heroBg');
+                if (heroBg) heroBg.style.backgroundImage = `url('${data.heroImg}')`;
+                
+                const heroImgCard = document.getElementById('heroImageCard');
+                if (heroImgCard) heroImgCard.src = data.heroImg;
+
+                const cardBanner = document.getElementById('cardBannerBg');
+                if (cardBanner) cardBanner.style.backgroundImage = `url('${data.heroImg}')`;
             }
 
             // Subcategory Tags
             const subTags = document.getElementById('subcategoryTags');
-            if (data.subcategories && data.subcategories.length) {
+            if (subTags && data.subcategories && data.subcategories.length) {
                 subTags.innerHTML = data.subcategories.map(s => 
-                    `<span class="bg-slate-100 text-slate-800 font-bold text-xs px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-1.5"><i class="fa-solid fa-check text-teal-600"></i>${s}</span>`
+                    `<span class="bg-teal-50 text-teal-800 font-bold text-xs px-3 py-1.5 rounded-xl border border-teal-200/80 flex items-center gap-1.5 shadow-2xs hover:bg-teal-100 transition-colors"><i class="fa-solid fa-check text-teal-600"></i>${s}</span>`
                 ).join('');
             }
 
             // Process Grid
             const processGrid = document.getElementById('processGrid');
-            if (data.processSteps && data.processSteps.length) {
+            if (processGrid && data.processSteps && data.processSteps.length) {
                 processGrid.innerHTML = data.processSteps.map(step => `
-                    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3 glow-card group">
-                        <span class="inline-block px-3 py-1 bg-teal-50 text-teal-700 font-black text-xs rounded-full border border-teal-100 group-hover:bg-teal-600 group-hover:text-white transition">${step.num}</span>
-                        <h3 class="font-extrabold text-base text-slate-900">${step.title}</h3>
-                        <p class="text-xs text-slate-500 font-medium leading-relaxed">${step.desc}</p>
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2.5 hover:shadow-md hover:border-indigo-200 transition-all duration-300 group">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center justify-center px-2.5 py-0.5 bg-indigo-50 text-indigo-700 font-black text-[11px] rounded-full border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">${step.num}</span>
+                            <i class="fa-solid fa-circle-check text-indigo-400/50 group-hover:text-indigo-500 text-xs transition-colors duration-300"></i>
+                        </div>
+                        <h3 class="font-black text-xs sm:text-sm text-slate-900 group-hover:text-indigo-700 transition-colors duration-300">${step.title}</h3>
+                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">${step.desc}</p>
                     </div>
                 `).join('');
             }
 
             // Why India Grid
             const whyGrid = document.getElementById('whyIndiaGrid');
-            if (data.whyIndia && data.whyIndia.length) {
+            if (whyGrid && data.whyIndia && data.whyIndia.length) {
                 whyGrid.innerHTML = data.whyIndia.map(item => `
-                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-2">
-                        <h4 class="font-extrabold text-sm text-teal-300 flex items-center gap-2">
-                            <i class="fa-solid fa-shield-heart text-teal-400"></i> ${item.title}
+                    <div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/10 space-y-2 hover:bg-white/15 transition-all duration-300">
+                        <h4 class="font-extrabold text-xs sm:text-sm text-teal-300 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-heart text-teal-400 text-xs"></i> ${item.title}
                         </h4>
-                        <p class="text-xs text-slate-300 font-medium leading-relaxed">${item.desc}</p>
+                        <p class="text-[11px] text-slate-300 font-medium leading-relaxed">${item.desc}</p>
                     </div>
                 `).join('');
             }
 
             // Hospitals Grid
             const hospGrid = document.getElementById('hospitalsGrid');
-            if (data.hospitals && data.hospitals.length) {
+            if (hospGrid && data.hospitals && data.hospitals.length) {
                 hospGrid.innerHTML = data.hospitals.map(h => `
-                    <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col glow-card">
-                        <div class="h-48 bg-cover bg-center relative" style="background-image: url('${h.img}')">
+                    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col hover:shadow-lg hover:border-purple-200 transition-all duration-300 group">
+                        <div class="h-40 bg-cover bg-center relative" style="background-image: url('${h.img}')">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute top-4 left-4 bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full"><i class="fa-solid fa-location-dot mr-1"></i>${h.city}</span>
-                            <span class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md text-slate-900 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1 shadow"><i class="fa-solid fa-star text-amber-500"></i>${h.rating}</span>
+                            <span class="absolute top-3 left-3 bg-teal-500 text-slate-950 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm"><i class="fa-solid fa-location-dot mr-1"></i>${h.city}</span>
+                            <span class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md text-slate-900 text-[11px] font-black px-2 py-0.5 rounded-lg flex items-center gap-1 shadow-sm"><i class="fa-solid fa-star text-amber-500 text-[10px]"></i>${h.rating}</span>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
                             <div>
-                                <h3 class="text-base font-black text-slate-900 mb-1">${h.name}</h3>
-                                <p class="text-xs font-bold text-teal-600 mb-2 flex items-center gap-1"><i class="fa-solid fa-award text-xs"></i>${h.specialty}</p>
-                                <p class="text-xs text-slate-500 font-medium leading-relaxed line-clamp-3">${h.desc}</p>
+                                <h3 class="text-xs sm:text-sm font-black text-slate-900 mb-1 group-hover:text-purple-700 transition-colors duration-300">${h.name}</h3>
+                                <p class="text-[11px] font-bold text-purple-600 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-award text-[10px]"></i>${h.specialty}</p>
+                                <p class="text-[11px] text-slate-500 font-medium leading-relaxed line-clamp-2">${h.desc}</p>
                             </div>
-                            <button onclick="goToBooking()" class="w-full bg-slate-100 hover:bg-teal-600 hover:text-white text-slate-800 font-bold py-2.5 rounded-xl text-xs transition border border-slate-200 flex items-center justify-center gap-1.5">
-                                Select Hospital & Apply <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            <button onclick="goToBooking()" class="w-full bg-slate-50 hover:bg-purple-600 hover:text-white text-slate-800 font-bold py-2 rounded-xl text-[11px] transition duration-300 border border-slate-200/80 flex items-center justify-center gap-1.5">
+                                <span>Select Hospital & Apply</span> <i class="fa-solid fa-arrow-right text-[9px]"></i>
                             </button>
                         </div>
                     </div>
@@ -557,15 +1026,15 @@
 
             // FAQs Accordion
             const faqContainer = document.getElementById('faqAccordion');
-            if (data.faqs && data.faqs.length) {
+            if (faqContainer && data.faqs && data.faqs.length) {
                 faqContainer.innerHTML = data.faqs.map((f, i) => `
-                    <div class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
-                        <button onclick="toggleFaq(${i})" class="w-full px-6 py-4 text-left font-extrabold text-xs sm:text-sm text-slate-900 flex justify-between items-center hover:bg-slate-50 transition gap-4">
+                    <div class="bg-slate-50/50 rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs transition-all duration-200">
+                        <button onclick="toggleFaq(${i})" class="w-full px-4 py-3.5 text-left font-extrabold text-xs sm:text-sm text-slate-900 flex justify-between items-center hover:bg-slate-100/70 transition-colors gap-3">
                             <span>${f.q}</span>
-                            <i id="faqIcon-${i}" class="fa-solid fa-plus text-xs text-slate-400 shrink-0"></i>
+                            <i id="faqIcon-${i}" class="fa-solid fa-plus text-[10px] text-slate-400 shrink-0"></i>
                         </button>
-                        <div id="faqAns-${i}" class="faq-answer px-6 pb-4 text-xs text-slate-600 font-medium leading-relaxed">
-                            <div class="pt-2 border-t border-slate-100">${f.a}</div>
+                        <div id="faqAns-${i}" class="faq-answer px-4 pb-3.5 text-xs text-slate-600 font-medium leading-relaxed">
+                            <div class="pt-2 border-t border-slate-200/60">${f.a}</div>
                         </div>
                     </div>
                 `).join('');
@@ -593,5 +1062,19 @@
             window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.desktop-menu-links a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href === currentPath || (currentPath === 'medical-detail.html' && href === 'medical.html')) {
+                    a.classList.add('text-black', 'after:w-full');
+                    a.classList.remove('after:w-0');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
