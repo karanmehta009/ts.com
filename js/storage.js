@@ -14,13 +14,13 @@ if (!db) {
 }
 
 window.TravioraDb = {
-    get: function() {
+    get: function () {
         return JSON.parse(localStorage.getItem('TravioraDb')) || db;
     },
-    save: function(newData) {
+    save: function (newData) {
         localStorage.setItem('TravioraDb', JSON.stringify(newData));
     },
-    addBooking: function(booking) {
+    addBooking: function (booking) {
         const currentDb = this.get();
         currentDb.bookings.unshift(booking);
         this.save(currentDb);
@@ -29,33 +29,33 @@ window.TravioraDb = {
 
 // 2. Active Application Context
 window.TravioraApplicationContext = {
-    get: function() {
+    get: function () {
         return JSON.parse(localStorage.getItem('TravioraApplicationContext'));
     },
-    set: function(data) {
+    set: function (data) {
         localStorage.setItem('TravioraApplicationContext', JSON.stringify(data));
     },
-    clear: function() {
+    clear: function () {
         localStorage.removeItem('TravioraApplicationContext');
     },
-    init: function(eligibilityResult, destCode) {
+    init: function (eligibilityResult, destCode) {
         const appId = 'TRV-' + Math.floor(10000 + Math.random() * 90000);
-        
+
         const context = {
             applicationId: appId,
             destination: destCode,
             nationality: eligibilityResult.nationality || "",
-            
+
             routeType: eligibilityResult.routeType,
             ruleId: eligibilityResult.ruleId,
-            
+
             workflow: eligibilityResult.workflow,
             fees: eligibilityResult.fees,
             requiredDocuments: eligibilityResult.documents,
-            
+
             currentStep: "CONTACT",
             status: "DRAFT",
-            
+
             // Storing inputted data as they go through steps
             applicationData: {
                 contact: {},
@@ -66,7 +66,37 @@ window.TravioraApplicationContext = {
                 documents: []
             }
         };
-        
+
+        this.set(context);
+        return context;
+    },
+    initHotel: function (hotelDetails) {
+        const appId = 'HTL-' + Math.floor(10000 + Math.random() * 90000);
+        const context = {
+            type: 'HOTEL',
+            applicationId: appId,
+            hotelId: hotelDetails.hotelId || 'hotel-atlantis',
+            hotelName: hotelDetails.hotelName || 'Atlantis The Royal',
+            location: hotelDetails.location || 'Dubai, UAE',
+            roomName: hotelDetails.roomName || 'Standard Suite',
+            checkIn: hotelDetails.checkIn,
+            checkOut: hotelDetails.checkOut,
+            nights: hotelDetails.nights || 1,
+            adults: hotelDetails.adults || 2,
+            children: hotelDetails.children || 0,
+            rooms: hotelDetails.rooms || 1,
+            pricing: hotelDetails.pricing || { basePriceUSD: 850, extraFeesUSD: 0, taxesUSD: 102, grandTotalUSD: 952 },
+            currentStep: "CONTACT",
+            status: "DRAFT",
+            applicationData: {
+                contact: {},
+                applicant: {},
+                passport: {},
+                travel: {},
+                accommodation: {},
+                documents: []
+            }
+        };
         this.set(context);
         return context;
     }

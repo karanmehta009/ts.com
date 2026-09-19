@@ -421,7 +421,8 @@
                 <div class="flex items-start gap-4 relative">
                     <div
                         class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold z-10">
-                        <i class="fa-solid fa-check"></i></div>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
                     <div>
                         <h4 class="font-bold text-sm">Application Submitted</h4>
                         <p class="text-xs text-slate-400">Received documents and initial payment</p>
@@ -430,7 +431,8 @@
                 <div class="flex items-start gap-4 relative">
                     <div
                         class="w-7 h-7 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold z-10">
-                        <i class="fa-solid fa-check"></i></div>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
                     <div>
                         <h4 class="font-bold text-sm">Document Verification</h4>
                         <p class="text-xs text-slate-400">Verified by Traviora experts</p>
@@ -439,7 +441,8 @@
                 <div class="flex items-start gap-4 relative">
                     <div id="step3Dot"
                         class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold z-10">
-                        <i class="fa-solid fa-spinner fa-spin"></i></div>
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    </div>
                     <div>
                         <h4 class="font-bold text-sm" id="step3Title">Embassy Processing</h4>
                         <p class="text-xs text-slate-400" id="step3Desc">Under evaluation at consulate</p>
@@ -448,7 +451,8 @@
                 <div class="flex items-start gap-4 relative">
                     <div id="step4Dot"
                         class="w-7 h-7 rounded-full bg-slate-200 text-slate-400 flex items-center justify-center text-xs font-bold z-10">
-                        <i class="fa-solid fa-circle text-[8px]"></i></div>
+                        <i class="fa-solid fa-circle text-[8px]"></i>
+                    </div>
                     <div>
                         <h4 class="font-bold text-sm text-slate-400" id="step4Title">Visa Ready</h4>
                         <p class="text-xs text-slate-400">Official e-Visa document issued</p>
@@ -559,15 +563,26 @@
 
     <script src="js/storage.js"></script>
     <script src="js/tour-data.js"></script>
+    <script src="js/hotel-data.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            const idParam = params.get('id') || params.get('appId');
+            const idParam = params.get('id') || params.get('appId') || params.get('bookingId');
             if (idParam) {
                 document.getElementById('trackInput').value = idParam;
                 performTracking();
             }
         });
+
+        function respondToAltOffer(bookingId, accept) {
+            if (window.TravioraHotelDb) {
+                const newStatus = accept ? 'Alternative Accepted' : 'Cancelled';
+                const newPayStatus = accept ? 'Paid' : 'Refund Requested';
+                window.TravioraHotelDb.updateBookingStatus(bookingId, newStatus, newPayStatus);
+                alert(accept ? "Alternative hotel offer accepted! Admin will send final vouchers." : "Alternative offer rejected. Refund request submitted.");
+                performTracking();
+            }
+        }
 
         function performTracking() {
             const input = document.getElementById('trackInput').value.trim().toUpperCase();
@@ -579,7 +594,50 @@
 
             resId.innerText = input;
 
-            // Check Visa DB first
+            // Check Hotel DB first
+            let hotelBooking = null;
+            if (window.TravioraHotelDb) {
+                hotelBooking = window.TravioraHotelDb.getBookingById(input);
+            }
+
+            if (hotelBooking) {
+                res.classList.remove('hidden');
+                
+                const isConfirmed = hotelBooking.bookingStatus === 'Confirmed' || hotelBooking.bookingStatus === 'Alternative Accepted';
+                const isAlt = hotelBooking.bookingStatus === 'Alternative Offered';
+                
+                badge.innerText = `Booking: ${hotelBooking.bookingStatus} | Payment: ${hotelBooking.paymentStatus}`;
+                badge.className = isConfirmed ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 px-3.5 py-1.5 rounded-full text-xs font-bold' : (isAlt ? 'bg-amber-50 text-amber-600 border border-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold' : 'bg-blue-50 text-blue-600 border border-blue-200 px-3.5 py-1.5 rounded-full text-xs font-bold');
+
+                document.getElementById('step3Dot').className = isConfirmed ? 'w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold z-10' : 'w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold z-10';
+                document.getElementById('step3Dot').innerHTML = isConfirmed ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-hotel"></i>';
+                document.getElementById('step3Title').innerText = `${hotelBooking.hotelName} (${hotelBooking.roomName})`;
+                document.getElementById('step3Desc').innerText = `Stay: ${hotelBooking.checkIn} to ${hotelBooking.checkOut} (${hotelBooking.nights} Nights) • ${hotelBooking.adults} Adults, ${hotelBooking.children} Kids (${hotelBooking.rooms} Room)`;
+
+                let altContent = '';
+                if (isAlt && hotelBooking.alternativeOffer) {
+                    altContent = `
+                        <div class="mt-3 bg-amber-50 border border-amber-200 p-3 rounded-xl text-left">
+                            <p class="text-xs font-bold text-amber-900"><i class="fa-solid fa-circle-exclamation text-amber-600"></i> Alternative Property Offered by Concierge:</p>
+                            <p class="text-xs text-slate-800 font-semibold mt-1">${hotelBooking.alternativeOffer.hotelName} - ${hotelBooking.alternativeOffer.roomName}</p>
+                            <p class="text-[11px] text-slate-500">${hotelBooking.alternativeOffer.note || 'Original property unavailable for selected dates.'}</p>
+                            <div class="flex gap-2 mt-2">
+                                <button onclick="respondToAltOffer('${hotelBooking.bookingId}', true)" class="bg-emerald-600 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-emerald-700">Accept Alternative</button>
+                                <button onclick="respondToAltOffer('${hotelBooking.bookingId}', false)" class="bg-rose-600 text-white px-3 py-1 rounded-lg text-xs font-bold hover:bg-rose-700">Reject & Request Refund</button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('step4Dot').className = 'w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-bold z-10';
+                document.getElementById('step4Dot').innerHTML = '<i class="fa-solid fa-receipt"></i>';
+                document.getElementById('step4Title').innerText = `Total Paid Deposit: $${hotelBooking.priceSnapshot ? hotelBooking.priceSnapshot.grandTotalUSD : 952}`;
+                document.getElementById('step4Title').className = 'font-bold text-sm text-slate-900';
+                document.getElementById('step4Desc').innerHTML = `Booking Ref: <b>${hotelBooking.bookingId}</b> ${hotelBooking.confirmationNumber ? '&bull; Hotel Confirmation No: <b>' + hotelBooking.confirmationNumber + '</b>' : ''}` + altContent;
+                return;
+            }
+
+            // Check Visa DB next
             const db = window.TravioraDb ? window.TravioraDb.get() : { bookings: [] };
             let booking = null;
             if (db && db.bookings) {

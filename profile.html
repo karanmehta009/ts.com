@@ -437,14 +437,16 @@
                             class="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-2 hover:-translate-y-1 transition-transform cursor-default">
                             <div
                                 class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
-                                <i class="fa-solid fa-phone text-[10px]"></i></div>
+                                <i class="fa-solid fa-phone text-[10px]"></i>
+                            </div>
                             <span id="profPhone">+91 98765 43210</span>
                         </span>
                         <span
                             class="bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-2 hover:-translate-y-1 transition-transform cursor-default">
                             <div
                                 class="w-6 h-6 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center">
-                                <i class="fa-solid fa-passport text-[10px]"></i></div>
+                                <i class="fa-solid fa-passport text-[10px]"></i>
+                            </div>
                             <span id="profPass">Z9482104</span>
                         </span>
                     </div>
@@ -648,7 +650,7 @@
             document.getElementById('editPass').value = db.profile.pass;
 
             const visas = db.bookings.filter(b => b.type === 'visa');
-            
+
             // Gather tour bookings from TravioraTourDb
             let tourBookings = [];
             if (window.TravioraTourDb) {

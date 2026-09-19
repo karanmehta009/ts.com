@@ -70,15 +70,19 @@
         </div>
 
         <!-- Admin Action Tabs -->
-        <div class="flex gap-2 mb-6 border-b border-slate-200 pb-3">
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3">
             <button class="adm-tab active bg-black text-white px-5 py-2 rounded-xl text-xs font-bold"
                 onclick="switchTab('apps')">Visa Applications</button>
             <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
                 onclick="switchTab('tours')">Tour Bookings</button>
             <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('hotels')">Hotel Reservations</button>
+            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
                 onclick="switchTab('addVisa')">+ Add Visa Destination</button>
             <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
                 onclick="switchTab('addTour')">+ Add Tour Package</button>
+            <button class="adm-tab bg-white text-slate-600 px-5 py-2 rounded-xl text-xs font-bold"
+                onclick="switchTab('addHotel')">+ Add Hotel Property</button>
         </div>
 
         <!-- TAB 1: Visa Applications Table -->
@@ -112,13 +116,23 @@
                         <p class="font-bold text-base">Rohan Sharma</p>
                         <p class="text-xs text-slate-400">Package: Kerala Backwaters Serenity (5D/4N)</p>
                     </div>
-                    <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Confirmed (Paid
-                        ₹22,000)</span>
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Confirmed (Paid ₹22,000)</span>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 3: Add Visa Destination -->
+        <!-- TAB 3: Hotel Reservations Table -->
+        <div id="tab-hotels" class="hidden bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 font-bold text-lg flex justify-between items-center">
+                <span>Hotel Reservations & Concierge Verification</span>
+                <span class="text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full">Manual Fulfillment Engine</span>
+            </div>
+            <div class="p-6 overflow-x-auto" id="adminHotelsContainer">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- TAB 4: Add Visa Destination -->
         <div id="tab-addVisa" class="hidden bg-white rounded-3xl border border-slate-200/80 shadow-sm p-8 max-w-xl">
             <h3 class="text-xl font-extrabold mb-4">Add New Visa Destination</h3>
             <form onsubmit="event.preventDefault(); alert('Visa destination added successfully!');" class="space-y-4">
@@ -142,12 +156,11 @@
                             class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-black text-white py-3 rounded-full font-bold text-sm">Save
-                    Destination</button>
+                <button type="submit" class="w-full bg-black text-white py-3 rounded-full font-bold text-sm">Save Destination</button>
             </form>
         </div>
 
-        <!-- TAB 4: Add Tour Package -->
+        <!-- TAB 5: Add Tour Package -->
         <div id="tab-addTour" class="hidden bg-white rounded-3xl border border-slate-200/80 shadow-sm p-8 max-w-xl">
             <h3 class="text-xl font-extrabold mb-4">Add New Tour Package</h3>
             <form onsubmit="handleAddTourPackage(event)" class="space-y-4">
@@ -179,12 +192,65 @@
                     </div>
                     <div>
                         <label class="text-xs font-bold text-slate-400 block mb-1">Duration</label>
-                        <input type="text" name="duration" placeholder="e.g. 7 Days / 6 Nights" value="7 Days / 6 Nights"
+                        <input type="text" name="duration" placeholder="e.g. 7 Days / 6 Nights"
+                            value="7 Days / 6 Nights"
                             class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
                     </div>
                 </div>
-                <button type="submit" class="w-full bg-black hover:bg-slate-800 text-white py-3 rounded-full font-bold text-sm transition">
+                <button type="submit"
+                    class="w-full bg-black hover:bg-slate-800 text-white py-3 rounded-full font-bold text-sm transition">
                     Publish Tour Package
+                </button>
+            </form>
+        </div>
+
+        <!-- TAB 6: Add Hotel Property -->
+        <div id="tab-addHotel" class="hidden bg-white rounded-3xl border border-slate-200/80 shadow-sm p-8 max-w-xl">
+            <h3 class="text-xl font-extrabold mb-4">Add Hotel Property (Manual Inventory)</h3>
+            <form onsubmit="handleAddHotelProperty(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-slate-400 block mb-1">Hotel Name</label>
+                    <input type="text" name="hotelName" required placeholder="e.g. The Oberoi Amarvilas"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Country</label>
+                        <input type="text" name="country" required placeholder="e.g. India"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">City</label>
+                        <input type="text" name="city" required placeholder="e.g. Agra"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Starting Rate ($ / night)</label>
+                        <input type="number" name="price" required placeholder="450"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 block mb-1">Star Rating</label>
+                        <input type="text" name="rating" placeholder="5.0" value="4.9"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-400 block mb-1">Image URL</label>
+                    <input type="url" name="heroImage" placeholder="https://images.unsplash.com/..."
+                        value="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-400 block mb-1">Overview Description</label>
+                    <textarea name="overview" rows="3" placeholder="Luxury property overview..."
+                        class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 font-bold text-sm outline-none resize-none"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-black hover:bg-slate-800 text-white py-3 rounded-full font-bold text-sm transition">
+                    Save Hotel Property to Inventory
                 </button>
             </form>
         </div>
@@ -193,6 +259,7 @@
 
     <script src="js/storage.js"></script>
     <script src="js/tour-data.js"></script>
+    <script src="js/hotel-data.js"></script>
     <script>
         const adminVisas = [
             { id: 'TRV-77412', user: 'Rohan Sharma', dest: 'United Arab Emirates', date: '10 Aug 2026', status: 'Approved' },
@@ -203,6 +270,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderAdminTable();
             renderTourBookingsTab();
+            renderHotelReservationsTab();
         });
 
         function renderAdminTable() {
@@ -268,6 +336,163 @@
             `;
         }
 
+        function renderHotelReservationsTab() {
+            const container = document.getElementById('adminHotelsContainer');
+            if (!container) return;
+
+            let bookings = [];
+            if (window.TravioraHotelDb) {
+                bookings = window.TravioraHotelDb.getBookings();
+            }
+
+            if (!bookings || bookings.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 text-slate-400 text-sm font-medium">
+                        No hotel reservations created yet. Complete a reservation on <b>hotel-detail.html</b> to test manual concierge verification here.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-400 text-xs uppercase font-bold border-b border-slate-100">
+                            <th class="p-3 pl-4">Booking Ref</th>
+                            <th class="p-3">Guest & Contact</th>
+                            <th class="p-3">Property & Room</th>
+                            <th class="p-3">Dates & Guests</th>
+                            <th class="p-3">Price Snapshot</th>
+                            <th class="p-3">Booking Status</th>
+                            <th class="p-3">Payment Status</th>
+                            <th class="p-3 pr-4">Concierge Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-xs font-medium text-slate-700 divide-y divide-slate-100">
+                        ${bookings.map(b => `
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 pl-4 font-mono font-bold text-blue-600">${b.bookingId}</td>
+                                <td class="p-3">
+                                    <p class="font-bold text-slate-900 text-sm">${b.customerName || 'Guest'}</p>
+                                    <p class="text-[10px] text-slate-400">${b.email} &bull; ${b.phone}</p>
+                                </td>
+                                <td class="p-3">
+                                    <p class="font-bold text-slate-800">${b.hotelName}</p>
+                                    <p class="text-[10px] text-slate-500">${b.roomName}</p>
+                                </td>
+                                <td class="p-3 text-[11px]">
+                                    <p class="font-bold">${b.checkIn} to ${b.checkOut} (${b.nights} nights)</p>
+                                    <p class="text-slate-400">${b.adults} Adults, ${b.children} Children (${b.rooms} Room)</p>
+                                </td>
+                                <td class="p-3 font-bold text-slate-900">
+                                    $${b.priceSnapshot ? b.priceSnapshot.grandTotalUSD : 952}
+                                </td>
+                                <td class="p-3">
+                                    <select onchange="updateHotelBookingStatus('${b.bookingId}', this.value, null)" class="bg-slate-100 border border-slate-200 text-[11px] font-bold rounded-lg px-2 py-1 outline-none">
+                                        <option value="Pending Hotel Confirmation" ${b.bookingStatus === 'Pending Hotel Confirmation' ? 'selected' : ''}>Pending Hotel Confirmation</option>
+                                        <option value="Hotel Contacted" ${b.bookingStatus === 'Hotel Contacted' ? 'selected' : ''}>Hotel Contacted</option>
+                                        <option value="Confirmed" ${b.bookingStatus === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                                        <option value="Alternative Offered" ${b.bookingStatus === 'Alternative Offered' ? 'selected' : ''}>Alternative Offered</option>
+                                        <option value="Alternative Accepted" ${b.bookingStatus === 'Alternative Accepted' ? 'selected' : ''}>Alternative Accepted</option>
+                                        <option value="Refund Requested" ${b.bookingStatus === 'Refund Requested' ? 'selected' : ''}>Refund Requested</option>
+                                        <option value="Cancelled" ${b.bookingStatus === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="p-3">
+                                    <select onchange="updateHotelBookingStatus('${b.bookingId}', null, this.value)" class="bg-slate-100 border border-slate-200 text-[11px] font-bold rounded-lg px-2 py-1 outline-none">
+                                        <option value="Pending" ${b.paymentStatus === 'Pending' ? 'selected' : ''}>Pending</option>
+                                        <option value="Paid" ${b.paymentStatus === 'Paid' ? 'selected' : ''}>Paid</option>
+                                        <option value="Partially Refunded" ${b.paymentStatus === 'Partially Refunded' ? 'selected' : ''}>Partially Refunded</option>
+                                        <option value="Refunded" ${b.paymentStatus === 'Refunded' ? 'selected' : ''}>Refunded</option>
+                                        <option value="Failed" ${b.paymentStatus === 'Failed' ? 'selected' : ''}>Failed</option>
+                                    </select>
+                                </td>
+                                <td class="p-3 pr-4 space-y-1">
+                                    <button onclick="promptSetConfirmationNumber('${b.bookingId}')" class="block w-full text-center text-[10px] font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded hover:bg-blue-100">
+                                        ${b.confirmationNumber ? 'Conf #: ' + b.confirmationNumber : '+ Add Conf #'}
+                                    </button>
+                                    <button onclick="promptOfferAlternative('${b.bookingId}')" class="block w-full text-center text-[10px] font-bold bg-amber-50 text-amber-700 px-2 py-1 rounded hover:bg-amber-100">
+                                        Offer Alt Hotel
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function updateHotelBookingStatus(bookingId, newBookingStatus, newPaymentStatus) {
+            if (window.TravioraHotelDb) {
+                window.TravioraHotelDb.updateBookingStatus(bookingId, newBookingStatus, newPaymentStatus);
+                alert(`Updated reservation ${bookingId}`);
+                renderHotelReservationsTab();
+            }
+        }
+
+        function promptSetConfirmationNumber(bookingId) {
+            const conf = prompt("Enter Hotel Confirmation Number received from property:", "CONF-" + Math.floor(10000 + Math.random() * 90000));
+            if (conf && window.TravioraHotelDb) {
+                window.TravioraHotelDb.updateBookingStatus(bookingId, 'Confirmed', 'Paid', conf);
+                alert(`Reservation ${bookingId} confirmed with Hotel Confirmation Number: ${conf}`);
+                renderHotelReservationsTab();
+            }
+        }
+
+        function promptOfferAlternative(bookingId) {
+            const altHotel = prompt("Enter Alternative Hotel Name:", "Four Seasons Resort Bali");
+            if (altHotel) {
+                const altRoom = prompt("Enter Alternative Room Type:", "Ocean Pool Villa") || "Standard Suite";
+                const note = prompt("Enter note to guest:", "Original hotel unavailable for selected dates.") || "";
+                if (window.TravioraHotelDb) {
+                    window.TravioraHotelDb.updateBookingStatus(bookingId, 'Alternative Offered', 'Paid', null, {
+                        hotelName: altHotel,
+                        roomName: altRoom,
+                        note: note
+                    });
+                    alert(`Alternative offer submitted for ${bookingId}. Guest can now accept/reject via Track page.`);
+                    renderHotelReservationsTab();
+                }
+            }
+        }
+
+        function handleAddHotelProperty(evt) {
+            evt.preventDefault();
+            const form = evt.target;
+            const name = form.querySelector('[name="hotelName"]').value.trim();
+            const country = form.querySelector('[name="country"]').value.trim();
+            const city = form.querySelector('[name="city"]').value.trim();
+            const price = parseFloat(form.querySelector('[name="price"]').value) || 400;
+            const rating = form.querySelector('[name="rating"]').value.trim() || '4.9';
+            const heroImage = form.querySelector('[name="heroImage"]').value.trim() || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80';
+            const overview = form.querySelector('[name="overview"]').value.trim() || 'Luxury handcrafted hotel property.';
+
+            const newHotel = {
+                id: 'hotel-' + Date.now(),
+                name: name,
+                city: city,
+                country: country,
+                rating: rating,
+                pricePerNightUSD: price,
+                badge: 'Admin Curated',
+                heroImage: heroImage,
+                overview: overview,
+                address: `${city}, ${country}`,
+                amenities: ["Free Wi-Fi", "Swimming Pool", "Spa & Wellness", "Fine Dining", "Concierge"],
+                rooms: [
+                    { id: 'room-std-' + Date.now(), name: 'Deluxe Room', basePriceUSD: price, maxAdults: 2, maxChildren: 1 },
+                    { id: 'room-dlx-' + Date.now(), name: 'Executive Suite', basePriceUSD: Math.round(price * 1.5), maxAdults: 3, maxChildren: 2 }
+                ]
+            };
+
+            if (window.TravioraHotelDb) {
+                window.TravioraHotelDb.saveHotel(newHotel);
+                alert(`Hotel property "${name}" successfully saved to live inventory!`);
+                form.reset();
+                switchTab('hotels');
+            }
+        }
+
         function updateStatus(index, val) {
             adminVisas[index].status = val;
             alert(`Application ${adminVisas[index].id} status updated to ${val}`);
@@ -322,10 +547,12 @@
         }
 
         function switchTab(tabName) {
-            ['apps', 'tours', 'addVisa', 'addTour'].forEach(t => {
-                document.getElementById(`tab-${t}`).classList.add('hidden');
+            ['apps', 'tours', 'hotels', 'addVisa', 'addTour', 'addHotel'].forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                if (el) el.classList.add('hidden');
             });
-            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            const targetEl = document.getElementById(`tab-${tabName}`);
+            if (targetEl) targetEl.classList.remove('hidden');
 
             document.querySelectorAll('.adm-tab').forEach(btn => {
                 btn.classList.remove('bg-black', 'text-white');

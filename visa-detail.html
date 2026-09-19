@@ -650,7 +650,6 @@
                 });
             </script>
         </div>
-        </div>
     </nav>
 
     <!-- Main Content -->
@@ -2432,6 +2431,33 @@
                     a.classList.add('text-black', 'after:w-full');
                     a.classList.remove('after:w-0');
                 }
+            });
+
+            // Mobile Navigation Drawer Toggle Script
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                });
+            }
+
+            const closeMenu = () => {
+                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                }
+            };
+
+            if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
         });
     </script>
