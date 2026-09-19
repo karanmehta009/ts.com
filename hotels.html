@@ -350,7 +350,7 @@
     </nav>
 
     <!-- Hotel Hero Slider Section -->
-    <section class="relative flex items-center justify-center overflow-hidden bg-black mt-28 mb-10 rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl h-[450px] md:h-[350px]">
+    <section class="relative flex items-center justify-center overflow-hidden bg-black rounded-[1.5rem] md:rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl mt-16 md:mt-28 mb-4 py-6 md:py-0 h-auto md:h-[340px]">
         <div class="absolute inset-0 w-full h-full bg-black z-0">
             <!-- Background Slider Keyframing -->
             <div class="absolute inset-0 bg-cover bg-center slide-anim-1" style="background-image: url('https://images.unsplash.com/photo-1542314831-c6a4d142104d?auto=format&fit=crop&w=1920&q=80');"></div>
@@ -361,32 +361,33 @@
             <div class="absolute inset-0 bg-gradient-to-r from-amber-900/60 via-black/80 to-black backdrop-blur-[1px]"></div>
         </div>
 
-        <div class="relative z-10 px-4 md:px-8 max-w-5xl mx-auto w-full text-center text-white flex flex-col items-center justify-center">
+        <div class="relative z-10 px-3 md:px-6 lg:px-12 max-w-7xl mx-auto w-full text-center text-white flex flex-col items-center justify-center gap-1 md:gap-3">
             
-            <div class="max-w-2xl mb-8 flex flex-col items-center">
-                <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[10px] font-black tracking-[0.25em] uppercase mb-4 shadow-lg backdrop-blur-md">
+            <div class="max-w-2xl flex flex-col items-center">
+                <div class="inline-flex items-center gap-1.5 md:gap-2 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 md:px-3 md:py-1.5 rounded-full text-[7px] md:text-[10px] font-medium text-amber-400 mb-1 md:mb-2 shadow-lg backdrop-blur-md">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                     Premium Accommodations
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4 drop-shadow-2xl leading-tight text-center text-white">
+                </div>
+                <h1 class="text-lg sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.1] md:leading-[1.05] mb-1 md:mb-2 drop-shadow-lg text-center text-white">
                     Luxury Stays & Resorts
                 </h1>
-                <p class="text-sm md:text-base text-white/70 font-medium max-w-lg leading-relaxed text-center shadow-black drop-shadow-md">
+                <p class="text-[9px] md:text-[14px] text-white/70 font-medium mb-1 md:mb-3 max-w-lg leading-snug md:leading-relaxed text-center">
                     Discover our handpicked collection of the world's most extraordinary properties.
                 </p>
             </div>
 
-            <div class="w-full max-w-3xl flex flex-col items-center gap-6 relative z-20">
+            <div class="w-full max-w-4xl flex flex-col items-center gap-1.5 md:gap-3 relative z-20">
                 <!-- Search Input -->
-                <div class="w-full bg-[#1a1a1a]/80 backdrop-blur-xl p-1 rounded-full border border-white/10 shadow-inner flex items-center h-[52px]">
-                    <i class="fa-solid fa-search text-white/50 text-sm ml-5"></i>
-                    <input type="text" id="searchInput" placeholder="Search by city or hotel name..." class="bg-transparent border-none outline-none w-full text-white font-medium placeholder-white/40 pl-4 pr-6 py-2 text-sm focus:ring-0">
+                <div class="w-full max-w-xl flex items-center bg-white/10 backdrop-blur-2xl p-0.5 md:p-1.5 rounded-full border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative">
+                    <i class="fa-solid fa-search text-white/70 text-[9px] md:text-sm absolute left-3.5 md:left-5"></i>
+                    <input type="text" id="searchInput" placeholder="Search by city or hotel name..." class="bg-transparent border-none outline-none w-full text-white font-bold placeholder-white/50 pl-8 md:pl-10 pr-3 py-1 md:py-2 text-[9px] md:text-sm">
                 </div>
 
                 <!-- Toggle Categories -->
-                <div class="flex bg-black/50 backdrop-blur-md border border-white/10 p-1.5 rounded-full overflow-hidden w-auto mx-auto items-center">
-                    <button class="tab-btn active bg-amber-500 text-slate-900 px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all shadow-md" data-category="luxury">Luxury Hotels</button>
-                    <button class="tab-btn text-white/50 hover:text-white px-6 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all" data-category="resort">Beach Resorts</button>
-                    <button class="tab-btn text-white/50 hover:text-white px-6 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest transition-all" data-category="boutique">Boutique</button>
+                <div class="flex bg-black/50 backdrop-blur-md border border-white/10 p-1 md:p-1.5 rounded-full overflow-hidden w-auto mx-auto items-center gap-0.5 md:gap-1">
+                    <button class="tab-btn active bg-amber-500 text-slate-900 px-3 py-1 md:px-6 md:py-2 rounded-full font-black text-[8px] md:text-[10px] uppercase tracking-widest transition-all shadow-md" data-category="luxury">Luxury Hotels</button>
+                    <button class="tab-btn text-white/50 hover:text-white px-3 py-1 md:px-6 md:py-2 rounded-full font-bold text-[8px] md:text-[10px] uppercase tracking-widest transition-all" data-category="resort">Beach Resorts</button>
+                    <button class="tab-btn text-white/50 hover:text-white px-3 py-1 md:px-6 md:py-2 rounded-full font-bold text-[8px] md:text-[10px] uppercase tracking-widest transition-all" data-category="boutique">Boutique</button>
                 </div>
             </div>
             
@@ -394,7 +395,9 @@
     </section>
 
     <!-- Hotels Grid -->
-    <div class="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full" id="hotelsGrid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 w-full" id="hotelsGrid">
+        <!-- Dynamic Insertion -->
+    </div>
         <!-- Dynamic Insertion -->
     </div>
 
@@ -483,7 +486,7 @@
 
         function renderHotels(category) {
             grid.innerHTML = hotelsData.filter(h => h.cat === category).map(h => `
-            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(56,189,248,0.15)]" onclick="openHotelModal(${h.id})">
+            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(56,189,248,0.15)] transition-all duration-500" onclick="openHotelModal(${h.id})">
                 
                 <!-- Image -->
                 <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-60 blur-0 group-hover:blur-md" style="background-image: url('${h.img}')"></div>
@@ -492,54 +495,51 @@
                 <div class="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0 z-0"></div>
 
                 <!-- Default State Content -->
-                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
-                    <div class="bg-sky-400/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow border border-sky-300">
-                        <span class="text-[9px] font-black text-slate-900 uppercase tracking-[0.2em] shadow-sm flex items-center gap-1.5"><i class="fa-solid fa-star"></i> ${h.rating} Rated</span>
+                <div class="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                    <div class="bg-sky-400/90 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full shadow border border-sky-300">
+                        <span class="text-[7px] sm:text-[9px] font-black text-slate-900 uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-sm flex items-center gap-1 sm:gap-1.5"><i class="fa-solid fa-star text-[7px] sm:text-[9px]"></i> ${h.rating} Rated</span>
                     </div>
                 </div>
-                <div class="absolute inset-0 p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
-
-
-
-                    <h3 class="text-[20px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-2 drop-shadow-lg">${h.name}</h3>
-                    <div class="flex items-center gap-1.5 text-sky-300">
-                        <i class="fa-solid fa-location-dot text-[11px]"></i>
-                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase">${h.location.split(',')[0]}</span>
+                <div class="absolute inset-0 p-3 sm:p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
+                    <h3 class="text-[16px] sm:text-[20px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-1.5 sm:mb-2 drop-shadow-lg px-1 sm:px-2">${h.name}</h3>
+                    <div class="flex items-center gap-1 sm:gap-1.5 text-sky-300">
+                        <i class="fa-solid fa-location-dot text-[9px] sm:text-[11px]"></i>
+                        <span class="text-[8px] sm:text-[10px] font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase">${h.location.split(',')[0]}</span>
                     </div>
                 </div>
 
                 <!-- The Merged Full Overlay Reveal -->
-                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-7 text-center">
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-3.5 sm:p-7 text-center">
                     
                     <!-- Top Section -->
-                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-2">
-                        <div class="bg-sky-400/10 border border-sky-400/30 px-3 py-1.5 rounded-full w-fit mb-4">
-                            <span class="text-[9px] font-black text-sky-400 uppercase tracking-[0.2em]">Luxury Suite</span>
+                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-1 sm:pt-2">
+                        <div class="bg-sky-400/10 border border-sky-400/30 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full w-fit mb-2 sm:mb-4">
+                            <span class="text-[7px] sm:text-[9px] font-black text-sky-400 uppercase tracking-[0.15em] sm:tracking-[0.2em]">Luxury Suite</span>
                         </div>
                         
-                        <h3 class="text-[18px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-3">${h.name}</h3>
-                        <p class="text-[11px] text-slate-300/70 leading-relaxed font-medium line-clamp-3 w-full">World-class hospitality, exclusive amenities, and breathtaking views designed for the ultimate getaway experience.</p>
+                        <h3 class="text-[14px] sm:text-[18px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-1.5 sm:mb-3">${h.name}</h3>
+                        <p class="text-[9.5px] sm:text-[11px] text-slate-300/70 leading-relaxed font-medium line-clamp-3 w-full">World-class hospitality, exclusive amenities, and breathtaking views designed for the ultimate getaway experience.</p>
                     </div>
 
                     <!-- Bottom Section -->
-                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-2">
-                        <div class="flex items-center justify-between w-full border-t border-sky-400/20 pt-5 mt-4">
+                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-1 sm:pb-2">
+                        <div class="flex items-center justify-between w-full border-t border-sky-400/20 pt-3 sm:pt-5 mt-2 sm:mt-4">
                             
                             <!-- Left Icon decorative -->
-                            <div class="w-12 h-12 rounded-full border border-sky-400/20 bg-sky-400/10 flex items-center justify-center text-sky-400 shadow-inner shrink-0">
-                                <i class="fa-solid fa-tags text-[16px]"></i>
+                            <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-full border border-sky-400/20 bg-sky-400/10 flex items-center justify-center text-sky-400 shadow-inner shrink-0">
+                                <i class="fa-solid fa-tags text-[11px] sm:text-[16px]"></i>
                             </div>
                             
                             <div class="flex flex-col items-end text-right">
-                                <div class="flex flex-col items-end mb-3 w-full">
-                                    <span class="text-[8px] font-bold text-sky-400/80 uppercase tracking-[0.3em] mb-1">Starting Rate</span>
-                                    <span class="text-[16px] md:text-[18px] font-black text-white leading-none">${h.price} <span class="text-[10px] text-slate-500 font-medium normal-case tracking-[0.05em] ml-0.5">/ night</span></span>
+                                <div class="flex flex-col items-end mb-1.5 sm:mb-3 w-full">
+                                    <span class="text-[7px] sm:text-[8px] font-bold text-sky-400/80 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-0.5 sm:mb-1">Starting Rate</span>
+                                    <span class="text-[12px] sm:text-[16px] md:text-[18px] font-black text-white leading-none">${h.price} <span class="text-[8px] sm:text-[10px] text-slate-500 font-medium normal-case tracking-[0.05em] ml-0.5">/ night</span></span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 text-white group/btn hover:text-sky-300 transition-colors cursor-pointer">
-                                    <span class="text-[9px] font-bold uppercase tracking-[0.25em]">Details</span>
-                                    <div class="w-10 h-10 rounded-full bg-sky-400 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-slate-900 group-hover/btn:scale-110">
-                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
+                                <div class="flex items-center gap-1.5 sm:gap-3 text-white group/btn hover:text-sky-300 transition-colors cursor-pointer">
+                                    <span class="text-[7.5px] sm:text-[9px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]">Details</span>
+                                    <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-sky-400 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-slate-900 group-hover/btn:scale-110 shrink-0">
+                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[9px] sm:text-[12px]"></i>
                                     </div>
                                 </div>
                             </div>
