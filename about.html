@@ -4,22 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Traviora</title>
+    <title>About Us | Traviora - Modern Visas & Global Stays</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        display: ['Syne', 'Outfit', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif']
+                    },
+                    colors: { brand: { dark: '#0a0a0a', accent: '#2563eb', light: '#f8fafc' } },
+                    boxShadow: { 'soft': '0 4px 40px rgba(0, 0, 0, 0.06)', 'float': '0 20px 40px rgba(0,0,0,0.08)' }
+                }
+            }
+        }
+    </script>
     <style>
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #fafafa;
+            background-color: #f8fafc;
+            color: #0f172a;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .border-beam {
+            background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+            animation: spinBeam 2s linear infinite;
+        }
+
+        .border-beam-active {
+            background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+        }
+
+        @keyframes spinBeam {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Shimmer Animation for Heading */
+        @keyframes shimmerText {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .animate-shimmer {
+            background: linear-gradient(110deg, #0f172a 20%, #2563eb 45%, #3b82f6 55%, #0f172a 80%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerText 5s linear infinite;
+        }
+
+        .animate-shimmer-accent {
+            background: linear-gradient(110deg, #2563eb 20%, #60a5fa 45%, #1d4ed8 60%, #2563eb 80%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerText 4s linear infinite;
+        }
+
+        /* Fade-in Entrance Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Floating Light Glow */
+        @keyframes floatGlow {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-15px) scale(1.08); opacity: 0.8; }
+        }
+
+        .animate-float-glow {
+            animation: floatGlow 7s ease-in-out infinite;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.85);
         }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col justify-between bg-slate-50/80">
 
+    <!-- Navigation Bar -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
@@ -47,13 +136,12 @@
                 <a href="hotels.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
                     <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> Hotels</span>
                 </a>
-                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i> About</span>
+                <a href="about.html" class="relative group px-3 py-1.5 transition-colors duration-300 text-blue-700 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:scale-x-100"><i class="fa-solid fa-circle-info text-[11px] opacity-100 text-blue-600"></i> About</span>
                 </a>
             </div>
             
             <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
-                <!-- Mobile Menu Toggle -->
                 <button id="mobileMenuBtn" class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
@@ -62,27 +150,11 @@
 
                 <a href="profile.html"
                     class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-[600ms] ease-out hover:border-transparent hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:bg-white isolate hover:-translate-y-1.5 overflow-visible">
-                    <span class="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-400/40 blur-xl transition-all duration-[600ms] -z-30"></span>
-                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_2s_linear_infinite] rounded-full -z-20"></span>
-                    <span class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(236,72,153,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite_reverse] rounded-full -z-20"></span>
-                    <span class="absolute inset-[2px] bg-slate-50 group-hover:bg-white rounded-full transition-colors duration-500 -z-10 shadow-inner"></span>
-                    <span class="absolute w-1/2 h-1/2 bg-blue-300 rounded-full opacity-0 group-hover:animate-[ping_1.2s_ease-out_infinite] -z-10"></span>
-                    <i class="fa-regular fa-user text-lg transition-all duration-[700ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:text-blue-600 group-hover:[transform:rotateY(360deg)_scale(1.2)]"></i>
-                    <span class="absolute top-[1px] right-[1px] w-2.5 h-2.5 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-full border-2 border-white shadow-sm z-10 group-hover:animate-bounce flex items-center justify-center">
-                        <span class="absolute w-full h-full bg-rose-400 rounded-full opacity-0 group-hover:animate-ping"></span>
-                    </span>
+                    <i class="fa-regular fa-user text-lg"></i>
                 </a>
                 <button class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-14 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-[500ms] ml-1.5 shadow-sm border border-slate-200/50 hover:shadow-[0_8px_20px_rgba(239,68,68,0.25)]" title="Logout" onclick="window.location.href='index.html'">
-                    <span class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-full">
-                        <span>Log Out</span>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px] md:text-[12px]"></i>
-                    </div>
+                    <span>Log Out</span>
                 </button>
-                
-                
             </div>
         </div>
 
@@ -90,37 +162,11 @@
         <div id="mobileMenu"
             class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform -translate-y-full opacity-0 pointer-events-none">
 
-            <style>
-                .border-beam {
-                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
-                    animation: spinBeam 2s linear infinite;
-                }
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm shadow-inner pointer-events-auto"></div>
 
-                .border-beam-active {
-                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
-                }
-
-                @keyframes spinBeam {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-            </style>
-
-            <!-- Transparent Dark Overlay -->
-            <div id="mobileMenuOverlay"
-                class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm shadow-inner pointer-events-auto"></div>
-
-            <!-- Centered Modal Box -->
-            <div
-                class="relative bg-white w-[85%] max-w-[320px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden transform transition-transform -mt-[12vh]">
+            <div class="relative bg-white w-[85%] max-w-[320px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden transform transition-transform -mt-[12vh]">
 
                 <div class="px-5 pt-5 pb-3 w-full">
-                    <!-- Navigation Header -->
                     <div class="flex items-center justify-between mb-5">
                         <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Menu</span>
                         <button id="closeMobileMenuBtn"
@@ -129,118 +175,65 @@
                         </button>
                     </div>
 
-                    <!-- Compact Button Grid -->
                     <div class="grid grid-cols-2 gap-2.5">
-
-                        <!-- Home -->
-                        <a href="index.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <!-- Premium Animated Border Icon (Light theme) -->
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <!-- Rotating Beam -->
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <!-- Inner Core Mask -->
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-house text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="index.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-house text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Home</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Home</span>
                         </a>
 
-                        <!-- Visas -->
-                        <a href="visas.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-passport text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="visas.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-passport text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Visas</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Visas</span>
                         </a>
 
-                        <!-- Tours -->
-                        <a href="tours.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-plane-departure text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="tours.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-plane-departure text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Tours</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Tours</span>
                         </a>
 
-                        <!-- Medical -->
-                        <a href="medical.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-notes-medical text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="medical.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-notes-medical text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Medical</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Medical</span>
                         </a>
 
-                        <!-- Hotels -->
-                        <a href="hotels.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-hotel text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="hotels.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-hotel text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Hotels</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Hotels</span>
                         </a>
 
-                        <!-- About -->
-                        <a href="about.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-compass text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                        <a href="about.html" class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-white pointer-events-none shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)]">
+                            <div class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam border-beam-active opacity-100"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[13px] bg-white shadow-sm flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-compass text-[15px] text-black"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">About</span>
+                            <span class="text-[11px] font-black uppercase tracking-[0.25em] text-black scale-105 mt-1">About</span>
                         </a>
 
                     </div>
@@ -248,337 +241,345 @@
 
                 <div class="h-[1px] bg-slate-200 mx-5 w-[calc(100%-40px)]"></div>
 
-                <!-- Footer Actions -->
                 <div class="flex items-center justify-between w-full px-5 py-4 gap-3">
-                    <a href="profile.html"
-                        class="flex-1 flex justify-center items-center gap-2 group py-2.5 rounded-[14px] hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-200">
-                        <i
-                            class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-black transition-colors"></i>
-                        <span
-                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-black transition-all duration-300 tracking-[0.15em] pt-[2px]">Account</span>
+                    <a href="profile.html" class="flex-1 flex justify-center items-center gap-2 group py-2.5 rounded-[14px] hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-200">
+                        <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-black transition-colors"></i>
+                        <span class="text-[11px] font-black uppercase text-slate-800 group-hover:text-black transition-all duration-300 tracking-[0.15em] pt-[2px]">Account</span>
                     </a>
                     <div class="w-[1px] h-4 bg-slate-300"></div>
-                    <a href="index.html"
-                        class="flex-1 items-center flex justify-center gap-2 group py-2.5 rounded-[14px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all duration-300">
-                        <span
-                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all duration-300 tracking-[0.15em] pt-[2px]">Sign
-                            Out</span>
-                        <i
-                            class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                    <a href="index.html" class="flex-1 items-center flex justify-center gap-2 group py-2.5 rounded-[14px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all duration-300">
+                        <span class="text-[11px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all duration-300 tracking-[0.15em] pt-[2px]">Sign Out</span>
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
                     </a>
                 </div>
             </div>
-
-            <!-- Active Script & Close Logic -->
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
-                    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-
-                    if (mobileMenuBtn && mobileMenu) {
-                        mobileMenuBtn.addEventListener('click', () => {
-                            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                        });
-                    }
-
-                    const closeMenu = (e) => {
-                        if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                        }
-                    };
-
-                    if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
-                    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
-
-                    const path = window.location.pathname.split('/').pop() || 'index.html';
-                    document.querySelectorAll('#mobileMenu .mobile-link').forEach(a => {
-                        if (a.getAttribute('href') === path) {
-
-                            const iconWrap = a.querySelector('.icon-wrap');
-                            const innerCore = a.querySelector('.inner-core');
-                            const beam = a.querySelector('.beam-element');
-                            const text = a.querySelector('span');
-
-                            if (beam) {
-                                beam.classList.remove('opacity-0');
-                                beam.classList.add('opacity-100', 'border-beam-active');
-                            }
-
-                            // Solidify active state (Light theme active)
-                            a.classList.add('bg-white', 'pointer-events-none', 'shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)]');
-                            a.classList.remove('bg-slate-50/30', 'hover:bg-white');
-
-                            if (text) {
-                                text.classList.remove('text-slate-800');
-                                text.classList.add('text-black', 'tracking-[0.25em]', 'scale-105');
-                            }
-
-                            if (innerCore) {
-                                innerCore.classList.remove('bg-slate-50');
-                                innerCore.classList.add('bg-white', 'shadow-sm');
-
-                                const icon = innerCore.querySelector('i');
-                                if (icon) {
-                                    icon.classList.remove('text-slate-800');
-                                    icon.classList.add('text-black');
-                                }
-                            }
-                        }
-                    });
-                });
-            </script>
-        </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="pt-36 pb-20 max-w-7xl mx-auto px-4 md:px-6 w-full flex-grow">
+    <!-- Main Content Container -->
+    <main class="pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-24 max-w-6xl mx-auto px-4 md:px-6 w-full flex-grow">
 
-        <!-- About Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <span class="text-blue-600 font-black tracking-widest uppercase text-xs md:text-sm mb-4 block">About Company</span>
-            <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-4 md:mb-6">Simplifying Global Travel & Visas for Everyone.</h1>
-            <p class="text-base md:text-lg font-medium text-slate-500 leading-relaxed">Traviora was founded with a single mission: to
-                remove the friction from international travel. Whether it's securing a complex visa, planning a luxury
-                tour, or navigating immigration law, we handle the hard parts so you can focus on the journey.</p>
-        </div>
+        <!-- Animated Editorial Glass Hero Card -->
+        <div class="fade-in-up relative glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-10 mb-8 md:mb-12 overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.04)] border border-slate-200/90">
+            <!-- Animated Ambient Glows -->
+            <div class="absolute -top-16 -right-16 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none animate-float-glow"></div>
+            <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl pointer-events-none animate-float-glow" style="animation-delay: 2s;"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-24">
-            <div
-                class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(59,130,246,0.12)] hover:-translate-y-2 transition-all duration-500">
-                <div
-                    class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-blue-50 text-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-globe"></i>
+            <div class="relative z-10 text-center max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border border-blue-200/80 px-3.5 py-1 rounded-full text-[10.5px] font-bold text-blue-700 tracking-[0.2em] uppercase mb-4 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping"></span>
+                    About Traviora
                 </div>
-                <h3 class="text-2xl md:text-3xl font-black text-slate-900 mb-2 md:mb-3 tracking-tight">150+ Countries</h3>
-                <p class="text-slate-500 font-medium text-xs md:text-sm">Providing e-Visas and sticker visas to almost anywhere in
-                    the world.</p>
-            </div>
-            <div
-                class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.12)] hover:-translate-y-2 transition-all duration-500">
-                <div
-                    class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-emerald-50 text-emerald-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-users"></i>
-                </div>
-                <h3 class="text-2xl md:text-3xl font-black text-slate-900 mb-2 md:mb-3 tracking-tight">10k+ Travelers</h3>
-                <p class="text-slate-500 font-medium text-xs md:text-sm">Thousands of happy clients have trusted us with their
-                    holiday plans.</p>
-            </div>
-            <div
-                class="bg-white rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(168,85,247,0.12)] hover:-translate-y-2 transition-all duration-500">
-                <div
-                    class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-purple-50 text-purple-600 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl mb-6 shadow-sm">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-3xl font-black text-slate-900 mb-3 tracking-tight">99% Success Rate</h3>
-                <p class="text-slate-500 font-medium text-sm">Our expert team ensures your applications are flawless
-                    every time.</p>
+                
+                <!-- Enhanced Animated Typography Heading -->
+                <h1 class="text-2xl sm:text-3xl lg:text-[2.65rem] font-black tracking-tight leading-[1.2] mb-3 text-slate-900">
+                    <span class="text-slate-900 font-extrabold tracking-tight">Simplifying</span>
+                    <span class="animate-shimmer-accent font-serif italic font-semibold px-1">Global Travel</span>
+                    <span class="animate-shimmer font-extrabold tracking-tight">& Visas</span>
+                </h1>
+                
+                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xl mx-auto">
+                    Traviora eliminates friction from international journeys. From e-Visas and embassy stickers to handpicked boutique hotels, we manage every detail.
+                </p>
             </div>
         </div>
 
-        <!-- Contact Form -->
-        <div
-            class="bg-white rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-10 lg:p-14 bg-slate-900 text-white">
-                    <h2 class="text-4xl font-black mb-6">Contact Us</h2>
-                    <p class="text-slate-400 font-medium mb-12">Have a question about a visa, tour package, or legal
-                        service? Reach out to our dedicated support team.</p>
+        <!-- Sleek Animated Dual-Tone Stat Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 mb-10 md:mb-14">
+            <!-- Stat Card 1 -->
+            <div class="fade-in-up bg-white rounded-xl sm:rounded-2xl p-4 border border-slate-200/70 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-400 group relative overflow-hidden" style="animation-delay: 0.1s;">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-80 group-hover:h-1.5 transition-all"></div>
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[9.5px] font-black uppercase tracking-[0.18em] text-blue-600 bg-blue-50/80 px-2 py-0.5 rounded-md border border-blue-100">Global Reach</span>
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center text-xs shadow-md shadow-blue-500/25 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                </div>
+                <div class="text-2xl font-black text-slate-900 tracking-tight mb-0.5">150+ <span class="text-xs font-bold text-slate-400">Countries</span></div>
+                <p class="text-[11px] text-slate-500 font-medium leading-snug">Fast e-Visas and direct ambassador sticker visas globally.</p>
+            </div>
 
-                    <div class="space-y-8">
-                        <!-- Head Office -->
-                        <div>
-                            <h3
-                                class="text-xs font-black text-blue-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2.5">
-                                <i class="fa-solid fa-building"></i> Head Office
-                            </h3>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-location-dot text-slate-400 text-xs"></i>
+            <!-- Stat Card 2 -->
+            <div class="fade-in-up bg-white rounded-xl sm:rounded-2xl p-4 border border-slate-200/70 shadow-sm hover:shadow-xl hover:border-emerald-400 hover:-translate-y-1 transition-all duration-400 group relative overflow-hidden" style="animation-delay: 0.2s;">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-80 group-hover:h-1.5 transition-all"></div>
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[9.5px] font-black uppercase tracking-[0.18em] text-emerald-600 bg-emerald-50/80 px-2 py-0.5 rounded-md border border-emerald-100">Satisfaction</span>
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-xs shadow-md shadow-emerald-500/25 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+                <div class="text-2xl font-black text-slate-900 tracking-tight mb-0.5">10,000+ <span class="text-xs font-bold text-slate-400">Travelers</span></div>
+                <p class="text-[11px] text-slate-500 font-medium leading-snug">Trusted by thousands of leisure and business clients.</p>
+            </div>
+
+            <!-- Stat Card 3 -->
+            <div class="fade-in-up bg-white rounded-xl sm:rounded-2xl p-4 border border-slate-200/70 shadow-sm hover:shadow-xl hover:border-purple-400 hover:-translate-y-1 transition-all duration-400 group relative overflow-hidden" style="animation-delay: 0.3s;">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-80 group-hover:h-1.5 transition-all"></div>
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[9.5px] font-black uppercase tracking-[0.18em] text-purple-600 bg-purple-50/80 px-2 py-0.5 rounded-md border border-purple-100">Accuracy</span>
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-xs shadow-md shadow-purple-500/25 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                </div>
+                <div class="text-2xl font-black text-slate-900 tracking-tight mb-0.5">99.4% <span class="text-xs font-bold text-slate-400">Approved</span></div>
+                <p class="text-[11px] text-slate-500 font-medium leading-snug">Verified by certified immigration legal specialists.</p>
+            </div>
+        </div>
+
+        <!-- Core Mission & Capabilities Grid -->
+        <div class="fade-in-up mb-12 md:mb-16" style="animation-delay: 0.4s;">
+            <div class="text-center max-w-xl mx-auto mb-8">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/70 text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] mb-2 shadow-sm">
+                    <i class="fa-solid fa-layer-group text-[9px]"></i> Our Core Pillars
+                </span>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
+                    Designed for <span class="font-serif italic font-normal text-blue-600">Modern Mobility</span>
+                </h2>
+                <p class="text-xs text-slate-500 font-medium">Why travelers choose Traviora over traditional agencies</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <!-- Pillar 1 -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200/70 shadow-sm hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-7 h-7 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center text-xs mb-2.5 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-1">Instant Eligibility</h3>
+                    <p class="text-[11px] text-slate-500 font-medium leading-relaxed">Check visa requirements and checklists in seconds.</p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200/70 shadow-sm hover:border-emerald-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-7 h-7 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs mb-2.5 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-1">Legal Concierge</h3>
+                    <p class="text-[11px] text-slate-500 font-medium leading-relaxed">Direct support from travel legal experts.</p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200/70 shadow-sm hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-7 h-7 rounded-md bg-amber-50 text-amber-600 flex items-center justify-center text-xs mb-2.5 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-1">Handpicked Stays</h3>
+                    <p class="text-[11px] text-slate-500 font-medium leading-relaxed">Curated luxury resorts and boutique hotels.</p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200/70 shadow-sm hover:border-purple-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-7 h-7 rounded-md bg-purple-50 text-purple-600 flex items-center justify-center text-xs mb-2.5 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-1">Encrypted Security</h3>
+                    <p class="text-[11px] text-slate-500 font-medium leading-relaxed">256-bit encrypted document protection.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Contact Section -->
+        <div class="fade-in-up bg-white rounded-2xl border border-slate-200/80 shadow-lg overflow-hidden" style="animation-delay: 0.5s;">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Left Dark Info Panel -->
+                <div class="lg:col-span-5 p-4 sm:p-7 lg:p-8 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-wider mb-3">
+                            <i class="fa-solid fa-paper-plane text-[9px]"></i> Contact Concierge
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-extrabold text-white mb-1 tracking-tight">Get in Touch</h2>
+                        <p class="text-xs text-slate-400 font-medium leading-relaxed mb-4">
+                            Need help with visa rules or tour bookings? Contact our dedicated support team.
+                        </p>
+
+                        <div class="space-y-2.5">
+                            <!-- Head Office -->
+                            <div class="bg-slate-900/90 border border-slate-800 p-3 rounded-xl hover:border-slate-700 transition-colors">
+                                <h3 class="text-[10px] font-extrabold text-amber-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-building text-amber-400/80"></i> Head Office (India)
+                                </h3>
+                                <div class="space-y-1 text-xs text-slate-300 font-medium">
+                                    <div class="flex items-start gap-2">
+                                        <i class="fa-solid fa-location-dot text-slate-400 text-xs mt-0.5 shrink-0"></i>
+                                        <span>SCO 50, Sector 11, First Floor, Panchkula, Haryana 134109</span>
                                     </div>
-                                    <p class="font-bold text-sm text-slate-200 leading-relaxed pt-1">SCO 50, Sector 11,
-                                        First Floor<br>Panchkula, Haryana 134109</p>
-                                </div>
-                                <div class="flex items-center gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-phone text-slate-400 text-xs"></i>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-phone text-slate-400 text-xs shrink-0"></i>
+                                        <span>+91 82194 44573</span>
                                     </div>
-                                    <p class="font-bold text-sm text-slate-200">+91 82194 44573</p>
-                                </div>
-                                <div class="flex items-center gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-clock text-slate-400 text-xs"></i>
-                                    </div>
-                                    <p class="font-bold text-sm text-slate-200">Mon-Fri &bull; 9:00 AM - 7:00 PM</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="h-px bg-slate-800"></div>
-
-                        <!-- Second Branch -->
-                        <div>
-                            <h3
-                                class="text-xs font-black text-blue-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2.5">
-                                <i class="fa-solid fa-building"></i> Second Branch
-                            </h3>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-location-dot text-slate-400 text-xs"></i>
+                            <!-- Dubai Branch -->
+                            <div class="bg-slate-900/90 border border-slate-800 p-3 rounded-xl hover:border-slate-700 transition-colors">
+                                <h3 class="text-[10px] font-extrabold text-blue-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-building text-blue-400/80"></i> Middle East Branch (Dubai)
+                                </h3>
+                                <div class="space-y-1 text-xs text-slate-300 font-medium">
+                                    <div class="flex items-start gap-2">
+                                        <i class="fa-solid fa-location-dot text-slate-400 text-xs mt-0.5 shrink-0"></i>
+                                        <span>Cabin 405, Business Way, Business Bay, Dubai, UAE</span>
                                     </div>
-                                    <p class="font-bold text-sm text-slate-200 leading-relaxed pt-1">Cabin Number 405,
-                                        Business Way<br>Dubai, UAE</p>
-                                </div>
-                                <div class="flex items-center gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-phone text-slate-400 text-xs"></i>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-phone text-slate-400 text-xs shrink-0"></i>
+                                        <span>+971 56845 2058</span>
                                     </div>
-                                    <p class="font-bold text-sm text-slate-200">+971 56845 2058</p>
-                                </div>
-                                <div class="flex items-center gap-3.5">
-                                    <div
-                                        class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-clock text-slate-400 text-xs"></i>
-                                    </div>
-                                    <p class="font-bold text-sm text-slate-200">Sat-Thu &bull; 9:00 AM - 7:00 PM</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="relative z-10 mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-slate-400 text-xs font-medium">
+                        <span>Email Support:</span>
+                        <a href="mailto:support@traviora.com" class="text-blue-400 hover:underline font-semibold">support@traviora.com</a>
+                    </div>
                 </div>
-                <div class="p-10 lg:p-14">
-                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                        <div class="grid grid-cols-2 gap-6 mb-6">
+
+                <!-- Right Form Panel -->
+                <div class="lg:col-span-7 p-4 sm:p-7 lg:p-8 flex flex-col justify-center">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your message! Our concierge team will get back to you shortly.'); flexReset(this);">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                             <div>
-                                <label
-                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">First
-                                    Name</label>
+                                <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1">First Name</label>
                                 <input type="text"
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-sm outline-none focus:border-blue-500 transition-colors"
+                                    class="w-full bg-slate-50 border border-slate-200/80 focus:border-blue-600 focus:bg-white text-slate-900 font-bold text-xs rounded-xl px-3 py-2 outline-none transition-all shadow-inner"
                                     placeholder="John" required>
                             </div>
                             <div>
-                                <label
-                                    class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Last
-                                    Name</label>
+                                <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1">Last Name</label>
                                 <input type="text"
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-sm outline-none focus:border-blue-500 transition-colors"
+                                    class="w-full bg-slate-50 border border-slate-200/80 focus:border-blue-600 focus:bg-white text-slate-900 font-bold text-xs rounded-xl px-3 py-2 outline-none transition-all shadow-inner"
                                     placeholder="Doe" required>
                             </div>
                         </div>
-                        <div class="mb-6">
-                            <label class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Email
-                                Address</label>
-                            <input type="email"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-sm outline-none focus:border-blue-500 transition-colors"
-                                placeholder="john@example.com" required>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1">Email Address</label>
+                                <input type="email"
+                                    class="w-full bg-slate-50 border border-slate-200/80 focus:border-blue-600 focus:bg-white text-slate-900 font-bold text-xs rounded-xl px-3 py-2 outline-none transition-all shadow-inner"
+                                    placeholder="john@example.com" required>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1">Service Inquiry</label>
+                                <select class="w-full bg-slate-50 border border-slate-200/80 focus:border-blue-600 focus:bg-white text-slate-900 font-bold text-xs rounded-xl px-3 py-2 outline-none transition-all shadow-inner cursor-pointer">
+                                    <option value="visa">Visa Processing</option>
+                                    <option value="tour">Tour Package</option>
+                                    <option value="hotel">Hotel Booking</option>
+                                    <option value="medical">Medical Tourism</option>
+                                    <option value="other">General Query</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="mb-8">
-                            <label
-                                class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Message</label>
-                            <textarea rows="4"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-sm outline-none focus:border-blue-500 transition-colors resize-none"
-                                placeholder="How can we help you?" required></textarea>
+
+                        <div class="mb-4">
+                            <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1">Message</label>
+                            <textarea rows="3"
+                                class="w-full bg-slate-50 border border-slate-200/80 focus:border-blue-600 focus:bg-white text-slate-900 font-medium text-xs rounded-xl px-3 py-2 outline-none transition-all resize-none shadow-inner"
+                                placeholder="Tell us about your trip or visa query..." required></textarea>
                         </div>
+
                         <button type="submit"
-                            class="bg-blue-600 text-white px-8 py-4 rounded-full font-black text-sm hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 w-full md:w-auto">
-                            Send Message
+                            class="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-xs uppercase tracking-wider px-7 py-3 rounded-xl transition-all duration-300 shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_22px_rgba(37,99,235,0.35)] hover:scale-[1.01] active:scale-[0.98] w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                            <span>Send Message</span>
                         </button>
                     </form>
                 </div>
+
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <!-- Ultra Premium Light Footer -->
-    <footer class="bg-white/80 backdrop-blur-2xl border-t border-black/5 mt-auto relative overflow-hidden">
-        <!-- Subtle glows -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-20">
-                <div class="col-span-2 lg:col-span-2 pr-8">
-                    <a href="index.html" class="flex items-center gap-2 mb-8">
-                        <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-8 w-auto object-contain">
-                        <span class="font-black tracking-[0.3em] text-[#0a192f] text-lg leading-none uppercase mt-1">Traviora</span>
+    <!-- Refined Light Footer -->
+    <footer class="bg-white/90 backdrop-blur-2xl border-t border-slate-200/70 mt-auto relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 pt-10 pb-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-8">
+                <div class="col-span-2 lg:col-span-2 pr-4">
+                    <a href="index.html" class="flex items-center gap-2 mb-3">
+                        <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-5 w-auto object-contain">
+                        <span class="font-black tracking-[0.25em] text-slate-900 text-sm leading-none uppercase">Traviora</span>
                     </a>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm">
-                        Redefining global mobility with seamless visas, curated luxury tours, and expert immigration services.
+                    <p class="text-slate-500 text-xs leading-relaxed mb-4 max-w-sm">
+                        Redefining global mobility with seamless visas, curated luxury tours, and expert immigration concierge services.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-instagram group-hover:scale-110 transition-transform"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-x-twitter group-hover:scale-110 transition-transform"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-linkedin-in group-hover:scale-110 transition-transform"></i></a>
+                    <div class="flex gap-2.5">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Product</h4>
-                    <ul class="space-y-4">
-                        <li><a href="visas.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Visa Processing</a></li>
-                        <li><a href="tours.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Holiday Packages</a></li>
-                        <li><a href="hotels.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Luxury Hotels</a></li>
-                        <li></li>
+                    <h4 class="text-slate-900 font-extrabold tracking-tight mb-3 text-[11px] uppercase text-slate-800">Services</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="visas.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Visa Processing</a></li>
+                        <li><a href="tours.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Holiday Packages</a></li>
+                        <li><a href="hotels.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Luxury Hotels</a></li>
+                        <li><a href="medical.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Medical Travel</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Company</h4>
-                    <ul class="space-y-4">
-                        <li><a href="about.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">About Us</a></li>
-                        <li><a href="services.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Services</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Careers</a></li>
-                        <li><a href="track.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Track Status</a></li>
+                    <h4 class="text-slate-900 font-extrabold tracking-tight mb-3 text-[11px] uppercase text-slate-800">Company</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="about.html" class="text-slate-700 hover:text-blue-600 font-bold transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Services</a></li>
+                        <li><a href="track.html" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Track Status</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Refund Policy</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Contact</a></li>
+                    <h4 class="text-slate-900 font-extrabold tracking-tight mb-3 text-[11px] uppercase text-slate-800">Legal</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-500 hover:text-blue-600 font-medium transition-colors">Refund Policy</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-                <h1 class="text-6xl md:text-8xl font-black text-slate-100 tracking-tighter uppercase select-none pointer-events-none">Traviora</h1>
-                <p class="text-slate-400 text-sm font-medium">&copy; 2026 Traviora Inc. All rights reserved.</p>
+            <div class="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400 font-medium">
+                <div class="flex items-center gap-2">
+                    <span class="font-black text-slate-900 tracking-wider uppercase text-xs">Traviora Inc.</span>
+                </div>
+                <p>&copy; 2026 Traviora Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isClosed = mobileMenu.classList.contains('-translate-y-full');
-                if (isClosed) {
+        function flexReset(form) {
+            form.reset();
+        }
+
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
                     mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
                     mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                } else {
+                });
+            }
+
+            const closeMenu = (e) => {
+                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
                     mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
                     mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
                 }
-            });
-        }
+            };
+
+            if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+        });
 
         // Smart Navbar Auto-Hide on Scroll
         let lastScrollY = window.scrollY;
@@ -587,29 +588,11 @@
             if (window.scrollY > lastScrollY && window.scrollY > 100) {
                 navbar.classList.add('-translate-y-full');
                 navbar.classList.remove('translate-y-0');
-                // Auto-close mobile menu on scroll down
-                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
             } else {
                 navbar.classList.remove('-translate-y-full');
                 navbar.classList.add('translate-y-0');
             }
             lastScrollY = window.scrollY;
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.desktop-menu-links a').forEach(a => {
-                const href = a.getAttribute('href');
-                if (href === currentPath) {
-                    a.classList.add('text-black', 'after:w-full');
-                    a.classList.remove('after:w-0');
-                }
-            });
         });
     </script>
 </body>

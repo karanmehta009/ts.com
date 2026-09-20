@@ -348,9 +348,9 @@
                 </p>
             </div>
 
-            <!-- HERO SEARCH FILTER BAR: 2x2 Grid Format (Compact Mobile) -->
-            <div class="w-full max-w-xl mx-auto bg-slate-950/80 backdrop-blur-2xl border border-white/15 p-3 sm:p-5 rounded-2xl sm:rounded-3xl shadow-[0_22px_55px_rgba(0,0,0,0.6)] text-left mt-2.5 sm:mt-6">
-                <form id="heroFilterForm" onsubmit="handleHotelSearch(event)" class="grid grid-cols-2 gap-2.5 sm:gap-4">
+            <!-- HERO SEARCH FILTER BAR: 2x2 Grid on Mobile, 1-Line on Desktop -->
+            <div class="w-full max-w-xl lg:max-w-5xl xl:max-w-6xl mx-auto bg-slate-950/80 backdrop-blur-2xl border border-white/15 p-3.5 sm:p-5 lg:p-4 rounded-2xl sm:rounded-3xl shadow-[0_22px_55px_rgba(0,0,0,0.6)] text-left mt-2.5 sm:mt-6">
+                <form id="heroFilterForm" onsubmit="handleHotelSearch(event)" class="grid grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-4 lg:gap-3 items-end">
                     
                     <!-- Country -->
                     <div class="w-full">
@@ -404,8 +404,9 @@
                             class="w-full h-9 sm:h-11 bg-white/10 hover:bg-white/15 border border-white/15 focus:border-amber-400 text-white font-bold text-[11px] sm:text-xs rounded-lg sm:rounded-xl px-2.5 sm:px-3 outline-none transition-all cursor-pointer shadow-inner">
                     </div>
 
-                    <!-- Search Button (Spans 2 columns) -->
-                    <div class="col-span-2 w-full pt-0.5">
+                    <!-- Search Button -->
+                    <div class="col-span-2 lg:col-span-1 w-full pt-0.5 lg:pt-0">
+                        <label class="hidden lg:flex items-center gap-1 text-[8px] sm:text-[9.5px] font-black uppercase tracking-[0.15em] text-transparent select-none mb-1 pointer-events-none">&nbsp;</label>
                         <button type="submit"
                             class="w-full h-9 sm:h-11 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-[11px] sm:text-xs uppercase tracking-wider rounded-lg sm:rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.35)] hover:shadow-[0_0_28px_rgba(245,158,11,0.5)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-magnifying-glass text-[11px] sm:text-xs"></i>
