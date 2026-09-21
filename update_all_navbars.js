@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+const fs = require('fs');
+const path = require('path');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Traviora</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #fafafa;
-            -webkit-font-smoothing: antialiased;
-        }
-    </style>
-</head>
+const dir = 'd:/Traviora/Traviora-demo2-webpage';
 
-<body class="min-h-screen flex flex-col">
-
-                                                <!-- Navigation -->
+const navbarHTML = `    <!-- Navigation -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4.5 flex justify-between items-center">
@@ -327,175 +310,31 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav>`;
 
-    <!-- Main Content -->
-    <div class="pt-32 pb-20 max-w-7xl mx-auto px-4 md:px-6 w-full flex-grow relative">
-        
-        <!-- Unique Services Header UI -->
-        <div class="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 rounded-[3rem] p-8 md:p-16 overflow-hidden mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
-            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-            <!-- Glassy Glow Backgrounds -->
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/30 rounded-full blur-[100px] pointer-events-none"></div>
-            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/30 rounded-full blur-[100px] pointer-events-none"></div>
-            
-            <div class="relative z-10 max-w-3xl">
-                <span class="bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6 inline-block shadow-sm">Premium Assistance</span>
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tight">Our Elite <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Concierge Services</span></h1>
-                <p class="text-lg font-medium text-slate-300 mb-8 leading-relaxed max-w-2xl">Beyond standard tourist visas and packages, Traviora offers specialized expert services for all your global mobility and legal requirements. Your dedicated travel partner.</p>
-                
-                <div class="flex gap-4">
-                    <button onclick="window.location.href='apply.html?type=other'" class="bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-xl flex items-center gap-2">Book a Consultation <i class="fa-solid fa-arrow-right text-xs"></i></button>
-                    <button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-white/20 transition-colors shadow-xl">Explore FAQs</button>
-                </div>
-            </div>
-        </div>
+const files = fs.readdirSync(dir).filter(f => f.endsWith('.html'));
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Immigration -->
-            <div class="relative bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(37,99,235,0.12)] hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-blue-600 group-hover:text-white shadow-sm"><i class="fa-solid fa-earth-americas"></i></div>
-                <h3 class="text-2xl font-black text-slate-900 mb-4 tracking-tight">Immigration Services</h3>
-                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-8">Expert guidance for PR, citizenship, and long-term residency. We navigate complex immigration laws for Canada, Australia, the UK, and Europe, handling documentation from start to finish.</p>
-                <button onclick="window.location.href='apply.html?type=other'" class="text-blue-600 font-bold hover:bg-blue-50 px-5 py-2.5 -ml-5 rounded-full transition-colors text-sm flex items-center gap-2 group-hover:text-blue-700">Consult Expert <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i></button>
-            </div>
+files.forEach(file => {
+    const filePath = path.join(dir, file);
+    let content = fs.readFileSync(filePath, 'utf8');
 
-            <!-- IELTS -->
-            <div class="relative bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.12)] hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-3xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-amber-500 group-hover:text-white shadow-sm"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3 class="text-2xl font-black text-slate-900 mb-4 tracking-tight">IELTS Preparation</h3>
-                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-8">Achieve your target band score with our certified IELTS instructors. We provide comprehensive study materials, mock tests, and personalized feedback for academic and general training.</p>
-                <button onclick="window.location.href='apply.html?type=other'" class="text-amber-600 font-bold hover:bg-amber-50 px-5 py-2.5 -ml-5 rounded-full transition-colors text-sm flex items-center gap-2 group-hover:text-amber-700">Book Free Demo <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i></button>
-            </div>
+    // Check if file has any site navbar <nav ...>
+    if (content.includes('<nav id="navbar"') || content.includes('<nav class="fixed w-full top-0')) {
+        const navRegex = /<!-- Navigation -->[\s\S]*?<nav[\s\S]*?<\/nav>/i;
+        const navRegexAlt = /<nav[\s\S]*?<\/nav>/i;
 
-            <!-- Legal Service -->
-            <div class="relative bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.12)] hover:-translate-y-2 transition-all duration-500 group overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-3xl flex items-center justify-center text-2xl mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-emerald-500 group-hover:text-white shadow-sm"><i class="fa-solid fa-scale-balanced"></i></div>
-                <h3 class="text-2xl font-black text-slate-900 mb-4 tracking-tight">Legal Services</h3>
-                <p class="text-slate-500 font-medium text-sm leading-relaxed mb-8">Encountering legal hurdles abroad? Our network of international lawyers offers document attestation, visa appeal assistance, and business registration support across borders.</p>
-                <button onclick="window.location.href='apply.html?type=other'" class="text-emerald-600 font-bold hover:bg-emerald-50 px-5 py-2.5 -ml-5 rounded-full transition-colors text-sm flex items-center gap-2 group-hover:text-emerald-700">Get Legal Advice <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <!-- Ultra Premium Light Footer -->
-    <footer class="bg-white/80 backdrop-blur-2xl border-t border-black/5 mt-auto relative overflow-hidden">
-        <!-- Subtle glows -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-100/50 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-20">
-                <div class="col-span-2 lg:col-span-2 pr-8">
-                    <a href="index.html" class="flex items-center gap-2 mb-8">
-                        <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo" class="h-8 w-auto object-contain">
-                        <span class="font-black tracking-[0.3em] text-[#0a192f] text-lg leading-none uppercase mt-1">Traviora</span>
-                    </a>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm">
-                        Redefining global mobility with seamless visas, curated luxury tours, and expert immigration services.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-instagram group-hover:scale-110 transition-transform"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-x-twitter group-hover:scale-110 transition-transform"></i></a>
-                        <a href="#" class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-100 transition-all group shadow-sm"><i class="fa-brands fa-linkedin-in group-hover:scale-110 transition-transform"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Product</h4>
-                    <ul class="space-y-4">
-                        <li><a href="visas.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Visa Processing</a></li>
-                        <li><a href="tours.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Holiday Packages</a></li>
-                        <li><a href="hotels.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Luxury Hotels</a></li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Company</h4>
-                    <ul class="space-y-4">
-                        <li><a href="about.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">About Us</a></li>
-                        <li><a href="services.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Services</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Careers</a></li>
-                        <li><a href="track.html" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Track Status</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-slate-900 font-black tracking-tight mb-6 text-lg">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Refund Policy</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-                <h1 class="text-6xl md:text-8xl font-black text-slate-100 tracking-tighter uppercase select-none pointer-events-none">Traviora</h1>
-                <p class="text-slate-400 text-sm font-medium">&copy; 2026 Traviora Inc. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isClosed = mobileMenu.classList.contains('-translate-y-full');
-                if (isClosed) {
-                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                    mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                } else {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
-            });
+        if (navRegex.test(content)) {
+            content = content.replace(navRegex, navbarHTML);
+        } else if (navRegexAlt.test(content)) {
+            content = content.replace(navRegexAlt, navbarHTML);
         }
 
-        // Smart Navbar Auto-Hide on Scroll
-        let lastScrollY = window.scrollY;
-        const navbar = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                // Scrolling down - hide navbar
-                navbar.classList.add('-translate-y-full');
-                navbar.classList.remove('translate-y-0');
-                // Auto-close mobile menu
-                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
-            } else {
-                // Scrolling up - show navbar
-                navbar.classList.remove('-translate-y-full');
-                navbar.classList.add('translate-y-0');
-            }
-            navbar.style.transition = 'transform 0.3s ease';
-            lastScrollY = window.scrollY;
-        });
-    </script>
+        // Ensure js/navbar.js is included before </body>
+        if (!content.includes('js/navbar.js')) {
+            content = content.replace('</body>', '    <script src="js/navbar.js"></script>\n</body>');
+        }
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.desktop-menu-links a').forEach(a => {
-                const href = a.getAttribute('href');
-                if (href === currentPath) {
-                    a.classList.add('text-black', 'after:w-full');
-                    a.classList.remove('after:w-0');
-                }
-            });
-        });
-    </script>
-    <script src="js/navbar.js"></script>
-</body>
-</html>
+        fs.writeFileSync(filePath, content, 'utf8');
+        console.log('Successfully updated navbar in:', file);
+    }
+});

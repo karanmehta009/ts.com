@@ -50,113 +50,160 @@
 <body class="min-h-screen flex flex-col justify-between">
 
     <!-- Navigation Header -->
+                                                <!-- Navigation -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-1.5 md:py-4 flex justify-between items-center">
-            <a href="index.html" class="flex flex-col items-center justify-center group mt-1">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4.5 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center justify-center group mt-0.5 relative z-20">
                 <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
-                    class="h-5 md:h-6 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                    class="h-5 md:h-6 lg:h-7 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IORA</span></span>
             </a>
 
-            <!-- Desktop Links -->
+            <!-- Desktop Links with Height-Optimized Padding -->
             <div
-                class="hidden lg:flex space-x-0 font-black text-slate-500 text-[11px] uppercase tracking-[0.1em] items-center desktop-menu-links">
+                class="hidden lg:flex items-center gap-1.5 lg:gap-2.5 font-black text-slate-600 text-[10px] uppercase tracking-[0.07em] desktop-menu-links">
+                
+                <!-- 1. Home -->
                 <a href="index.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-house text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        Home</span>
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-house text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span>HOME</span>
+                    </span>
                 </a>
+
+                <!-- 2. Tourist Visa -->
                 <a href="visas.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-passport text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        Visa</span>
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-passport text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>TOURIST</span>
+                            <span>VISA</span>
+                        </span>
+                    </span>
                 </a>
-                <a href="tours.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-plane-departure text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        Tour</span>
-                </a>
+
+                <!-- 3. Medical Tourism -->
                 <a href="medical.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-notes-medical text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        Medical</span>
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-notes-medical text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>MEDICAL</span>
+                            <span>TOURISM</span>
+                        </span>
+                    </span>
                 </a>
+
+                <!-- 4. Tour Booking -->
+                <a href="tours.html"
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-earth-americas text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>TOUR</span>
+                            <span>BOOKING</span>
+                        </span>
+                    </span>
+                </a>
+
+                <!-- 5. Flight Booking -->
+                <a href="flight-booking.html"
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-plane text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>FLIGHT</span>
+                            <span>BOOKING</span>
+                        </span>
+                    </span>
+                </a>
+
+                <!-- 6. Cab Booking -->
+                <a href="cab-booking.html"
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-taxi text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>CAB</span>
+                            <span>BOOKING</span>
+                        </span>
+                    </span>
+                </a>
+
+                <!-- 7. Hotel Booking -->
                 <a href="hotels.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-hotel text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        Hotels</span>
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-hotel text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span class="flex flex-col text-left leading-[1.05]">
+                            <span>HOTEL</span>
+                            <span>BOOKING</span>
+                        </span>
+                    </span>
                 </a>
+
+                <!-- 8. About -->
                 <a href="about.html"
-                    class="relative group px-3 py-1.5 transition-colors duration-300 hover:text-blue-700 cursor-pointer">
-                    <span
-                        class="relative z-10 flex items-center gap-1.5 transform group-hover:scale-[1.04] transition-all duration-300 ease-out after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:rounded-full after:origin-right after:scale-x-0 group-hover:after:origin-left group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out"><i
-                            class="fa-solid fa-circle-info text-[11px] opacity-70 group-hover:opacity-100 group-hover:text-blue-600 group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300"></i>
-                        About</span>
+                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
+                        <span>ABOUT</span>
+                    </span>
                 </a>
             </div>
 
-            <div class="flex items-center gap-5 md:gap-3 relative pr-3 md:pr-0">
-                <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuBtn"
-                    class="lg:hidden w-8 h-8 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 rounded-full border border-slate-200">
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full"></span>
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3 md:gap-3.5 relative pr-1 md:pr-0 z-20">
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
+                    class="lg:hidden relative z-30 w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 hover:bg-slate-100 rounded-full border border-slate-200 cursor-pointer pointer-events-auto transition-colors">
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
+                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
                 </button>
 
-                <a href="profile.html"
-                    class="relative group w-8 h-8 md:w-11 md:h-11 rounded-full bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-[600ms] ease-out hover:border-transparent hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:bg-white isolate hover:-translate-y-1.5 overflow-visible">
-                    <span
-                        class="absolute inset-0 rounded-full bg-blue-500/0 group-hover:bg-blue-400/40 blur-xl transition-all duration-[600ms] -z-30"></span>
-                    <span
-                        class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(59,130,246,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_2s_linear_infinite] rounded-full -z-20"></span>
-                    <span
-                        class="absolute inset-[-4px] bg-[conic-gradient(from_0deg,transparent_0_280deg,rgba(236,72,153,0.9)_360deg)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite_reverse] rounded-full -z-20"></span>
-                    <span
-                        class="absolute inset-[2px] bg-slate-50 group-hover:bg-white rounded-full transition-colors duration-500 -z-10 shadow-inner"></span>
-                    <span
-                        class="absolute w-1/2 h-1/2 bg-blue-300 rounded-full opacity-0 group-hover:animate-[ping_1.2s_ease-out_infinite] -z-10"></span>
-                    <i
-                        class="fa-regular fa-user text-lg transition-all duration-[700ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:text-blue-600 group-hover:[transform:rotateY(360deg)_scale(1.2)]"></i>
-                    <span
-                        class="absolute top-[1px] right-[1px] w-2.5 h-2.5 bg-gradient-to-tr from-pink-500 to-rose-500 rounded-full border-2 border-white shadow-sm z-10 group-hover:animate-bounce flex items-center justify-center">
-                        <span
-                            class="absolute w-full h-full bg-rose-400 rounded-full opacity-0 group-hover:animate-ping"></span>
-                    </span>
+                <!-- Profile Button with Enhanced Circling Neon Blue Laser Beam Animation -->
+                <a href="profile.html" aria-label="User Profile"
+                    class="relative z-30 group w-9 h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 rounded-full bg-slate-50 border border-slate-200/80 shadow-sm flex items-center justify-center text-slate-600 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(37,99,235,0.7)] overflow-hidden cursor-pointer pointer-events-auto">
+                    
+                    <!-- Blurred Ambient Blue Light Aura Trail -->
+                    <div class="absolute -inset-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
+                        <div class="w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_40%,#2563eb_75%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite] blur-md opacity-80"></div>
+                    </div>
+
+                    <!-- Crisp Circling Neon Laser Comet Beam -->
+                    <div class="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
+                        <div class="w-[280%] h-[280%] bg-[conic-gradient(from_0deg,transparent_40%,#1d4ed8_70%,#3b82f6_85%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite]"></div>
+                    </div>
+
+                    <!-- Inner Core Mask with Glowing Icon -->
+                    <div class="absolute inset-[2px] rounded-full bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10 shadow-inner pointer-events-none">
+                        <i class="fa-regular fa-user text-sm md:text-base lg:text-lg text-slate-600 group-hover:text-blue-600 group-hover:scale-115 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.85)] transition-all duration-300"></i>
+                    </div>
                 </a>
+
                 <button
-                    class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-14 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-[500ms] ml-1.5 shadow-sm border border-slate-200/50 hover:shadow-[0_8px_20px_rgba(239,68,68,0.25)]"
+                    class="hidden lg:block relative overflow-hidden group bg-slate-100 text-slate-600 w-16 h-8 md:w-20 md:h-10 rounded-full text-[8.5px] md:text-[9px] uppercase tracking-wide font-black transition-all duration-300 ml-1 shadow-sm border border-slate-200/50 hover:shadow-md cursor-pointer pointer-events-auto"
                     title="Logout" onclick="window.location.href='index.html'">
-                    <span
-                        class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-                    <div
-                        class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-full">
+                    <span class="absolute inset-0 w-full h-full bg-red-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></span>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center z-10 transition-transform duration-300 group-hover:-translate-y-full">
                         <span>Log Out</span>
                     </div>
-                    <div
-                        class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-[500ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px] md:text-[12px]"></i>
+                    <div class="absolute inset-0 flex items-center justify-center text-white z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[11px]"></i>
                     </div>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
+        <!-- Mobile Navigation Menu (Centered Modal Overlay) -->
         <div id="mobileMenu"
-            class="lg:hidden fixed top-0 left-0 w-screen h-[100dvh] z-50 flex items-center justify-center transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform -translate-y-full opacity-0 pointer-events-none">
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
 
             <style>
                 .border-beam {
@@ -169,237 +216,146 @@
                 }
 
                 @keyframes spinBeam {
-                    0% {
-                        transform: rotate(0deg);
-                    }
-
-                    100% {
-                        transform: rotate(360deg);
-                    }
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
                 }
             </style>
 
-            <!-- Transparent Dark Overlay -->
-            <div id="mobileMenuOverlay"
-                class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm shadow-inner pointer-events-auto"></div>
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
 
-            <!-- Centered Modal Box -->
-            <div
-                class="relative bg-white w-[85%] max-w-[320px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden transform transition-transform -mt-[12vh]">
+            <!-- Dead-Centered Modal Card -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white w-full max-w-[340px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-auto">
 
-                <div class="px-5 pt-5 pb-3 w-full">
+                <div class="px-4 pt-4 pb-2 w-full">
                     <!-- Navigation Header -->
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Menu</span>
-                        <button id="closeMobileMenuBtn"
-                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 hover:text-black transition-colors shadow-inner z-[60] relative">
-                            <i class="fa-solid fa-xmark text-[14px]"></i>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Navigation</span>
+                        <button id="closeMobileMenuBtn" type="button" aria-label="Close navigation menu"
+                            class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[13px] pointer-events-none"></i>
                         </button>
                     </div>
 
-                    <!-- Compact Button Grid -->
-                    <div class="grid grid-cols-2 gap-2.5">
+                    <!-- 8 Compact Mobile Links -->
+                    <div class="grid grid-cols-2 gap-2 max-h-[58vh] overflow-y-auto pr-1">
 
-                        <!-- Home -->
+                        <!-- 1. Home -->
                         <a href="index.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <!-- Premium Animated Border Icon (Light theme) -->
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <!-- Rotating Beam -->
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <!-- Inner Core Mask -->
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-house text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-house text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Home</span>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Home</span>
                         </a>
 
-                        <!-- Visas -->
+                        <!-- 2. Tourist Visa -->
                         <a href="visas.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-passport text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-passport text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Visas</span>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Tourist Visa</span>
                         </a>
 
-                        <!-- Tours -->
-                        <a href="tours.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-plane-departure text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
-                                </div>
-                            </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Tours</span>
-                        </a>
-
-                        <!-- Medical -->
+                        <!-- 3. Medical Tourism -->
                         <a href="medical.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-notes-medical text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-notes-medical text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Medical</span>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Medical Tourism</span>
                         </a>
 
-                        <!-- Hotels -->
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-earth-americas text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
+                                </div>
+                            </div>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Tour Booking</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-plane text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
+                                </div>
+                            </div>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Flight Booking</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-taxi text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
+                                </div>
+                            </div>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Cab Booking</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
                         <a href="hotels.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-hotel text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-hotel text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">Hotels</span>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Hotel Booking</span>
                         </a>
 
-                        <!-- About -->
+                        <!-- 8. About -->
                         <a href="about.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1.5 p-3 rounded-[18px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div
-                                class="icon-wrap relative w-11 h-11 rounded-[14px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div
-                                    class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                </div>
-                                <div
-                                    class="inner-core absolute inset-[1.5px] rounded-[13px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i
-                                        class="fa-solid fa-compass text-[15px] text-slate-800 group-hover:text-black transition-colors duration-300"></i>
+                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
+                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
+                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
+                                    <i class="fa-solid fa-circle-info text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
                                 </div>
                             </div>
-                            <span
-                                class="text-[11px] font-black uppercase tracking-[0.15em] text-slate-800 group-hover:text-black group-hover:scale-105 transition-all duration-300 mt-1">About</span>
+                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">About</span>
                         </a>
 
                     </div>
                 </div>
 
-                <div class="h-[1px] bg-slate-200 mx-5 w-[calc(100%-40px)]"></div>
+                <div class="h-[1px] bg-slate-200 mx-4 w-[calc(100%-32px)]"></div>
 
                 <!-- Footer Actions -->
-                <div class="flex items-center justify-between w-full px-5 py-4 gap-3">
+                <div class="flex items-center justify-between w-full px-4 py-3 gap-2">
                     <a href="profile.html"
-                        class="flex-1 flex justify-center items-center gap-2 group py-2.5 rounded-[14px] hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-200">
-                        <i
-                            class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-black transition-colors"></i>
-                        <span
-                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-black transition-all duration-300 tracking-[0.15em] pt-[2px]">Account</span>
+                        class="flex-1 flex justify-center items-center gap-1.5 group py-2 rounded-[12px] hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+                        <i class="fa-regular fa-user text-[12px] text-slate-700 group-hover:text-black transition-colors"></i>
+                        <span class="text-[10px] font-black uppercase text-slate-800 group-hover:text-black transition-all tracking-[0.1em]">Account</span>
                     </a>
                     <div class="w-[1px] h-4 bg-slate-300"></div>
                     <a href="index.html"
-                        class="flex-1 items-center flex justify-center gap-2 group py-2.5 rounded-[14px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all duration-300">
-                        <span
-                            class="text-[11px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all duration-300 tracking-[0.15em] pt-[2px]">Sign
-                            Out</span>
-                        <i
-                            class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        class="flex-1 items-center flex justify-center gap-1.5 group py-2 rounded-[12px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all">
+                        <span class="text-[10px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all tracking-[0.1em]">Sign Out</span>
+                        <i class="fa-solid fa-arrow-right-from-bracket text-[12px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
                     </a>
                 </div>
             </div>
-
-            <!-- Active Script & Close Logic -->
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
-                    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-
-                    if (mobileMenuBtn && mobileMenu) {
-                        mobileMenuBtn.addEventListener('click', () => {
-                            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                        });
-                    }
-
-                    const closeMenu = (e) => {
-                        if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                        }
-                    };
-
-                    if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
-                    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
-
-                    const path = window.location.pathname.split('/').pop() || 'index.html';
-                    document.querySelectorAll('#mobileMenu .mobile-link').forEach(a => {
-                        const href = a.getAttribute('href');
-                        if (href === path || (path === 'medical-detail.html' && href === 'medical.html')) {
-
-                            const iconWrap = a.querySelector('.icon-wrap');
-                            const innerCore = a.querySelector('.inner-core');
-                            const beam = a.querySelector('.beam-element');
-                            const text = a.querySelector('span');
-
-                            if (beam) {
-                                beam.classList.remove('opacity-0');
-                                beam.classList.add('opacity-100', 'border-beam-active');
-                            }
-
-                            // Solidify active state (Light theme active)
-                            a.classList.add('bg-white', 'pointer-events-none', 'shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)]');
-                            a.classList.remove('bg-slate-50/30', 'hover:bg-white');
-
-                            if (text) {
-                                text.classList.remove('text-slate-800');
-                                text.classList.add('text-black', 'tracking-[0.25em]', 'scale-105');
-                            }
-
-                            if (innerCore) {
-                                innerCore.classList.remove('bg-slate-50');
-                                innerCore.classList.add('bg-white', 'shadow-sm');
-
-                                const icon = innerCore.querySelector('i');
-                                if (icon) {
-                                    icon.classList.remove('text-slate-800');
-                                    icon.classList.add('text-black');
-                                }
-                            }
-                        }
-                    });
-                });
-            </script>
         </div>
     </nav>
 
@@ -1075,6 +1031,7 @@
             });
         });
     </script>
+    <script src="js/navbar.js"></script>
 </body>
 
 </html>
