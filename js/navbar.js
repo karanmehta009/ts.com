@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
         }
         if (mobileMenu) {
-            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-full');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
             if (mobileMenuOverlay) {
                 mobileMenuOverlay.classList.remove('pointer-events-none');
                 mobileMenuOverlay.classList.add('pointer-events-auto');

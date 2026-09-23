@@ -500,22 +500,7 @@
             const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
             const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                    mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                });
-            }
 
-            const closeMenu = (e) => {
-                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
-            };
-
-            if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
-            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
 
             const path = window.location.pathname.split('/').pop() || 'hotels.html';
             document.querySelectorAll('#mobileMenu .mobile-link').forEach(a => {

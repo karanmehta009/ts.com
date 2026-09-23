@@ -526,117 +526,49 @@
         </div>
     </nav>
 
-    <!-- Hero Slider Section -->
-    <section
-        class="relative flex items-center overflow-hidden bg-black rounded-[1.5rem] md:rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl mt-16 md:mt-28 mb-4 py-4 md:py-0 h-auto md:h-[340px]">
-        <!-- Background Image -->
-        <div class="absolute inset-0 w-full h-full">
-            <div class="absolute inset-0 bg-cover bg-center opacity-80"
-                style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80');">
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+    <!-- Hero Slider Section (Redesigned matching reference design with 6 slides, height matching visas.html) -->
+    <section class="relative flex items-center justify-center overflow-hidden bg-slate-950 rounded-[1.5rem] md:rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl mt-16 md:mt-28 mb-4 py-6 md:py-0 h-auto md:h-[340px]">
+        <!-- Background Images Carousel -->
+        <div id="heroBgContainer" class="absolute inset-0 w-full h-full">
+            <div id="heroBgImage" class="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-70 scale-100" style="background-image: url('assets/hero-slide-visa.png');"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/80"></div>
         </div>
 
-        <div
-            class="relative z-10 px-4 md:px-6 lg:px-12 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-3 md:gap-12 text-white">
-
-            <!-- Left Side Text -->
-            <div class="flex-1 text-left max-w-2xl">
-                <!-- Intelligent Badge -->
-                <div
-                    class="inline-flex items-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-2 py-0.5 md:px-3 md:py-1.5 rounded-full text-[7px] md:text-[10px] font-medium text-white mb-1.5 md:mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                    Intelligent Travel Platform
-                </div>
-
-                <h1
-                    class="text-lg sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.1] md:leading-[1.05] mb-1.5 md:mb-4 drop-shadow-lg">
-                    Unlock the world<br>
-                    with <span class="text-blue-400">effortless</span> ease.
-                </h1>
-
-                <p
-                    class="text-[9px] md:text-[14px] text-white/80 font-medium mb-2 md:mb-6 max-w-[400px] leading-snug md:leading-relaxed drop-shadow-sm">
-                    Secure visas, book luxury tours, and explore global destinations with our beautifully crafted
-                    platform.
-                </p>
-
-                <!-- Value Pills -->
-                <div class="flex flex-wrap items-center gap-2 md:gap-6">
-                    <div class="flex items-center gap-1.5 md:gap-3">
-                        <div
-                            class="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#1e293b]/70 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white shadow-sm">
-                            <i class="fa-solid fa-shield-halved text-[7px] md:text-[10px]"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-[8px] md:text-[11px] tracking-wide leading-tight">100% Secure
-                            </div>
-                            <div
-                                class="text-[5px] md:text-[7px] uppercase tracking-widest text-white/60 font-bold mt-0.5">
-                                VISA PROCESS</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1.5 md:gap-3">
-                        <div
-                            class="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#1e293b]/70 backdrop-blur-sm border border-white/10 flex items-center justify-center text-green-400 shadow-sm">
-                            <i class="fa-regular fa-clock text-[7px] md:text-[10px]"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-[8px] md:text-[11px] tracking-wide leading-tight">On-Time</div>
-                            <div
-                                class="text-[5px] md:text-[7px] uppercase tracking-widest text-white/60 font-bold mt-0.5">
-                                GUARANTEE
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1.5 md:gap-3">
-                        <div
-                            class="w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#1e293b]/70 backdrop-blur-sm border border-white/10 flex items-center justify-center text-amber-400 shadow-sm">
-                            <i class="fa-solid fa-users text-[7px] md:text-[10px]"></i>
-                        </div>
-                        <div>
-                            <div class="font-bold text-[8px] md:text-[11px] tracking-wide leading-tight">Trusted By
-                            </div>
-                            <div
-                                class="text-[5px] md:text-[7px] uppercase tracking-widest text-white/60 font-bold mt-0.5">
-                                10K+ TRAVELERS</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Slide Center Content -->
+        <div class="relative z-10 px-4 md:px-8 max-w-3xl mx-auto w-full text-center text-white flex flex-col items-center justify-center gap-2 md:gap-3 py-6 pb-14 h-full">
+            
+            <!-- Top Pill Badge -->
+            <div class="inline-flex items-center gap-1.5 bg-slate-900/90 border border-white/20 px-3 py-1 rounded-full text-[8.5px] md:text-[10px] font-extrabold tracking-[0.15em] text-amber-400 uppercase backdrop-blur-md shadow-md transition-all duration-500">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <span id="heroBadge">98.4% VISA APPROVAL RATE</span>
             </div>
 
-            <!-- Right Side Glass Form -->
-            <div
-                class="w-full md:w-[360px] shrink-0 bg-white/10 backdrop-blur-xl p-2.5 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
-                <h3 class="text-[11px] md:text-[16px] font-bold mb-1.5 md:mb-4 text-white tracking-tight">Where will you
-                    go?</h3>
+            <!-- Headline -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-serif font-black tracking-tight leading-[1.12] drop-shadow-lg text-center max-w-2xl transition-all duration-500">
+                <span id="heroTitleMain">Stop Rejection Stress.</span>
+                <span id="heroTitleSub" class="italic text-amber-400 font-serif ml-1">Get Approved Fast.</span>
+            </h1>
 
-                <div class="space-y-1.5 md:space-y-3">
-                    <div class="bg-black/40 rounded-xl p-1 border border-white/10 flex items-center shadow-inner">
-                        <div class="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center text-white/60"><i
-                                class="fa-solid fa-plane-departure text-[9px] md:text-[12px]"></i></div>
-                        <input type="text" id="heroSearch" placeholder="Search a destination..."
-                            class="bg-transparent border-none outline-none w-full text-white font-medium placeholder-white/40 px-1 py-1 text-[9px] md:text-[12px]">
-                    </div>
+            <!-- Subheading -->
+            <p id="heroDesc" class="text-[11px] sm:text-xs md:text-sm text-slate-200/90 font-medium max-w-xl leading-relaxed text-center drop-shadow-md transition-all duration-500">
+                We pre-verify your passport, bank statements, and cover letters before filing so your application is 100% rejection-proof.
+            </p>
 
-                    <button onclick="handleHeroSearch()"
-                        class="w-full bg-white text-slate-900 py-1.5 md:py-3 rounded-[0.75rem] md:rounded-xl font-bold text-[10px] md:text-[13px] hover:bg-slate-100 transition shadow-[0_10px_20px_rgba(255,255,255,0.1)] flex items-center justify-center gap-1.5">
-                        Explore Destinations <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </button>
-                </div>
-
-                <div class="mt-1.5 md:mt-4 flex items-center gap-1.5 md:gap-2">
-                    <div class="flex -space-x-1.5">
-                        <img src="https://i.pravatar.cc/100?img=11"
-                            class="w-4 h-4 md:w-6 md:h-6 rounded-full border border-black/20 object-cover relative z-30">
-                        <img src="https://i.pravatar.cc/100?img=12"
-                            class="w-4 h-4 md:w-6 md:h-6 rounded-full border border-black/20 object-cover relative z-20">
-                        <img src="https://i.pravatar.cc/100?img=33"
-                            class="w-4 h-4 md:w-6 md:h-6 rounded-full border border-black/20 object-cover relative z-10">
-                    </div>
-                    <p class="text-[7px] md:text-[9px] font-bold text-white/90 tracking-wide">Join 10k+ travelers</p>
-                </div>
+            <!-- Feature Pills Row -->
+            <div id="heroFeaturePills" class="flex flex-wrap items-center justify-center gap-1.5 md:gap-2.5 my-1">
+                <!-- Injected via JavaScript -->
             </div>
+
+        </div>
+
+        <!-- Slider Controls Bar (Only prev/next arrow buttons pill at bottom center) -->
+        <div class="absolute bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-950/85 backdrop-blur-2xl border border-white/20 px-3 py-1.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+            <button onclick="prevHeroSlide()" aria-label="Previous Slide" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-chevron-left text-[10px] md:text-xs"></i>
+            </button>
+            <button onclick="nextHeroSlide()" aria-label="Next Slide" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-chevron-right text-[10px] md:text-xs"></i>
+            </button>
         </div>
     </section>
 
@@ -767,8 +699,7 @@
                     </div>
                     <p
                         class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
-                        Fast-track your global journey with our streamlined visa services. Explore top destinations with
-                        hassle-free applications and guaranteed support every step of the way.
+                        Stop guessing document requirements. We pre-verify your passport, bank statements, and cover letters before filing so your application is 100% rejection-proof.
                     </p>
                 </div>
             </div>
@@ -817,8 +748,7 @@
                         </div>
                         <p
                             class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
-                            Discover the beauty of the world with our carefully curated holiday packages. Enjoy premium
-                            itineraries designed to give you unforgettable travel memories.
+                            No crowded tourist buses or hidden surprise fees. Just handcrafted itineraries, private local guides, and guaranteed departure dates for stress-free vacations.
                         </p>
                     </div>
                 </div>
@@ -869,8 +799,7 @@
                         </div>
                         <p
                             class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
-                            Experience world-class healthcare with top specialists and highly affordable treatments in
-                            India's leading accredited hospitals, offering unparalleled care.
+                            Save up to 70% on major surgeries compared to Western hospitals. Access NABH & JCI accredited super-specialty hospitals with priority medical visa processing.
                         </p>
                     </div>
                 </div>
@@ -920,9 +849,7 @@
                         </div>
                         <p
                             class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
-                            Experience ultimate comfort and breathtaking views with our handpicked selection of
-                            top-rated
-                            luxury hotels. Find your perfect escape anywhere in the world.
+                            Handpicked 5-star properties and boutique villas with verified guest reviews. Enjoy complimentary breakfast, room upgrade privileges, and zero cancellation penalty.
                         </p>
                     </div>
                 </div>
@@ -969,8 +896,7 @@
 
                         <p
                             class="text-slate-500 text-[13px] font-medium leading-[1.8] tracking-[0.05em] mb-4 max-w-[320px] drop-shadow-sm">
-                            Redefining global mobility with seamless visas, curated luxury tours, and expert immigration
-                            services.
+                            Built by travelers for travelers. Transparent visa approvals, honest tour pricing, and 24/7 real human support—no corporate fluff.
                         </p>
                     </div>
 
@@ -1501,6 +1427,169 @@
         });</script>
 
     <script>
+        // 6 Dynamic Hero Slides matching prompt specifications & reference design
+        const heroSlides = [
+            {
+                badge: "98.4% VISA APPROVAL RATE",
+                titleMain: "Stop Rejection Stress.",
+                titleSub: "Get Approved Fast.",
+                desc: "We pre-verify your passport, bank statements, and cover letters before filing so your application is 100% rejection-proof.",
+                pills: [
+                    { icon: "fa-shield-halved", text: "Pre-Filing Verification" },
+                    { icon: "fa-bolt", text: "48-Hour Processing" },
+                    { icon: "fa-circle-check", text: "100% Refund Guarantee" }
+                ],
+                ctaText: "APPLY FOR VISA NOW",
+                ctaLink: "visas.html",
+                bgImage: "assets/hero-slide-visa.png"
+            },
+            {
+                badge: "NABH & JCI ACCREDITED HOSPITALS",
+                titleMain: "World-Class Surgery.",
+                titleSub: "Save Up To 70%.",
+                desc: "Get treated by India's top cardiac, orthopedic, and oncology senior surgeons with guaranteed medical visas & personal care coordinators.",
+                pills: [
+                    { icon: "fa-user-doctor", text: "Top 1% Senior Surgeons" },
+                    { icon: "fa-notes-medical", text: "Priority Medical Visas" },
+                    { icon: "fa-hand-holding-dollar", text: "Zero Hidden Charges" }
+                ],
+                ctaText: "EXPLORE MEDICAL CARE",
+                ctaLink: "medical.html",
+                bgImage: "assets/hero-slide-medical.png"
+            },
+            {
+                badge: "HANDPICKED CURATED ITINERARIES",
+                titleMain: "Real Small Group Trips.",
+                titleSub: "Zero Tourist Traps.",
+                desc: "Skip cookie-cutter bus tours. We design authentic local journeys with private guides, premium stays, and guaranteed departure dates.",
+                pills: [
+                    { icon: "fa-map-location-dot", text: "Custom Itineraries" },
+                    { icon: "fa-hotel", text: "Boutique Stays" },
+                    { icon: "fa-users-gear", text: "Max 12 People/Group" }
+                ],
+                ctaText: "EXPLORE TOUR PACKAGES",
+                ctaLink: "tours.html",
+                bgImage: "assets/hero-slide-tour.png"
+            },
+            {
+                badge: "EXCLUSIVE AIRLINE FARES",
+                titleMain: "Fly International.",
+                titleSub: "Lock Locked Fares.",
+                desc: "Compare top global airlines with instant 24-hour fare freeze, zero hidden convenience fees, and 24/7 flight delay backup assistance.",
+                pills: [
+                    { icon: "fa-plane-departure", text: "Zero Convenience Fees" },
+                    { icon: "fa-lock", text: "24-Hour Price Freeze" },
+                    { icon: "fa-headset", text: "Direct 24/7 Support" }
+                ],
+                ctaText: "FIND CHEAP FLIGHTS",
+                ctaLink: "flight-booking.html",
+                bgImage: "assets/hero-slide-flight.png"
+            },
+            {
+                badge: "VERIFIED LUXURY STAYS",
+                titleMain: "Handpicked 5-Star Stays.",
+                titleSub: "Free Room Upgrades.",
+                desc: "Book luxury resorts and boutique hotels with guaranteed free daily breakfast, late checkout, and VIP room upgrade privileges upon arrival.",
+                pills: [
+                    { icon: "fa-mug-hot", text: "Free Daily Breakfast" },
+                    { icon: "fa-wand-magic-sparkles", text: "VIP Upgrade Perks" },
+                    { icon: "fa-calendar-xmark", text: "Zero-Penalty Cancel" }
+                ],
+                ctaText: "BOOK LUXURY STAYS",
+                ctaLink: "hotels.html",
+                bgImage: "assets/hero-slide-hotel.png"
+            },
+            {
+                badge: "PUNCTUAL AIRPORT CABS",
+                titleMain: "Airport Pickups On Time.",
+                titleSub: "Fixed Rate Cabs.",
+                desc: "Pre-book reliable airport transfers and intercity rides. Driver waits at arrival with your name board—no flight delay charges.",
+                pills: [
+                    { icon: "fa-plane-arrival", text: "Flight Tracking Pickup" },
+                    { icon: "fa-id-card", text: "Verified Local Drivers" },
+                    { icon: "fa-receipt", text: "Fixed All-Inclusive Fares" }
+                ],
+                ctaText: "BOOK AIRPORT PICKUP",
+                ctaLink: "cab-booking.html",
+                bgImage: "assets/hero-slide-cab.png"
+            }
+        ];
+
+        let currentHeroSlideIndex = 0;
+        let heroSliderInterval = null;
+
+        function renderHeroSlide(index) {
+            currentHeroSlideIndex = index;
+            const slide = heroSlides[index];
+
+            const bgImage = document.getElementById('heroBgImage');
+            const badge = document.getElementById('heroBadge');
+            const titleMain = document.getElementById('heroTitleMain');
+            const titleSub = document.getElementById('heroTitleSub');
+            const desc = document.getElementById('heroDesc');
+            const pillsWrap = document.getElementById('heroFeaturePills');
+            const ctaBtn = document.getElementById('heroCtaBtn');
+            const ctaText = document.getElementById('heroCtaText');
+            const slideNum = document.getElementById('slideCurrentNum');
+            const dotsWrap = document.getElementById('slideDots');
+
+            if (bgImage) {
+                bgImage.style.opacity = '0';
+                setTimeout(() => {
+                    bgImage.style.backgroundImage = `url('${slide.bgImage}')`;
+                    bgImage.style.opacity = '0.7';
+                }, 200);
+            }
+
+            if (badge) badge.textContent = slide.badge;
+            if (titleMain) titleMain.textContent = slide.titleMain;
+            if (titleSub) titleSub.textContent = slide.titleSub;
+            if (desc) desc.textContent = slide.desc;
+            if (ctaText) ctaText.textContent = slide.ctaText;
+            if (ctaBtn) ctaBtn.setAttribute('href', slide.ctaLink);
+            if (slideNum) slideNum.textContent = String(index + 1).padStart(2, '0');
+
+            if (pillsWrap) {
+                pillsWrap.innerHTML = slide.pills.map(p => `
+                    <div class="inline-flex items-center gap-1 bg-slate-900/80 border border-white/15 px-2 py-0.5 rounded-full text-[7.5px] md:text-[9px] font-bold text-slate-200 backdrop-blur-md shadow-sm">
+                        <i class="fa-solid ${p.icon} text-amber-400 text-[8px]"></i>
+                        <span>${p.text}</span>
+                    </div>
+                `).join('');
+            }
+
+            if (dotsWrap) {
+                dotsWrap.innerHTML = heroSlides.map((_, i) => `
+                    <button onclick="goToHeroSlide(${i})" aria-label="Go to slide ${i + 1}" class="transition-all duration-300 ${i === index ? 'w-5 h-2 bg-amber-400 rounded-full' : 'w-2 h-2 bg-white/40 hover:bg-white/70 rounded-full'} cursor-pointer"></button>
+                `).join('');
+            }
+        }
+
+        function nextHeroSlide() {
+            const next = (currentHeroSlideIndex + 1) % heroSlides.length;
+            renderHeroSlide(next);
+            resetHeroTimer();
+        }
+
+        function prevHeroSlide() {
+            const prev = (currentHeroSlideIndex - 1 + heroSlides.length) % heroSlides.length;
+            renderHeroSlide(prev);
+            resetHeroTimer();
+        }
+
+        function goToHeroSlide(index) {
+            renderHeroSlide(index);
+            resetHeroTimer();
+        }
+
+        function resetHeroTimer() {
+            if (heroSliderInterval) clearInterval(heroSliderInterval);
+            heroSliderInterval = setInterval(() => {
+                const next = (currentHeroSlideIndex + 1) % heroSlides.length;
+                renderHeroSlide(next);
+            }, 6000);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('.desktop-menu-links a').forEach(a => {
@@ -1510,6 +1599,9 @@
                     a.classList.remove('after:w-0');
                 }
             });
+            // Init Hero Slider
+            renderHeroSlide(0);
+            resetHeroTimer();
         });
     </script>
     <script src="js/navbar.js"></script>

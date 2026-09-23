@@ -783,22 +783,6 @@
             lastScrollY = window.scrollY;
         });
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isClosed = mobileMenu.classList.contains('-translate-y-full');
-                if (isClosed) {
-                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                    mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                } else {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
-            });
-        }
     </script>
 
     <script>
