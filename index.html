@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traviora | Modern Visas & Curated Tours</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -142,16 +142,16 @@
             animation: float 4s ease-in-out infinite;
         }
 
+        /* Floating Action Buttons (Exact Matched Design) */
         .floating-socials {
             position: fixed;
             top: 50%;
-            right: 0;
+            right: 18px;
             transform: translateY(-50%);
             z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding-right: 12px;
+            gap: 12px;
         }
 
         .social-btn {
@@ -161,197 +161,215 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #FFFFFF;
             font-size: 22px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             position: relative;
+            text-decoration: none;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.22), 0 4px 10px -2px rgba(0, 0, 0, 0.12);
         }
 
-        .social-btn:hover {
-            transform: scale(1.1) translateX(-5px);
+        /* 1. WhatsApp Button: Solid Emerald Gradient */
+        .social-btn-wa {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        .social-btn-wa:hover {
+            transform: scale(1.1) translateX(-4px);
+            box-shadow: 0 14px 28px -4px rgba(16, 185, 129, 0.45);
         }
 
+        /* 2. Instagram Button: Vibrant Rose Gradient */
+        .social-btn-ig {
+            background: linear-gradient(135deg, #F43F5E 0%, #E11D48 50%, #BE123C 100%);
+        }
+        .social-btn-ig:hover {
+            transform: scale(1.1) translateX(-4px);
+            box-shadow: 0 14px 28px -4px rgba(225, 29, 72, 0.45);
+        }
+
+        /* 3. AI Chatbot Button: Royal Blue Gradient */
+        .social-btn-ai {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+        }
+        .social-btn-ai:hover {
+            transform: scale(1.1) translateX(-4px);
+            box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.45);
+        }
+
+        /* Sleek Tooltip */
         .social-btn .tooltip {
             position: absolute;
             right: 60px;
-            background: #1e293b;
-            color: white;
-            padding: 6px 12px;
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 6px 14px;
             border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 11.5px;
+            font-weight: 600;
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
-            transition: 0.3s;
-            transform: translateX(10px);
+            transition: all 0.25s ease;
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
         }
 
         .social-btn:hover .tooltip {
             opacity: 1;
             transform: translateX(0);
         }
+
+        @media (max-width: 640px) {
+            .floating-socials {
+                right: 12px;
+                gap: 10px;
+            }
+            .social-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 19px;
+            }
+            .social-btn .tooltip {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
 
-    <!-- Floating Sidebar -->
+    <!-- Floating Action Buttons -->
     <div class="floating-socials">
-        <div class="social-btn" style="background: linear-gradient(45deg, #25D366, #128C7E);"
-            onclick="window.location.href='#'">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/" target="_blank" class="social-btn social-btn-wa" aria-label="WhatsApp Support">
             <i class="fa-brands fa-whatsapp"></i>
             <span class="tooltip">WhatsApp Support</span>
-        </div>
-        <div class="social-btn"
-            style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);"
-            onclick="window.location.href='#'">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/" target="_blank" class="social-btn social-btn-ig" aria-label="Instagram Page">
             <i class="fa-brands fa-instagram"></i>
             <span class="tooltip">Instagram</span>
-        </div>
-        <div class="social-btn" style="background: linear-gradient(45deg, #2563eb, #4f46e5);"
-            onclick="window.location.href='#'">
+        </a>
+
+        <!-- AI Assistant -->
+        <a href="#ai-assistant" class="social-btn social-btn-ai" aria-label="AI Assistant Chatbot">
             <i class="fa-solid fa-robot"></i>
-            <span class="tooltip">AI Assistant</span>
-        </div>
+            <span class="tooltip">AI Visa Assistant</span>
+        </a>
     </div>
-                                                        <!-- Navigation -->
+                                                                                                                                                                                <!-- Navigation -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4.5 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-0.5 relative z-20">
-                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviyora Logo"
-                    class="h-5 md:h-6 lg:h-7 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-7 md:h-8 lg:h-9 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IYORA</span></span>
             </a>
 
-            <!-- Desktop Links with Height-Optimized Padding -->
-            <div
-                class="hidden lg:flex items-center gap-1.5 lg:gap-2.5 font-black text-slate-600 text-[10px] uppercase tracking-[0.07em] desktop-menu-links">
+            <!-- Desktop Links (Vibrant Tactile Sticker Badge Design with Refined Typography) -->
+            <div class="hidden lg:flex items-center gap-3.5 lg:gap-4 xl:gap-5 text-slate-800 desktop-menu-links">
                 
-                <!-- 1. Home -->
-                <a href="index.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-house text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span>HOME</span>
-                    </span>
+                <!-- 1. Home (Active Solid Blue Sticker Capsule) -->
+                <a href="index.html" class="flex flex-col items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-[0_6px_20px_rgba(37,99,235,0.32)] hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-0.5 shrink-0">
+                    <i class="fa-solid fa-house text-[17px] mb-1 text-white"></i>
+                    <span class="font-['Outfit'] font-extrabold text-[13px] leading-tight text-white tracking-[0.025em] text-center">Home</span>
                 </a>
 
                 <!-- 2. Tourist Visa -->
-                <a href="visas.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-passport text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>TOURIST</span>
-                            <span>VISA</span>
-                        </span>
-                    </span>
+                <a href="visas.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-passport text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Tourist<br>Visa</span>
                 </a>
 
                 <!-- 3. Medical Tourism -->
-                <a href="medical.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-notes-medical text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>MEDICAL</span>
-                            <span>TOURISM</span>
-                        </span>
-                    </span>
+                <a href="medical.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-square-plus text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Medical<br>Tourism</span>
                 </a>
 
                 <!-- 4. Tour Booking -->
-                <a href="tours.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-earth-americas text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>TOUR</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="tours.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-location-dot text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Tour<br>Booking</span>
                 </a>
 
                 <!-- 5. Flight Booking -->
-                <a href="flight-booking.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-plane text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>FLIGHT</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="flight-booking.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-plane text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Flight<br>Booking</span>
                 </a>
 
                 <!-- 6. Cab Booking -->
-                <a href="cab-booking.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-taxi text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>CAB</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="cab-booking.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-car text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Cab<br>Booking</span>
                 </a>
 
                 <!-- 7. Hotel Booking -->
-                <a href="hotels.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-hotel text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>HOTEL</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="hotels.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-building text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Hotel<br>Booking</span>
                 </a>
 
-                <!-- 8. About -->
-                <a href="about.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span>ABOUT</span>
-                    </span>
+                <!-- 8. About (Distinctive Circular Compass Medallion Sticker) -->
+                <a href="about.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-indigo-50/60 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-indigo-50/90 via-white to-purple-50/90 border-2 border-indigo-200/90 shadow-[0_4px_12px_rgba(99,102,241,0.12)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_8px_22px_rgba(99,102,241,0.35)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-compass text-[18px] text-indigo-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-indigo-600 tracking-[0.02em] text-center">About</span>
                 </a>
             </div>
 
             <!-- Header Actions -->
-            <div class="flex items-center gap-3 md:gap-3.5 relative pr-1 md:pr-0 z-20">
-                <!-- Mobile Menu Toggle Button -->
+            <div class="flex items-center gap-3.5 md:gap-4 relative pr-1 md:pr-0 z-20">
+                <!-- Mobile Menu Toggle Button (Tactile Sticker Badge with Menu Label Below) -->
                 <button id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
-                    class="lg:hidden relative z-30 w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 hover:bg-slate-100 rounded-full border border-slate-200 cursor-pointer pointer-events-auto transition-colors">
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
+                    class="lg:hidden relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
+                    
+                    <!-- Tactile Sticker Ring Icon -->
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex flex-col justify-center items-center gap-1 transition-all duration-300">
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                    </div>
+
+                    <!-- Menu Label Text Below Hamburger Icon -->
+                    <span class="font-['Outfit'] font-extrabold text-[13px] text-slate-800 group-hover:text-blue-600 transition-colors mt-1.5 tracking-[0.025em]">Menu</span>
                 </button>
 
-                <!-- Profile Button with Enhanced Circling Neon Blue Laser Beam Animation -->
+                <!-- Thin Vertical Divider Line -->
+                <div class="hidden lg:block w-[1px] h-8 bg-slate-200 mx-1.5"></div>
+
+                <!-- Vertically Stacked Profile Button (Circular Tactile Sticker Badge) -->
                 <a href="profile.html" aria-label="User Profile"
-                    class="relative z-30 group w-9 h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 rounded-full bg-slate-50 border border-slate-200/80 shadow-sm flex items-center justify-center text-slate-600 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(37,99,235,0.7)] overflow-hidden cursor-pointer pointer-events-auto">
+                    class="relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
                     
-                    <!-- Blurred Ambient Blue Light Aura Trail -->
-                    <div class="absolute -inset-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
-                        <div class="w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_40%,#2563eb_75%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite] blur-md opacity-80"></div>
+                    <!-- Circular Sticker Outline Ring Icon -->
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                        <i class="fa-regular fa-user text-[16px] text-slate-700 group-hover:text-white transition-colors"></i>
                     </div>
 
-                    <!-- Crisp Circling Neon Laser Comet Beam -->
-                    <div class="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
-                        <div class="w-[280%] h-[280%] bg-[conic-gradient(from_0deg,transparent_40%,#1d4ed8_70%,#3b82f6_85%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite]"></div>
-                    </div>
-
-                    <!-- Inner Core Mask with Glowing Icon -->
-                    <div class="absolute inset-[2px] rounded-full bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10 shadow-inner pointer-events-none">
-                        <i class="fa-regular fa-user text-sm md:text-base lg:text-lg text-slate-600 group-hover:text-blue-600 group-hover:scale-115 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.85)] transition-all duration-300"></i>
-                    </div>
+                    <!-- Below Text: Profile v -->
+                    <span class="font-['Outfit'] font-extrabold text-[13px] text-slate-800 group-hover:text-blue-600 transition-colors flex items-center gap-1 mt-1.5 tracking-[0.025em]">
+                        Profile <i class="fa-solid fa-chevron-down text-[9px] text-slate-500 group-hover:text-blue-600 transition-colors ml-0.5"></i>
+                    </span>
                 </a>
             </div>
         </div>
@@ -379,185 +397,250 @@
             <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
             <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
 
-            <!-- Dead-Centered Modal Card -->
-            <div id="mobileMenuCard" class="relative z-10 bg-white w-full max-w-[340px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-auto">
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-auto">
 
-                <div class="px-4 pt-4 pb-2 w-full">
-                    <!-- Navigation Header -->
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Navigation</span>
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">Navigation</span>
+                        </div>
                         <button id="closeMobileMenuBtn" type="button" aria-label="Close navigation menu"
-                            class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition-colors shadow-inner z-[60] relative cursor-pointer">
-                            <i class="fa-solid fa-xmark text-[13px] pointer-events-none"></i>
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
                         </button>
                     </div>
 
-                    <!-- 8 Compact Mobile Links -->
-                    <div class="grid grid-cols-2 gap-2 max-h-[58vh] overflow-y-auto pr-1">
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
 
-                        <!-- 1. Home -->
+                        <!-- 1. Home (Active Page Capsule) -->
                         <a href="index.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-house text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Home</span>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight">Home</span>
                         </a>
 
                         <!-- 2. Tourist Visa -->
                         <a href="visas.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-passport text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Tourist Visa</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight">Tourist Visa</span>
                         </a>
 
                         <!-- 3. Medical Tourism -->
                         <a href="medical.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-notes-medical text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Medical Tourism</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight">Medical Tourism</span>
                         </a>
 
                         <!-- 4. Tour Booking -->
                         <a href="tours.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-earth-americas text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Tour Booking</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight">Tour Booking</span>
                         </a>
 
                         <!-- 5. Flight Booking -->
                         <a href="flight-booking.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-plane text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Flight Booking</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight">Flight Booking</span>
                         </a>
 
                         <!-- 6. Cab Booking -->
                         <a href="cab-booking.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-taxi text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Cab Booking</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight">Cab Booking</span>
                         </a>
 
                         <!-- 7. Hotel Booking -->
                         <a href="hotels.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-hotel text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">Hotel Booking</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight">Hotel Booking</span>
                         </a>
 
                         <!-- 8. About -->
                         <a href="about.html"
-                            class="mobile-link group flex flex-col items-center text-center gap-1 p-2.5 rounded-[16px] bg-slate-50/30 hover:bg-white transition-all duration-300">
-                            <div class="icon-wrap relative w-9 h-9 rounded-[12px] bg-slate-200 flex items-center justify-center shrink-0 group-hover:-translate-y-0.5 transition-transform duration-300 overflow-hidden shadow-sm">
-                                <div class="beam-element absolute w-[250%] h-[250%] border-beam opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div class="inner-core absolute inset-[1.5px] rounded-[10px] bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10">
-                                    <i class="fa-solid fa-circle-info text-[13px] text-slate-800 group-hover:text-black transition-colors"></i>
-                                </div>
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
                             </div>
-                            <span class="text-[9.5px] font-black uppercase tracking-[0.1em] text-slate-800 group-hover:text-black transition-all mt-0.5 leading-tight text-center">About</span>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight">About</span>
                         </a>
 
                     </div>
-                </div>
 
-                <div class="h-[1px] bg-slate-200 mx-4 w-[calc(100%-32px)]"></div>
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
 
-                <!-- Footer Actions -->
-                <div class="flex items-center justify-between w-full px-4 py-3 gap-2">
-                    <a href="profile.html"
-                        class="flex-1 flex justify-center items-center gap-1.5 group py-2 rounded-[12px] hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
-                        <i class="fa-regular fa-user text-[12px] text-slate-700 group-hover:text-black transition-colors"></i>
-                        <span class="text-[10px] font-black uppercase text-slate-800 group-hover:text-black transition-all tracking-[0.1em]">Account</span>
-                    </a>
-                    <div class="w-[1px] h-4 bg-slate-300"></div>
-                    <a href="index.html"
-                        class="flex-1 items-center flex justify-center gap-1.5 group py-2 rounded-[12px] hover:bg-red-50 hover:border-red-200 border border-transparent transition-all">
-                        <span class="text-[10px] font-black uppercase text-slate-800 group-hover:text-red-500 transition-all tracking-[0.1em]">Sign Out</span>
-                        <i class="fa-solid fa-arrow-right-from-bracket text-[12px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
-                    </a>
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em]">My Account</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em]">Sign Out</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Slider Section (Redesigned matching reference design with 6 slides, height matching visas.html) -->
-    <section class="relative flex items-center justify-center overflow-hidden bg-slate-950 rounded-[1.5rem] md:rounded-[2.5rem] mx-2 md:mx-6 shadow-2xl mt-16 md:mt-28 mb-4 py-6 md:py-0 h-auto md:h-[340px]">
-        <!-- Background Images Carousel -->
-        <div id="heroBgContainer" class="absolute inset-0 w-full h-full">
-            <div id="heroBgImage" class="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-70 scale-100" style="background-image: url('assets/hero-slide-visa.png');"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/80"></div>
+    <!-- Hero Slider Section (Ultra-Luxury Editorial Hero Banner with Edge Slide Controls) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+
+        /* Hero Slide Keyframe Animations */
+        @keyframes heroFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(22px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes heroKenBurns {
+            0% {
+                transform: scale(1.12);
+            }
+            100% {
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes shimmerSweep {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .hero-animate-fade {
+            animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-ken-burns {
+            animation: heroKenBurns 6.5s ease-out forwards;
+        }
+
+        /* Hero Typography & Shimmer Effects */
+        .hero-font-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .hero-text-gradient-main {
+            background: linear-gradient(120deg, #ffffff 0%, #f8fafc 40%, #e2e8f0 70%, #ffffff 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerSweep 8s ease-in-out infinite;
+            filter: drop-shadow(0 6px 16px rgba(0,0,0,0.8));
+        }
+
+        .hero-text-gradient-sub {
+            background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #f97316 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(245,158,11,0.5));
+        }
+
+        .hero-pill-badge {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-cta-glow {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
+        }
+        .hero-cta-glow:hover {
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
+        }
+    </style>
+
+    <section class="relative flex items-center justify-center overflow-hidden bg-slate-950 rounded-[1.8rem] md:rounded-[2.8rem] mx-2 md:mx-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] mt-24 md:mt-32 lg:mt-36 mb-6 py-8 md:py-0 h-auto md:h-[370px] ring-1 ring-white/15">
+        <!-- Background Images Carousel with Ken Burns Zoom & Ambient Lighting -->
+        <div id="heroBgContainer" class="absolute inset-0 w-full h-full overflow-hidden">
+            <div id="heroBgImage" class="absolute inset-0 bg-cover bg-center opacity-75 scale-100 transition-opacity duration-700" style="background-image: url('assets/hero-slide-visa.png');"></div>
+            <!-- Multi-Layer Vignette & Ambient Radial Glow -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/75"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.12)_0%,#020617_85%)]"></div>
         </div>
 
+        <!-- Left Edge Slide Control Button -->
+        <button onclick="prevHeroSlide()" aria-label="Previous Slide" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 md:w-12 md:h-12 rounded-full bg-slate-950/80 hover:bg-amber-400 border border-white/20 hover:border-amber-400 flex items-center justify-center text-white backdrop-blur-md shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer">
+            <i class="fa-solid fa-chevron-left text-xs md:text-sm text-amber-300 group-hover:text-slate-950 transition-colors"></i>
+        </button>
+
         <!-- Slide Center Content -->
-        <div class="relative z-10 px-4 md:px-8 max-w-3xl mx-auto w-full text-center text-white flex flex-col items-center justify-center gap-2 md:gap-3 py-6 pb-14 h-full">
+        <div id="heroContentWrap" class="relative z-10 px-6 md:px-12 max-w-3xl mx-auto w-full text-center text-white flex flex-col items-center justify-center gap-2.5 md:gap-3.5 py-8 h-full hero-animate-fade">
             
             <!-- Top Pill Badge -->
-            <div class="inline-flex items-center gap-1.5 bg-slate-900/90 border border-white/20 px-3 py-1 rounded-full text-[8.5px] md:text-[10px] font-extrabold tracking-[0.15em] text-amber-400 uppercase backdrop-blur-md shadow-md transition-all duration-500">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <div id="heroBadgeWrap" class="inline-flex items-center gap-2 hero-pill-badge px-4 py-1.5 rounded-full text-[8.5px] md:text-[10px] font-extrabold tracking-[0.2em] text-amber-300 uppercase transition-all duration-500 hover:scale-105">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_10px_#f59e0b]"></span>
                 <span id="heroBadge">98.4% VISA APPROVAL RATE</span>
             </div>
 
             <!-- Headline -->
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-serif font-black tracking-tight leading-[1.12] drop-shadow-lg text-center max-w-2xl transition-all duration-500">
-                <span id="heroTitleMain">Stop Rejection Stress.</span>
-                <span id="heroTitleSub" class="italic text-amber-400 font-serif ml-1">Get Approved Fast.</span>
+            <h1 id="heroTitleWrap" class="hero-font-headline text-2.5xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-black tracking-tight leading-[1.12] text-center max-w-2xl">
+                <span id="heroTitleMain" class="hero-text-gradient-main">Stop Rejection Stress.</span>
+                <span id="heroTitleSub" class="hero-text-gradient-sub font-serif italic ml-1.5">Get Approved Fast.</span>
             </h1>
 
             <!-- Subheading -->
-            <p id="heroDesc" class="text-[11px] sm:text-xs md:text-sm text-slate-200/90 font-medium max-w-xl leading-relaxed text-center drop-shadow-md transition-all duration-500">
+            <p id="heroDesc" class="text-[11px] sm:text-xs md:text-sm text-slate-200/95 font-medium max-w-xl leading-relaxed text-center drop-shadow-md">
                 We pre-verify your passport, bank statements, and cover letters before filing so your application is 100% rejection-proof.
             </p>
 
             <!-- Feature Pills Row -->
-            <div id="heroFeaturePills" class="flex flex-wrap items-center justify-center gap-1.5 md:gap-2.5 my-1">
+            <div id="heroFeaturePills" class="flex flex-wrap items-center justify-center gap-2 md:gap-3 my-0.5">
                 <!-- Injected via JavaScript -->
             </div>
 
+            <!-- Interactive Primary CTA Button -->
+            <a id="heroCtaBtn" href="visas.html" class="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-[10px] md:text-[11px] tracking-[0.15em] uppercase px-6 py-2.5 rounded-full hero-cta-glow transition-all duration-300 hover:scale-105 active:scale-95 group mt-1 cursor-pointer">
+                <span id="heroCtaText">APPLY FOR VISA NOW</span>
+                <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
         </div>
 
-        <!-- Slider Controls Bar (Only prev/next arrow buttons pill at bottom center) -->
-        <div class="absolute bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-950/85 backdrop-blur-2xl border border-white/20 px-3 py-1.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-            <button onclick="prevHeroSlide()" aria-label="Previous Slide" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95">
-                <i class="fa-solid fa-chevron-left text-[10px] md:text-xs"></i>
-            </button>
-            <button onclick="nextHeroSlide()" aria-label="Next Slide" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95">
-                <i class="fa-solid fa-chevron-right text-[10px] md:text-xs"></i>
-            </button>
-        </div>
+        <!-- Right Edge Slide Control Button -->
+        <button onclick="nextHeroSlide()" aria-label="Next Slide" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 md:w-12 md:h-12 rounded-full bg-slate-950/80 hover:bg-amber-400 border border-white/20 hover:border-amber-400 flex items-center justify-center text-white backdrop-blur-md shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer">
+            <i class="fa-solid fa-chevron-right text-xs md:text-sm text-amber-300 group-hover:text-slate-950 transition-colors"></i>
+        </button>
     </section>
 
 
@@ -574,71 +657,6 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            padding-bottom: 5px;
-            position: relative;
-        }
-
-        .unique-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0px;
-            left: 50%;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #2563eb, transparent);
-            animation: lineExpand 4s ease-in-out infinite;
-            transform: translateX(-50%);
-        }
-
-        .unique-desc {
-            position: relative;
-            display: inline-block;
-            background: linear-gradient(to right, #475569 50%, transparent 50%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textPaintReveal 6s ease-in-out infinite;
-        }
-
-        @keyframes lineExpand {
-
-            0%,
-            100% {
-                width: 0%;
-                opacity: 0;
-            }
-
-            50% {
-                width: 60%;
-                opacity: 1;
-            }
-        }
-
-        @keyframes textPaintReveal {
-
-            0%,
-            5% {
-                background-position: 100% 0;
-                opacity: 1;
-            }
-
-            15%,
-            82% {
-                background-position: 0 0;
-                opacity: 1;
-            }
-
-            95%,
-            100% {
-                background-position: 0 0;
-                opacity: 0;
-            }
-        }
-
-        .group:hover .shine-effect {
-            animation: shine 1.5s ease-out infinite;
-        }
 
         @keyframes shine {
             0% {
@@ -649,48 +667,556 @@
                 transform: translateX(250%) skewX(-30deg);
             }
         }
+
+        /* Homepage Bottom Section: Ecosystem, Testimonials & CTA Design System */
+        :root {
+            --bg-cream: #FBF9F6;
+            --bg-white: #FFFFFF;
+            --bg-paper: #F7F2EA;
+            --navy: #0F172A;
+            --terracotta: #C85A44;
+            --terracotta-soft: #E8A594;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --text-soft: #8996AB;
+            --border-light: #EAE7E1;
+            --green: #10B981;
+            --gold: #F59E0B;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+        }
+
+        .section-wrapper-bottom {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .reveal-block {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-block.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Block 1: Trust & Ecosystem Bar */
+        .ecosystem-summary-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FBF9F6 100%);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 32px 36px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+        }
+
+        .summary-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            gap: 20px;
+        }
+
+        .summary-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        .summary-header-row h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+        }
+
+        .summary-header-row h2 em {
+            font-style: italic;
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+
+        .summary-subtext {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 520px;
+        }
+
+        .trust-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+        }
+
+        .trust-matrix-item {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.25s ease;
+        }
+
+        .trust-matrix-item:hover {
+            border-color: var(--terracotta);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 90, 68, 0.08);
+        }
+
+        .matrix-icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background-color: rgba(200, 90, 68, 0.08);
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .matrix-val {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+            line-height: 1.15;
+        }
+
+        .matrix-lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Block 2: High-End Testimonial Cards Showcase */
+        .testimonials-showcase-section {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px 40px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+            position: relative;
+        }
+
+        .testimonials-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+            gap: 20px;
+        }
+
+        .testimonials-header-row h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-top: 8px;
+        }
+
+        .testimonials-header-row h2 em {
+            font-style: italic;
+            color: var(--terracotta);
+        }
+
+        .rating-summary-pill {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--border-light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .stars-gold {
+            color: var(--gold);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 3px;
+        }
+
+        .rating-score-text {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .rating-score-text span {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.78rem;
+        }
+
+        .testimonial-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .t-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+        }
+
+        .t-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--terracotta) 0%, var(--terracotta-soft) 100%);
+            opacity: 0.8;
+            transition: height 0.25s ease;
+        }
+
+        .t-card.t-card-medical::before {
+            background: linear-gradient(90deg, #10B981 0%, #6EE7B7 100%);
+        }
+
+        .t-card.t-card-tours::before {
+            background: linear-gradient(90deg, #3B82F6 0%, #93C5FD 100%);
+        }
+
+        .t-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(200, 90, 68, 0.35);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+        }
+
+        .t-card:hover::before {
+            height: 6px;
+        }
+
+        .t-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            border: 1px solid;
+        }
+
+        .badge-visa {
+            background-color: rgba(200, 90, 68, 0.08);
+            color: var(--terracotta);
+            border-color: rgba(200, 90, 68, 0.2);
+        }
+
+        .badge-medical {
+            background-color: rgba(16, 185, 129, 0.08);
+            color: #047857;
+            border-color: rgba(16, 185, 129, 0.22);
+        }
+
+        .badge-tours {
+            background-color: rgba(59, 130, 246, 0.08);
+            color: #1D4ED8;
+            border-color: rgba(59, 130, 246, 0.22);
+        }
+
+        .outcome-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ECFDF5;
+            color: #047857;
+            border: 1px solid #A7F3D0;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .card-highlight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+
+        .card-quote-text {
+            font-size: 0.88rem;
+            color: #334155;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-author-bar {
+            border-top: 1px solid var(--border-light);
+            padding-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+        }
+
+        .author-details {
+            flex: 1;
+        }
+
+        .author-name-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--navy);
+        }
+
+        .verified-icon {
+            color: var(--green);
+            font-size: 0.75rem;
+        }
+
+        .author-location {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Block 3: Closing High-Converting CTA Banner */
+        .closing-cta-card {
+            background-color: var(--navy);
+            border-radius: 24px;
+            padding: 38px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18);
+        }
+
+        .closing-cta-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 90, 68, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-left-copy h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .cta-left-copy h3 em {
+            font-style: italic;
+            color: var(--terracotta-soft);
+        }
+
+        .cta-left-copy p {
+            font-size: 0.9rem;
+            color: #94A3B8;
+            max-width: 540px;
+            line-height: 1.6;
+        }
+
+        .cta-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .btn-cta-main {
+            background-color: var(--terracotta);
+            color: #FFFFFF;
+            border: none;
+            padding: 15px 28px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(200, 90, 68, 0.4);
+        }
+
+        .btn-cta-main:hover {
+            background-color: #B24E39;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(200, 90, 68, 0.5);
+        }
+
+        .btn-cta-whatsapp {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #FFFFFF;
+            padding: 15px 24px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-cta-whatsapp:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        @media (max-width: 1024px) {
+            .trust-matrix-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonial-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-header-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .closing-cta-card {
+                flex-direction: column;
+                padding: 32px 28px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .cta-action-buttons {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .trust-matrix-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-showcase-section {
+                padding: 30px 20px;
+            }
+
+            .btn-cta-main,
+            .btn-cta-whatsapp {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
     <section class="max-w-7xl mx-auto px-6 pt-1 pb-2 md:pt-1 md:pb-4">
         <div class="relative w-full mb-2 md:mb-4">
             <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
                 <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
-                    <div class="w-full flex flex-row items-start justify-between md:contents">
+                    <div class="w-full flex flex-row items-center justify-center md:contents">
                         <div
-                            class="flex flex-col items-start md:items-center text-left md:text-center order-1 md:order-none w-auto md:w-full">
+                            class="flex flex-col items-center text-center order-1 md:order-none w-full">
                             <div
-                                class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 border border-blue-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-blue-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-start md:self-center">
-                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>Global Visas
+                                class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 border border-blue-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-blue-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>TOURIST VISAS
                             </div>
                             <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
                                 <h2
-                                    class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
-                                    Popular Destinations
+                                    class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
+                                    Explore the World, We'll Handle the Visa.
                                 </h2>
                             </div>
                         </div>
-                        <a href="visas.html"
-                            class="md:absolute w-fit max-w-fit shrink-0 md:right-0 md:bottom-2 group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden order-2 md:order-none mt-2 md:mt-0 self-start md:self-auto cursor-pointer isolate">
-                            <!-- Inverted Background Swipe -->
-                            <span
-                                class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
-
-                            <span
-                                class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">View
-                                All Visas</span>
-
-                            <div
-                                class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
-                                <i
-                                    class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
-                            </div>
-                        </a>
                     </div>
                     <p
-                        class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
-                        Stop guessing document requirements. We pre-verify your passport, bank statements, and cover letters before filing so your application is 100% rejection-proof.
+                        class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
+                        From the beaches of Thailand to the skylines of Dubai, we make your tourist visa process seamless. Enjoy doorstep passport pickup, 48-hour fast-track filing, and live tracking every step of the way.
                     </p>
                 </div>
             </div>
+        </div>
+        
+        <!-- Popular Destinations Cards Header Bar -->
+        <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+            <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                Popular Destinations
+            </h3>
+            <a href="visas.html"
+                class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                <span class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                <span class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">View All Visas</span>
+                <div class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                    <i class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                </div>
+            </a>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="popularVisasGrid">
         </div>
@@ -702,47 +1228,49 @@
             <div class="relative w-full mb-2 md:mb-4">
                 <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
                     <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
-                        <div class="w-full flex flex-row items-start justify-between md:contents">
+                        <div class="w-full flex flex-row items-center justify-center md:contents">
                             <div
-                                class="flex flex-col items-start md:items-center text-left md:text-center order-1 md:order-none w-auto md:w-full">
+                                class="flex flex-col items-center text-center order-1 md:order-none w-full">
                                 <div
-                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-indigo-50 border border-indigo-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-start md:self-center">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>Curated
-                                    Experiences
+                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-indigo-50 border border-indigo-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>CURATED EXPERIENCES
                                 </div>
                                 <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
                                     <h2
-                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
                                         Trending Holiday Packages
                                     </h2>
                                 </div>
                             </div>
-                            <a href="tours.html"
-                                class="md:absolute w-fit max-w-fit shrink-0 md:right-0 md:bottom-2 group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden order-2 md:order-none mt-2 md:mt-0 self-start md:self-auto cursor-pointer isolate">
-                                <!-- Inverted Background Swipe -->
-                                <span
-                                    class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
-
-                                <span
-                                    class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Browse
-                                    Packages</span>
-
-                                <div
-                                    class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
-                                    <i
-                                        class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
-                                </div>
-                            </a>
                         </div>
                         <p
-                            class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
+                            class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
                             No crowded tourist buses or hidden surprise fees. Just handcrafted itineraries, private local guides, and guaranteed departure dates for stress-free vacations.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6" id="featuredToursGrid">
-                <!-- Dynamic Injection -->
+
+            <!-- Trending Packages Header Bar -->
+            <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+                <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                    Trending Packages
+                </h3>
+                <a href="tours.html"
+                    class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                    <span
+                        class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                    <span
+                        class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Browse Packages</span>
+                    <div
+                        class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                        <i
+                            class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="featuredToursGrid">
             </div>
         </div>
     </section>
@@ -753,47 +1281,49 @@
             <div class="relative w-full mb-2 md:mb-4">
                 <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
                     <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
-                        <div class="w-full flex flex-row items-start justify-between md:contents">
+                        <div class="w-full flex flex-row items-center justify-center md:contents">
                             <div
-                                class="flex flex-col items-start md:items-center text-left md:text-center order-1 md:order-none w-auto md:w-full">
+                                class="flex flex-col items-center text-center order-1 md:order-none w-full">
                                 <div
-                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-teal-50 border border-teal-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-teal-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-start md:self-center">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>Health &
-                                    Wellness
+                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-teal-50 border border-teal-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-teal-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>HEALTH & WELLNESS
                                 </div>
                                 <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
                                     <h2
-                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
                                         Medical Tourism in India
                                     </h2>
                                 </div>
                             </div>
-                            <a href="medical.html"
-                                class="md:absolute w-fit max-w-fit shrink-0 md:right-0 md:bottom-2 group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden order-2 md:order-none mt-2 md:mt-0 self-start md:self-auto cursor-pointer isolate">
-                                <!-- Inverted Background Swipe -->
-                                <span
-                                    class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
-
-                                <span
-                                    class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Explore
-                                    Treatments</span>
-
-                                <div
-                                    class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
-                                    <i
-                                        class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
-                                </div>
-                            </a>
                         </div>
                         <p
-                            class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
+                            class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
                             Save up to 70% on major surgeries compared to Western hospitals. Access NABH & JCI accredited super-specialty hospitals with priority medical visa processing.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full mb-8" id="featuredMedicalGrid">
-                <!-- Dynamic Injection -->
+
+            <!-- Specialized Treatments Header Bar -->
+            <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+                <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+                    Specialized Treatments
+                </h3>
+                <a href="medical.html"
+                    class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                    <span
+                        class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                    <span
+                        class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Explore Treatments</span>
+                    <div
+                        class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                        <i
+                            class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full" id="featuredMedicalGrid">
             </div>
         </div>
     </section>
@@ -804,49 +1334,439 @@
             <div class="relative w-full mb-2 md:mb-4">
                 <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
                     <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
-                        <div class="w-full flex flex-row items-start justify-between md:contents">
+                        <div class="w-full flex flex-row items-center justify-center md:contents">
                             <div
-                                class="flex flex-col items-start md:items-center text-left md:text-center order-1 md:order-none w-auto md:w-full">
+                                class="flex flex-col items-center text-center order-1 md:order-none w-full">
                                 <div
-                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-sky-50 border border-sky-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-sky-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-start md:self-center">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>Luxury Stays
+                                    class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-sky-50 border border-sky-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-sky-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>LUXURY STAYS
                                 </div>
                                 <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
                                     <h2
-                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+                                        class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
                                         Top Rated Hotels
                                     </h2>
                                 </div>
                             </div>
-                            <a href="hotels.html"
-                                class="md:absolute w-fit max-w-fit shrink-0 md:right-0 md:bottom-2 group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden order-2 md:order-none mt-2 md:mt-0 self-start md:self-auto cursor-pointer isolate">
-                                <!-- Inverted Background Swipe -->
-                                <span
-                                    class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
-
-                                <span
-                                    class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">View
-                                    All Hotels</span>
-
-                                <div
-                                    class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
-                                    <i
-                                        class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
-                                </div>
-                            </a>
                         </div>
                         <p
-                            class="unique-desc text-[9px] md:text-[11px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[80%] md:max-w-full">
+                            class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
                             Handpicked 5-star properties and boutique villas with verified guest reviews. Enjoy complimentary breakfast, room upgrade privileges, and zero cancellation penalty.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6" id="featuredHotelsGrid">
-                <!-- Dynamic Injection -->
+
+            <!-- Featured Hotels Header Bar -->
+            <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+                <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-sky-600"></span>
+                    Featured Hotels
+                </h3>
+                <a href="hotels.html"
+                    class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                    <span
+                        class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                    <span
+                        class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">View All Hotels</span>
+                    <div
+                        class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                        <i
+                            class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="featuredHotelsGrid">
             </div>
         </div>
     </section>
+
+    <!-- Flight Booking Preview -->
+    <section class="py-4 md:py-6 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="relative w-full mb-2 md:mb-4">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
+                    <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
+                        <div class="w-full flex flex-row items-center justify-center md:contents">
+                            <div class="flex flex-col items-center text-center order-1 md:order-none w-full">
+                                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 border border-blue-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-blue-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>FLIGHT BOOKING
+                                </div>
+                                <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
+                                    <h2 class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
+                                        Best Flight Deals Worldwide
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
+                            Compare top global airlines, enjoy exclusive sub-agent discounts, zero hidden convenience fees, and 24/7 flight status tracking for effortless journeys.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Flights Header Bar -->
+            <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+                <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    Popular Routes
+                </h3>
+                <a href="flight-booking.html" class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                    <span class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                    <span class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Book Flights</span>
+                    <div class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                        <i class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="featuredFlightsGrid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cab Booking Preview -->
+    <section class="py-4 md:py-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="relative w-full mb-2 md:mb-4">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-center w-full">
+                    <div class="max-w-[650px] mx-auto w-full flex flex-col items-center">
+                        <div class="w-full flex flex-row items-center justify-center md:contents">
+                            <div class="flex flex-col items-center text-center order-1 md:order-none w-full">
+                                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-amber-50 border border-amber-100 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.2em] text-amber-600 mb-1 shadow-sm transform hover:scale-105 transition-transform cursor-default relative z-10 w-fit self-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>CAB & TRANSFERS
+                                </div>
+                                <div class="flex flex-col items-center justify-center w-auto relative group pb-1">
+                                    <h2 class="text-lg md:text-3xl unique-title font-bold text-slate-800 tracking-tight mb-2 md:mb-3 leading-none drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02] text-center">
+                                        Airport Transfers & Intercity Cabs
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="unique-desc text-[10px] md:text-[12px] text-slate-500 font-medium leading-normal md:leading-snug text-center mt-1 md:-mt-1 w-full px-2 md:px-0 max-w-[90%] md:max-w-full mx-auto">
+                            Professional chauffeurs, sanitized luxury sedans and SUVs, guaranteed on-time airport pickup, and fixed transparent rates with zero surge pricing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Cabs Header Bar -->
+            <div class="flex items-center justify-between mb-3 md:mb-4 px-1">
+                <h3 class="text-base md:text-xl font-serif font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                    Featured Rides
+                </h3>
+                <a href="cab-booking.html" class="group relative flex items-center gap-1.5 md:gap-3 px-3 py-1.5 md:px-5 md:py-2 bg-white rounded-full text-slate-800 font-bold border border-slate-200 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_35px_-5px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer isolate">
+                    <span class="absolute inset-0 bg-slate-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -z-10 rounded-full"></span>
+                    <span class="relative z-10 tracking-[0.1em] md:tracking-[0.15em] uppercase text-[8px] md:text-[10px] group-hover:text-white transition-colors duration-300">Book Cabs</span>
+                    <div class="relative z-10 flex items-center justify-center w-5 h-5 md:w-7 md:h-7 rounded-full bg-slate-50 group-hover:bg-slate-800 border border-slate-200 group-hover:border-slate-700 transition-all duration-500 shadow-sm">
+                        <i class="fa-solid fa-arrow-right text-[8px] md:text-[10px] text-slate-600 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-500"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="featuredCabsGrid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Traviyora Next-Gen Interactive Luxury Concierge Deck -->
+    <section class="py-12 sm:py-16 md:py-24 bg-[#FAF8F5] border-t border-[#EAE7E1] relative overflow-hidden">
+        <!-- Ambient Decorative Radial Glows -->
+        <div class="absolute -top-24 -right-24 w-[600px] h-[600px] bg-gradient-to-br from-[#C85A44]/10 via-[#F59E0B]/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-[600px] h-[600px] bg-gradient-to-tr from-[#10B981]/10 via-[#2563EB]/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- MAIN EDITORIAL CONTAINER CARD -->
+            <div class="reveal-block bg-white border border-[#EAE7E1] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-[0_30px_70px_rgba(15,23,42,0.06)]">
+                
+                <!-- MAGAZINE EDITORIAL HEADER -->
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                    <div class="inline-flex items-center gap-2 bg-[#FAF8F5] text-slate-800 border border-[#EAE7E1] px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 shadow-2xs">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#C85A44] animate-pulse"></span>
+                        TRAVIYORA CONCIERGE NETWORK
+                    </div>
+
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-serif text-slate-900 leading-tight mb-4">
+                        Six World-Class Verticals. <br class="hidden sm:block"/><span class="italic text-[#C85A44] font-serif">One Executive Desk.</span>
+                    </h2>
+
+                    <p class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
+                        Engineered for discerning travelers and international patients seeking India's top medical specialists. Rejection-proof visas, JCI hospital concierges, and 24/7 private assistance.
+                    </p>
+                </div>
+
+                <!-- DUAL HERO SPOTLIGHT SHOWCASE (VISAS & MEDICAL TOURISM IN INDIA) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 lg:mb-10">
+                    
+                    <!-- HERO SPOTLIGHT 1: TOURIST & BUSINESS VISAS (lg:col-span-6) -->
+                    <div class="lg:col-span-6">
+                        <a href="visas.html" class="group h-full bg-gradient-to-br from-[#FFFDFB] via-[#FFF8F5] to-[#FAF2EE] border-2 border-[#EAE7E1] hover:border-[#C85A44] rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                            <!-- Subtle Top Accent Line -->
+                            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#C85A44] via-[#F59E0B] to-[#C85A44]"></div>
+                            <div class="absolute top-0 right-0 w-36 h-36 bg-[#C85A44]/10 rounded-bl-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+                            <div>
+                                <div class="flex items-start justify-between mb-6 gap-3">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#C85A44] text-white flex items-center justify-center text-2xl sm:text-3xl shadow-lg shadow-[#C85A44]/25 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                            <i class="fa-solid fa-passport"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-[10px] font-black uppercase tracking-widest text-[#C85A44] bg-[#C85A44]/10 px-2.5 py-0.5 rounded-md">01 / FEATURED VERTICAL</span>
+                                            </div>
+                                            <h3 class="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-slate-900 group-hover:text-[#C85A44] transition-colors">Tourist & Business Visas</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white/95 border border-[#C85A44]/20 px-3 py-1.5 rounded-xl shadow-xs shrink-0 text-right">
+                                        <div class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Approval Rate</div>
+                                        <div class="text-xs sm:text-sm font-black text-[#C85A44]">98.4% Guaranteed</div>
+                                    </div>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                                    Complete document pre-audit by former consular officers, guaranteed express filing within 24 hours, and 100% money-back protection if your visa application is rejected.
+                                </p>
+
+                                <!-- Highlight Pills -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                    <div class="flex items-center gap-2.5 bg-white border border-[#EAE7E1] rounded-xl p-3 shadow-2xs group-hover:border-[#C85A44]/30 transition-colors">
+                                        <i class="fa-solid fa-bolt text-[#C85A44] text-sm"></i>
+                                        <span class="text-xs font-bold text-slate-800">24-Hour Express Audit</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 bg-white border border-[#EAE7E1] rounded-xl p-3 shadow-2xs group-hover:border-[#C85A44]/30 transition-colors">
+                                        <i class="fa-solid fa-shield-heart text-[#C85A44] text-sm"></i>
+                                        <span class="text-xs font-bold text-slate-800">100% Money-Back Shield</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-900 group-hover:text-[#C85A44] transition-colors">
+                                <span>Apply for Visa Now</span>
+                                <div class="w-10 h-10 rounded-full bg-[#C85A44]/10 group-hover:bg-[#C85A44] text-[#C85A44] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs">
+                                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- HERO SPOTLIGHT 2: MEDICAL TOURISM IN INDIA (lg:col-span-6) -->
+                    <div class="lg:col-span-6">
+                        <a href="medical.html" class="group h-full bg-gradient-to-br from-[#FAFCFB] via-[#F2FAF6] to-[#EBF7F1] border-2 border-[#EAE7E1] hover:border-[#10B981] rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                            <!-- Subtle Top Accent Line -->
+                            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#10B981] via-[#059669] to-[#10B981]"></div>
+                            <div class="absolute top-0 right-0 w-36 h-36 bg-[#10B981]/10 rounded-bl-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+                            <div>
+                                <div class="flex items-start justify-between mb-6 gap-3">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#10B981] text-white flex items-center justify-center text-2xl sm:text-3xl shadow-lg shadow-[#10B981]/25 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                            <i class="fa-solid fa-hospital-user"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-[10px] font-black uppercase tracking-widest text-[#10B981] bg-[#10B981]/10 px-2.5 py-0.5 rounded-md">02 / INDIA HEALTHCARE</span>
+                                            </div>
+                                            <h3 class="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-slate-900 group-hover:text-[#10B981] transition-colors">Medical Tourism in India</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white/95 border border-[#10B981]/20 px-3 py-1.5 rounded-xl shadow-xs shrink-0 text-right">
+                                        <div class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Hospital Hubs</div>
+                                        <div class="text-xs sm:text-sm font-black text-[#10B981]">150+ Accredited</div>
+                                    </div>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                                    Premier JCI & NABH accredited Indian hospital networks, world-renowned surgeons, medical visa fast-tracking, and end-to-end patient airport escorts across India.
+                                </p>
+
+                                <!-- Highlight Pills -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                                    <div class="flex items-center gap-2.5 bg-white border border-[#EAE7E1] rounded-xl p-3 shadow-2xs group-hover:border-[#10B981]/30 transition-colors">
+                                        <i class="fa-solid fa-user-doctor text-[#10B981] text-sm"></i>
+                                        <span class="text-xs font-bold text-slate-800">Top Indian Surgeons</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 bg-white border border-[#EAE7E1] rounded-xl p-3 shadow-2xs group-hover:border-[#10B981]/30 transition-colors">
+                                        <i class="fa-solid fa-notes-medical text-[#10B981] text-sm"></i>
+                                        <span class="text-xs font-bold text-slate-800">Medical Visa Fast-Track</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-900 group-hover:text-[#10B981] transition-colors">
+                                <span>Explore India Medical Concierge</span>
+                                <div class="w-10 h-10 rounded-full bg-[#10B981]/10 group-hover:bg-[#10B981] text-[#10B981] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs">
+                                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- 4 SECONDARY WORKFLOW BENTO TILES -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                    
+                    <!-- 03 / Bespoke Expeditions (Royal Blue) -->
+                    <a href="tours.html" class="group bg-[#FAF8F5] border border-[#EAE7E1] hover:border-[#2563EB] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-xl group-hover:bg-[#2563EB] group-hover:text-white transition-all shadow-2xs">
+                                    <i class="fa-solid fa-earth-americas"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">03</span>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#2563EB] bg-[#2563EB]/10 px-2.5 py-0.5 rounded-full mb-2 inline-block">Curated Tours</span>
+                            <h3 class="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-[#2563EB] transition-colors">Bespoke Expeditions</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Handcrafted luxury itineraries with certified private guides and guaranteed departures.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-[#2563EB] transition-colors">
+                            <span>Explore Routes</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- 04 / Boutique Hotel Stays (Amber Gold) -->
+                    <a href="hotels.html" class="group bg-[#FAF8F5] border border-[#EAE7E1] hover:border-[#D97706] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-xl group-hover:bg-[#D97706] group-hover:text-white transition-all shadow-2xs">
+                                    <i class="fa-solid fa-hotel"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">04</span>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#D97706] bg-[#D97706]/10 px-2.5 py-0.5 rounded-full mb-2 inline-block">5-Star Stays</span>
+                            <h3 class="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-[#D97706] transition-colors">Boutique Hotel Stays</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Preferred luxury partner resorts with complimentary room upgrades & zero cancellation penalties.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-[#D97706] transition-colors">
+                            <span>Book Stays</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- 05 / Flight Engine (Violet Purple) -->
+                    <a href="flight-booking.html" class="group bg-[#FAF8F5] border border-[#EAE7E1] hover:border-[#7C3AED] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center text-xl group-hover:bg-[#7C3AED] group-hover:text-white transition-all shadow-2xs">
+                                    <i class="fa-solid fa-plane-departure"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">05</span>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#7C3AED] bg-[#7C3AED]/10 px-2.5 py-0.5 rounded-full mb-2 inline-block">Global Flights</span>
+                            <h3 class="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-[#7C3AED] transition-colors">Flight Engine</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Live global airline fare comparison, instant seat allocation, and re-route protection.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-[#7C3AED] transition-colors">
+                            <span>Search Fares</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- 06 / Airport Cabs (Cyan Teal) -->
+                    <a href="cab-booking.html" class="group bg-[#FAF8F5] border border-[#EAE7E1] hover:border-[#0891B2] rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#0891B2]/10 text-[#0891B2] flex items-center justify-center text-xl group-hover:bg-[#0891B2] group-hover:text-white transition-all shadow-2xs">
+                                    <i class="fa-solid fa-taxi"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">06</span>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#0891B2] bg-[#0891B2]/10 px-2.5 py-0.5 rounded-full mb-2 inline-block">Fixed Rates</span>
+                            <h3 class="font-serif font-bold text-lg text-slate-900 mb-2 group-hover:text-[#0891B2] transition-colors">Airport Cabs</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                24/7 verified private chauffeurs, executive sedans, and guaranteed zero surge pricing.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-[#EAE7E1] flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-[#0891B2] transition-colors">
+                            <span>Reserve Cab</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- LUXURY ASSURANCE MATRIX FOOTER STRIP -->
+                <div class="bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] border border-[#EAE7E1] rounded-2xl p-5 sm:p-8">
+                    <div class="text-center mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-[#C85A44]">THE TRAVIYORA STANDARD</span>
+                        <h4 class="font-serif font-bold text-lg sm:text-xl text-slate-900 mt-0.5">Uncompromising Quality & Patient Care</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="flex items-center gap-3.5 bg-white border border-[#EAE7E1] p-4 rounded-xl shadow-2xs">
+                            <div class="w-10 h-10 rounded-xl bg-[#C85A44]/10 text-[#C85A44] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-shield-check"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs sm:text-sm font-bold text-slate-900">98.4% Visa Success</div>
+                                <div class="text-[11px] text-slate-500">Full Refund Protection</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5 bg-white border border-[#EAE7E1] p-4 rounded-xl shadow-2xs">
+                            <div class="w-10 h-10 rounded-xl bg-[#10B981]/10 text-[#10B981] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-hospital"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs sm:text-sm font-bold text-slate-900">150+ India Hospitals</div>
+                                <div class="text-[11px] text-slate-500">JCI & NABH Certified</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5 bg-white border border-[#EAE7E1] p-4 rounded-xl shadow-2xs">
+                            <div class="w-10 h-10 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs sm:text-sm font-bold text-slate-900">Zero Hidden Markups</div>
+                                <div class="text-[11px] text-slate-500">Transparent Fixed Rates</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3.5 bg-white border border-[#EAE7E1] p-4 rounded-xl shadow-2xs">
+                            <div class="w-10 h-10 rounded-xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs sm:text-sm font-bold text-slate-900">24/7 Human Desk</div>
+                                <div class="text-[11px] text-slate-500">Dedicated On-Trip Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-block').forEach(block => {
+                observer.observe(block);
+            });
+        });
+    </script>
 
     <!-- Ultra Premium Light Footer -->
     <footer
@@ -1145,17 +2065,47 @@
                 { name: "The Ritz-Carlton", location: "Dubai, UAE", rating: "4.9", price: "₹25,000", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" },
                 { name: "Taj Mahal Palace", location: "Mumbai, India", rating: "4.8", price: "₹18,500", img: "https://images.unsplash.com/photo-1542314831-c6a4d142104d?auto=format&fit=crop&w=600&q=80" },
                 { name: "Marina Bay Sands", location: "Singapore", rating: "4.9", price: "₹32,000", img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80" },
-                { name: "Four Seasons Resort", location: "Bali, Indonesia", rating: "4.7", price: "₹28,000", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" }
+                { name: "Four Seasons Resort", location: "Bali, Indonesia", rating: "4.7", price: "₹28,000", img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" },
+                { name: "Atlantis The Royal", location: "Dubai, UAE", rating: "4.9", price: "₹38,000", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" },
+                { name: "The Oberoi Udaivilas", location: "Udaipur, India", rating: "4.9", price: "₹29,000", img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" },
+                { name: "Hotel du Cap-Eden-Roc", location: "Riviera, France", rating: "4.8", price: "₹45,000", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" },
+                { name: "The Plaza Hotel", location: "New York, USA", rating: "4.7", price: "₹35,000", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" }
             ];
 
             const featuredMedical = [
                 { id: 1, title: "Advanced Cardiology", duration: "7 Days", cat: "Heart Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" },
                 { id: 2, title: "Orthopedic Surgery", duration: "10 Days", cat: "Joint Care", img: "https://images.unsplash.com/photo-1551076805-e18690c5e45e?auto=format&fit=crop&w=600&q=80" },
                 { id: 3, title: "Dental Implants", duration: "5 Days", cat: "Dental", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" },
-                { id: 4, title: "Wellness & Ayurveda", duration: "14 Days", cat: "Wellness", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" }
+                { id: 4, title: "Wellness & Ayurveda", duration: "14 Days", cat: "Wellness", img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" },
+                { id: 5, title: "Oncology Care", duration: "12 Days", cat: "Cancer Care", img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" },
+                { id: 6, title: "Organ Transplant", duration: "21 Days", cat: "Transplant", img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" },
+                { id: 7, title: "Cosmetic Surgery", duration: "4 Days", cat: "Aesthetics", img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" },
+                { id: 8, title: "IVF & Fertility", duration: "10 Days", cat: "Fertility", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" }
             ];
 
-            document.getElementById('popularVisasGrid').innerHTML = popularVisas.map(v => `
+            const featuredFlights = [
+                { airline: "Emirates", route: "Mumbai to Dubai", duration: "3h 30m", type: "Non-stop", price: "₹14,500", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" },
+                { airline: "British Airways", route: "Delhi to London", duration: "9h 15m", type: "Non-stop", price: "₹48,000", img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" },
+                { airline: "Singapore Airlines", route: "Bengaluru to Singapore", duration: "4h 25m", type: "Non-stop", price: "₹18,200", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=600&q=80" },
+                { airline: "Thai Airways", route: "Mumbai to Bangkok", duration: "4h 10m", type: "Non-stop", price: "₹12,800", img: "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" },
+                { airline: "Air India", route: "Delhi to New York", duration: "15h 30m", type: "Non-stop", price: "₹65,000", img: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80" },
+                { airline: "Air France", route: "Chennai to Paris", duration: "11h 45m", type: "1-Stop", price: "₹42,500", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
+                { airline: "Garuda Indonesia", route: "Hyderabad to Bali", duration: "6h 50m", type: "1-Stop", price: "₹22,000", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" },
+                { airline: "ANA Japan", route: "Ahmedabad to Tokyo", duration: "8h 20m", type: "1-Stop", price: "₹38,900", img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80" }
+            ];
+
+            const featuredCabs = [
+                { type: "Executive Airport Sedan", car: "Toyota Camry / Dzire", capacity: "4 Seats", rate: "₹1,200", tag: "Airport Drop", img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80" },
+                { type: "Luxury Chauffeur SUV", car: "Innova Crysta", capacity: "7 Seats", rate: "₹2,500", tag: "Intercity", img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" },
+                { type: "Premium VIP Limousine", car: "Mercedes E-Class", capacity: "4 Seats", rate: "₹5,500", tag: "VIP Travel", img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80" },
+                { type: "Outstation SUV Cruise", car: "Mahindra XUV700", capacity: "7 Seats", rate: "₹3,200", tag: "Outstation", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" },
+                { type: "Family Mini Van", car: "Force Urbania", capacity: "12 Seats", rate: "₹4,800", tag: "Group Tour", img: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80" },
+                { type: "City Sightseeing Sedan", car: "Honda City", capacity: "4 Seats", rate: "₹1,800", tag: "Full Day", img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" },
+                { type: "Coastal Highway Cruiser", car: "Hyundai Alcazar", capacity: "6 Seats", rate: "₹2,900", tag: "Road Trip", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" },
+                { type: "Electric Eco Shuttle", car: "Tata Nexon EV", capacity: "4 Seats", rate: "₹1,100", tag: "Eco Friendly", img: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" }
+            ];
+
+            document.getElementById('popularVisasGrid').innerHTML = popularVisas.slice(0, 8).map(v => `
             <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.2)] transition-all duration-500" onclick="window.location.href='visa-detail.html?dest=' + encodeURIComponent('${v.country}') + '&img=' + encodeURIComponent('${v.img}')">
                 <!-- Normal State Background -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-[1.15]" style="background-image: url('${v.img}')"></div>
@@ -1215,45 +2165,47 @@
         `).join('');
 
             document.getElementById('featuredToursGrid').innerHTML = featuredTours.slice(0, 8).map(t => `
-            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] overflow-hidden cursor-pointer shadow-[0_4px_20px_rgb(0,0,0,0.08)] hover:shadow-[0_15px_30px_rgb(0,0,0,0.15)] transition-all duration-500" onclick="window.location.href='tours.html'">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1500ms] group-hover:scale-[1.12]" style="background-image: url('${t.img}')"></div>
-                <!-- Darker base gradient for smaller cards so text is readable -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
-                
-                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
-                    <div class="bg-black/30 backdrop-blur-md border border-white/20 px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-lg">
-                        <span class="text-[7px] md:text-[8px] font-bold text-white/90 uppercase tracking-[0.1em] md:tracking-[0.2em] whitespace-nowrap">${t.cat}</span>
-                    </div>
-                </div>
-                
-                <div class="absolute inset-0 p-3 md:p-5 flex flex-col items-center justify-center text-center z-10 transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
-                    <h3 class="text-[14px] sm:text-[18px] md:text-[24px] font-serif font-bold text-white tracking-wide leading-tight drop-shadow-xl mb-1 md:mb-2">${t.title}</h3>
-                    <div class="flex items-center justify-center gap-1.5 text-white/90">
-                        <i class="fa-regular fa-clock text-white/70 text-[9px] md:text-[10px]"></i>
-                        <span class="text-[8px] md:text-[9px] font-bold tracking-[0.2em] uppercase">${t.duration}</span>
-                    </div>
-                </div>
+            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-[0_4px_20px_rgb(0,0,0,0.08)] hover:shadow-[0_15px_30px_rgb(0,0,0,0.15)] transition-all duration-500" onclick="window.location.href='tours.html'">
 
-                <div class="absolute inset-0 bg-[#0f172a]/90 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-all duration-500 p-3 md:p-5 flex flex-col items-center justify-center text-center z-20">
-                    <h3 class="text-[13px] sm:text-[16px] md:text-[22px] font-serif font-bold text-white tracking-wide leading-tight mb-2 md:mb-3 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[50ms]">${t.title}</h3>
-                    <p class="text-[9px] md:text-[11px] text-white/70 mb-3 md:mb-5 max-w-[220px] leading-relaxed transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[100ms] line-clamp-3">Experience the best of ${t.title} with premium guided tours.</p>
-                    <div class="w-full flex justify-between items-center border-t border-white/10 pt-3 md:pt-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[150ms]">
-                        <div class="text-left">
-                            <span class="block text-[7px] md:text-[8px] font-bold text-white/50 uppercase tracking-[0.2em] mb-1">Per Person</span>
-                            <span class="text-[10px] md:text-[12px] font-bold text-blue-300 drop-shadow-sm">${t.price}</span>
-                        </div>
-                        <div class="hidden md:flex w-8 h-8 rounded-full border border-white/20 items-center justify-center text-white bg-white/5 hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-lg">
-                            <i class="fa-solid fa-arrow-right text-[10px] -rotate-45"></i>
-                        </div>
-                    </div>
+            <!-- Image -->
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[1500ms] group-hover:scale-[1.12]" style="background-image: url('${t.img}')"></div>
+            <!-- Darker base gradient for smaller cards so text is readable -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                <div class="bg-black/30 backdrop-blur-md border border-white/20 px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-lg">
+                    <span class="text-[7px] md:text-[8px] font-bold text-white/90 uppercase tracking-[0.1em] md:tracking-[0.2em] whitespace-nowrap">${t.cat}</span>
                 </div>
-                <!-- Shimmer Sweep -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 transform -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 z-50 pointer-events-none mix-blend-overlay"></div>
             </div>
-        `).join('');
 
-            document.getElementById('featuredHotelsGrid').innerHTML = featuredHotels.map(h => `
-            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(56,189,248,0.15)]" onclick="window.location.href='hotels.html'">
+            <div class="absolute inset-0 p-3 md:p-5 flex flex-col items-center justify-center text-center z-10 transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
+                <h3 class="text-[14px] sm:text-[18px] md:text-[24px] font-serif font-bold text-white tracking-wide leading-tight drop-shadow-xl mb-1 md:mb-2">${t.title}</h3>
+                <div class="flex items-center justify-center gap-1.5 text-white/90">
+                    <i class="fa-regular fa-clock text-white/70 text-[9px] md:text-[10px]"></i>
+                    <span class="text-[8px] md:text-[9px] font-bold tracking-[0.2em] uppercase">${t.duration}</span>
+                </div>
+            </div>
+
+            <div class="absolute inset-0 bg-[#0f172a]/90 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-all duration-500 p-3 md:p-5 flex flex-col items-center justify-center text-center z-20">
+                <h3 class="text-[13px] sm:text-[16px] md:text-[22px] font-serif font-bold text-white tracking-wide leading-tight mb-2 md:mb-3 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[50ms]">${t.title}</h3>
+                <p class="text-[9px] md:text-[11px] text-white/70 mb-3 md:mb-5 max-w-[220px] leading-relaxed transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[100ms] line-clamp-3">Experience the best of ${t.title} with premium guided tours.</p>
+                <div class="w-full flex justify-between items-center border-t border-white/10 pt-3 md:pt-4 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-[150ms]">
+                    <div class="text-left">
+                        <span class="block text-[7px] md:text-[8px] font-bold text-white/50 uppercase tracking-[0.2em] mb-1">Per Person</span>
+                        <span class="text-[10px] md:text-[12px] font-bold text-blue-300 drop-shadow-sm">${t.price}</span>
+                    </div>
+                    <div class="hidden md:flex w-8 h-8 rounded-full border border-white/20 items-center justify-center text-white bg-white/5 hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-lg">
+                        <i class="fa-solid fa-arrow-right text-[10px] -rotate-45"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Shimmer Sweep -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 transform -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 z-50 pointer-events-none mix-blend-overlay"></div>
+        </div>
+    `).join('');
+
+        document.getElementById('featuredHotelsGrid').innerHTML = featuredHotels.map(h => `
+        <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(56,189,248,0.15)]" onclick="window.location.href='hotels.html'">
                 
                 <!-- Image -->
                 <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-60 blur-0 group-hover:blur-md" style="background-image: url('${h.img}')"></div>
@@ -1322,7 +2274,7 @@
         `).join('');
 
             document.getElementById('featuredMedicalGrid').innerHTML = featuredMedical.map(t => `
-            <div class="group relative w-full h-[340px] md:h-[420px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(20,184,166,0.25)]" onclick="window.location.href='medical.html'">
+            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(20,184,166,0.25)]" onclick="window.location.href='medical.html'">
                 
                 <!-- Image -->
                 <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-70 blur-0 group-hover:blur-sm" style="background-image: url('${t.img}')"></div>
@@ -1384,6 +2336,110 @@
                     </div>
                 </div>
                 <!-- Shimmer Sweep -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 transform -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 z-50 pointer-events-none mix-blend-overlay"></div>
+            </div>
+        `).join('');
+
+            document.getElementById('featuredFlightsGrid').innerHTML = featuredFlights.map(f => `
+            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(59,130,246,0.2)]" onclick="window.location.href='flight-booking.html'">
+                <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-70 blur-0 group-hover:blur-sm" style="background-image: url('${f.img}')"></div>
+                <div class="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                    <div class="bg-blue-600/90 backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 rounded-full shadow border border-blue-400">
+                        <span class="text-[7px] md:text-[9px] font-bold text-white uppercase tracking-[0.1em] md:tracking-[0.2em] whitespace-nowrap"><i class="fa-solid fa-plane text-[8px] mr-1"></i> ${f.type}</span>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 p-3 md:p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
+                    <h3 class="text-[14px] sm:text-[18px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-2 drop-shadow-lg">${f.route}</h3>
+                    <div class="flex items-center gap-1.5 text-blue-300">
+                        <i class="fa-solid fa-plane-departure text-[9px] md:text-[11px]"></i>
+                        <span class="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">${f.airline}</span>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-950/95 via-slate-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-4 md:p-7 text-center">
+                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-1 md:pt-2">
+                        <div class="bg-blue-500/20 border border-blue-400/30 px-2 md:px-3 py-1 md:py-1.5 rounded-full w-fit mb-2 md:mb-4">
+                            <span class="text-[7px] md:text-[9px] font-bold text-blue-200 uppercase tracking-[0.2em]">${f.airline}</span>
+                        </div>
+                        <h3 class="text-[13px] sm:text-[16px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">${f.route}</h3>
+                        <p class="text-[8px] md:text-[11px] text-blue-100/75 leading-relaxed font-medium line-clamp-3 w-full">Includes free baggage allowance, inflight meals, and instant sub-agent flight confirmation.</p>
+                    </div>
+
+                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-1 md:pb-2">
+                        <div class="flex items-center justify-between w-full border-t border-blue-500/20 pt-3 md:pt-5 mt-2 md:mt-4">
+                            <div class="hidden md:flex w-12 h-12 rounded-full border border-blue-500/30 bg-blue-900/40 items-center justify-center text-blue-300 shadow-inner">
+                                <i class="fa-solid fa-ticket text-[16px]"></i>
+                            </div>
+                            <div class="flex flex-col items-center md:items-end w-full text-center md:text-right">
+                                <div class="flex flex-col items-center md:items-end mb-2 md:mb-3 w-full text-center md:text-right">
+                                    <span class="text-[7px] md:text-[8px] font-bold text-blue-400 uppercase tracking-[0.3em] mb-1">Starting Fare</span>
+                                    <span class="text-[11px] md:text-[18px] font-black text-white leading-none">${f.price}</span>
+                                </div>
+                                <div class="hidden md:flex items-center gap-3 text-white group/btn hover:text-blue-200 transition-colors cursor-pointer">
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">Book Now</span>
+                                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-blue-600 group-hover/btn:scale-110">
+                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 transform -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 z-50 pointer-events-none mix-blend-overlay"></div>
+            </div>
+        `).join('');
+
+            document.getElementById('featuredCabsGrid').innerHTML = featuredCabs.map(c => `
+            <div class="group relative w-full h-[320px] md:h-[400px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer shadow-lg bg-black transition-all hover:shadow-[0_20px_40px_rgba(245,158,11,0.2)]" onclick="window.location.href='cab-booking.html'">
+                <div class="absolute inset-0 bg-cover bg-center transition-all duration-[1200ms] ease-out group-hover:scale-[1.10] group-hover:opacity-70 blur-0 group-hover:blur-sm" style="background-image: url('${c.img}')"></div>
+                <div class="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
+                
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
+                    <div class="bg-amber-500/90 backdrop-blur-sm px-2 md:px-3 py-1 md:py-1.5 rounded-full shadow border border-amber-400">
+                        <span class="text-[7px] md:text-[9px] font-bold text-slate-950 uppercase tracking-[0.1em] md:tracking-[0.2em] whitespace-nowrap"><i class="fa-solid fa-car text-[8px] mr-1"></i> ${c.tag}</span>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 p-3 md:p-6 z-10 transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 flex flex-col justify-center items-center text-center text-white">
+                    <h3 class="text-[14px] sm:text-[18px] md:text-[24px] font-serif font-black tracking-wide leading-tight mb-2 drop-shadow-lg">${c.type}</h3>
+                    <div class="flex items-center gap-1.5 text-amber-300">
+                        <i class="fa-solid fa-taxi text-[9px] md:text-[11px]"></i>
+                        <span class="text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">${c.car}</span>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-amber-950/95 via-slate-900/95 to-black/95 backdrop-blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 z-20 flex flex-col justify-between p-4 md:p-7 text-center">
+                    <div class="flex flex-col items-center transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[50ms] opacity-0 group-hover:opacity-100 relative w-full pt-1 md:pt-2">
+                        <div class="bg-amber-500/20 border border-amber-400/30 px-2 md:px-3 py-1 md:py-1.5 rounded-full w-fit mb-2 md:mb-4">
+                            <span class="text-[7px] md:text-[9px] font-bold text-amber-300 uppercase tracking-[0.2em]">${c.car} (${c.capacity})</span>
+                        </div>
+                        <h3 class="text-[13px] sm:text-[16px] md:text-[22px] font-serif font-bold text-white tracking-tight leading-tight mb-2 md:mb-3">${c.type}</h3>
+                        <p class="text-[8px] md:text-[11px] text-amber-100/75 leading-relaxed font-medium line-clamp-3 w-full">Verified chauffeurs, sanitized luxury interior, flight tracking, and zero cancellation fee.</p>
+                    </div>
+
+                    <div class="flex flex-col items-end transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-[100ms] opacity-0 group-hover:opacity-100 w-full pb-1 md:pb-2">
+                        <div class="flex items-center justify-between w-full border-t border-amber-500/20 pt-3 md:pt-5 mt-2 md:mt-4">
+                            <div class="hidden md:flex w-12 h-12 rounded-full border border-amber-500/30 bg-amber-900/40 items-center justify-center text-amber-300 shadow-inner">
+                                <i class="fa-solid fa-key text-[16px]"></i>
+                            </div>
+                            <div class="flex flex-col items-center md:items-end w-full text-center md:text-right">
+                                <div class="flex flex-col items-center md:items-end mb-2 md:mb-3 w-full text-center md:text-right">
+                                    <span class="text-[7px] md:text-[8px] font-bold text-amber-400 uppercase tracking-[0.3em] mb-1">Fixed Rate</span>
+                                    <span class="text-[11px] md:text-[18px] font-black text-white leading-none">${c.rate}</span>
+                                </div>
+                                <div class="hidden md:flex items-center gap-3 text-white group/btn hover:text-amber-200 transition-colors cursor-pointer">
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">Reserve Ride</span>
+                                    <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-slate-950 shadow-[0_0_20px_rgba(245,158,11,0.6)] transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-amber-900 group-hover/btn:scale-110">
+                                        <i class="fa-solid fa-arrow-right -rotate-45 text-[12px]"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 transform -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 z-50 pointer-events-none mix-blend-overlay"></div>
             </div>
         `).join('');
@@ -1516,17 +2572,27 @@
             const titleSub = document.getElementById('heroTitleSub');
             const desc = document.getElementById('heroDesc');
             const pillsWrap = document.getElementById('heroFeaturePills');
+            const contentWrap = document.getElementById('heroContentWrap');
             const ctaBtn = document.getElementById('heroCtaBtn');
             const ctaText = document.getElementById('heroCtaText');
-            const slideNum = document.getElementById('slideCurrentNum');
-            const dotsWrap = document.getElementById('slideDots');
 
+            // Trigger Ken Burns Zoom and Fade on Background Image
             if (bgImage) {
-                bgImage.style.opacity = '0';
+                bgImage.classList.remove('hero-ken-burns');
+                bgImage.style.opacity = '0.3';
                 setTimeout(() => {
                     bgImage.style.backgroundImage = `url('${slide.bgImage}')`;
-                    bgImage.style.opacity = '0.7';
-                }, 200);
+                    bgImage.style.opacity = '0.75';
+                    void bgImage.offsetWidth; // Trigger reflow
+                    bgImage.classList.add('hero-ken-burns');
+                }, 150);
+            }
+
+            // Trigger Content Entrance Animation
+            if (contentWrap) {
+                contentWrap.classList.remove('hero-animate-fade');
+                void contentWrap.offsetWidth; // Trigger reflow
+                contentWrap.classList.add('hero-animate-fade');
             }
 
             if (badge) badge.textContent = slide.badge;
@@ -1535,20 +2601,13 @@
             if (desc) desc.textContent = slide.desc;
             if (ctaText) ctaText.textContent = slide.ctaText;
             if (ctaBtn) ctaBtn.setAttribute('href', slide.ctaLink);
-            if (slideNum) slideNum.textContent = String(index + 1).padStart(2, '0');
 
             if (pillsWrap) {
                 pillsWrap.innerHTML = slide.pills.map(p => `
-                    <div class="inline-flex items-center gap-1 bg-slate-900/80 border border-white/15 px-2 py-0.5 rounded-full text-[7.5px] md:text-[9px] font-bold text-slate-200 backdrop-blur-md shadow-sm">
-                        <i class="fa-solid ${p.icon} text-amber-400 text-[8px]"></i>
+                    <div class="inline-flex items-center gap-1.5 bg-slate-900/90 border border-white/20 px-3 py-1 rounded-full text-[8px] md:text-[9.5px] font-bold text-slate-100 backdrop-blur-md shadow-sm hover:border-amber-400/60 transition-all hover:scale-105">
+                        <i class="fa-solid ${p.icon} text-amber-400 text-[9.5px]"></i>
                         <span>${p.text}</span>
                     </div>
-                `).join('');
-            }
-
-            if (dotsWrap) {
-                dotsWrap.innerHTML = heroSlides.map((_, i) => `
-                    <button onclick="goToHeroSlide(${i})" aria-label="Go to slide ${i + 1}" class="transition-all duration-300 ${i === index ? 'w-5 h-2 bg-amber-400 rounded-full' : 'w-2 h-2 bg-white/40 hover:bg-white/70 rounded-full'} cursor-pointer"></button>
                 `).join('');
             }
         }

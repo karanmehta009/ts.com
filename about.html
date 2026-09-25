@@ -109,141 +109,117 @@
 <body class="min-h-screen flex flex-col justify-between bg-slate-50/80">
 
     <!-- Navigation Bar -->
-                                                        <!-- Navigation -->
+                                                                                                                                                                                <!-- Navigation -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
         <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4.5 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-0.5 relative z-20">
-                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviyora Logo"
-                    class="h-5 md:h-6 lg:h-7 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
+                    class="h-7 md:h-8 lg:h-9 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IYORA</span></span>
             </a>
 
-            <!-- Desktop Links with Height-Optimized Padding -->
-            <div
-                class="hidden lg:flex items-center gap-1.5 lg:gap-2.5 font-black text-slate-600 text-[10px] uppercase tracking-[0.07em] desktop-menu-links">
+            <!-- Desktop Links (Vibrant Tactile Sticker Badge Design with Refined Typography) -->
+            <div class="hidden lg:flex items-center gap-3.5 lg:gap-4 xl:gap-5 text-slate-800 desktop-menu-links">
                 
                 <!-- 1. Home -->
-                <a href="index.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-house text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span>HOME</span>
-                    </span>
+                <a href="index.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-house text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Home</span>
                 </a>
 
                 <!-- 2. Tourist Visa -->
-                <a href="visas.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-passport text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>TOURIST</span>
-                            <span>VISA</span>
-                        </span>
-                    </span>
+                <a href="visas.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-passport text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Tourist<br>Visa</span>
                 </a>
 
                 <!-- 3. Medical Tourism -->
-                <a href="medical.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-notes-medical text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>MEDICAL</span>
-                            <span>TOURISM</span>
-                        </span>
-                    </span>
+                <a href="medical.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-square-plus text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Medical<br>Tourism</span>
                 </a>
 
                 <!-- 4. Tour Booking -->
-                <a href="tours.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-earth-americas text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>TOUR</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="tours.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-location-dot text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Tour<br>Booking</span>
                 </a>
 
                 <!-- 5. Flight Booking -->
-                <a href="flight-booking.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-plane text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>FLIGHT</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="flight-booking.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-plane text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Flight<br>Booking</span>
                 </a>
 
                 <!-- 6. Cab Booking -->
-                <a href="cab-booking.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-taxi text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>CAB</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="cab-booking.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-car text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Cab<br>Booking</span>
                 </a>
 
                 <!-- 7. Hotel Booking -->
-                <a href="hotels.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-hotel text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.05]">
-                            <span>HOTEL</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="hotels.html" class="flex flex-col items-center justify-center p-1.5 rounded-2xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-1">
+                        <i class="fa-solid fa-building text-[18px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[13px] leading-[1.25] text-slate-800 group-hover:text-blue-600 tracking-[0.02em] text-center">Hotel<br>Booking</span>
                 </a>
 
-                <!-- 8. About -->
-                <a href="about.html"
-                    class="relative group px-3.5 py-2 rounded-xl border border-transparent transition-all duration-300 hover:bg-blue-50/80 hover:border-blue-200/60 hover:text-blue-600 hover:shadow-[0_4px_12px_rgba(37,99,235,0.12)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-[14px] text-slate-400 group-hover:text-blue-600 group-hover:scale-110 transition-transform duration-300 shrink-0"></i>
-                        <span>ABOUT</span>
-                    </span>
+                <!-- 8. About (Active Circular Compass Medallion Badge) -->
+                <a href="about.html" class="flex flex-col items-center justify-center px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl shadow-[0_6px_20px_rgba(99,102,241,0.32)] hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-0.5 shrink-0">
+                    <i class="fa-solid fa-compass text-[17px] mb-1 text-white"></i>
+                    <span class="font-['Outfit'] font-extrabold text-[13px] leading-tight text-white tracking-[0.025em] text-center">About</span>
                 </a>
             </div>
 
             <!-- Header Actions -->
-            <div class="flex items-center gap-3 md:gap-3.5 relative pr-1 md:pr-0 z-20">
-                <!-- Mobile Menu Toggle Button -->
+            <div class="flex items-center gap-3.5 md:gap-4 relative pr-1 md:pr-0 z-20">
+                <!-- Mobile Menu Toggle Button (Tactile Sticker Badge with Menu Label Below) -->
                 <button id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
-                    class="lg:hidden relative z-30 w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 hover:bg-slate-100 rounded-full border border-slate-200 cursor-pointer pointer-events-auto transition-colors">
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
+                    class="lg:hidden relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
+                    
+                    <!-- Tactile Sticker Ring Icon -->
+                    <div class="w-11 h-11 rounded-[16px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] flex flex-col justify-center items-center gap-1 transition-all duration-300">
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-4 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                    </div>
+
+                    <!-- Menu Label Text Below Hamburger Icon -->
+                    <span class="font-['Outfit'] font-extrabold text-[13px] text-slate-800 group-hover:text-blue-600 transition-colors mt-1.5 tracking-[0.025em]">Menu</span>
                 </button>
 
-                <!-- Profile Button with Enhanced Circling Neon Blue Laser Beam Animation -->
+                <!-- Thin Vertical Divider Line -->
+                <div class="hidden lg:block w-[1px] h-8 bg-slate-200 mx-1.5"></div>
+
+                <!-- Vertically Stacked Profile Button (Circular Tactile Sticker Badge) -->
                 <a href="profile.html" aria-label="User Profile"
-                    class="relative z-30 group w-9 h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 rounded-full bg-slate-50 border border-slate-200/80 shadow-sm flex items-center justify-center text-slate-600 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_25px_rgba(37,99,235,0.7)] overflow-hidden cursor-pointer pointer-events-auto">
+                    class="relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
                     
-                    <!-- Blurred Ambient Blue Light Aura Trail -->
-                    <div class="absolute -inset-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
-                        <div class="w-[300%] h-[300%] bg-[conic-gradient(from_0deg,transparent_40%,#2563eb_75%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite] blur-md opacity-80"></div>
+                    <!-- Circular Sticker Outline Ring Icon -->
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_8px_20px_rgba(37,99,235,0.32)] text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                        <i class="fa-regular fa-user text-[16px] text-slate-700 group-hover:text-white transition-colors"></i>
                     </div>
 
-                    <!-- Crisp Circling Neon Laser Comet Beam -->
-                    <div class="absolute -inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-0">
-                        <div class="w-[280%] h-[280%] bg-[conic-gradient(from_0deg,transparent_40%,#1d4ed8_70%,#3b82f6_85%,#38bdf8_95%,#ffffff_100%)] animate-[spin_1.2s_linear_infinite]"></div>
-                    </div>
-
-                    <!-- Inner Core Mask with Glowing Icon -->
-                    <div class="absolute inset-[2px] rounded-full bg-slate-50 group-hover:bg-white transition-colors duration-300 flex items-center justify-center z-10 shadow-inner pointer-events-none">
-                        <i class="fa-regular fa-user text-sm md:text-base lg:text-lg text-slate-600 group-hover:text-blue-600 group-hover:scale-115 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.85)] transition-all duration-300"></i>
-                    </div>
+                    <!-- Below Text: Profile v -->
+                    <span class="font-['Outfit'] font-extrabold text-[13px] text-slate-800 group-hover:text-blue-600 transition-colors flex items-center gap-1 mt-1.5 tracking-[0.025em]">
+                        Profile <i class="fa-solid fa-chevron-down text-[9px] text-slate-500 group-hover:text-blue-600 transition-colors ml-0.5"></i>
+                    </span>
                 </a>
             </div>
         </div>
@@ -407,7 +383,7 @@
     </nav>
 
     <!-- Main Content Container -->
-    <main class="pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-24 max-w-6xl mx-auto px-4 md:px-6 w-full flex-grow">
+    <main class="pt-28 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-24 max-w-6xl mx-auto px-4 md:px-6 w-full flex-grow">
 
         <!-- Animated Editorial Glass Hero Card -->
         <div class="fade-in-up relative glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-10 mb-8 md:mb-12 overflow-hidden shadow-[0_12px_45px_rgba(0,0,0,0.04)] border border-slate-200/90">
