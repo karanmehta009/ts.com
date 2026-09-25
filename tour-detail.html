@@ -166,6 +166,7 @@
             border-radius: 10px;
         }
     </style>
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>
@@ -281,7 +282,7 @@
             <!-- Header Actions -->
             <div class="flex items-center gap-3 md:gap-3.5 relative pr-1 md:pr-0 z-20">
                 <!-- Mobile Menu Toggle Button -->
-                <button id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu(event)" type="button" aria-label="Open navigation menu"
                     class="lg:hidden relative z-30 w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 hover:bg-slate-100 rounded-full border border-slate-200 cursor-pointer pointer-events-auto transition-colors">
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
                     <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
@@ -305,7 +306,10 @@
         </div>
 
         <!-- Mobile Navigation Menu (Centered Modal Overlay) -->
-        <div id="mobileMenu"
+        
+    </nav>
+
+    <div id="mobileMenu"
             class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
 
             <style>
@@ -328,13 +332,13 @@
             <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
 
             <!-- Dead-Centered Modal Card -->
-            <div id="mobileMenuCard" class="relative z-10 bg-white w-full max-w-[340px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-auto">
+            <div id="mobileMenuCard" class="relative z-10 bg-white w-full max-w-[340px] rounded-[28px] shadow-[0_30px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
 
                 <div class="px-4 pt-4 pb-2 w-full">
                     <!-- Navigation Header -->
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[11px] font-black tracking-[0.25em] text-black uppercase ml-1">Navigation</span>
-                        <button id="closeMobileMenuBtn" type="button" aria-label="Close navigation menu"
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
                             class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 hover:bg-slate-200 transition-colors shadow-inner z-[60] relative cursor-pointer">
                             <i class="fa-solid fa-xmark text-[13px] pointer-events-none"></i>
                         </button>
@@ -460,7 +464,6 @@
                 </div>
             </div>
         </div>
-    </nav>
 
     <!-- Main Content Grid Layout -->
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-24 md:pt-32 pb-16 md:pb-32">

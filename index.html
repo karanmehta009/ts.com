@@ -235,6 +235,7 @@
             }
         }
     </style>
+    <script src="js/navbar.js"></script>
 </head>
 
 <body class="overflow-x-hidden">
@@ -340,7 +341,7 @@
             <!-- Header Actions -->
             <div class="flex items-center gap-3.5 md:gap-4 relative pr-1 md:pr-0 z-20">
                 <!-- Mobile Menu Toggle Button (Tactile Sticker Badge with Menu Label Below) -->
-                <button id="mobileMenuBtn" type="button" aria-label="Open navigation menu"
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu(event)" type="button" aria-label="Open navigation menu"
                     class="lg:hidden relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
                     
                     <!-- Tactile Sticker Ring Icon -->
@@ -375,7 +376,10 @@
         </div>
 
         <!-- Mobile Navigation Menu (Centered Modal Overlay) -->
-        <div id="mobileMenu"
+        
+    </nav>
+
+    <div id="mobileMenu"
             class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
 
             <style>
@@ -398,7 +402,7 @@
             <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
 
             <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
-            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-auto">
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
 
                 <div class="p-5 w-full">
                     <!-- Navigation Modal Header -->
@@ -407,7 +411,7 @@
                             <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
                             <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">Navigation</span>
                         </div>
-                        <button id="closeMobileMenuBtn" type="button" aria-label="Close navigation menu"
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
                             class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
                             <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
                         </button>
@@ -508,7 +512,6 @@
                 </div>
             </div>
         </div>
-    </nav>
 
     <!-- Hero Slider Section (Ultra-Luxury Editorial Hero Banner with Edge Slide Controls) -->
     <style>
@@ -2458,10 +2461,6 @@
                 navbar.classList.add('-translate-y-full');
                 navbar.classList.remove('translate-y-0');
                 // Auto-close mobile menu
-                if (mobileMenu && !mobileMenu.classList.contains('-translate-y-full')) {
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                }
             } else {
                 // Scrolling up - show navbar
                 navbar.classList.remove('-translate-y-full');
