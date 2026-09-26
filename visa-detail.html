@@ -298,141 +298,933 @@
 
 <body>
 
-                                                                                                                                                                                <!-- Navigation -->
+                                                                                                                                                                                                        <!-- Navigation -->
     <nav id="navbar"
         class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-black/5 transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4.5 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 md:py-3.5 lg:py-4 flex justify-between items-center">
             <a href="index.html" class="flex flex-col items-center justify-center group mt-0.5 relative z-20">
                 <img src="assets/ChatGPT%20Image%20Aug%2017,%202026,%2012_36_42%20PM.png" alt="Traviora Logo"
-                    class="h-5 md:h-6 lg:h-7 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
+                    class="h-7 md:h-8 lg:h-9 w-auto object-contain group-hover:scale-105 transition-transform mb-0.5">
                 <span class="text-sm leading-none uppercase ml-1 tracking-[0.25em] flex items-center"><strong
                         class="font-black text-slate-900">TRAV</strong><span
                         class="font-medium text-amber-500">IYORA</span></span>
             </a>
 
-            <!-- Desktop Links (Floating Layout with Soft Tint Capsule & 360 Icon Spin FX) -->
-            <div
-                class="hidden lg:flex items-center gap-1.5 xl:gap-2.5 font-black text-slate-800 text-[10.5px] uppercase tracking-[0.06em] desktop-menu-links">
+            <!-- Desktop Links (Vibrant Tactile Sticker Badge Design with Refined Typography) -->
+            <div class="hidden lg:flex items-center gap-4 lg:gap-6 xl:gap-7 text-slate-800 desktop-menu-links uppercase">
                 
-                <!-- 1. Home -->
-                <a href="index.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-blue-50/80 hover:ring-2 hover:ring-blue-400/80 hover:shadow-[0_6px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-house text-[15px] text-slate-400 group-hover:text-blue-600 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="font-black text-[11px] tracking-[0.06em] group-hover:text-blue-700 transition-colors duration-300">HOME</span>
-                    </span>
+                <!-- 1. Home (Active Solid Blue Sticker Capsule) -->
+                <a href="index.html" class="flex flex-col items-center justify-center px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_4px_16px_rgba(37,99,235,0.3)] hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-0.5 shrink-0">
+                    <i class="fa-solid fa-house text-[15px] mb-0.5 text-white"></i>
+                    <span class="font-['Outfit'] font-extrabold text-[11px] leading-tight text-white tracking-[0.06em] text-center uppercase">HOME</span>
                 </a>
 
                 <!-- 2. Tourist Visa -->
-                <a href="visas.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-amber-50/80 hover:ring-2 hover:ring-amber-400/80 hover:shadow-[0_6px_18px_rgba(245,158,11,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-passport text-[15px] text-slate-400 group-hover:text-amber-500 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-amber-700 transition-colors duration-300">
-                            <span>TOURIST</span>
-                            <span>VISA</span>
-                        </span>
-                    </span>
+                <a href="visas.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-passport text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">TOURIST<br>VISA</span>
                 </a>
 
                 <!-- 3. Medical Tourism -->
-                <a href="medical.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-emerald-50/80 hover:ring-2 hover:ring-emerald-400/80 hover:shadow-[0_6px_18px_rgba(16,185,129,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-notes-medical text-[15px] text-slate-400 group-hover:text-emerald-500 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-emerald-700 transition-colors duration-300">
-                            <span>MEDICAL</span>
-                            <span>TOURISM</span>
-                        </span>
-                    </span>
+                <a href="medical.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-square-plus text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">MEDICAL<br>TOURISM</span>
                 </a>
 
                 <!-- 4. Tour Booking -->
-                <a href="tours.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-purple-50/80 hover:ring-2 hover:ring-purple-400/80 hover:shadow-[0_6px_18px_rgba(147,51,234,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-earth-americas text-[15px] text-slate-400 group-hover:text-purple-600 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-purple-700 transition-colors duration-300">
-                            <span>TOUR</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="tours.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-location-dot text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">TOUR<br>BOOKING</span>
                 </a>
 
                 <!-- 5. Flight Booking -->
-                <a href="flight-booking.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-sky-50/80 hover:ring-2 hover:ring-sky-400/80 hover:shadow-[0_6px_18px_rgba(14,165,233,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-plane text-[15px] text-slate-400 group-hover:text-sky-500 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-sky-700 transition-colors duration-300">
-                            <span>FLIGHT</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="flight-booking.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-plane text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">FLIGHT<br>BOOKING</span>
                 </a>
 
                 <!-- 6. Cab Booking -->
-                <a href="cab-booking.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-orange-50/80 hover:ring-2 hover:ring-orange-400/80 hover:shadow-[0_6px_18px_rgba(249,115,22,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-taxi text-[15px] text-slate-400 group-hover:text-orange-500 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-orange-700 transition-colors duration-300">
-                            <span>CAB</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="cab-booking.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-car text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">CAB<br>BOOKING</span>
                 </a>
 
                 <!-- 7. Hotel Booking -->
-                <a href="hotels.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-rose-50/80 hover:ring-2 hover:ring-rose-400/80 hover:shadow-[0_6px_18px_rgba(244,63,94,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-hotel text-[15px] text-slate-400 group-hover:text-rose-500 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="flex flex-col text-left leading-[1.0] group-hover:text-rose-700 transition-colors duration-300">
-                            <span>HOTEL</span>
-                            <span>BOOKING</span>
-                        </span>
-                    </span>
+                <a href="hotels.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-slate-100/70 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-building text-[16px] text-slate-700 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-blue-600 tracking-[0.06em] text-center uppercase">HOTEL<br>BOOKING</span>
                 </a>
 
-                <!-- 8. About -->
-                <a href="about.html"
-                    class="relative group px-3.5 py-2 rounded-full border border-transparent transition-all duration-300 ease-out hover:bg-indigo-50/80 hover:ring-2 hover:ring-indigo-400/80 hover:shadow-[0_6px_18px_rgba(99,102,241,0.18)] hover:-translate-y-0.5 cursor-pointer">
-                    <span class="relative z-10 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-[15px] text-slate-400 group-hover:text-indigo-600 group-hover:scale-125 group-hover:rotate-[360deg] transition-all duration-500 ease-in-out shrink-0"></i>
-                        <span class="font-black text-[11px] tracking-[0.06em] group-hover:text-indigo-700 transition-colors duration-300">ABOUT</span>
-                    </span>
+                <!-- 8. About (Distinctive Circular Compass Medallion Sticker) -->
+                <a href="about.html" class="flex flex-col items-center justify-center p-1 rounded-xl hover:bg-indigo-50/60 text-slate-800 transition-all duration-300 transform hover:-translate-y-0.5 group shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-50/90 via-white to-purple-50/90 border-2 border-indigo-200/90 shadow-[0_3px_10px_rgba(99,102,241,0.12)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_18px_rgba(99,102,241,0.35)] flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 mb-0.5">
+                        <i class="fa-solid fa-compass text-[16px] text-indigo-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                    </div>
+                    <span class="font-['Outfit'] font-bold text-[11px] leading-[1.2] text-slate-700 group-hover:text-indigo-600 tracking-[0.06em] text-center uppercase">ABOUT</span>
                 </a>
             </div>
 
             <!-- Header Actions -->
             <div class="flex items-center gap-3 md:gap-3.5 relative pr-1 md:pr-0 z-20">
-                <!-- Mobile Menu Toggle Button -->
+                <!-- Mobile Menu Toggle Button (Tactile Sticker Badge with Menu Label Below) -->
                 <button id="mobileMenuBtn" onclick="toggleMobileMenu(event)" type="button" aria-label="Open navigation menu"
-                    class="lg:hidden relative z-30 w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center gap-1.5 bg-slate-50 hover:bg-slate-100 rounded-full border border-slate-200 cursor-pointer pointer-events-auto transition-colors">
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
-                    <span class="w-4 h-0.5 bg-slate-800 rounded-full pointer-events-none"></span>
+                    class="lg:hidden relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
+                    
+                    <!-- Tactile Sticker Ring Icon -->
+                    <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.32)] flex flex-col justify-center items-center gap-0.5 transition-all duration-300">
+                        <span class="w-3.5 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-3.5 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                        <span class="w-3.5 h-0.5 bg-slate-700 group-hover:bg-white rounded-full transition-colors duration-300 pointer-events-none"></span>
+                    </div>
+
+                    <!-- Menu Label Text Below Hamburger Icon -->
+                    <span class="font-['Outfit'] font-bold text-[11px] text-slate-700 group-hover:text-blue-600 transition-colors mt-1 tracking-[0.06em] uppercase">MENU</span>
                 </button>
 
-                <!-- Vertically Stacked Profile Button (Light Theme Icon Upside, Text Profile Below) -->
+                <!-- Thin Vertical Divider Line -->
+                <div class="hidden lg:block w-[1px] h-7 bg-slate-200 mx-1"></div>
+
+                <!-- Vertically Stacked Profile Button (Circular Tactile Sticker Badge) -->
                 <a href="profile.html" aria-label="User Profile"
-                    class="relative z-30 group flex flex-col items-center justify-center gap-1 cursor-pointer pointer-events-auto transition-all duration-300">
+                    class="relative z-30 group flex flex-col items-center justify-center cursor-pointer pointer-events-auto transition-all duration-300 transform hover:-translate-y-0.5">
                     
-                    <!-- Upside Profile Icon Ring with Light Theme Container -->
-                    <div class="relative w-8 h-8 md:w-9 md:h-9 rounded-full bg-slate-100 group-hover:bg-slate-900 border border-slate-200/90 group-hover:border-slate-800 text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-2xs group-hover:shadow-md group-hover:scale-110">
-                        <i class="fa-regular fa-user text-xs md:text-sm text-slate-700 group-hover:text-amber-300 transition-colors"></i>
-                        <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white"></span>
+                    <!-- Circular Sticker Outline Ring Icon -->
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.32)] text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                        <i class="fa-regular fa-user text-[15px] text-slate-700 group-hover:text-white transition-colors"></i>
                     </div>
 
                     <!-- Below Text: PROFILE -->
-                    <span class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.14em] text-slate-700 group-hover:text-slate-900 transition-colors leading-none">PROFILE</span>
+                    <span class="font-['Outfit'] font-bold text-[11px] text-slate-700 group-hover:text-blue-600 transition-colors mt-1 tracking-[0.06em] uppercase">
+                        PROFILE
+                    </span>
                 </a>
             </div>
         </div>
 
         <!-- Mobile Navigation Menu (Centered Modal Overlay) -->
         
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+            class="lg:hidden fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
+            <style>
+                .border-beam {
+                    background: conic-gradient(from 0deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
+                    animation: spinBeam 2s linear infinite;
+                }
+
+                .border-beam-active {
+                    background: conic-gradient(from 0deg, transparent 40%, rgba(0, 0, 0, 1) 100%);
+                }
+
+                @keyframes spinBeam {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+
+            <!-- Backdrop Overlay (pointer-events-none by default when closed) -->
+            <div id="mobileMenuOverlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Dead-Centered Modal Card (Tactile Sticker Design) -->
+            <div id="mobileMenuCard" class="relative z-10 bg-white/95 backdrop-blur-2xl w-full max-w-[360px] rounded-[32px] shadow-[0_35px_80px_rgba(0,0,0,0.3)] border border-slate-100 flex flex-col overflow-hidden transform scale-95 transition-all duration-300 my-auto pointer-events-none">
+
+                <div class="p-5 w-full">
+                    <!-- Navigation Modal Header -->
+                    <div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                            <span class="font-['Outfit'] text-[12px] font-black tracking-[0.2em] text-slate-900 uppercase">NAVIGATION</span>
+                        </div>
+                        <button id="closeMobileMenuBtn" onclick="closeMobileMenu(event)" type="button" aria-label="Close navigation menu"
+                            class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors shadow-inner z-[60] relative cursor-pointer">
+                            <i class="fa-solid fa-xmark text-[14px] pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <!-- 8 Tactile Sticker Grid Links -->
+                    <div class="grid grid-cols-2 gap-2.5 max-h-[62vh] overflow-y-auto pr-0.5">
+
+                        <!-- 1. Home (Active Page Capsule) -->
+                        <a href="index.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-white/20 backdrop-blur-md flex items-center justify-center mb-1.5">
+                                <i class="fa-solid fa-house text-[15px] text-white"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-extrabold text-[12px] text-white text-center leading-tight uppercase">HOME</span>
+                        </a>
+
+                        <!-- 2. Tourist Visa -->
+                        <a href="visas.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-blue-600 group-hover:shadow-[0_6px_16px_rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-passport text-[15px] text-blue-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-blue-600 transition-colors text-center leading-tight uppercase">TOURIST VISA</span>
+                        </a>
+
+                        <!-- 3. Medical Tourism -->
+                        <a href="medical.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-teal-50/80 border border-slate-200/70 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-teal-600 group-hover:to-emerald-600 group-hover:border-teal-600 group-hover:shadow-[0_6px_16px_rgba(13,148,136,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-notes-medical text-[15px] text-teal-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-teal-700 transition-colors text-center leading-tight uppercase">MEDICAL TOURISM</span>
+                        </a>
+
+                        <!-- 4. Tour Booking -->
+                        <a href="tours.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-amber-500 group-hover:shadow-[0_6px_16px_rgba(245,158,11,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-earth-americas text-[15px] text-amber-500 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-600 transition-colors text-center leading-tight uppercase">TOUR BOOKING</span>
+                        </a>
+
+                        <!-- 5. Flight Booking -->
+                        <a href="flight-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-sky-600 group-hover:to-blue-600 group-hover:border-sky-600 group-hover:shadow-[0_6px_16px_rgba(2,132,199,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-plane text-[15px] text-sky-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-sky-600 transition-colors text-center leading-tight uppercase">FLIGHT BOOKING</span>
+                        </a>
+
+                        <!-- 6. Cab Booking -->
+                        <a href="cab-booking.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-amber-600 group-hover:to-yellow-600 group-hover:border-amber-600 group-hover:shadow-[0_6px_16px_rgba(217,119,6,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-taxi text-[15px] text-amber-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-amber-700 transition-colors text-center leading-tight uppercase">CAB BOOKING</span>
+                        </a>
+
+                        <!-- 7. Hotel Booking -->
+                        <a href="hotels.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-indigo-50/80 border border-slate-200/70 hover:border-indigo-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-[14px] bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(79,70,229,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-hotel text-[15px] text-indigo-600 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-indigo-600 transition-colors text-center leading-tight uppercase">HOTEL BOOKING</span>
+                        </a>
+
+                        <!-- 8. About -->
+                        <a href="about.html"
+                            class="mobile-link group flex flex-col items-center justify-center p-3 rounded-[20px] bg-slate-50/80 hover:bg-purple-50/80 border border-slate-200/70 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-slate-50 via-white to-slate-100/90 border border-slate-200/90 shadow-[0_3px_10px_rgba(0,0,0,0.05)] group-hover:from-indigo-600 group-hover:to-purple-600 group-hover:border-indigo-600 group-hover:shadow-[0_6px_16px_rgba(99,102,241,0.3)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 mb-1.5">
+                                <i class="fa-solid fa-compass text-[15px] text-purple-600 group-hover:text-white transition-all duration-500 group-hover:rotate-45"></i>
+                            </div>
+                            <span class="font-['Outfit'] font-bold text-[12px] text-slate-800 group-hover:text-purple-600 transition-colors text-center leading-tight uppercase">ABOUT</span>
+                        </a>
+
+                    </div>
+
+                    <div class="h-[1px] bg-slate-100 my-3.5 w-full"></div>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex items-center justify-between w-full gap-2.5">
+                        <a href="profile.html"
+                            class="flex-1 flex justify-center items-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all duration-300">
+                            <i class="fa-regular fa-user text-[13px] text-slate-700 group-hover:text-blue-600 transition-colors"></i>
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-[0.02em] uppercase">MY ACCOUNT</span>
+                        </a>
+                        <a href="index.html"
+                            class="flex-1 items-center flex justify-center gap-2 group py-2.5 px-3 rounded-[16px] bg-slate-50 hover:bg-red-50 border border-slate-200/80 hover:border-red-200 transition-all duration-300">
+                            <span class="font-['Outfit'] text-[12px] font-extrabold text-slate-800 group-hover:text-red-500 transition-colors tracking-[0.02em] uppercase">SIGN OUT</span>
+                            <i class="fa-solid fa-arrow-right-from-bracket text-[13px] text-slate-700 group-hover:text-red-500 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div id="mobileMenu"
@@ -875,426 +1667,269 @@
                     </div>
                 </div>
                 <!-- Journey Comparison -->
-                <div class="mb-12 relative w-full block">
-                    <style>
-                        /* No extra font import needed — Outfit & Playfair Display are already loaded globally */
-                        /* Lora loaded below for step labels */
-                        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,700;0,6..96,900;1,6..96,700;1,6..96,900&family=Syne:wght@700;800&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,600;1,700&display=swap');
-                        /* Quick Stat Cards Luxury Hover Shimmer & Elevation */
-                        .stat-card-anim {
-                            position: relative;
-                            overflow: hidden;
-                            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                        }
-                        .stat-card-anim::before {
-                            content: '';
-                            position: absolute;
-                            top: 0;
-                            left: -120%;
-                            width: 100%;
-                            height: 100%;
-                            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
-                            transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-                            pointer-events: none;
-                            z-index: 2;
-                        }
-                        .stat-card-anim:hover::before {
-                            left: 120%;
-                        }
+                <div class="mb-16 relative w-full block reveal">
+                    
+                    <!-- Section Header -->
+                    <div class="mb-8 heading-hover-wrap flex flex-col items-center justify-center text-center gap-2 cursor-default group/head">
+                        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50/90 border border-blue-100/90 text-blue-600 w-fit shadow-2xs">
+                            <i class="fa-solid fa-wand-magic-sparkles text-[10px] text-blue-500"></i>
+                            <span class="text-[9.5px] font-extrabold uppercase tracking-[0.2em]" style="font-family:'Fira Code',monospace;">EFFORTLESS PROCESS</span>
+                        </div>
+                        <h2 class="flex items-center justify-center gap-2.5 sm:gap-3 text-xl sm:text-2xl md:text-[28px] font-normal text-slate-900 tracking-tight" style="font-family:'DM Serif Display',serif;">
+                            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover/head:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-code-compare text-xs"></i>
+                            </div>
+                            <span class="group-hover/head:text-blue-600 transition-colors duration-300">The Smart Way vs. The Painful Way</span>
+                        </h2>
+                        <p class="text-xs sm:text-[13.5px] text-slate-500 max-w-lg mx-auto font-medium leading-relaxed" style="font-family:'Outfit',sans-serif;">
+                            Skip 8 exhausting manual errands. Traviora turns hours of embassy stress into 4 simple digital steps.
+                        </p>
+                    </div>
 
-                        /* Traviora glow connector pulse */
-                        @keyframes jcGlowPulse {
-                            0%,100% { box-shadow:0 0 8px 3px rgba(99,102,241,0.4),0 0 0 0 rgba(99,102,241,0); }
-                            50%     { box-shadow:0 0 22px 7px rgba(99,102,241,0.7),0 0 40px 16px rgba(99,102,241,0.15); }
-                        }
-                        .jc-connector { animation: jcGlowPulse 3s ease-in-out infinite; }
+                    <!-- Top Quick Stat Summary Bar -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+                        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:border-blue-300 hover:shadow-md transition-all duration-300 text-center group/stat relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-emerald-500 opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
+                            <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                                <i class="fa-solid fa-stopwatch text-blue-500 text-[11px]"></i>
+                                <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest" style="font-family:'Fira Code',monospace;">TIME REQUIRED</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-emerald-600 flex items-center justify-center gap-1" style="font-family:'Outfit',sans-serif;">
+                                2 Mins <span class="text-slate-400 font-normal text-[10.5px]">vs 15+ Hrs</span>
+                            </p>
+                            <span class="inline-block text-[8.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full mt-1.5 border border-emerald-100">98% Faster</span>
+                        </div>
 
-                        /* Node hover orbit burst */
-                        @keyframes jcOrbit {
-                            0%   { transform:scale(1); opacity:0.6; }
-                            100% { transform:scale(2.4); opacity:0; }
-                        }
-                        .jc-node-wrap:hover .jc-ring { animation: jcOrbit 0.65s ease-out forwards; }
+                        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:border-blue-300 hover:shadow-md transition-all duration-300 text-center group/stat relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-emerald-500 opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
+                            <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                                <i class="fa-solid fa-building-columns text-blue-500 text-[11px]"></i>
+                                <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest" style="font-family:'Fira Code',monospace;">EMBASSY VISITS</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-emerald-600 flex items-center justify-center gap-1" style="font-family:'Outfit',sans-serif;">
+                                0 Visits <span class="text-slate-400 font-normal text-[10.5px]">vs 3 Visits</span>
+                            </p>
+                            <span class="inline-block text-[8.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full mt-1.5 border border-emerald-100">Zero Travel</span>
+                        </div>
 
-                        /* Ambient float for blobs */
-                        @keyframes jcFloat {
-                            0%,100% { transform:translateY(0); }
-                            50%     { transform:translateY(-12px); }
-                        }
-                        .jc-blob-a { animation: jcFloat 7s ease-in-out infinite; }
-                        .jc-blob-b { animation: jcFloat 9s ease-in-out infinite 2s; }
+                        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:border-blue-300 hover:shadow-md transition-all duration-300 text-center group/stat relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-emerald-500 opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
+                            <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                                <i class="fa-solid fa-file-shield text-blue-500 text-[11px]"></i>
+                                <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest" style="font-family:'Fira Code',monospace;">PAPERWORK</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-emerald-600 flex items-center justify-center gap-1" style="font-family:'Outfit',sans-serif;">
+                                100% Digital <span class="text-slate-400 font-normal text-[10.5px]">vs Printed</span>
+                            </p>
+                            <span class="inline-block text-[8.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full mt-1.5 border border-emerald-100">Paperless</span>
+                        </div>
 
-                        /* Light-theme shimmer for Traviora label cards */
-                        .jc-label-card-light::after {
-                            background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,0.55) 50%,transparent 70%);
-                        }
+                        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:border-blue-300 hover:shadow-md transition-all duration-300 text-center group/stat relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-emerald-500 opacity-0 group-hover/stat:opacity-100 transition-opacity"></div>
+                            <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                                <i class="fa-solid fa-crosshairs text-blue-500 text-[11px]"></i>
+                                <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest" style="font-family:'Fira Code',monospace;">STATUS TRACKING</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-emerald-600 flex items-center justify-center gap-1" style="font-family:'Outfit',sans-serif;">
+                                Live GPS <span class="text-slate-400 font-normal text-[10.5px]">vs Blind Waiting</span>
+                            </p>
+                            <span class="inline-block text-[8.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full mt-1.5 border border-emerald-100">Live Alerts</span>
+                        </div>
+                    </div>
 
-                        /* Shimmer sweep on label cards */
-                        .jc-label-card { position:relative; overflow:hidden; }
-                        .jc-label-card::after {
-                            content:'';
-                            position:absolute;
-                            inset:0;
-                            border-radius:inherit;
-                            background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,0.55) 50%,transparent 70%);
-                            background-size:200% 100%;
-                            animation: jcShim 3s ease-in-out infinite;
-                            pointer-events:none;
-                        }
-                        @keyframes jcShim {
-                            0%   { background-position:200% 0; }
-                            100% { background-position:-200% 0; }
-                        }
-
-                        /* DIY diagonal hatch texture */
-                        .jc-diy-bg {
-                            background-color:#f8fafc;
-                            background-image:repeating-linear-gradient(
-                                -48deg,
-                                rgba(15,23,42,0.03) 0,rgba(15,23,42,0.03) 1px,
-                                transparent 1px,transparent 22px
-                            );
-                        }
-
-                        /* DIY node pulse on hover */
-                        @keyframes jcDiyPop {
-                            0%,100% { transform:scale(1); }
-                            50%     { transform:scale(1.15); }
-                        }
-                        .jc-diy-node:hover { animation: jcDiyPop 0.35s ease-in-out; }
-                    </style>
-
-                    <div class="rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(15,23,42,0.10)] border border-slate-200/60">
-
-                        <!-- DESKTOP HORIZONTAL TIMELINE (Visible on md screens and up) -->
-                        <div class="hidden md:block">
-                            <!-- ═══════════════════════════ -->
-                            <!--  TRAVIORA — LIGHT PANEL      -->
-                            <!-- ═══════════════════════════ -->
-                        <div class="relative px-10 pt-9 pb-12 overflow-hidden" style="background:#f0f4ff;">
-
-                            <!-- Blobs -->
-                            <div class="jc-blob-a absolute -top-20 left-[8%] w-64 h-64 rounded-full blur-[80px] pointer-events-none" style="background:rgba(99,102,241,0.12);"></div>
-                            <div class="jc-blob-b absolute -bottom-20 right-[12%] w-56 h-56 rounded-full blur-[70px] pointer-events-none" style="background:rgba(59,130,246,0.10);"></div>
-
-                            <!-- Dot grid overlay -->
-                            <div class="absolute inset-0" style="background-image:radial-gradient(circle,rgba(99,102,241,0.18) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;"></div>
-
-                            <!-- Header row -->
-                            <div class="relative z-10 flex items-center justify-between mb-10">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#3b82f6,#6366f1);box-shadow:0 0 20px rgba(99,102,241,0.35);">
-                                        <i class="fa-solid fa-bolt text-white text-[13px]"></i>
+                    <!-- Side-by-Side Comparison Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative items-stretch">
+                        
+                        <!-- Traviora Card (The Smart Way) -->
+                        <div class="bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/50 rounded-[2.2rem] p-6 sm:p-8 border border-blue-200/90 shadow-[0_15px_40px_rgba(37,99,235,0.08)] relative overflow-hidden flex flex-col justify-between group hover:shadow-[0_22px_55px_rgba(37,99,235,0.15)] transition-all duration-500">
+                            <!-- Background Accent Glow -->
+                            <div class="absolute -right-16 -top-16 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                            
+                            <div>
+                                <!-- Header -->
+                                <div class="flex items-center justify-between pb-5 mb-6 border-b border-blue-100/90 relative z-10">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10.5 h-10.5 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 text-white flex items-center justify-center shadow-md shadow-blue-500/25">
+                                            <i class="fa-solid fa-bolt text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[9px] font-extrabold uppercase tracking-[0.2em] text-blue-600 block leading-tight" style="font-family:'Fira Code',monospace;">THE SMART WAY</span>
+                                            <h3 class="text-lg sm:text-xl font-normal text-slate-900 leading-tight" style="font-family:'DM Serif Display',serif;">Doing it with Traviora</h3>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p style="font-family:'Fira Code',monospace;font-size:9px;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#2563eb;line-height:1;">THE SMART WAY &nbsp;&middot;&nbsp; 4 STEPS ONLY</p>
-                                        <h3 style="font-family:'DM Serif Display',serif;font-size:23px;font-weight:400;color:#0f172a;letter-spacing:-0.01em;line-height:1;margin-top:5px;">Doing it with Traviora</h3>
-                                    </div>
-                                </div>
-                                <!-- Live badge -->
-                                <div class="flex items-center gap-2 rounded-full px-3.5 py-1.5 select-none" style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    <span class="text-[9.5px] font-extrabold text-blue-700 bg-blue-100/90 border border-blue-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-2xs flex items-center gap-1" style="font-family:'Fira Code',monospace;">
+                                        <i class="fa-solid fa-check text-blue-600 text-[10px]"></i> 4 STEPS
                                     </span>
-                                    <span style="font-family:'Fira Code',monospace;font-size:8.5px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#4338ca;">FAST &amp; EFFORTLESS</span>
+                                </div>
+
+                                <!-- Steps Vertical List -->
+                                <div class="space-y-3.5 relative z-10">
+                                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/95 border border-blue-100/70 shadow-2xs hover:border-blue-300 hover:shadow-sm transition-all group/item">
+                                        <div class="w-8.5 h-8.5 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs group-hover/item:scale-105 transition-transform" style="font-family:'Outfit',sans-serif;">
+                                            <i class="fa-solid fa-cloud-arrow-up text-[11px]"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between">
+                                                <h4 class="text-xs sm:text-sm font-bold text-slate-900" style="font-family:'Outfit',sans-serif;">1. Digital Upload in 2 Mins</h4>
+                                                <span class="text-[9px] font-extrabold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md" style="font-family:'Fira Code',monospace;">100% ONLINE</span>
+                                            </div>
+                                            <p class="text-[11.5px] text-slate-600 font-normal mt-0.5 leading-relaxed" style="font-family:'Outfit',sans-serif;">Upload your passport scan & photo securely from your phone or computer.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/95 border border-blue-100/70 shadow-2xs hover:border-blue-300 hover:shadow-sm transition-all group/item">
+                                        <div class="w-8.5 h-8.5 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs group-hover/item:scale-105 transition-transform" style="font-family:'Outfit',sans-serif;">
+                                            <i class="fa-solid fa-truck-fast text-[11px]"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between">
+                                                <h4 class="text-xs sm:text-sm font-bold text-slate-900" style="font-family:'Outfit',sans-serif;">2. Free Doorstep Pickup</h4>
+                                                <span class="text-[9px] font-extrabold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md" style="font-family:'Fira Code',monospace;">ZERO TRAVEL</span>
+                                            </div>
+                                            <p class="text-[11.5px] text-slate-600 font-normal mt-0.5 leading-relaxed" style="font-family:'Outfit',sans-serif;">Our verified courier executive collects physical documents right from your doorstep.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/95 border border-blue-100/70 shadow-2xs hover:border-blue-300 hover:shadow-sm transition-all group/item">
+                                        <div class="w-8.5 h-8.5 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs group-hover/item:scale-105 transition-transform" style="font-family:'Outfit',sans-serif;">
+                                            <i class="fa-solid fa-location-crosshairs text-[11px]"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between">
+                                                <h4 class="text-xs sm:text-sm font-bold text-slate-900" style="font-family:'Outfit',sans-serif;">3. Real-time Live Tracking</h4>
+                                                <span class="text-[9px] font-extrabold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-md" style="font-family:'Fira Code',monospace;">SMS &amp; WHATSAPP</span>
+                                            </div>
+                                            <p class="text-[11.5px] text-slate-600 font-normal mt-0.5 leading-relaxed" style="font-family:'Outfit',sans-serif;">Get automated stage updates from embassy submission to final document approval.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white shadow-md shadow-emerald-500/20 group/item">
+                                        <div class="w-8.5 h-8.5 rounded-xl bg-white text-emerald-700 flex items-center justify-center font-extrabold text-xs shrink-0 shadow-xs group-hover/item:scale-105 transition-transform" style="font-family:'Outfit',sans-serif;">
+                                            <i class="fa-solid fa-envelope-circle-check text-xs"></i>
+                                        </div>
+                                        <div>
+                                            <div class="flex items-center justify-between">
+                                                <h4 class="text-xs sm:text-sm font-bold text-white" style="font-family:'Outfit',sans-serif;">4. E-Visa Inbox Delivery</h4>
+                                                <span class="text-[9px] font-extrabold text-emerald-950 bg-emerald-200/90 px-2 py-0.5 rounded-md" style="font-family:'Fira Code',monospace;">GUARANTEED</span>
+                                            </div>
+                                            <p class="text-[11.5px] text-emerald-50 font-normal mt-0.5 leading-relaxed" style="font-family:'Outfit',sans-serif;">Receive your official government-stamped e-Visa directly in your email inbox.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Traviora Timeline -->
-                            <div class="relative z-10 w-full px-6">
-                                <!-- Glowing connector -->
-                                <div class="absolute top-1/2 left-10 right-10 -mt-[1px] h-[3px] rounded-full jc-connector" style="background:linear-gradient(90deg,#3b82f6,#818cf8,#a78bfa);z-index:0;"></div>
-
-                                <div class="flex justify-between w-full items-start relative z-10 translate-y-[20px]">
-
-                                    <!-- Node 1: above -->
-                                    <div class="flex flex-col items-center -mt-[56px]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:500;color:#334155;line-height:1.35;text-align:center;width:130px;" class="h-10 flex items-end justify-center pb-1.5">Upload <strong style="font-weight:700;color:#0f172a;">digital files</strong> via portal</p>
-                                        <div class="w-px h-3" style="background:linear-gradient(to bottom,rgba(129,140,248,0.6),transparent);"></div>
-                                        <div class="jc-node-wrap relative cursor-default">
-                                            <div class="jc-ring absolute inset-0 rounded-full opacity-0" style="background:rgba(99,102,241,0.45);"></div>
-                                            <div class="w-12 h-12 text-white rounded-full flex justify-center items-center font-bold text-lg z-10 hover:scale-110 transition-transform duration-300 relative" style="background:linear-gradient(135deg,#3b82f6,#6366f1);box-shadow:0 0 0 4px #f0f4ff,0 8px 24px rgba(99,102,241,0.35);font-family:'Outfit',sans-serif;">1</div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Node 2: below -->
-                                    <div class="flex flex-col items-center -mt-[2px]">
-                                        <div class="jc-node-wrap relative cursor-default">
-                                            <div class="jc-ring absolute inset-0 rounded-full opacity-0" style="background:rgba(99,102,241,0.45);"></div>
-                                            <div class="w-12 h-12 text-white rounded-full flex justify-center items-center z-10 mb-1 hover:scale-110 transition-transform duration-300 relative" style="background:linear-gradient(135deg,#3b82f6,#6366f1);box-shadow:0 0 0 4px #f0f4ff,0 8px 24px rgba(99,102,241,0.35);font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;">2</div>
-                                        </div>
-                                        <div class="w-px h-3" style="background:linear-gradient(to top,rgba(99,102,241,0.5),transparent);"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:500;color:#334155;line-height:1.35;text-align:center;width:130px;" class="h-10 flex items-start justify-center pt-1.5"><strong style="font-weight:700;color:#0f172a;">Physical</strong> collection via courier</p>
-                                    </div>
-
-                                    <!-- Node 3: above -->
-                                    <div class="flex flex-col items-center -mt-[56px]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:500;color:#334155;line-height:1.35;text-align:center;width:130px;" class="h-10 flex items-end justify-center pb-1.5"><strong style="font-weight:700;color:#0f172a;">Real-time</strong> processing &amp; tracking</p>
-                                        <div class="w-px h-3" style="background:linear-gradient(to bottom,rgba(129,140,248,0.6),transparent);"></div>
-                                        <div class="jc-node-wrap relative cursor-default">
-                                            <div class="jc-ring absolute inset-0 rounded-full opacity-0" style="background:rgba(99,102,241,0.45);"></div>
-                                            <div class="w-12 h-12 text-white rounded-full flex justify-center items-center z-10 hover:scale-110 transition-transform duration-300 relative" style="background:linear-gradient(135deg,#3b82f6,#6366f1);box-shadow:0 0 0 4px #f0f4ff,0 8px 24px rgba(99,102,241,0.35);font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;">3</div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Node 4: below (emerald = success) -->
-                                    <div class="flex flex-col items-center -mt-[2px]">
-                                        <div class="jc-node-wrap relative cursor-default">
-                                            <div class="jc-ring absolute inset-0 rounded-full opacity-0" style="background:rgba(16,185,129,0.45);"></div>
-                                            <div class="w-12 h-12 text-white rounded-full flex justify-center items-center z-10 mb-1 hover:scale-110 transition-transform duration-300 relative" style="background:linear-gradient(135deg,#10b981,#0d9488);box-shadow:0 0 0 4px #f0f4ff,0 8px 24px rgba(16,185,129,0.35);font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;">4</div>
-                                        </div>
-                                        <div class="w-px h-3" style="background:linear-gradient(to top,rgba(52,211,153,0.5),transparent);"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:500;color:#047857;line-height:1.35;text-align:center;width:130px;" class="h-10 flex items-start justify-center pt-1.5"><strong style="font-weight:800;color:#064e3b;">Approved visa</strong> delivered to inbox</p>
-                                    </div>
-
+                            <!-- Bottom Guarantee Strip -->
+                            <div class="mt-6 pt-4 border-t border-blue-100/90 flex items-center justify-between text-xs font-semibold text-blue-900 relative z-10 bg-white/70 backdrop-blur-xs p-3 rounded-xl border border-blue-100/60" style="font-family:'Outfit',sans-serif;">
+                                <div class="flex items-center gap-2">
+                                    <span class="relative flex h-2.5 w-2.5">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                    </span>
+                                    <span class="text-[11px] text-slate-700">99.8% Visa Approval Rate</span>
                                 </div>
+                                <span class="text-[10.5px] text-blue-600 font-bold uppercase tracking-wider flex items-center gap-1" style="font-family:'Fira Code',monospace;">
+                                    <i class="fa-solid fa-shield-halved text-blue-500"></i> TRAVIORA PROTECTED
+                                </span>
                             </div>
+
                         </div>
 
-                        <!-- ═══════════════════════════ -->
-                        <!--  VS CINEMATIC DIVIDER       -->
-                        <!-- ═══════════════════════════ -->
-                        <div class="relative h-12 flex items-center select-none overflow-hidden" style="background:linear-gradient(to right,#e0e8ff 0%,#eef2ff 45%,#f1f5f9 55%,#f8fafc 100%);border-top:1px solid rgba(99,102,241,0.12);border-bottom:1px solid rgba(0,0,0,0.04);">
-                            <div class="absolute inset-0 flex items-center justify-center z-10">
-                                <div class="w-11 h-11 rounded-full bg-slate-900 text-amber-400 font-black text-[10px] tracking-widest flex items-center justify-center shadow-md border-2 border-slate-700" style="font-family:'Fira Code',monospace;">VS</div>
-                            </div>
-                            <span class="absolute left-5 flex items-center gap-1.5" style="font-family:'Fira Code',monospace;font-size:8.5px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#4f46e5;"><i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i>TRAVIORA &mdash; 4 STEPS</span>
-                            <span class="absolute right-5 flex items-center gap-1.5" style="font-family:'Fira Code',monospace;font-size:8.5px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:#64748b;">DIY &mdash; 8 STEPS<i class="fa-solid fa-triangle-exclamation text-rose-400 text-[10px]"></i></span>
-                        </div>
-
-                        <!-- ═══════════════════════════ -->
-                        <!--  DIY — LIGHT STRESSED PANEL -->
-                        <!-- ═══════════════════════════ -->
-                        <div class="relative jc-diy-bg px-10 pt-9 pb-12 overflow-hidden">
-                            <!-- Red faint top stripe -->
-                            <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(to right,transparent,rgba(248,113,113,0.5),transparent);"></div>
-
-                            <!-- Header row -->
-                            <div class="relative z-10 flex items-center justify-between mb-14">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center">
-                                        <i class="fa-solid fa-person-walking text-white text-[13px]"></i>
+                        <!-- DIY Card (The Painful Way) -->
+                        <div class="bg-slate-50/90 rounded-[2.2rem] p-6 sm:p-8 border border-slate-200/90 shadow-2xs relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <!-- Header -->
+                                <div class="flex items-center justify-between pb-5 mb-6 border-b border-slate-200/80">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10.5 h-10.5 rounded-2xl bg-slate-900 text-slate-200 flex items-center justify-center shadow-xs">
+                                            <i class="fa-solid fa-user-ninja text-sm text-slate-400"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[9px] font-extrabold uppercase tracking-[0.2em] text-slate-400 block leading-tight" style="font-family:'Fira Code',monospace;">THE PAINFUL WAY</span>
+                                            <h3 class="text-lg sm:text-xl font-normal text-slate-900 leading-tight" style="font-family:'DM Serif Display',serif;">Doing it yourself</h3>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p style="font-family:'Fira Code',monospace;font-size:9px;font-weight:800;letter-spacing:0.24em;text-transform:uppercase;color:#64748b;line-height:1;">THE PAINFUL WAY &nbsp;·&nbsp; TIME-CONSUMING</p>
-                                        <h3 style="font-family:'DM Serif Display',serif;font-size:23px;font-weight:400;color:#0f172a;letter-spacing:-0.01em;line-height:1;margin-top:5px;">Doing it yourself</h3>
-                                    </div>
+                                    <span class="text-[9.5px] font-extrabold text-rose-600 bg-rose-50 border border-rose-200 px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1" style="font-family:'Fira Code',monospace;">
+                                        <i class="fa-solid fa-triangle-exclamation text-rose-500 text-[10px]"></i> 8 ERRANDS
+                                    </span>
                                 </div>
-                                <div class="flex items-center gap-2 bg-rose-50 border border-rose-200/80 rounded-full px-3.5 py-1.5">
-                                    <i class="fa-solid fa-triangle-exclamation text-rose-500 text-[10px]"></i>
-                                    <span style="font-family:'Fira Code',monospace;font-size:8.5px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#dc2626;">8 EXHAUSTING STEPS</span>
-                                </div>
-                            </div>
 
-                            <!-- DIY Timeline -->
-                            <div class="relative w-full px-2 lg:px-4">
-                                <!-- Heavy dark connector -->
-                                <div class="absolute top-1/2 left-6 right-6 -mt-[1px] h-[4px] bg-slate-900 z-0 rounded-full" style="box-shadow:0 2px 8px rgba(15,23,42,0.25);"></div>
-
-                                <div class="flex justify-between w-full items-start relative z-10 translate-y-[20px]">
-
-                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-end justify-center pb-1.5 w-[120%] -ml-[10%]">Manually research &amp; <strong style="font-weight:700;color:#0f172a;">compile paperwork</strong></p>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-1"></div>
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">1</div>
+                                <!-- 8 Step Grid List with Micro Icons -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-file-pen"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">1. Manual research &amp; forms</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center w-[12%]">
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 mb-1 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">2</div>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-2"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-start justify-center w-[120%] -ml-[10%]">Find a shop to <strong style="font-weight:700;color:#0f172a;">print &amp; copy files</strong></p>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-print"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">2. Print shop visits for copies</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-end justify-center pb-1.5 w-[120%] -ml-[10%]"><strong style="font-weight:700;color:#0f172a;">Navigate traffic</strong> to consulate</p>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-1"></div>
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">3</div>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-car-side"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">3. Heavy city traffic commute</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center w-[12%]">
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 mb-1 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">4</div>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-2"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-start justify-center w-[120%] -ml-[10%]">Wait in <strong style="font-weight:700;color:#0f172a;">long unorganized lines</strong></p>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-users-line"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">4. Hours standing in queues</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-end justify-center pb-1.5 w-[120%] -ml-[10%]">Commute home, <strong style="font-weight:700;color:#0f172a;">wasting half day</strong></p>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-1"></div>
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">5</div>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-business-time"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">5. Wasting half a workday</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center w-[12%]">
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 mb-1 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">6</div>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-2"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-start justify-center w-[120%] -ml-[10%]">Wait in silence, <strong style="font-weight:700;color:#0f172a;">zero tracking updates</strong></p>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">6. Zero tracking visibility</span>
                                     </div>
 
-                                    <div class="flex flex-col items-center -mt-[56px] w-[12%]">
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#475569;text-align:center;line-height:1.35;" class="h-10 flex items-end justify-center pb-1.5 w-[120%] -ml-[10%]">Return on <strong style="font-weight:700;color:#0f172a;">strict embassy slot</strong></p>
-                                        <div class="w-[1px] h-2 bg-slate-400/50 mb-1"></div>
-                                        <div class="jc-diy-node w-8 h-8 bg-slate-900 text-white rounded-full flex justify-center items-center z-10 cursor-default" style="box-shadow:0 0 0 4px #f1f5f9,0 4px 12px rgba(15,23,42,0.2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">7</div>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-calendar-xmark"></i>
+                                        </div>
+                                        <span class="text-[11px] font-medium text-slate-700 leading-tight" style="font-family:'Outfit',sans-serif;">7. Strict embassy slot return</span>
                                     </div>
 
-                                    <!-- Final red node -->
-                                    <div class="flex flex-col items-center w-[12%]">
-                                        <div class="jc-diy-node w-8 h-8 text-white rounded-full flex justify-center items-center z-10 mb-1 cursor-default" style="background:linear-gradient(135deg,#ef4444,#be123c);box-shadow:0 0 0 4px #f1f5f9,0 4px 16px rgba(220,38,38,0.35);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;">8</div>
-                                        <div class="w-[1px] h-2 mb-2" style="background:rgba(248,113,113,0.5);"></div>
-                                        <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;color:#dc2626;text-align:center;line-height:1.35;" class="h-10 flex items-start justify-center w-[120%] -ml-[10%]"><strong style="font-weight:700;color:#991b1b;">Final painful</strong> commute, retrieve docs</p>
+                                    <div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-rose-50/90 border border-rose-200/80 shadow-2xs">
+                                        <div class="w-6 h-6 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0 text-[10px]">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-rose-950 leading-tight" style="font-family:'Outfit',sans-serif;">8. High risk of rejection</span>
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
-                        </div> <!-- End Desktop Horizontal Timeline -->
 
-                        <!-- MOBILE OPTIMIZED TIMELINE (Visible on screens < 768px) -->
-                        <div class="block md:hidden p-4 bg-slate-50/70">
-                            <!-- SPLIT VERTICAL TIMELINE CARD -->
-                            <div class="relative bg-white rounded-3xl p-4 sm:p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] border border-slate-200/80 overflow-hidden">
-
-                                <!-- HEADER ROW (2 Columns split by central track) -->
-                                <div class="flex items-center justify-between pb-5 mb-6 border-b border-slate-100">
-                                    <!-- Left Header: Traviora -->
-                                    <div class="w-[45%] text-right pr-2">
-                                        <span class="text-[9px] font-extrabold uppercase tracking-[0.22em] text-blue-600 block mb-1" style="font-family:'Fira Code',monospace;">THE SMART WAY</span>
-                                        <h4 class="text-blue-700 font-normal text-base sm:text-lg leading-tight tracking-tight" style="font-family:'DM Serif Display',serif;">Doing it with Traviora</h4>
-                                    </div>
-
-                                    <!-- Center Axis Indicator -->
-                                    <div class="w-[10%] flex items-center justify-center">
-                                        <span class="w-6 h-6 rounded-full bg-slate-900 text-amber-400 font-black text-[9px] flex items-center justify-center border border-slate-700 shadow-xs" style="font-family:'Fira Code',monospace;">VS</span>
-                                    </div>
-
-                                    <!-- Right Header: DIY -->
-                                    <div class="w-[45%] text-left pl-2">
-                                        <span class="text-[9px] font-extrabold uppercase tracking-[0.22em] text-slate-400 block mb-1" style="font-family:'Fira Code',monospace;">THE HARD WAY</span>
-                                        <h4 class="text-slate-900 font-normal text-base sm:text-lg leading-tight tracking-tight" style="font-family:'DM Serif Display',serif;">Doing it yourself</h4>
-                                    </div>
+                            <!-- Bottom Warning Strip -->
+                            <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-semibold text-slate-500 bg-slate-100/70 p-3 rounded-xl border border-slate-200/60" style="font-family:'Outfit',sans-serif;">
+                                <div class="flex items-center gap-1.5 text-rose-600 text-[11px]">
+                                    <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                                    <span>High Stress &amp; Potential Delay</span>
                                 </div>
-
-                                <!-- TIMELINE BODY WITH CENTRAL AXIS LINE -->
-                                <div class="relative space-y-6 sm:space-y-7">
-                                    <!-- Central Axis Vertical Line Track -->
-                                    <div class="absolute left-1/2 top-3 bottom-3 -ml-[1px] w-[2px] bg-slate-200/90"></div>
-
-                                    <!-- ROW 1 -->
-                                    <div class="relative flex items-center justify-between min-h-[52px]">
-                                        <div class="w-[44%] text-right pr-2">
-                                            <p class="text-[13px] font-semibold text-slate-900 leading-snug tracking-[-0.01em]" style="font-family:'Outfit',sans-serif;">Submit all your documents on Traviora</p>
-                                            <span class="inline-block text-[8.5px] font-extrabold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100/90 mt-1 uppercase tracking-wider" style="font-family:'Fira Code',monospace;">2 MINS ONLINE</span>
-                                        </div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-sm" style="font-family:'Outfit',sans-serif;">1</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12.5px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Gather all your documents at home</p>
-                                            <span class="block text-[10px] text-slate-400 font-normal mt-0.5">Hours of manual research</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 2 -->
-                                    <div class="relative flex items-center justify-between min-h-[52px]">
-                                        <div class="w-[44%] text-right pr-2">
-                                            <p class="text-[13px] font-semibold text-slate-900 leading-snug tracking-[-0.01em]" style="font-family:'Outfit',sans-serif;">Traviora comes to collect your passport</p>
-                                            <span class="inline-block text-[8.5px] font-extrabold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100/90 mt-1 uppercase tracking-wider" style="font-family:'Fira Code',monospace;">FREE PICKUP</span>
-                                        </div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-sm" style="font-family:'Outfit',sans-serif;">2</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12.5px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Get your documents printed at a shop</p>
-                                            <span class="block text-[10px] text-slate-400 font-normal mt-0.5">Physical copies required</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 3 -->
-                                    <div class="relative flex items-center justify-between min-h-[52px]">
-                                        <div class="w-[44%] text-right pr-2">
-                                            <p class="text-[13px] font-semibold text-slate-900 leading-snug tracking-[-0.01em]" style="font-family:'Outfit',sans-serif;">We constantly give you updates &amp; live ETA</p>
-                                            <span class="inline-block text-[8.5px] font-extrabold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-100/90 mt-1 uppercase tracking-wider" style="font-family:'Fira Code',monospace;">REAL-TIME UPDATES</span>
-                                        </div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-sm" style="font-family:'Outfit',sans-serif;">3</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12.5px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Get stuck in traffic driving to embassy</p>
-                                            <span class="block text-[10px] text-slate-400 font-normal mt-0.5">Heavy city commute</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 4 -->
-                                    <div class="relative flex items-center justify-between min-h-[52px]">
-                                        <div class="w-[44%] text-right pr-2">
-                                            <p class="text-[13px] font-bold text-emerald-950 leading-snug tracking-[-0.01em]" style="font-family:'Outfit',sans-serif;">When approved, e-Visa dropped straight to you!</p>
-                                            <span class="inline-block text-[8.5px] font-extrabold text-emerald-700 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200 mt-1 uppercase tracking-wider" style="font-family:'Fira Code',monospace;">GUARANTEED</span>
-                                        </div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-md" style="font-family:'Outfit',sans-serif;">4</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12.5px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Spend 3+ hours waiting in embassy queues</p>
-                                            <span class="block text-[10px] text-slate-400 font-normal mt-0.5">Unorganized lines</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 5 (DIY Continued) -->
-                                    <div class="relative flex items-center justify-between min-h-[48px]">
-                                        <div class="w-[44%] text-right pr-2">
-                                            <span class="inline-flex items-center gap-1 text-[10.5px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-full shadow-2xs" style="font-family:'Outfit',sans-serif;">
-                                                <i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Done &amp; Relax!
-                                            </span>
-                                        </div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-6 h-6 rounded-full bg-slate-800 text-slate-200 font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">5</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Get stuck in traffic on the way back home</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 6 (DIY Continued) -->
-                                    <div class="relative flex items-center justify-between min-h-[44px]">
-                                        <div class="w-[44%] text-right pr-2"></div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-6 h-6 rounded-full bg-slate-800 text-slate-200 font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">6</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Wait weeks in silence with zero tracking updates</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 7 (DIY Continued) -->
-                                    <div class="relative flex items-center justify-between min-h-[44px]">
-                                        <div class="w-[44%] text-right pr-2"></div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-6 h-6 rounded-full bg-slate-800 text-slate-200 font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">7</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12px] font-medium text-slate-700 leading-snug" style="font-family:'Outfit',sans-serif;">Return to embassy on a strict rigid timeslot</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- ROW 8 (DIY Final Pain Point) -->
-                                    <div class="relative flex items-center justify-between min-h-[48px]">
-                                        <div class="w-[44%] text-right pr-2"></div>
-                                        <div class="w-[12%] flex justify-center z-10">
-                                            <div class="w-6 h-6 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">8</div>
-                                        </div>
-                                        <div class="w-[44%] text-left pl-2">
-                                            <p class="text-[12px] font-semibold text-rose-950 leading-snug" style="font-family:'Outfit',sans-serif;">Final commute, risk rejection &amp; collect docs</p>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider" style="font-family:'Fira Code',monospace;">15+ HOURS WASTED</span>
                             </div>
+
                         </div>
 
                     </div>
                 </div>
 
 
-                <!-- Comparison Features -->
+
+<!-- Comparison Features -->
                 <div class="mb-16 reveal relative">
                     <div class="flex flex-col items-center justify-center text-center mb-8 pb-4 border-b border-slate-200">
                         <div class="heading-hover-wrap flex flex-col items-center justify-center gap-2 cursor-default group/head">
